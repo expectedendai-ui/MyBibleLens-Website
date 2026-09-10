@@ -589,7 +589,6 @@
                     <li><strong style="color:#f0c850;">The Infinite Canvas:</strong> The very first thing you touch in the morning. It&rsquo;s your space to put God first, understand scripture, and connect the Word to your actual life before the world gets a word in.</li>
                     <li><strong style="color:#f0c850;">The Zoom Canvas:</strong> A space of endless exploration to create, draw, and build the future with your kids without mindless scrolling.</li>
                     <li><strong style="color:#f0c850;">The Mosaic Board:</strong> A collaborative space to collage the real art of your life, your family, and your true friends.</li>
-                    <li><strong style="color:#f0c850;">The Sermon Deck:</strong> A fresh, uncluttered palette for our pastors to work effortlessly in the morning when their minds are at their sharpest.</li>
                     <li><strong style="color:#f0c850;">The Lens:</strong> Scan any physical Bible verse and immediately bring it into your digital space for observation, application, and prayer.</li>
                     <li><strong style="color:#f0c850;">Task Games &amp; Trivia:</strong> Real interaction for your family and friends to connect in reality, not just behind a screen.</li>
                   </ul>
@@ -1004,37 +1003,114 @@
                   letter-spacing: 0.08em;
                   color: rgba(61, 43, 31, 0.45);
                 }
+                /* Expected End LLC card — publisher brand (navy + gold), intentionally off the sanctuary palette */
                 .company-attribution {
-                  max-width: 620px;
+                  --ee-navy: #041435;
+                  --ee-navy-soft: #0b245d;
+                  --ee-gold: #d4a94e;
+                  --ee-gold-soft: #f2d98b;
+                  position: relative;
+                  overflow: hidden;
+                  display: flex;
+                  align-items: center;
+                  gap: 1.25rem;
+                  max-width: 640px;
                   margin: 1.5rem auto 0;
-                  padding: 1.25rem 1.4rem;
-                  border: 1px solid rgba(182, 116, 29, 0.28);
+                  padding: 1.4rem 1.5rem;
+                  border: 1px solid rgba(212, 169, 78, 0.55);
                   border-radius: 18px;
-                  background: rgba(255, 250, 239, 0.72);
+                  background: linear-gradient(135deg, var(--ee-navy) 0%, var(--ee-navy-soft) 100%);
+                  box-shadow:
+                    0 24px 48px -24px rgba(4, 20, 53, 0.6),
+                    0 0 0 1px rgba(212, 169, 78, 0.12) inset;
                   text-align: left;
                 }
+                .company-attribution::before {
+                  content: "";
+                  position: absolute;
+                  inset: 0;
+                  background: radial-gradient(circle at 12% 50%, rgba(212, 169, 78, 0.18) 0%, transparent 45%);
+                  pointer-events: none;
+                }
+                .company-attribution__logo {
+                  position: relative;
+                  flex: none;
+                  width: 84px;
+                  height: 84px;
+                  border-radius: 50%;
+                  border: 2px solid var(--ee-gold);
+                  box-shadow: 0 0 0 4px rgba(212, 169, 78, 0.18);
+                  object-fit: cover;
+                }
+                .company-attribution__body {
+                  position: relative;
+                  min-width: 0;
+                }
                 .company-attribution__label {
-                  margin: 0 0 0.35rem;
-                  color: #b6741d;
+                  margin: 0 0 0.4rem;
+                  color: var(--ee-gold);
                   font-family: "Hammersmith One", sans-serif;
-                  font-size: 0.7rem;
-                  letter-spacing: 0.16em;
+                  font-size: 0.72rem;
+                  letter-spacing: 0.18em;
                   text-transform: uppercase;
                 }
                 .company-attribution__copy {
                   margin: 0;
-                  color: rgba(61, 43, 31, 0.82);
+                  color: rgba(245, 242, 237, 0.88);
                   font-family: "Inter", sans-serif;
                   font-size: 0.92rem;
                   line-height: 1.65;
                 }
                 .company-attribution__copy a {
-                  color: #9b5f13;
+                  color: var(--ee-gold-soft);
                   font-weight: 700;
                   text-decoration: underline;
                   text-underline-offset: 3px;
                 }
+                .company-attribution__cta {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.45rem;
+                  margin-top: 0.9rem;
+                  padding: 0.55rem 1.05rem;
+                  border-radius: 999px;
+                  background: linear-gradient(135deg, var(--ee-gold-soft) 0%, var(--ee-gold) 100%);
+                  color: var(--ee-navy) !important;
+                  font-family: "Inter", sans-serif;
+                  font-size: 0.82rem;
+                  font-weight: 700;
+                  letter-spacing: 0.02em;
+                  text-decoration: none !important;
+                  box-shadow: 0 10px 22px -12px rgba(212, 169, 78, 0.8);
+                  transition:
+                    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.2s ease;
+                }
+                .company-attribution__cta:hover {
+                  transform: translateY(-1px);
+                  box-shadow: 0 14px 26px -10px rgba(212, 169, 78, 0.9);
+                }
+                @media (max-width: 520px) {
+                  .company-attribution {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.9rem;
+                    padding: 1.2rem 1.15rem;
+                  }
+                  .company-attribution__logo {
+                    width: 64px;
+                    height: 64px;
+                  }
+                }
               </style>
+              <aside class="company-attribution" aria-label="Ownership and publishing">
+                <img class="company-attribution__logo" src="assets/expectedend-logo.png" alt="Expected End LLC logo" width="84" height="84" loading="lazy" decoding="async" />
+                <div class="company-attribution__body">
+                  <p class="company-attribution__label">Ownership &amp; Publishing</p>
+                  <p class="company-attribution__copy">MyBibleLens was created and built by Denzel Rigaud. Denzel owns the MyBibleLens copyright and licenses it to <a href="https://expectedend.co/">Expected End LLC</a>, which publishes and operates the service.</p>
+                  <a class="company-attribution__cta" href="https://expectedend.co/press">View press and verification resources <span aria-hidden="true">&rarr;</span></a>
+                </div>
+              </aside>
               <div class="supabase-badge-wrap">
                 <a href="https://supabase.com/security" target="_blank" rel="noopener" class="supabase-badge">
                   <span class="supabase-badge__shield" aria-hidden="true">
@@ -1063,10 +1139,6 @@
                 </a>
                 <p class="supabase-badge-tag">Row-level access controls &middot; Data encrypted at rest and in transit</p>
               </div>
-              <aside class="company-attribution" aria-label="Ownership and publishing">
-                <p class="company-attribution__label">Ownership &amp; Publishing</p>
-                <p class="company-attribution__copy">MyBibleLens was created and built by Denzel Rigaud. Denzel owns the MyBibleLens copyright and licenses it to <a href="https://expectedend.co/">Expected End LLC</a>, which publishes and operates the service. <a href="https://expectedend.co/press">View press and verification resources.</a></p>
-              </aside>
             </div>
           </div>
 
@@ -1320,7 +1392,7 @@
             <h2 class="legal-heading"><span class="legal-num">3.</span> AI Data Processing & Disclosure</h2>
             <p>MyBibleLens uses Large Language Models (LLMs) and vision models provided by third-party AI providers to power the Lens features. We may route any given request through one of the following providers depending on availability and feature: <strong>Google (Gemini)</strong>, <strong>OpenAI (GPT &amp; Whisper)</strong>, <strong>OpenRouter</strong> (which itself routes to providers such as Anthropic Claude), <strong>DeepSeek</strong>, and <strong>Fal.ai (Flux Kontext Pro)</strong> for portrait-aware photo editing. You should understand the following:</p>
             <ul class="legal-list">
-              <li><strong>Text Processing:</strong> When you submit text to any AI feature (Logos Guide, Reflections, Sermon Builder, Study Cards, SOAP Workspace, etc.), your input is transmitted via our backend to one of the third-party providers above for processing. The provider generates a response and returns it to the Service, which returns it to you.</li>
+              <li><strong>Text Processing:</strong> When you submit text to any AI feature (Logos Guide, Reflections, Study Cards, SOAP Workspace, etc.), your input is transmitted via our backend to one of the third-party providers above for processing. The provider generates a response and returns it to the Service, which returns it to you.</li>
               <li><strong>Image Processing — Scripture Lens &amp; Mosaic Cutout:</strong> When you use camera-based features that recognize or describe images — specifically <em>Scripture Lens</em> (verse scanning) and <em>Mosaic Cutout</em> with a description prompt — the photo you capture is transmitted to Google (Gemini Vision) for processing. The image is processed in-memory and is not persisted on our servers beyond the request.</li>
               <li><strong>Image Processing — Halo Vision:</strong> When you use <em>Halo Vision</em> (portrait-aware photo editing — for example, applying a stylistic edit to a self-portrait), the photo you provide is transmitted to <strong>Fal.ai</strong> for processing by the Flux Kontext Pro model, together with your text prompt. The photo is processed in-memory by Fal.ai and is not persisted on our servers beyond the request. Because Halo Vision can edit identifiable faces, please review the EULA for the Right of Publicity restrictions that apply to this feature.</li>
               <li><strong>On-Device Art (Zoom Canvas):</strong> <em>Zoom Canvas</em> is a hand-drawn art tool. All drawing, layering, and export happens locally on your device. <strong>No third-party AI provider receives your Zoom Canvas drawing.</strong></li>
@@ -1378,7 +1450,7 @@
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Raw audio is never stored; only the resulting text transcript is retained as user content</td>
                 </tr>
                 <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Zoom Canvas drawings, Mosaic boards, Sermon Decks &amp; other user-created art</strong></td>
+                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Zoom Canvas drawings, Mosaic boards &amp; other user-created art</strong></td>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">While account is active</td>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Stored in your Supabase account; deleted on account deletion. Zoom Canvas drawings are generated on-device with no third-party AI call.</td>
                 </tr>
@@ -1693,7 +1765,7 @@
             <p>MyBibleLens is an AI-powered spiritual research and personal growth platform. The Service provides:</p>
             <ul class="legal-list">
               <li><strong>The Lens:</strong> AI-powered agents (including The Refiner, Etymology, Neuroscience, Philosopher, and Dreams modes) that generate text-based insights in response to user inputs.</li>
-              <li><strong>Study Tools:</strong> Including the Study Repository, Infinite Canvas, Reflections, The Orb, and the Beloved community features.</li>
+              <li><strong>Study Tools:</strong> Including the Study Repository, Infinite Canvas, Reflections, and the Beloved community features.</li>
               <li><strong>The Pure Existence Exchange:</strong> A curated affiliate marketplace featuring non-toxic lifestyle products.</li>
               <li><strong>The Apostolic Profile:</strong> A personalization system that stores your preferences and session data.</li>
             </ul>
@@ -2100,7 +2172,7 @@
             <h2 class="legal-heading"><span class="legal-num">12.</span> Intellectual Property Rights</h2>
             <p>The following materials and rights are collectively referred to as the "MBL IP." Copyright in the MBL IP is owned by Denzel Rigaud and licensed to Expected End LLC for developing, publishing, and operating MyBibleLens:</p>
             <ul class="legal-list">
-              <li><strong>Trademarks:</strong> "MyBibleLens," the MyBibleLens™ logo, "The Lens," "Lens Guide," "The Refiner," "Scripture Glow," "The Orb," "Pure Existence Exchange," "Apostolic Profile," and all other MBL product and feature names are trademarks or service marks of MyBibleLens™ and Denzel Rigaud. You may not use these marks without prior written permission.</li>
+              <li><strong>Trademarks:</strong> "MyBibleLens," the MyBibleLens™ logo, "The Lens," "Lens Guide," "The Refiner," "Pure Existence Exchange," "Apostolic Profile," and all other MBL product and feature names are trademarks or service marks of MyBibleLens™ and Denzel Rigaud. You may not use these marks without prior written permission.</li>
               <li><strong>Copyrights:</strong> All original Application content, including UI/UX design, graphics, editorial text, instructional content, onboarding flows, and original AI persona designs, is protected by copyright and owned by Denzel Rigaud.</li>
               <li><strong>Trade Secrets:</strong> The proprietary prompt engineering architecture, system instructions, AI agent personas, and technical implementation of the Lens features constitute valuable trade secrets of MBL. Any attempt to extract, replicate, or reverse-engineer these systems is strictly prohibited.</li>
               <li><strong>Software:</strong> The Application’s source code, object code, APIs, and related technical components are proprietary to MBL and protected by applicable intellectual property laws.</li>
@@ -2295,7 +2367,7 @@
               <tbody>
                 <tr>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Google Gemini 1.5 Flash</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Lens Guide chat, The Refiner, Etymology Mode, Neuroscience Mode, Philosopher Mode, Dreams Mode, Study Cards, Sermon Deck</td>
+                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Lens Guide chat, The Refiner, Etymology Mode, Neuroscience Mode, Philosopher Mode, Dreams Mode, Study Cards</td>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Generates conversational spiritual insights, theological analysis, etymological breakdowns, neuroscientific context, philosophical perspectives, dream interpretations, and study materials in response to your text inputs</td>
                 </tr>
                 <tr style="background:#fdf8f3;">
@@ -4374,7 +4446,7 @@
             "repo.comingSoon": "Ya disponible en iPhone y iPad · Android próximamente",
             "repo.title": "Tu repositorio de estudio",
             "repo.subtitle":
-              "Infinite Canvas. Sermon Builder. Scripture Glow. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
+              "Infinite Canvas. Mosaic. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
             "pricing.title": "Paga una vez. Tuyo para siempre.",
             "pricing.subtitle":
               "Sin suscripciones. Sin cargos recurrentes. Sin sorpresas. Una compra, acceso de por vida, para ti y para todos los que traigas contigo.",
@@ -4391,7 +4463,7 @@
             "repo.comingSoon": "Já disponível para iPhone e iPad · Android em breve",
             "repo.title": "Seu repositório de estudo",
             "repo.subtitle":
-              "Infinite Canvas. Sermon Builder. Scripture Glow. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
+              "Infinite Canvas. Mosaic. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
             "pricing.title": "Pague uma vez. Seu para sempre.",
             "pricing.subtitle":
               "Sem assinaturas. Sem cobranças recorrentes. Sem surpresas. Uma compra, acesso vitalício, para você e para todos que trouxer com você.",
@@ -4408,7 +4480,7 @@
             "repo.comingSoon": "Disponible dès maintenant sur iPhone et iPad · Android bientôt disponible",
             "repo.title": "Votre répertoire d'étude",
             "repo.subtitle":
-              "Infinite Canvas. Sermon Builder. Scripture Glow. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
+              "Infinite Canvas. Mosaic. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
             "pricing.title": "Payez une fois. À vous pour toujours.",
             "pricing.subtitle":
               "Aucun abonnement. Aucun renouvellement. Aucune surprise. Un seul achat, un accès à vie, pour vous et pour tous ceux que vous amenez.",
@@ -4425,7 +4497,7 @@
             "repo.comingSoon": "iPhone과 iPad에서 지금 이용 가능 · Android 곧 출시",
             "repo.title": "나의 학습 저장소",
             "repo.subtitle":
-              "Infinite Canvas. Sermon Builder. Scripture Glow. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
+              "Infinite Canvas. Mosaic. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
             "pricing.title": "한 번 결제, 평생 소유.",
             "pricing.subtitle": "구독 없음. 갱신 없음. 깜짝 청구 없음. 한 번의 구매로 평생 이용 — 당신과 함께하는 모든 이들을 위해.",
             "faq.title": "솔직한 답변",
@@ -4441,7 +4513,7 @@
             "repo.comingSoon": "现已登陆 iPhone 和 iPad · Android 即将推出",
             "repo.title": "你的学习资源库",
             "repo.subtitle":
-              "Infinite Canvas. Sermon Builder. Scripture Glow. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
+              "Infinite Canvas. Mosaic. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
             "pricing.title": "一次付费，永久拥有。",
             "pricing.subtitle": "无订阅。无续费。无意外收费。一次购买，终身使用——为你，也为你带来的每一个人。",
             "faq.title": "诚实的回答",
