@@ -146,7 +146,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(eyebrow).toContainText("Sanctuary App for Christianity");
   });
 
-  test("spotlight flow renders all 13 feature iframes in order without nested scrolling", async ({
+  test("spotlight flow renders all 10 feature iframes in order without nested scrolling", async ({
     page,
   }) => {
     await page.goto("/");
@@ -159,18 +159,17 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     // Mosaic up top; Parental Lock moved to the very bottom.
     // 2026-07-09: added the "Before we get started" homepage-customization band
     // (customize-flow) after Canvas, and swapped Mosaic ahead of Scripture Glow.
+    // 2026-09-10: Scripture Glow, Sermon Builder, and The Orb left the app, so
+    // their spotlight sections were removed from the site.
     const order = [
       "canvas-flow",
       "customize-flow",
       "mosaic-flow",
-      "glow-flow",
-      "sermon-flow",
       "reflections-flow",
       "milestone-flow",
       "fellowship-flow",
       "games-flow",
       "themes-flow",
-      "orb-flow",
       "timer-flow",
       "parental-lock-flow",
     ];
@@ -234,47 +233,6 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator(".pl-bullets")).toContainText("AI-free experience");
   });
 
-  test("Sermon Builder phones stay inside the visible spotlight at desktop widths", async ({
-    page,
-  }) => {
-    await page.goto("/mockups/sermon-spotlight.html");
-    await waitForPageReady(page);
-
-    for (const width of [1024, 1280, 1440]) {
-      await page.setViewportSize({ width, height: 900 });
-
-      for (const selector of [".phone--editor", ".phone--present"]) {
-        const bounds = await page.locator(selector).evaluate((element) => {
-          const rect = element.getBoundingClientRect();
-          return {
-            left: rect.left,
-            right: rect.right,
-            top: rect.top,
-            bottom: rect.bottom,
-            viewportWidth: window.innerWidth,
-            documentHeight: document.documentElement.scrollHeight,
-          };
-        });
-        expect(
-          bounds.left,
-          `${selector} must not be cut off on the left at ${width}px`
-        ).toBeGreaterThanOrEqual(0);
-        expect(
-          bounds.right,
-          `${selector} must not be cut off on the right at ${width}px`
-        ).toBeLessThanOrEqual(bounds.viewportWidth);
-        expect(
-          bounds.top,
-          `${selector} must not be cut off on the top at ${width}px`
-        ).toBeGreaterThanOrEqual(0);
-        expect(
-          bounds.bottom,
-          `${selector} must not be cut off on the bottom at ${width}px`
-        ).toBeLessThanOrEqual(bounds.documentHeight);
-      }
-    }
-  });
-
   test("Supabase security badge appears with the right link", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
@@ -292,8 +250,11 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await page.goto("/");
     await waitForPageReady(page);
 
+    await expect(page.locator(".repo-beta-pill")).toContainText(
+      "Beta Testing Live on the App Store"
+    );
     await expect(page.locator(".repo-coming-soon")).toHaveText(
-      "Available now on iPhone & iPad · Android coming soon"
+      "Beta testing now on iPhone & iPad · Android coming soon"
     );
     await expect(page.locator("#platforms")).toContainText("Available now on iPhone & iPad");
     await expect(page.locator("#platforms")).toContainText("One sanctuary. iPhone and iPad.");
