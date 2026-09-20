@@ -72,3 +72,6 @@
       .pill { display: inline-block; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; border: 1.5px solid rgba(240,200,80,.5); color: var(--gold-light); background: rgba(0,0,0,.25); }
       .hero { padding: 54px 0 22px; text-align: center; }
       .foot { padding: 34px 0 44px; text-align: center; color: var(--brown-soft); font-size: .92rem; }
+      .chip { border: 1px solid rgba(240,200,80,.28); background: rgba(0,0,0,.3); color: #f0dfbd; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: .86rem;
+        transition: transform .25s var(--spring), background .2s; }
+      .chip:hover { transform: translateY(-2px) scale(1.04); background: rgba(240,200,80,.16); }
