@@ -2,738 +2,716 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reflections Spotlight — MyBibleLens Mockup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reflections · MyBibleLens</title>
+    <meta name="description" content="Reflections: a quiet, private page for prayers, notes and scripture reflections." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/spot.css" />
     <style>
-      :root {
-        --parchment: #f5f2ed;
-        --deep-brown: #3d2b1f;
-        --ink: #2a1e16;
-        --gold: #b6751d;
-        --gold-light: #d4921f;
-        --gold-pressed: #9a6218;
-        --ember: #d4921f;
-        --halo: #f0c850;
-        --font-display: "Hammersmith One", serif;
-        --font-body: "Inter", -apple-system, system-ui, sans-serif;
+      .hero h1 {
+        font-size: clamp(2.4rem, 6.6vw, 4.6rem);
+        margin: 12px 0 14px;
       }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html,
-      body {
-        background: var(--parchment);
-        color: var(--deep-brown);
-      }
-      body {
-        font-family: var(--font-body);
-        min-height: 100vh;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-      .container {
-        max-width: 1280px;
+      .hero p.lead {
+        max-width: 640px;
         margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-      .section-padding {
-        padding: 6rem 0;
+        color: var(--brown-soft);
+        font-size: clamp(1rem, 2vw, 1.2rem);
       }
 
-      /* ============================================================
-         MOSAIC-SHOWCASE pattern — site-matching left/right grid
-      ============================================================ */
-      .mosaic-showcase {
-        background:
-          radial-gradient(ellipse 60% 40% at 25% 30%, rgba(212, 146, 31, 0.06) 0%, transparent 65%),
-          radial-gradient(ellipse 60% 40% at 75% 70%, rgba(240, 200, 80, 0.04) 0%, transparent 65%), var(--parchment);
-        position: relative;
-        overflow: hidden;
-      }
-      .mosaic-showcase__inner {
+      /* ---- editor ---- */
+      .edwrap {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(2rem, 5vw, 5rem);
-        align-items: center;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 30px;
+        padding: 28px;
+        align-items: start;
       }
-      .mosaic-showcase__copy {
-        max-width: 540px;
+      @media (max-width: 860px) {
+        .edwrap {
+          grid-template-columns: 1fr;
+          padding: 18px;
+        }
       }
-      .mosaic-showcase__eyebrow {
-        font-family: var(--font-display);
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.32em;
+      .kinds {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .kind {
+        border: 1.5px solid rgba(240, 200, 80, 0.25);
+        background: rgba(0, 0, 0, 0.28);
+        color: #f0dfbd;
+        padding: 11px 8px;
+        border-radius: 16px;
+        font-weight: 800;
+        font-size: 0.82rem;
+        text-align: center;
+        transition:
+          transform 0.25s var(--spring),
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .kind:hover {
+        transform: translateY(-2px);
+      }
+      .kind[aria-pressed="true"] {
+        border-color: var(--gold-light);
+        background: rgba(240, 200, 80, 0.16);
+        box-shadow: 0 0 0 2px rgba(240, 200, 80, 0.35);
+      }
+      .paper {
+        position: relative;
+        border-radius: 22px;
+        padding: 22px 22px 18px;
+        color: #3d2b1f;
+        background: var(--bgc, #eee0c6);
+        box-shadow:
+          0 30px 44px -26px #000,
+          inset 0 0 0 1px rgba(61, 43, 31, 0.14);
+        transition: background 0.5s var(--ease);
+      }
+      .paper .meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 1.1rem;
+        color: rgba(61, 43, 31, 0.6);
       }
-      .mosaic-showcase__title {
+      .paper input.title {
+        width: 100%;
+        border: 0;
+        background: transparent;
         font-family: var(--font-display);
-        font-size: clamp(2rem, 1.3rem + 2.5vw, 3.25rem);
-        line-height: 1.15;
-        color: var(--deep-brown);
-        letter-spacing: 0.005em;
-        margin-bottom: 1.4rem;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        color: #3d2b1f;
+        padding: 12px 0 6px;
+        outline: none;
       }
-      .mosaic-showcase__body {
-        font-family: var(--font-body);
-        font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
-        line-height: 1.75;
-        color: rgba(61, 43, 31, 0.85);
-        margin-bottom: 1.5rem;
+      .paper textarea {
+        width: 100%;
+        min-height: 168px;
+        border: 0;
+        background: transparent;
+        resize: vertical;
+        font: 500 1rem/1.6 var(--font-body);
+        color: #3d2b1f;
+        outline: none;
       }
-      .mosaic-showcase__body strong {
-        color: var(--ink);
+      .paper input::placeholder,
+      .paper textarea::placeholder {
+        color: rgba(61, 43, 31, 0.5);
+      }
+      .postures {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 8px 0 12px;
+      }
+      .post {
+        border: 2px solid transparent;
+        color: #fff;
+        padding: 7px 13px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.76rem;
+        opacity: 0.42;
+        background: var(--c);
+        transition:
+          opacity 0.25s,
+          transform 0.25s var(--spring),
+          box-shadow 0.25s;
+      }
+      .post[aria-pressed="true"] {
+        opacity: 1;
+        box-shadow:
+          0 0 0 3px rgba(255, 255, 255, 0.55),
+          0 8px 14px -8px rgba(0, 0, 0, 0.6);
+        transform: translateY(-1px);
+      }
+      .bgs {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-wrap: wrap;
+        padding-top: 12px;
+        border-top: 1px solid rgba(61, 43, 31, 0.14);
+      }
+      .bgs span.l {
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(61, 43, 31, 0.6);
+        margin-right: 4px;
+      }
+      .bg {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid rgba(61, 43, 31, 0.25);
+        background: var(--c);
+        transition: transform 0.25s var(--spring);
+      }
+      .bg[aria-pressed="true"] {
+        border-color: #3d2b1f;
+        transform: scale(1.14);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+      }
+      .edside h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.4rem, 3vw, 1.9rem);
+        margin: 0 0 8px;
+      }
+      .edside p {
+        color: #dcc8a3;
+        margin: 0 0 14px;
+      }
+      .edside .desc {
+        font-size: 1.05rem;
+        color: #f6dc8c;
         font-weight: 700;
+        min-height: 1.6em;
       }
-      .mosaic-showcase__bullets {
+      .lbl2 {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin: 18px 0 8px;
+      }
+      ul.pts {
         list-style: none;
         padding: 0;
-        margin: 0 0 1.6rem;
+        margin: 0;
         display: grid;
-        gap: 0.55rem;
+        gap: 10px;
       }
-      .mosaic-showcase__bullets li {
-        font-family: var(--font-body);
+      ul.pts li {
+        display: grid;
+        grid-template-columns: 26px 1fr;
+        gap: 10px;
+        color: #ecdcc0;
         font-size: 0.95rem;
-        color: rgba(61, 43, 31, 0.78);
-        padding-left: 1.5rem;
-        position: relative;
-        line-height: 1.55;
       }
-      .mosaic-showcase__bullets li strong {
-        color: var(--ink);
-        font-weight: 700;
+      ul.pts i {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 0.8rem;
+        color: #33210f;
+        background: linear-gradient(145deg, #f0c850, #b6751d);
       }
-      .mosaic-showcase__bullets li::before {
-        content: "✦";
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: var(--gold);
-        font-size: 0.85rem;
-      }
-      .mosaic-showcase__cta {
-        display: inline-flex;
+
+      /* ---- search ---- */
+      .srch {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 28px;
+        padding: 28px;
         align-items: center;
-        gap: 0.5rem;
-        text-decoration: none;
-        font-family: var(--font-display);
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        color: var(--gold);
-        padding: 0.85rem 1.4rem;
-        border-radius: 999px;
-        border: 1px solid rgba(182, 117, 29, 0.4);
-        background: linear-gradient(180deg, rgba(240, 200, 80, 0.06) 0%, rgba(212, 146, 31, 0.04) 100%);
-        transition:
-          color 220ms cubic-bezier(0.16, 1, 0.3, 1),
-          border-color 220ms ease,
-          background 220ms ease,
-          transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-          box-shadow 220ms ease;
       }
-      .mosaic-showcase__cta:hover {
-        color: var(--gold-light);
-        border-color: rgba(212, 146, 31, 0.7);
-        background: rgba(240, 200, 80, 0.12);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 32px -12px rgba(212, 146, 31, 0.4);
-      }
-
-      /* ============================================================
-         RIGHT — auto-rotating phone + orbiting feature chips
-      ============================================================ */
-      .reflect-board {
-        position: relative;
-        width: 100%;
-        max-width: 580px;
-        aspect-ratio: 1 / 1.2;
-        margin-inline: auto;
-      }
-
-      /* Soft brand halo */
-      .reflect-board::before {
-        content: "";
-        position: absolute;
-        inset: 6% 8%;
-        background:
-          radial-gradient(ellipse at 50% 45%, rgba(240, 200, 80, 0.28), transparent 60%),
-          radial-gradient(ellipse at 30% 70%, rgba(212, 146, 31, 0.18), transparent 55%);
-        filter: blur(40px);
-        z-index: 0;
-        pointer-events: none;
-        animation: halo-pulse 6s ease-in-out infinite alternate;
-      }
-      @keyframes halo-pulse {
-        0% {
-          opacity: 0.8;
-          transform: scale(1);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1.04);
-        }
-      }
-      /* Floor glow under phone */
-      .reflect-board::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 6%;
-        width: 50%;
-        height: 60px;
-        transform: translateX(-50%);
-        background: radial-gradient(ellipse at center, rgba(182, 117, 29, 0.35), transparent 70%);
-        filter: blur(18px);
-        z-index: 0;
-        pointer-events: none;
-      }
-
-      /* ---- iPhone frame with auto-rotating screenshots ---- */
-      .reflect-phone {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 46%;
-        aspect-ratio: 9 / 19.5;
-        background: #0a0a0c;
-        border-radius: 38px;
-        padding: 7px;
-        box-shadow:
-          0 0 0 1px rgba(212, 146, 31, 0.4),
-          0 50px 100px -22px rgba(26, 16, 8, 0.65),
-          0 22px 60px -16px rgba(212, 146, 31, 0.55),
-          0 0 80px -6px rgba(240, 200, 80, 0.4);
-        z-index: 5;
-        animation: phone-float 6s ease-in-out infinite alternate;
-      }
-      @keyframes phone-float {
-        0% {
-          transform: translate(-50%, -50%) translateY(0) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) translateY(-10px) rotate(0.4deg);
-        }
-      }
-      .reflect-phone__screen {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 32px;
-        overflow: hidden;
-        background: #f5f2ed;
-      }
-      .reflect-phone__island {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30%;
-        height: 22px;
-        background: #050505;
-        border-radius: 12px;
-        z-index: 5;
-      }
-      .reflect-slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition:
-          opacity 900ms cubic-bezier(0.4, 0, 0.2, 1),
-          transform 1400ms cubic-bezier(0.4, 0, 0.2, 1);
-        transform: scale(1.04);
-      }
-      .reflect-slide.is-active {
-        opacity: 1;
-        transform: scale(1);
-      }
-      .reflect-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      /* ---- Carousel progress dots ---- */
-      .reflect-dots {
-        position: absolute;
-        left: 50%;
-        bottom: -2.5rem;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 0.4rem;
-        z-index: 6;
-      }
-      .reflect-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: rgba(61, 43, 31, 0.2);
-        transition: all 400ms ease;
-      }
-      .reflect-dot.is-active {
-        background: var(--gold);
-        width: 24px;
-        border-radius: 4px;
-        box-shadow: 0 0 8px rgba(212, 146, 31, 0.5);
-      }
-
-      /* ============================================================
-         FEATURE CHIPS — orbit the phone, animate in stagger
-      ============================================================ */
-      .reflect-chip {
-        position: absolute;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.55rem 0.95rem;
-        background: rgba(255, 252, 245, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(212, 146, 31, 0.3);
-        border-radius: 999px;
-        font-family: var(--font-body);
-        font-size: 0.78rem;
-        font-weight: 600;
-        color: var(--ink);
-        letter-spacing: 0.02em;
-        white-space: nowrap;
-        box-shadow:
-          0 8px 24px -10px rgba(26, 16, 8, 0.3),
-          0 0 0 1px rgba(212, 146, 31, 0.1);
-        z-index: 6;
-        opacity: 0;
-        transform: translateY(8px) scale(0.92);
-        transition:
-          opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
-          transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
-        animation: chip-bob 5s ease-in-out infinite alternate;
-      }
-      .reflect-chip__icon {
-        font-size: 1rem;
-        line-height: 1;
-        filter: drop-shadow(0 0 6px rgba(212, 146, 31, 0.4));
-      }
-      .reflect-chip__dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 8px var(--halo);
-      }
-      .is-revealed .reflect-chip {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-      /* Per-chip position + reveal delay + idle bob phase */
-      .reflect-chip--prayer {
-        left: -2%;
-        top: 14%;
-        transition-delay: 200ms;
-        animation-delay: -0.5s;
-      }
-      .reflect-chip--verse-anchor {
-        right: -4%;
-        top: 8%;
-        transition-delay: 320ms;
-        animation-delay: -1.2s;
-      }
-      .reflect-chip--guided {
-        left: -8%;
-        top: 38%;
-        transition-delay: 440ms;
-        animation-delay: -2s;
-      }
-      .reflect-chip--connected {
-        right: -10%;
-        top: 42%;
-        transition-delay: 560ms;
-        animation-delay: -2.8s;
-      }
-      .reflect-chip--collaborate {
-        left: -2%;
-        bottom: 24%;
-        transition-delay: 680ms;
-        animation-delay: -3.4s;
-      }
-      .reflect-chip--themes {
-        right: -4%;
-        bottom: 20%;
-        transition-delay: 800ms;
-        animation-delay: -4.2s;
-      }
-      .reflect-chip--pin {
-        left: 8%;
-        bottom: 6%;
-        transition-delay: 920ms;
-        animation-delay: -1.6s;
-      }
-      .reflect-chip--soap {
-        right: 10%;
-        bottom: 4%;
-        transition-delay: 1040ms;
-        animation-delay: -2.4s;
-      }
-
-      @keyframes chip-bob {
-        0% {
-          translate: 0 0;
-        }
-        100% {
-          translate: 0 -6px;
-        }
-      }
-
-      /* ---- "Connected Notes" knowledge-graph connector lines ---- */
-      .reflect-graph {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 4;
-        opacity: 0;
-        transition: opacity 1400ms ease;
-      }
-      .is-revealed .reflect-graph {
-        opacity: 0.4;
-      }
-      .reflect-graph line {
-        stroke: var(--gold);
-        stroke-width: 1;
-        stroke-dasharray: 2 4;
-        opacity: 0.5;
-      }
-
-      /* ---- Sparkles ---- */
-      .reflect-sparkles {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 3;
-      }
-      .reflect-sparkles span {
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        background: var(--halo);
-        border-radius: 50%;
-        box-shadow:
-          0 0 8px var(--halo),
-          0 0 16px rgba(240, 200, 80, 0.6);
-        opacity: 0;
-        animation: sparkle 10s ease-in-out infinite;
-      }
-      .reflect-sparkles span:nth-child(1) {
-        top: 12%;
-        left: 30%;
-        animation-delay: 0s;
-      }
-      .reflect-sparkles span:nth-child(2) {
-        top: 22%;
-        right: 22%;
-        animation-delay: 2.1s;
-        width: 4px;
-        height: 4px;
-      }
-      .reflect-sparkles span:nth-child(3) {
-        top: 70%;
-        left: 18%;
-        animation-delay: 4.3s;
-      }
-      .reflect-sparkles span:nth-child(4) {
-        top: 78%;
-        right: 24%;
-        animation-delay: 6s;
-        width: 4px;
-        height: 4px;
-      }
-      .reflect-sparkles span:nth-child(5) {
-        top: 50%;
-        left: 8%;
-        animation-delay: 7.6s;
-        width: 3px;
-        height: 3px;
-      }
-      @keyframes sparkle {
-        0%,
-        100% {
-          opacity: 0;
-          transform: translateY(0) scale(0.8);
-        }
-        15% {
-          opacity: 0.9;
-        }
-        50% {
-          opacity: 0.6;
-          transform: translateY(-22px) scale(1.05);
-        }
-        85% {
-          opacity: 0.3;
-        }
-      }
-
-      /* ============================================================
-         REVEAL on scroll
-      ============================================================ */
-      .reveal-fade {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1),
-          transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
-      }
-      .is-revealed .reveal-fade {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal-fade--copy {
-        transition-delay: 80ms;
-      }
-      .reveal-fade--board {
-        transition-delay: 220ms;
-      }
-
-      /* ============================================================
-         RESPONSIVE
-      ============================================================ */
-      @media (max-width: 960px) {
-        .mosaic-showcase__inner {
+      @media (max-width: 820px) {
+        .srch {
           grid-template-columns: 1fr;
-          gap: 4rem;
-        }
-        .mosaic-showcase__copy {
-          max-width: 100%;
-        }
-        .reflect-board {
-          max-width: 460px;
-          aspect-ratio: 1 / 1.15;
-        }
-        .reflect-phone {
-          width: 52%;
+          padding: 18px;
         }
       }
-      @media (max-width: 600px) {
-        .section-padding {
-          padding: 4rem 0;
-        }
-        .reflect-board {
-          aspect-ratio: 1 / 1.2;
-          max-width: 360px;
-        }
-        .reflect-phone {
-          width: 58%;
-        }
-        .reflect-chip {
-          font-size: 0.7rem;
-          padding: 0.45rem 0.8rem;
-        }
-        /* Hide some chips on tiny screens to avoid overlap */
-        .reflect-chip--soap,
-        .reflect-chip--themes {
-          display: none;
+      .sbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff8ea;
+        border-radius: 999px;
+        padding: 4px 6px 4px 18px;
+        box-shadow:
+          0 16px 26px -18px #000,
+          inset 0 0 0 1px #dcc39a;
+      }
+      .sbox input {
+        flex: 1;
+        border: 0;
+        background: transparent;
+        font: 600 1rem var(--font-body);
+        color: #3d2b1f;
+        padding: 13px 0;
+        outline: none;
+        min-width: 0;
+      }
+      .sbox input::placeholder {
+        color: rgba(61, 43, 31, 0.5);
+      }
+      .try {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin: 14px 0 0;
+      }
+      .rel {
+        display: grid;
+        gap: 10px;
+        min-height: 220px;
+        align-content: start;
+      }
+      .rel .cap {
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+      }
+      .verse {
+        display: grid;
+        gap: 4px;
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: linear-gradient(165deg, #fff8ea, #efdfc0);
+        color: #3d2b1f;
+        border: 0;
+        box-shadow: 0 18px 26px -18px #000;
+        animation: rise 0.5s var(--ease) both;
+        transition: transform 0.25s var(--spring);
+      }
+      .verse:hover {
+        transform: translateY(-3px) rotate(-0.4deg);
+      }
+      .verse b {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 1.05rem;
+        color: #7a4f12;
+      }
+      .verse span {
+        font-size: 0.92rem;
+        font-style: italic;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
       }
-      @media (prefers-reduced-motion: reduce) {
-        .reflect-phone,
-        .reflect-chip,
-        .reflect-sparkles span {
-          animation: none !important;
-        }
-        .reveal-fade {
-          transition: none !important;
-        }
-        .reflect-slide {
-          transition: opacity 400ms ease !important;
-          transform: none !important;
-        }
+      .empty {
+        color: #cdb892;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1.5px dashed rgba(240, 200, 80, 0.3);
+        text-align: center;
       }
 
-      /* Mockup banner */
-      .mockup-banner {
-        background: var(--deep-brown);
-        color: var(--parchment);
-        padding: 10px 24px;
-        font-size: 12px;
-        text-align: center;
-        letter-spacing: 0.04em;
+      /* ---- let go ---- */
+      .lg {
+        padding: 26px;
       }
-      .mockup-banner strong {
-        color: var(--halo);
+      .lgtabs {
+        display: inline-flex;
+        padding: 4px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(240, 200, 80, 0.25);
+        margin-bottom: 16px;
+      }
+      .lgtabs button {
+        border: 0;
+        background: none;
+        color: #ecdcc0;
+        padding: 9px 20px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.86rem;
+      }
+      .lgtabs button[aria-selected="true"] {
+        background: linear-gradient(145deg, #f0c850, #b6751d);
+        color: #33210f;
+      }
+      .lgcols {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        min-height: 150px;
+      }
+      @media (max-width: 720px) {
+        .lgcols {
+          grid-template-columns: 1fr;
+        }
+      }
+      .rc {
+        border-radius: 18px;
+        padding: 14px 16px;
+        color: #3d2b1f;
+        background: var(--c);
+        box-shadow: 0 16px 24px -16px #000;
+        animation: rise 0.45s var(--ease) both;
+      }
+      .rc h4 {
+        margin: 0 0 4px;
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 1.05rem;
+      }
+      .rc p {
+        margin: 0 0 10px;
+        font-size: 0.86rem;
+        color: rgba(61, 43, 31, 0.8);
+      }
+      .rc button {
+        border: 0;
+        border-radius: 999px;
+        padding: 7px 14px;
+        font-weight: 800;
+        font-size: 0.74rem;
+        color: #fff;
+        background: #805024;
+      }
+      .church {
+        margin-top: 18px;
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.28);
+        box-shadow: inset 0 0 0 1px rgba(240, 200, 80, 0.16);
+        color: #dcc8a3;
+        font-size: 0.95rem;
+      }
+      .church b {
+        display: block;
+        color: var(--gold-light);
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
       }
     </style>
   </head>
   <body>
-    <!-- ===== SECTION: REFLECTIONS SPOTLIGHT ===== -->
-    <section class="mosaic-showcase section-padding" id="reflections-spotlight" data-spotlight>
-      <div class="container mosaic-showcase__inner">
-        <!-- LEFT — copy block -->
-        <div class="mosaic-showcase__copy reveal-fade reveal-fade--copy">
-          <p class="mosaic-showcase__eyebrow">More than a notepad.</p>
-          <h2 class="mosaic-showcase__title">
-            The reflection platform<br />for <span style="color: var(--gold)">God-fearing minds.</span>
-          </h2>
-          <p class="mosaic-showcase__body">
-            Not a journal app &mdash; a <strong>sanctuary for the inner life</strong>. Verse-anchored, AI-guided, woven into a
-            <strong>connected web</strong> of every thought you&rsquo;ve saved.
-          </p>
-          <ul class="mosaic-showcase__bullets" role="list">
-            <li><strong>8 modes</strong> &mdash; Prayer, Gratitude, Calling, Faith, Struggle &amp; more</li>
-            <li><strong>Verse-anchored</strong> &mdash; pinned to the scripture that sparked it</li>
-            <li><strong>Guided Reflection</strong> &mdash; AI prompts that move you deeper</li>
-            <li><strong>Connected Notes</strong> &mdash; your personal knowledge web</li>
-            <li><strong>Collaborate</strong> &mdash; reflect together</li>
-          </ul>
-          <a href="#pricing" class="mosaic-showcase__cta">Reflect like your soul depends on it &rarr;</a>
-        </div>
+    <header class="hero wrap">
+      <div class="eyebrow">MyBibleLens · Reflections</div>
+      <h1 class="display">A quiet page, <span class="gold">ready to receive.</span></h1>
+      <p class="lead">
+        Prayers, notes and scripture reflections in one private place. No feed, no followers, and nothing shown to anyone unless you choose
+        it.
+      </p>
+    </header>
 
-        <!-- RIGHT — auto-rotating phone + orbit chips -->
-        <div class="reflect-board reveal-fade reveal-fade--board" aria-hidden="true">
-          <!-- Knowledge-graph connector lines (SVG, behind chips) -->
-          <svg class="reflect-graph" viewBox="0 0 100 120" preserveAspectRatio="none">
-            <line x1="50" y1="50" x2="6" y2="18" />
-            <line x1="50" y1="50" x2="94" y2="12" />
-            <line x1="50" y1="50" x2="2" y2="46" />
-            <line x1="50" y1="50" x2="98" y2="50" />
-            <line x1="50" y1="50" x2="6" y2="86" />
-            <line x1="50" y1="50" x2="94" y2="88" />
-            <line x1="50" y1="50" x2="14" y2="108" />
-            <line x1="50" y1="50" x2="86" y2="108" />
-          </svg>
-
-          <!-- Sparkles -->
-          <div class="reflect-sparkles"><span></span><span></span><span></span><span></span><span></span></div>
-
-          <!-- Phone with auto-rotating screenshots -->
-          <div class="reflect-phone">
-            <div class="reflect-phone__island"></div>
-            <div class="reflect-phone__screen" data-carousel>
-              <div class="reflect-slide is-active" data-extra-dwell="1800">
-                <img
-                  src="assets/reflections/reflect-spark.png"
-                  alt="Reflection — a spark is one thing, the drive came from the next generation"
-                />
-              </div>
-              <div class="reflect-slide" data-extra-dwell="1800">
-                <img src="assets/reflections/reflect-wisdom.png" alt="Reflection — when I put God first, my life began to prosper" />
-              </div>
-              <div class="reflect-slide"><img src="assets/reflections/IMG_2224.PNG" alt="Isaiah 43:19 reflection" /></div>
-              <div class="reflect-slide"><img src="assets/reflections/IMG_2223.PNG" alt="Deep reflection — 7 virtues" /></div>
-              <div class="reflect-slide"><img src="assets/reflections/IMG_2227.PNG" alt="Mark 10:45 reflection" /></div>
-              <div class="reflect-slide"><img src="assets/reflections/IMG_2225.PNG" alt="Verse template" /></div>
+    <section class="chapter wrap reveal" aria-labelledby="r1">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 01 · Begin</div>
+        <h2 id="r1" class="display">Three ways to <span class="gold">begin.</span></h2>
+        <p>
+          A note for any thought, a prayer to bring before the Lord, or a scripture reflection to sit with a verse.
+          <strong>Try it below.</strong> Type, tag it with a heart posture, and pick a page colour.
+        </p>
+      </div>
+      <div class="board edwrap">
+        <div>
+          <div class="kinds" id="kinds" role="group" aria-label="Kind of reflection"></div>
+          <div class="paper" id="paper">
+            <div class="meta">
+              <span id="kindName">Note</span><span>Created <b id="cdate"></b> &nbsp;·&nbsp; Updated just now</span>
             </div>
-            <div class="reflect-dots" data-dots>
-              <span class="reflect-dot is-active"></span>
-              <span class="reflect-dot"></span>
-              <span class="reflect-dot"></span>
-              <span class="reflect-dot"></span>
-              <span class="reflect-dot"></span>
-              <span class="reflect-dot"></span>
-            </div>
+            <input class="title" id="ttl" type="text" maxlength="60" aria-label="Title" />
+            <div class="postures" id="postures" role="group" aria-label="Heart posture"></div>
+            <textarea id="body" aria-label="Your reflection" spellcheck="false"></textarea>
+            <div class="bgs"><span class="l">Page</span><span id="bgs" style="display: flex; gap: 9px; flex-wrap: wrap"></span></div>
           </div>
-
-          <!-- Orbiting feature chips -->
-          <div class="reflect-chip reflect-chip--prayer"><span class="reflect-chip__icon">🙏</span>Prayer mode</div>
-          <div class="reflect-chip reflect-chip--verse-anchor"><span class="reflect-chip__icon">📖</span>Verse anchor</div>
-          <div class="reflect-chip reflect-chip--guided"><span class="reflect-chip__icon">💡</span>Guided reflection</div>
-          <div class="reflect-chip reflect-chip--connected"><span class="reflect-chip__icon">🕸️</span>Connected notes</div>
-          <div class="reflect-chip reflect-chip--collaborate"><span class="reflect-chip__icon">👥</span>Collaborate</div>
-          <div class="reflect-chip reflect-chip--themes"><span class="reflect-chip__icon">🎨</span>9 themes</div>
-          <div class="reflect-chip reflect-chip--pin"><span class="reflect-chip__icon">📌</span>Pin to keep</div>
-          <div class="reflect-chip reflect-chip--soap"><span class="reflect-chip__icon">✨</span>S.O.A.P. ready</div>
+        </div>
+        <div class="edside">
+          <h3 id="sideTitle">A clean canvas.</h3>
+          <div class="desc" id="desc"></div>
+          <div class="lbl2">Heart Posture</div>
+          <p>Tag how your heart is turned, then filter your reflections by it later. Choose one or several.</p>
+          <ul class="pts">
+            <li><i>1</i><span>Pinned reflections stay at the top.</span></li>
+            <li><i>2</i><span>Every reflection keeps its created and updated dates.</span></li>
+            <li><i>3</i><span>Private by default. Only you can read what you write.</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <section class="chapter wrap reveal" aria-labelledby="r2">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 02 · Find</div>
+        <h2 id="r2" class="display">Type a feeling. <span class="gold">Find a verse.</span></h2>
+        <p>
+          Search your reflections by word, verse or theme. When you type a theme like <strong>peace</strong> or <strong>anxious</strong>,
+          related scriptures appear for you to open.
+        </p>
+      </div>
+      <div class="board srch">
+        <div>
+          <div class="sbox">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a4f12" stroke-width="2.2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" /></svg
+            ><input
+              id="q"
+              type="search"
+              placeholder="Search by word, verse, or theme…"
+              aria-label="Search reflections"
+              autocomplete="off"
+            />
+          </div>
+          <div class="try" id="try"></div>
+        </div>
+        <div class="rel" id="rel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="chapter wrap reveal" aria-labelledby="r3">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 03 · Release</div>
+        <h2 id="r3" class="display">And when it is time <span class="gold">to let go.</span></h2>
+        <p>
+          Not every page needs to stay. Letting go moves a reflection aside, and you can bring it back to your notes until you release it
+          for good.
+        </p>
+      </div>
+      <div class="board lg">
+        <div class="lgtabs" role="tablist" aria-label="Reflections">
+          <button type="button" role="tab" id="tabN" aria-selected="true">Notes</button
+          ><button type="button" role="tab" id="tabL" aria-selected="false">Let Go</button>
+        </div>
+        <div class="lgcols" id="lgcols"></div>
+        <div class="church">
+          <b>A note on reflections</b>Faith isn't meant to be lived entirely in your head. This is a supplement to, not a replacement for,
+          the local church. Use it to sharpen your understanding, then take that light back to your church community.
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">MyBibleLens · Reflections, a quiet place to remember.</div>
+
+    <script src="assets/spot.js"></script>
+    <script src="assets/reflect/mbl-reflect.js"></script>
     <script>
-      // ============================================================
-      // Reveal on scroll
-      // ============================================================
-      const sp = document.querySelector("[data-spotlight]");
-      const obs = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              sp.classList.add("is-revealed");
-              startCarousel();
-              obs.disconnect();
-            }
-          }),
-        { threshold: 0.15 }
-      );
-      obs.observe(sp);
-      requestAnimationFrame(() => {
-        const r = sp.getBoundingClientRect();
-        if (r.top < window.innerHeight * 0.8) {
-          sp.classList.add("is-revealed");
-          startCarousel();
+      (function () {
+        "use strict";
+        var S = window.SPOT,
+          $ = S.$,
+          $$ = S.$$,
+          esc = S.esc,
+          R = window.MBLReflect;
+        function clean(t) {
+          return String(t).replace(/\s*—\s*/g, ", ");
         }
-      });
-
-      // ============================================================
-      // Auto-rotating carousel
-      // Base dwell is 3500ms; any slide with data-extra-dwell adds that
-      // many extra milliseconds (e.g. the Matthew 6:33 slide gets +1800ms).
-      // ============================================================
-      const slides = document.querySelectorAll(".reflect-slide");
-      const dots = document.querySelectorAll(".reflect-dot");
-      const BASE_DWELL = 3500;
-      let active = 0;
-      let timer = null;
-
-      function dwellFor(idx) {
-        const extra = parseInt(slides[idx].getAttribute("data-extra-dwell") || "0", 10);
-        return BASE_DWELL + (Number.isFinite(extra) ? extra : 0);
-      }
-
-      function go(next) {
-        slides[active].classList.remove("is-active");
-        dots[active].classList.remove("is-active");
-        active = (next + slides.length) % slides.length;
-        slides[active].classList.add("is-active");
-        dots[active].classList.add("is-active");
-      }
-
-      function scheduleNext() {
-        timer = setTimeout(() => {
-          go(active + 1);
-          scheduleNext();
-        }, dwellFor(active));
-      }
-
-      function startCarousel() {
-        if (timer) return;
-        scheduleNext();
-      }
-
-      function restartCarousel() {
-        if (timer) {
-          clearTimeout(timer);
-          timer = null;
+        /* ---- 1. editor ---- */
+        var KINDS = {
+          note: {
+            l: "Note",
+            d: "A clean canvas for any thought.",
+            t: "A simple title…",
+            p: "What is stirring within you?",
+            h: "A clean canvas.",
+          },
+          prayer: {
+            l: "Prayer",
+            d: "Bring your heart before the Lord.",
+            t: "A prayer for…",
+            p: "Lord, today I bring before You…",
+            h: "Bring it to Him.",
+          },
+          scripture: {
+            l: "Scripture Reflection",
+            d: "Sit with a verse and listen.",
+            t: "Verse or passage…",
+            p: "“For I know the plans I have for you…”, Jeremiah 29:11\n\nWhat is this passage showing me?",
+            h: "Sit with a verse.",
+          },
+        };
+        var kind = "note",
+          kindsEl = $("#kinds"),
+          paper = $("#paper");
+        kindsEl.innerHTML = Object.keys(KINDS)
+          .map(function (k) {
+            return '<button class="kind" type="button" data-k="' + k + '" aria-pressed="' + (k === kind) + '">' + KINDS[k].l + "</button>";
+          })
+          .join("");
+        function setKind(k) {
+          kind = k;
+          var m = KINDS[k];
+          $$(".kind", kindsEl).forEach(function (b) {
+            b.setAttribute("aria-pressed", b.dataset.k === k);
+          });
+          $("#kindName").textContent = m.l;
+          $("#ttl").placeholder = m.t;
+          $("#body").placeholder = m.p;
+          $("#desc").textContent = m.d;
+          $("#sideTitle").textContent = m.h;
         }
-        scheduleNext();
-      }
-
-      // Click a dot to jump (resets the per-slide dwell timer)
-      dots.forEach((dot, i) => {
-        dot.addEventListener("click", () => {
-          go(i);
-          restartCarousel();
+        kindsEl.addEventListener("click", function (e) {
+          var b = e.target.closest(".kind");
+          if (b) setKind(b.dataset.k);
         });
-      });
+        $("#cdate").textContent = new Date().toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+        var POST = ["prayer", "reflection", "gratitude", "struggle", "faith", "calling", "wisdom"];
+        $("#postures").innerHTML = POST.map(function (t) {
+          var m = R.tags[t],
+            hex = (m.chipBase.match(/bg-\[(#[0-9A-Fa-f]{6})\]/) || [0, "#805024"])[1];
+          return (
+            '<button class="post" type="button" data-t="' +
+            t +
+            '" aria-pressed="' +
+            (t === "gratitude") +
+            '" style="--c:' +
+            hex +
+            '">' +
+            esc(m.label) +
+            "</button>"
+          );
+        }).join("");
+        $("#postures").addEventListener("click", function (e) {
+          var b = e.target.closest(".post");
+          if (b) b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true");
+        });
+        var BGS = [
+          ["Parchment", "#EEE0C6"],
+          ["Sandstone", "#DEC6A6"],
+          ["Olive", "#CDD0AE"],
+          ["Clay", "#E2BBAB"],
+          ["Honey", "#E9CF94"],
+        ];
+        $("#bgs").innerHTML = BGS.map(function (b, i) {
+          return (
+            '<button class="bg" type="button" aria-label="' +
+            b[0] +
+            '" aria-pressed="' +
+            (i === 0) +
+            '" style="--c:' +
+            b[1] +
+            '" data-c="' +
+            b[1] +
+            '"></button>'
+          );
+        }).join("");
+        $("#bgs").addEventListener("click", function (e) {
+          var b = e.target.closest(".bg");
+          if (!b) return;
+          $$(".bg", $("#bgs")).forEach(function (x) {
+            x.setAttribute("aria-pressed", x === b);
+          });
+          paper.style.setProperty("--bgc", b.dataset.c);
+        });
+        setKind("note");
 
-      // Respect reduced motion
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        startCarousel = () => {};
-      }
+        /* ---- 2. search + related scriptures (the app's own logic) ---- */
+        var q = $("#q"),
+          rel = $("#rel");
+        function show() {
+          var themes = R.themesForQuery(q.value),
+            seen = {},
+            list = [];
+          themes.forEach(function (t) {
+            (R.related[t] || []).forEach(function (s) {
+              if (!seen[s.ref]) {
+                seen[s.ref] = 1;
+                list.push(s);
+              }
+            });
+          });
+          list = list.slice(0, 4);
+          rel.innerHTML = list.length
+            ? '<div class="cap">Related scriptures</div>' +
+              list
+                .map(function (s, i) {
+                  return (
+                    '<button class="verse" type="button" style="animation-delay:' +
+                    i * 70 +
+                    'ms"><b>' +
+                    esc(s.ref) +
+                    "</b><span>" +
+                    esc(clean(s.preview)) +
+                    "</span></button>"
+                  );
+                })
+                .join("")
+            : '<div class="empty">Type a theme word, like <b>peace</b>, <b>hope</b> or <b>anxious</b>, and related verses appear here.</div>';
+        }
+        q.addEventListener("input", show);
+        $("#try").innerHTML = ["peace", "hope", "anxious", "joy", "strength", "love"]
+          .map(function (w) {
+            return '<button class="chip" type="button" data-w="' + w + '">' + w + "</button>";
+          })
+          .join("");
+        $("#try").addEventListener("click", function (e) {
+          var b = e.target.closest(".chip");
+          if (b) {
+            q.value = b.dataset.w;
+            show();
+          }
+        });
+        q.value = "peace";
+        show();
+
+        /* ---- 3. let go ---- */
+        var NOTES = [
+          { id: 1, t: "Sunday sermon", b: "Three things I want to remember.", c: "#EEE0C6", s: "notes" },
+          { id: 2, t: "A prayer for my mother", b: "Lord, hold her close this season.", c: "#E2BBAB", s: "notes" },
+          { id: 3, t: "Psalm 23", b: "He restores my soul.", c: "#CDD0AE", s: "notes" },
+        ];
+        var tab = "notes";
+        function draw() {
+          var list = NOTES.filter(function (n) {
+            return n.s === tab;
+          });
+          $("#lgcols").innerHTML = list.length
+            ? list
+                .map(function (n) {
+                  return (
+                    '<div class="rc" style="--c:' +
+                    n.c +
+                    '"><h4>' +
+                    n.t +
+                    "</h4><p>" +
+                    n.b +
+                    '</p><button type="button" data-id="' +
+                    n.id +
+                    '">' +
+                    (tab === "notes" ? "Let go" : "Move to Notes") +
+                    "</button></div>"
+                  );
+                })
+                .join("")
+            : '<div class="empty" style="grid-column:1/-1">' +
+              (tab === "notes" ? "A quiet page, ready to receive." : "Nothing released here.") +
+              "</div>";
+        }
+        $("#lgcols").addEventListener("click", function (e) {
+          var b = e.target.closest("button[data-id]");
+          if (!b) return;
+          var n = NOTES.filter(function (x) {
+            return x.id === +b.dataset.id;
+          })[0];
+          n.s = tab === "notes" ? "letgo" : "notes";
+          draw();
+        });
+        function setTab(t) {
+          tab = t;
+          $("#tabN").setAttribute("aria-selected", t === "notes");
+          $("#tabL").setAttribute("aria-selected", t === "letgo");
+          draw();
+        }
+        $("#tabN").addEventListener("click", function () {
+          setTab("notes");
+        });
+        $("#tabL").addEventListener("click", function () {
+          setTab("letgo");
+        });
+        draw();
+      })();
     </script>
   </body>
 </html>

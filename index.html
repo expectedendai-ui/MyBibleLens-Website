@@ -6,12 +6,12 @@
     <title>The World's First Sanctuary App for Christianity — MyBibleLens™</title>
     <meta
       name="description"
-      content="MyBibleLens — the World's First Sanctuary App for Christianity. Infinite Canvas, Mosaic vision boards, Reflections, Milestone reading plans, 12 themes. One-time purchase from $14.99, lifetime access."
+      content="MyBibleLens — the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Mosaic, Gather and 16 themes."
     />
     <meta property="og:title" content="The World's First Sanctuary App for Christianity — MyBibleLens™" />
     <meta
       property="og:description"
-      content="The World's First Sanctuary App for Christianity. Infinite Canvas, Mosaic vision boards, Reflections, 12 themes. One-time purchase from $14.99."
+      content="The World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Mosaic, Gather and 16 themes."
     />
     <meta property="og:url" content="https://mybiblelens.us/" />
     <meta property="og:type" content="website" />
@@ -23,9 +23,7 @@
     <meta name="twitter:image" content="https://mybiblelens.us/assets/denzel-rigaud.jpg" />
     <link rel="canonical" href="https://mybiblelens.us/" />
 
-    <!-- Schema.org structured data — gives Google the canonical price ladder so
-         the AI Overview stops scraping stale text (was showing $77.77 Founding,
-         $7.77 monthly Apostle from a pre-IAP crawl) -->
+    <!-- Schema.org structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -40,7 +38,7 @@
         "operatingSystem": "iOS, iPadOS",
         "applicationCategory": "LifestyleApplication",
         "applicationSubCategory": "Bible Study",
-        "description": "MyBibleLens is the World's First Sanctuary App for Christianity. Infinite Canvas (mind-map with live fellowship), Mosaic vision boards (live fellowship collab), Reflections (8 modes), Milestone (day-by-day Bible reading plans), 12 themes, 3 typefaces. One-time purchase from $14.99, lifetime access.",
+        "description": "MyBibleLens is the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time, keep a Scripture Seal for every chapter, and study on Scripture Canvas, Mosaic and Gather.",
         "publisher": {
           "@type": "Organization",
           "@id": "https://expectedend.co/#organization",
@@ -91,81 +89,7 @@
           "https://apps.apple.com/us/app/mybiblelens/id6764069602",
           "https://www.wikidata.org/wiki/Q141251174"
         ],
-        "featureList": "Infinite Canvas, Reflections journal (8 modes), Milestone (day-by-day Bible reading plans with a Reading Circle), Mosaic vision boards, Prayer Space, AI study guide, Fellowship sharing (friend-picker only), 10 GB included cloud storage for new accounts, optional 20 GB and 50 GB cloud storage plans, 12 themes, 3 typefaces, Cloud sync, Focus Timer",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Seeker (Free)",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Free starter tier. 15 shared AI guide queries every 5 hours, 2 Infinite Canvas boards, 1 Mosaic board, Bible Trivia, Milestone reading plans, Reflect notes, 10 GB cloud storage for new accounts, fellowship access."
-          },
-          {
-            "@type": "Offer",
-            "name": "Apostle",
-            "price": "14.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time purchase, lifetime access for 1 seat. Unlocks every feature."
-          },
-          {
-            "@type": "Offer",
-            "name": "Sanctuary",
-            "price": "29.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time purchase, lifetime access for 3 seats (household or small group)."
-          },
-          {
-            "@type": "Offer",
-            "name": "Kingdom",
-            "price": "59.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time purchase, lifetime access for 7 seats (whole fellowship)."
-          },
-          {
-            "@type": "Offer",
-            "name": "Founding",
-            "price": "99.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time purchase, lifetime access for 14 seats. Founding Member badge forever."
-          },
-          {
-            "@type": "Offer",
-            "name": "Cloud 20 Monthly",
-            "price": "1.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Auto-renewing monthly cloud storage subscription with a 20 GB total account limit. Cancel anytime."
-          },
-          {
-            "@type": "Offer",
-            "name": "Cloud 20 Annual",
-            "price": "19.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Auto-renewing annual cloud storage subscription with a 20 GB total account limit. Cancel anytime."
-          },
-          {
-            "@type": "Offer",
-            "name": "Cloud 50 Monthly",
-            "price": "3.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Auto-renewing monthly cloud storage subscription with a 50 GB total account limit. Cancel anytime."
-          },
-          {
-            "@type": "Offer",
-            "name": "Cloud 50 Annual",
-            "price": "39.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Auto-renewing annual cloud storage subscription with a 50 GB total account limit. Cancel anytime."
-          }
-        ]
+        "featureList": "Milestone Bible reading with a Scripture Seal for every chapter, Scripture Book, Scripture Canvas, Mosaic vision boards, Gather games and Bible trivia, Friends & Fellowship, Reflections, 16 themes, Focus Timer, reading reminders, cloud sync across iPhone and iPad"
       }
     </script>
 
@@ -2803,6 +2727,52 @@
         margin: 0 auto var(--space-6) auto;
         max-width: none;
       }
+      /* Rebuild notice: sits directly under the beta pill while the app is being rebuilt (Sept 2026) */
+      .repo-rebuild-pill {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.55rem;
+        width: fit-content;
+        max-width: calc(100% - 2rem);
+        margin: 0 auto var(--space-4) auto;
+        padding: 0.55rem 1.3rem;
+        border: 1.5px solid rgba(192, 57, 43, 0.6);
+        border-radius: 999px;
+        background: rgba(192, 57, 43, 0.1);
+        color: #b03325;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.8rem, 0.74rem + 0.4vw, 0.98rem);
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.3;
+        box-shadow: 0 10px 26px -16px rgba(192, 57, 43, 0.7);
+      }
+      .repo-rebuild-pill__dot {
+        flex: none;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: #c0392b;
+        box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55);
+        animation: repo-rebuild-pulse 1.8s ease-out infinite;
+      }
+      @keyframes repo-rebuild-pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55);
+        }
+        70%,
+        100% {
+          box-shadow: 0 0 0 0.6rem rgba(192, 57, 43, 0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .repo-rebuild-pill__dot {
+          animation: none;
+        }
+      }
       .repo-beta-pill {
         display: flex;
         justify-content: center;
@@ -4469,7 +4439,7 @@
       .repo-card:hover .repo-card__preview {
         border-color: rgba(212, 146, 31, 0.5);
       }
-      /* —— Infinite Canvas preview: dot grid + drawn lines —— */
+      /* —— Scripture Canvas preview: dot grid + drawn lines —— */
       .preview-canvas {
         position: absolute;
         inset: 0;
@@ -4693,7 +4663,6 @@
         </a>
         <nav class="floating-nav__links" aria-label="Jump to section">
           <a href="#repository" data-target="repository" data-i18n="nav.repository">The Repository</a>
-          <a href="#pricing" data-target="pricing" data-i18n="nav.pricing">Pricing</a>
           <a href="#faq" data-target="faq" data-i18n="nav.faq">FAQ</a>
           <a href="legal.html#about" data-i18n="nav.about">About</a>
         </nav>
@@ -4713,7 +4682,6 @@
       </div>
       <nav class="floating-nav__mobile" id="floating-nav-mobile" aria-label="Jump to section (mobile)" hidden>
         <a href="#repository" data-i18n="nav.repository">The Repository</a>
-        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <a
           href="legal.html#about"
@@ -4966,7 +4934,7 @@
               <path d="M3 9h18M3 15h18M9 3v18M15 3v18" />
             </svg>
           </span>
-          <span class="canvas-node__label">Infinite Canvas</span>
+          <span class="canvas-node__label">Scripture Canvas</span>
         </div>
         <div class="canvas-node" data-feature="mosaic" style="--nx: 84%; --ny: 76%; --node-delay: -8.4s">
           <span class="canvas-node__icon" aria-hidden="true">
@@ -4986,7 +4954,7 @@
               <rect x="9" y="4" width="12" height="14" rx="1.5" transform="rotate(8 15 11)" />
             </svg>
           </span>
-          <span class="canvas-node__label">Games</span>
+          <span class="canvas-node__label">Gather</span>
         </div>
         <div class="canvas-node" data-feature="sanctuary" style="--nx: 8%; --ny: 56%; --node-delay: -1.4s">
           <span class="canvas-node__icon" aria-hidden="true">
@@ -5099,6 +5067,12 @@
           <span data-i18n="repo.betaPill">Beta Testing Live on the App Store</span>
         </p>
 
+        <!-- Rebuild notice: red, directly under the beta pill -->
+        <p class="repo-rebuild-pill" role="status">
+          <span class="repo-rebuild-pill__dot" aria-hidden="true"></span>
+          <span data-i18n="repo.rebuildPill">Rebuilding &middot; Some things may not work right now</span>
+        </p>
+
         <!-- App Store / Google Play badges — moved ABOVE the section title -->
         <div class="repo-badges" aria-label="Download MyBibleLens">
           <a
@@ -5156,10 +5130,10 @@
       </div>
     </section>
 
-    <!-- Infinite Canvas — LEADS the feature flow (first slot) per Denzel 2026-06-24 -->
+    <!-- Scripture Canvas — LEADS the feature flow (first slot) per Denzel 2026-06-24 -->
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Infinite Canvas</span>
+      <span class="gold-divider__ornament">Scripture Canvas</span>
       <span class="gold-divider__line"></span>
 
       <img
@@ -5189,7 +5163,44 @@
         data-src="assets/stickers/3d-119-gold-coins.png"
         style="top: 5%; right: 0.5%; transform: rotate(7deg); background-image: url(&quot;assets/stickers/3d-119-gold-coins.png&quot;)"
       ></span>
-      <iframe src="mockups/canvas-spotlight.html?v=5" loading="lazy" title="Infinite Canvas" scrolling="no"></iframe>
+      <iframe src="mockups/canvas-spotlight.html?v=6" loading="lazy" title="Scripture Canvas" scrolling="no"></iframe>
+    </div>
+
+    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
+      <span class="gold-divider__line"></span>
+      <span class="gold-divider__ornament">Milestone</span>
+      <span class="gold-divider__line"></span>
+
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/ren-56-seraphim.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
+      />
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/ren-17-jerusalem-cross.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 50%; right: 1.5%; transform: translateY(-50%) rotate(9deg)"
+      />
+    </div>
+    <div class="flow-iframe-wrap" id="milestone-flow">
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/3d-104-open-bible.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 6%; right: 0.5%; transform: rotate(7deg)"
+      />
+      <iframe src="mockups/milestone-spotlight.html?v=6" loading="lazy" title="Milestone" scrolling="no"></iframe>
     </div>
 
     <!-- Gold divider between repository and Mosaic showcase -->
@@ -5220,11 +5231,6 @@
           background-image: url(&quot;assets/stickers/3d-07-lion.png&quot;);
         "
       ></span>
-    </div>
-
-    <!-- "Before we get started" — homepage customization band (under Infinite Canvas, above Supabase badge) -->
-    <div class="flow-iframe-wrap" id="customize-flow">
-      <iframe src="mockups/study-repo-card.html" loading="lazy" title="Customize your homepage" scrolling="no"></iframe>
     </div>
 
     <!-- Supabase security badge — sits under the Mosaic divider -->
@@ -5505,49 +5511,12 @@
           background-image: url(&quot;assets/stickers/3d-120-treasure-chest-open.png&quot;);
         "
       ></span>
-      <iframe src="mockups/reflections-spotlight.html" loading="lazy" title="Reflections" scrolling="no"></iframe>
+      <iframe src="mockups/reflections-spotlight.html?v=6" loading="lazy" title="Reflections" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Milestone</span>
-      <span class="gold-divider__line"></span>
-
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/ren-56-seraphim.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
-      />
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/ren-17-jerusalem-cross.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; right: 1.5%; transform: translateY(-50%) rotate(9deg)"
-      />
-    </div>
-    <div class="flow-iframe-wrap" id="milestone-flow">
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/3d-104-open-bible.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 6%; right: 0.5%; transform: rotate(7deg)"
-      />
-      <iframe src="mockups/milestone-spotlight.html" loading="lazy" title="Milestone" scrolling="no"></iframe>
-    </div>
-
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Fellowship</span>
+      <span class="gold-divider__ornament">Friends &amp; Fellowship</span>
       <span class="gold-divider__line"></span>
 
       <img
@@ -5579,12 +5548,12 @@
         aria-hidden="true"
         style="top: 6%; left: 0.5%; transform: rotate(8deg)"
       />
-      <iframe src="mockups/fellowship-spotlight.html" loading="lazy" title="Fellowship" scrolling="no"></iframe>
+      <iframe src="mockups/fellowship-spotlight.html?v=6" loading="lazy" title="Friends and Fellowship" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Games</span>
+      <span class="gold-divider__ornament">Gather</span>
       <span class="gold-divider__line"></span>
 
       <img
@@ -5619,7 +5588,7 @@
         data-src="assets/stickers/3d-125-jeweled-crown.png"
         style="top: 5%; left: 0.5%; transform: rotate(-6deg); background-image: url(&quot;assets/stickers/3d-125-jeweled-crown.png&quot;)"
       ></span
-      ><iframe src="mockups/games-spotlight.html" loading="lazy" title="Games" scrolling="no"></iframe>
+      ><iframe src="mockups/games-spotlight.html?v=6" loading="lazy" title="Gather" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
@@ -5655,7 +5624,7 @@
         alt=""
         aria-hidden="true"
         style="top: 76%; right: 0.5%; transform: rotate(7deg)"
-      /><iframe src="mockups/themes-spotlight.html" loading="lazy" title="Themes" scrolling="no"></iframe>
+      /><iframe src="mockups/themes-spotlight.html?v=6" loading="lazy" title="Themes" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
@@ -5692,39 +5661,7 @@
         aria-hidden="true"
         style="top: 6%; left: 0.5%; transform: rotate(6deg)"
       />
-      <iframe src="mockups/timer-spotlight.html" loading="lazy" title="Focus Timer" scrolling="no"></iframe>
-    </div>
-
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Parental Lock</span>
-      <span class="gold-divider__line"></span>
-
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/3d-10-bronze-serpent.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
-      />
-      <span
-        class="scatter-sticker sticker-sparkle"
-        role="button"
-        tabindex="0"
-        aria-label="Tap the sticker for a reward"
-        data-src="assets/stickers/pix-10-bronze-serpent.png"
-        style="
-          top: 50%;
-          right: 1.5%;
-          transform: translateY(-50%) rotate(9deg);
-          background-image: url(&quot;assets/stickers/pix-10-bronze-serpent.png&quot;);
-        "
-      ></span>
-    </div>
-    <div class="flow-iframe-wrap" id="parental-lock-flow">
-      <iframe src="mockups/parental-lock-spotlight.html" loading="lazy" title="Parental Lock" scrolling="no"></iframe>
+      <iframe src="mockups/timer-spotlight.html?v=6" loading="lazy" title="Focus Timer" scrolling="no"></iframe>
     </div>
 
     <script>
@@ -5905,963 +5842,6 @@
       </div>
     </section>
 
-    <!-- Gold divider between new sections and pricing -->
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">The Sanctuary</span>
-      <span class="gold-divider__line"></span>
-    </div>
-
-    <!-- ===== SECTION 6: PRICING (ONE-TIME, LIFETIME) ===== -->
-    <section class="pricing-section section-padding" id="pricing">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-i18n="pricing.title">Pay Once. Yours Forever.</h2>
-          <p class="section-subtitle" data-i18n="pricing.subtitle">
-            No app-feature subscription. One purchase unlocks every feature for life — for you and everyone you bring with you. Optional
-            cloud storage is the only monthly or annual subscription, and only if you outgrow your free space.
-          </p>
-          <p
-            style="
-              max-width: 640px;
-              margin: 1rem auto 0;
-              font-family: &quot;Inter&quot;, sans-serif;
-              font-size: 0.92rem;
-              color: rgba(245, 242, 237, 0.78);
-              line-height: 1.6;
-            "
-          >
-            Every paid tier unlocks the <strong>same features</strong>. The only difference is how many seats you get to share with your
-            fellowship, family, or small group.
-          </p>
-
-          <!-- Always-visible "What are seats?" explainer card -->
-          <div class="seats-explainer-card">
-            <div class="seats-explainer-card__head">
-              <span class="seats-explainer-card__icon" aria-hidden="true">🪑</span>
-              <p class="seats-explainer-card__title">What are seats?</p>
-            </div>
-            <p class="seats-explainer-card__body">
-              When you purchase a Tier, you're giving the gift of a seat to a number of people based on the tier you select — meaning that
-              user now holds that Tier, <strong>for life</strong>. Visit <em>'Subscription &amp; Manage Sanctuary'</em> in Settings.
-            </p>
-          </div>
-          <p class="launch-price-notice">
-            <strong>⏳ Launch pricing — Year 1 only.</strong> Prices double after our first anniversary. Lock in your seat now.
-          </p>
-        </div>
-        <div class="pricing-grid">
-          <!-- CARD 0: Seeker (Free) -->
-          <div class="pricing-card-wrapper">
-            <div class="pricing-card">
-              <div class="pricing-card-inner">
-                <div class="pricing-tier-name">Seeker</div>
-                <div>
-                  <div class="pricing-price">Free</div>
-                  <div class="pricing-price-sub">forever</div>
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.7);
-                    line-height: 1.5;
-                  "
-                >
-                  Your starting point. A generous taste of every feature.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li>15 shared AI guide queries every 5 hours</li>
-                  <li>2 Infinite Canvas boards</li>
-                  <li>1 Mosaic vision board to dream on</li>
-                  <li>Bible Trivia &mdash; free for everyone</li>
-                  <li>Milestone &mdash; day-by-day Bible reading plans</li>
-                  <li>Reflect notes &amp; guided reflections</li>
-                  <li>10 GB cloud storage included for new accounts</li>
-                  <li>Fellowship access</li>
-                  <li>Prayer Space &mdash; paid only</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Free in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 1: Apostle (one-time $14.99) -->
-          <div class="pricing-card-wrapper">
-            <div class="pricing-card">
-              <div class="pricing-card-inner">
-                <div class="pricing-tier-name">Apostle ✦</div>
-                <div>
-                  <div class="pricing-price">$14.99</div>
-                  <div class="pricing-price-sub">one-time · lifetime</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  1 seat
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.7);
-                    line-height: 1.5;
-                  "
-                >
-                  Unlock the full app for you. Forever.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li>60 shared AI guide queries every 5 hours</li>
-                  <li><strong>Infinite Canvas</strong> &mdash; unlimited boards, infinite zoom, live fellowship collab</li>
-                  <li><strong>Reflections</strong> &mdash; unlimited entries, 8 modes (Prayer, Wisdom, Gratitude, Calling&hellip;)</li>
-                  <li><strong>Milestone</strong> &mdash; plan the whole Bible with your Reading Circle</li>
-                  <li><strong>Mosaic</strong> vision boards with live fellowship collab</li>
-                  <li><strong>Fellowship sharing</strong> &mdash; friend-picker only, no public links</li>
-                  <li><strong>Cloud sync</strong> across iPhone &amp; iPad</li>
-                  <li><strong>12 themes</strong> + 3 typefaces</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 2: Sanctuary (one-time $29.99, 3 seats) -->
-          <div class="pricing-card-wrapper">
-            <div class="pricing-card">
-              <div class="pricing-card-inner">
-                <div class="pricing-tier-name">Sanctuary ✦✦</div>
-                <div>
-                  <div class="pricing-price">$29.99</div>
-                  <div class="pricing-price-sub">one-time · lifetime</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  3 seats
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.7);
-                    line-height: 1.5;
-                  "
-                >
-                  Bring your household or your small group. 3 seats total.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li><strong>Everything in Apostle</strong></li>
-                  <li>60 shared AI guide queries every 5 hours</li>
-                  <li><strong>Infinite Canvas</strong> &mdash; unlimited boards, infinite zoom, live collab</li>
-                  <li><strong>Reflections</strong> &mdash; unlimited entries, 8 modes</li>
-                  <li><strong>Mosaic</strong> vision boards with live fellowship collab</li>
-                  <li><strong>Fellowship sharing</strong> &mdash; friend-picker only</li>
-                  <li><strong>Cloud sync</strong> across iPhone &amp; iPad</li>
-                  <li><strong>12 themes</strong> + 3 typefaces</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 3: Kingdom (one-time $59.99, 7 seats) -->
-          <div class="pricing-card-wrapper">
-            <div class="pricing-card">
-              <div class="pricing-card-inner">
-                <div class="pricing-tier-name">Kingdom ✦✦✦</div>
-                <div>
-                  <div class="pricing-price">$59.99</div>
-                  <div class="pricing-price-sub">one-time · lifetime</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  7 seats
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.7);
-                    line-height: 1.5;
-                  "
-                >
-                  For the whole fellowship. 7 seats total.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li><strong>Everything in Sanctuary</strong></li>
-                  <li>60 shared AI guide queries every 5 hours</li>
-                  <li><strong>Infinite Canvas</strong> &mdash; unlimited boards, infinite zoom, live collab</li>
-                  <li><strong>Reflections</strong> &mdash; unlimited entries, 8 modes</li>
-                  <li><strong>Mosaic</strong> vision boards with live fellowship collab</li>
-                  <li><strong>Fellowship sharing</strong> &mdash; friend-picker only</li>
-                  <li><strong>Cloud sync</strong> across iPhone &amp; iPad</li>
-                  <li><strong>12 themes</strong> + 3 typefaces</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 4: Founding (one-time $99.99, 14 seats) -->
-          <div class="pricing-card-wrapper">
-            <div
-              class="pricing-card"
-              style="
-                background: linear-gradient(135deg, #1a1008 0%, #3d2b1f 100%);
-                border: 2px solid #b6751d;
-                box-shadow:
-                  0 0 0 1px rgba(212, 146, 31, 0.18),
-                  0 20px 60px -20px rgba(212, 146, 31, 0.25);
-              "
-            >
-              <div class="pricing-card-inner">
-                <div
-                  style="
-                    display: inline-block;
-                    align-self: flex-start;
-                    margin-bottom: 0.5rem;
-                    padding: 0.25rem 0.7rem;
-                    border-radius: 999px;
-                    background: rgba(212, 146, 31, 0.15);
-                    border: 1px solid rgba(212, 146, 31, 0.4);
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    text-transform: uppercase;
-                    color: #f0c850;
-                  "
-                >
-                  Founding Member
-                </div>
-                <div class="pricing-tier-name">Founding ✦✦✦✦</div>
-                <div>
-                  <div class="pricing-price">$99.99</div>
-                  <div class="pricing-price-sub">one-time · lifetime</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  14 seats
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.78);
-                    line-height: 1.5;
-                  "
-                >
-                  The biggest tier. 14 seats. Founding badge forever.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li><strong>Everything in Kingdom</strong></li>
-                  <li>60 shared AI guide queries every 5 hours</li>
-                  <li><strong>Infinite Canvas</strong> &mdash; unlimited boards, infinite zoom, live collab</li>
-                  <li><strong>Reflections</strong> &mdash; unlimited entries, 8 modes</li>
-                  <li><strong>Mosaic</strong> vision boards with live fellowship collab</li>
-                  <li><strong>Fellowship sharing</strong> &mdash; friend-picker only</li>
-                  <li><strong>Cloud sync</strong> across iPhone &amp; iPad</li>
-                  <li><strong>12 themes</strong> + 3 typefaces</li>
-                  <li>&starf; <strong>Founding Member badge</strong> &mdash; forever</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 5: Empire Pack — consumable, +30 seats + unlocks all features ($249.99) -->
-          <div class="pricing-card-wrapper">
-            <div class="pricing-card">
-              <div class="pricing-card-inner">
-                <div
-                  style="
-                    display: inline-block;
-                    align-self: flex-start;
-                    margin-bottom: 0.5rem;
-                    padding: 0.25rem 0.7rem;
-                    border-radius: 999px;
-                    background: rgba(212, 146, 31, 0.12);
-                    border: 1px solid rgba(212, 146, 31, 0.35);
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    text-transform: uppercase;
-                    color: #f0c850;
-                  "
-                >
-                  Seat Add-on
-                </div>
-                <div class="pricing-tier-name">Empire Pack</div>
-                <div>
-                  <div class="pricing-price">$249.99</div>
-                  <div class="pricing-price-sub">one-time · 30 seats</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  30 seats
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.78);
-                    line-height: 1.5;
-                  "
-                >
-                  Unlock every feature and add 30 seats — on any plan, even free. Stack as many as you need to invite the whole small group,
-                  family, or ministry team.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li>30 seats (stackable)</li>
-                  <li>~$8.33 per seat</li>
-                  <li>Unlocks all paid features — no tier required</li>
-                  <li>Seats inherit your full access</li>
-                  <li>No recurring charges</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 6: Empire Plus — consumable, +200 seats + unlocks all features ($999.99) -->
-          <div class="pricing-card-wrapper pricing-card-wrapper--wide">
-            <div
-              class="pricing-card pricing-card--wide"
-              style="
-                background: linear-gradient(135deg, #1a1008 0%, #3d2b1f 100%);
-                border: 2px solid #b6751d;
-                box-shadow:
-                  0 0 0 1px rgba(212, 146, 31, 0.18),
-                  0 20px 60px -20px rgba(212, 146, 31, 0.25);
-              "
-            >
-              <div class="pricing-card-inner pricing-card-inner--wide">
-                <div
-                  style="
-                    display: inline-block;
-                    align-self: flex-start;
-                    margin-bottom: 0.5rem;
-                    padding: 0.25rem 0.7rem;
-                    border-radius: 999px;
-                    background: rgba(240, 200, 80, 0.15);
-                    border: 1px solid rgba(240, 200, 80, 0.45);
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.7rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    text-transform: uppercase;
-                    color: #f0c850;
-                  "
-                >
-                  Best Bulk Value
-                </div>
-                <div class="pricing-tier-name">Empire Plus</div>
-                <div>
-                  <div class="pricing-price">$999.99</div>
-                  <div class="pricing-price-sub">one-time · 200 seats</div>
-                </div>
-                <div class="pricing-seat-pill">
-                  <span class="pricing-seat-pill__icon">🪑</span>
-                  200 seats
-                </div>
-                <div
-                  style="
-                    margin: 0.6rem 0 0.4rem 0;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.8rem;
-                    color: rgba(245, 242, 237, 0.78);
-                    line-height: 1.5;
-                  "
-                >
-                  For churches, schools, and growing ministries. Unlocks every feature + 200 seats — best per-seat value at $5.
-                </div>
-                <ul class="pricing-features" role="list">
-                  <li>200 seats (stackable)</li>
-                  <li>$5 per seat — 40% off Empire Pack</li>
-                  <li>Unlocks all paid features — no tier required</li>
-                  <li>Seats inherit your full access</li>
-                  <li>No recurring charges</li>
-                </ul>
-                <button class="pricing-expand-btn" aria-label="Show all features">
-                  <span class="expand-text">Show all ↓</span>
-                  <span class="collapse-text">Show less ↑</span>
-                </button>
-                <div
-                  class="pricing-app-note"
-                  style="
-                    width: 100%;
-                    padding: 0.85rem 1rem;
-                    border: 1px solid #b6741d;
-                    border-radius: 999px;
-                    text-align: center;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    color: #b6741d;
-                    background: rgba(182, 116, 29, 0.05);
-                    letter-spacing: 0.5px;
-                  "
-                >
-                  Buy once in the MyBibleLens™ app
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD 7: Custom Pricing — for ministries that need more than 200 seats -->
-          <div class="pricing-card-wrapper pricing-card-wrapper--wide">
-            <div class="pricing-card pricing-card--wide pricing-card--custom">
-              <div class="pricing-card-inner pricing-card-inner--wide pricing-card-inner--custom">
-                <div class="custom-pricing__copy">
-                  <span class="custom-pricing__eyebrow">Need more than 200 seats?</span>
-                  <h3 class="custom-pricing__title">Custom Pricing</h3>
-                  <p class="custom-pricing__body">
-                    For mega-churches, universities, denominations, and missions organizations. Tell us how many seats you need —
-                    we&rsquo;ll build it for you.
-                  </p>
-                </div>
-                <div class="custom-pricing__cta">
-                  <a href="mailto:hello@mybiblelens.us?subject=Custom%20Pricing%20Inquiry" class="custom-pricing__btn">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                      <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    Contact me
-                  </a>
-                  <span class="custom-pricing__hint">Replies within 24 hours</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== Cloud Storage (optional add-on) ===== -->
-        <style>
-          .cs-block {
-            --cs-text: #f5f2ed;
-            --cs-muted: rgba(245, 242, 237, 0.82);
-            --cs-faint: rgba(245, 242, 237, 0.66);
-            --cs-gold: #d4921f;
-            --cs-gold-deep: #b6751d;
-            --cs-line: rgba(212, 146, 31, 0.22);
-            max-width: 760px;
-            margin: 3.5rem auto 0;
-            border-radius: 28px;
-            padding: 26px;
-            background: linear-gradient(180deg, rgba(40, 25, 11, 0.97), rgba(22, 13, 6, 0.98));
-            border: 1px solid rgba(212, 146, 31, 0.18);
-            box-shadow:
-              0 22px 60px rgba(0, 0, 0, 0.35),
-              inset 0 1px 0 rgba(240, 200, 80, 0.08);
-            color: var(--cs-text);
-            font-family: "Inter", sans-serif;
-            box-sizing: border-box;
-          }
-          .cs-block * {
-            box-sizing: border-box;
-          }
-          .cs-topline {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: start;
-          }
-          .cs-eyebrow {
-            margin: 0;
-            font-size: 11px;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--cs-gold);
-            font-weight: 700;
-          }
-          .cs-title {
-            margin: 8px 0 0;
-            font-family: "Hammersmith One", sans-serif;
-            font-size: clamp(22px, 3.4vw, 30px);
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            color: var(--cs-text);
-          }
-          .cs-pill {
-            align-self: start;
-            border: 1px solid var(--cs-line);
-            background: rgba(212, 146, 31, 0.1);
-            color: var(--cs-gold);
-            border-radius: 999px;
-            padding: 9px 13px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            white-space: nowrap;
-          }
-          .cs-meter {
-            margin-top: 22px;
-            padding: 18px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 146, 31, 0.12);
-          }
-          .cs-meter-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            align-items: end;
-          }
-          .cs-meter-label {
-            margin: 0;
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--cs-faint);
-            font-weight: 700;
-          }
-          .cs-meter-value {
-            margin: 6px 0 0;
-            font-size: clamp(17px, 2.4vw, 22px);
-            font-weight: 800;
-          }
-          .cs-percent {
-            border-radius: 999px;
-            padding: 7px 11px;
-            background: rgba(212, 146, 31, 0.16);
-            color: var(--cs-gold);
-            font-size: 12px;
-            font-weight: 800;
-            white-space: nowrap;
-          }
-          .cs-bar {
-            margin-top: 14px;
-            height: 12px;
-            border-radius: 999px;
-            overflow: hidden;
-            background: rgba(245, 242, 237, 0.1);
-          }
-          .cs-fill {
-            height: 100%;
-            width: 82%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, #b6751d 0%, #d4921f 50%, #f0c850 100%);
-          }
-          .cs-help {
-            margin: 14px 0 0;
-            color: var(--cs-muted);
-            font-size: 13px;
-            line-height: 1.55;
-          }
-          .cs-estimate {
-            margin-top: 14px;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-          }
-          .cs-card {
-            border-radius: 18px;
-            border: 1px solid rgba(212, 146, 31, 0.12);
-            background: rgba(255, 255, 255, 0.03);
-            padding: 14px;
-          }
-          .cs-card .cs-card-label {
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--cs-faint);
-            font-weight: 800;
-          }
-          .cs-card .cs-card-value {
-            margin-top: 8px;
-            font-size: 18px;
-            font-weight: 900;
-            color: var(--cs-gold);
-          }
-          .cs-card .cs-card-sub {
-            margin-top: 3px;
-            font-size: 12px;
-            color: var(--cs-muted);
-          }
-          .cs-plan-row {
-            margin-top: 16px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-          }
-          .cs-plan {
-            flex: 1 1 150px;
-            border-radius: 18px;
-            border: 1px solid rgba(212, 146, 31, 0.16);
-            background: linear-gradient(180deg, rgba(212, 146, 31, 0.08), rgba(255, 255, 255, 0.02));
-            padding: 14px 16px;
-          }
-          .cs-plan strong {
-            display: block;
-            font-size: 15px;
-            margin-bottom: 6px;
-          }
-          .cs-seats {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            border-radius: 999px;
-            padding: 4px 9px;
-            background: rgba(212, 146, 31, 0.24);
-            color: #f0c850;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-          }
-          .cs-plan .cs-plan-meta {
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--cs-muted);
-          }
-          .cs-plan .cs-plan-price {
-            margin-top: 10px;
-            font-size: 18px;
-            font-weight: 900;
-            color: var(--cs-gold);
-          }
-          .cs-members {
-            margin-top: 16px;
-            padding: 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 146, 31, 0.12);
-            background: rgba(255, 255, 255, 0.03);
-          }
-          .cs-members-head {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            align-items: center;
-          }
-          .cs-members-title {
-            margin: 0;
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--cs-faint);
-            font-weight: 800;
-          }
-          .cs-members-count {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--cs-gold);
-          }
-          .cs-member-rows {
-            margin-top: 12px;
-            display: grid;
-            gap: 8px;
-          }
-          .cs-member-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            border-radius: 16px;
-            padding: 10px 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 146, 31, 0.1);
-          }
-          .cs-member-row strong {
-            display: block;
-            font-size: 14px;
-          }
-          .cs-member-row span {
-            display: block;
-            margin-top: 2px;
-            font-size: 11px;
-            color: var(--cs-muted);
-          }
-          .cs-member-role {
-            border-radius: 999px;
-            padding: 5px 9px;
-            background: rgba(61, 43, 31, 0.7);
-            border: 1px solid rgba(212, 146, 31, 0.28);
-            color: #f0dcc0;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            white-space: nowrap;
-          }
-          .cs-member-add {
-            margin-top: 10px;
-            display: flex;
-            gap: 8px;
-          }
-          .cs-member-input {
-            flex: 1;
-            border-radius: 14px;
-            border: 1px solid rgba(212, 146, 31, 0.16);
-            background: rgba(255, 255, 255, 0.04);
-            padding: 12px;
-            font: inherit;
-            font-size: 13px;
-            color: var(--cs-text);
-          }
-          .cs-member-button {
-            border: 0;
-            border-radius: 14px;
-            padding: 12px 16px;
-            background: linear-gradient(180deg, #d4921f, #b6751d);
-            color: #1a1008;
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            cursor: default;
-          }
-          .cs-footer-note {
-            margin: 16px 2px 0;
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--cs-faint);
-          }
-          @media (max-width: 680px) {
-            .cs-block {
-              padding: 18px;
-            }
-            .cs-topline,
-            .cs-meter-row {
-              flex-direction: column;
-              align-items: start;
-            }
-            .cs-estimate {
-              grid-template-columns: 1fr;
-            }
-          }
-        </style>
-        <section class="cs-block cloud-storage-section" aria-labelledby="cs-heading">
-          <div class="cs-topline">
-            <div>
-              <p class="cs-eyebrow">Cloud Storage · Flexible</p>
-              <h3 class="cs-title" id="cs-heading">
-                10 GB included free. Upgrade to 20 GB or 50 GB whenever your sanctuary needs more room.
-              </h3>
-            </div>
-            <div class="cs-pill">Private &amp; secure</div>
-          </div>
-
-          <div class="cs-meter" aria-label="Cloud storage meter preview">
-            <div class="cs-meter-row">
-              <div>
-                <p class="cs-meter-label">Cloud Storage</p>
-                <p class="cs-meter-value">8.2 GB used of 10 GB included</p>
-              </div>
-              <div class="cs-percent">82%</div>
-            </div>
-
-            <div class="cs-bar" aria-hidden="true">
-              <div class="cs-fill"></div>
-            </div>
-
-            <p class="cs-help">
-              Storage stays out of your way until you are close to full. Then MyBibleLens quietly offers more room with a monthly or annual
-              plan. Cancel anytime in your Apple account; your files remain yours.
-            </p>
-
-            <div class="cs-estimate">
-              <div class="cs-card">
-                <div class="cs-card-label">Below 85%</div>
-                <div class="cs-card-value">Invisible</div>
-                <div class="cs-card-sub">Storage stays quiet while you have plenty of room</div>
-              </div>
-              <div class="cs-card">
-                <div class="cs-card-label">Near your limit</div>
-                <div class="cs-card-value">One gentle card</div>
-                <div class="cs-card-sub">Choose 20 GB or 50 GB only when you need it</div>
-              </div>
-              <div class="cs-card">
-                <div class="cs-card-label">At the cap</div>
-                <div class="cs-card-value">Nothing deleted</div>
-                <div class="cs-card-sub">View, export, or delete files while uploads pause</div>
-              </div>
-            </div>
-
-            <div class="cs-plan-row">
-              <div class="cs-plan">
-                <strong>Seeker Free</strong>
-                <div class="cs-seats">Included</div>
-                <div class="cs-plan-meta">10 GB total for new accounts</div>
-                <div class="cs-plan-price">$0</div>
-              </div>
-              <div class="cs-plan">
-                <strong>Cloud 20</strong>
-                <div class="cs-seats">Monthly or annual</div>
-                <div class="cs-plan-meta">20 GB total for your whole sanctuary</div>
-                <div class="cs-plan-price">$1.99/month · $19.99/year</div>
-              </div>
-              <div class="cs-plan">
-                <strong>Cloud 50</strong>
-                <div class="cs-seats">Monthly or annual</div>
-                <div class="cs-plan-meta">50 GB total for your whole sanctuary</div>
-                <div class="cs-plan-price">$3.99/month · $39.99/year</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cs-footer-note">
-            Existing accounts keep their included 20 GB. Cancel anytime. Your files are never deleted automatically.
-          </div>
-        </section>
-
-        <p
-          style="
-            max-width: 560px;
-            margin: 2.5rem auto 0;
-            text-align: center;
-            font-family: &quot;Inter&quot;, sans-serif;
-            font-size: 0.82rem;
-            color: rgba(245, 242, 237, 0.55);
-            line-height: 1.6;
-          "
-        >
-          Core feature tiers and Empire seat packs remain one-time purchases. Cloud storage upgrades are the only auto-renewing plans and
-          are purchased in the iPhone app. Apple shows the final localized price before you subscribe.
-        </p>
-      </div>
-    </section>
-
     <!-- Gold divider between pricing and FAQ -->
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
@@ -6883,15 +5863,23 @@
             "name": "What is MyBibleLens?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MyBibleLens is the World's First Sanctuary App for Christianity — a digital sanctuary for Scripture rather than a daily-verse feed. It offers an Infinite Canvas for study notes with live fellowship, Mosaic vision boards, Reflections journaling, and Milestone Bible reading plans. Core feature tiers are one-time purchases with lifetime access. Optional cloud storage is available as a monthly or annual subscription."
+              "text": "MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading."
             }
           },
           {
             "@type": "Question",
-            "name": "Is MyBibleLens really a one-time purchase?",
+            "name": "How do Scripture Seals work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. You pay once for a feature tier and keep it for the lifetime of the app. Optional cloud storage is the only auto-renewing product, with 20 GB and 50 GB monthly or annual plans that you can cancel anytime."
+              "text": "Every one of the 1,189 chapters in the Bible has its own Scripture Seal. You earn it by reading the chapter and writing a short reflection. The more of yourself you put into a chapter, the brighter its seal finishes. Your seals are collected in your Scripture Book, and the more you read, the more of the rest of the app opens up."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I study with my church or small group?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Add people by their Kingdom ID, and share Scripture Canvas boards with the friends you have accepted, right inside the app. There are no public links and nothing is posted where strangers can find it."
             }
           }
         ]
@@ -6912,28 +5900,25 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                MyBibleLens is the World's First Sanctuary App for Christianity — a digital sanctuary for Scripture, not a daily-verse feed.
-                Map study notes on an Infinite Canvas with live fellowship, collage your life on Mosaic vision boards, and journal through
-                Reflections while Milestone paces your whole-Bible reading plan. Core feature tiers start at a one-time $14.99 purchase with
-                lifetime access. Optional cloud storage is available separately by month or year.
+                MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and
+                keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the
+                reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading.
               </p>
             </div>
           </details>
-
           <details class="faq-item">
             <summary>
-              <span class="faq-item__q">Is the main app <em>really</em> a one-time purchase?</span>
+              <span class="faq-item__q">How do Scripture Seals work?</span>
               <span class="faq-item__chevron" aria-hidden="true">+</span>
             </summary>
             <div class="faq-item__a">
               <p>
-                Yes — really. You pay once for a feature tier, and that tier is yours for the lifetime of the app. We will never convert
-                that tier into a subscription or paywall a feature you already own. Optional cloud storage is separate: new accounts receive
-                10 GB free, with 20 GB and 50 GB monthly or annual plans if you need more room.
+                Every one of the 1,189 chapters in the Bible has its own Scripture Seal. You earn it by reading the chapter and writing a
+                short reflection. The more of yourself you put into a chapter, the brighter its seal finishes. Your seals are collected in
+                your Scripture Book, and the more you read, the more of the rest of the app opens up.
               </p>
             </div>
           </details>
-
           <details class="faq-item">
             <summary>
               <span class="faq-item__q">What happens if I lose my phone or get a new one?</span>
@@ -6941,42 +5926,23 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Your purchase is tied to your Apple ID or Google account — not the device. Sign in on any new device, tap "Restore
-                Purchases" in Settings, and your full tier (and every seat you've shared) comes back instantly. Your reflections, mosaics,
-                canvas boards, and study cards live in Supabase cloud sync — you won't lose a single page.
+                Sign in on the new device and your reflections, boards and seals come back. They live in the cloud and sync across your
+                iPhone and iPad, so you won't lose a single page.
               </p>
             </div>
           </details>
-
           <details class="faq-item">
             <summary>
-              <span class="faq-item__q">Will my paid tier ever become a subscription or show ads?</span>
+              <span class="faq-item__q">Can I study with my church or small group?</span>
               <span class="faq-item__chevron" aria-hidden="true">+</span>
             </summary>
             <div class="faq-item__a">
               <p>
-                No. Your feature tier stays a one-time purchase, and we will not place ads in your sanctuary or introduce a recurring "Pro"
-                charge on top of it. Cloud storage is the one optional subscription because storing growing files has an ongoing cost. You
-                only choose it if you need more than your included space.
+                Yes. Add people by their Kingdom ID, and share Scripture Canvas boards with the friends you have accepted, right inside the
+                app. There are no public links and nothing is posted where strangers can find it.
               </p>
             </div>
           </details>
-
-          <details class="faq-item">
-            <summary>
-              <span class="faq-item__q">Can I share it with my church or small group?</span>
-              <span class="faq-item__chevron" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-item__a">
-              <p>
-                Yes — that's exactly what the seat tiers are for. Sanctuary (3 seats) covers a household or prayer trio. Kingdom (7 seats)
-                covers a small group. Founding (14 seats) covers a leadership team or extended fellowship. Everyone on a seat gets the full
-                paid experience — same features, same sharing, same realtime collaboration. You assign seats by email or Display ID inside
-                the app.
-              </p>
-            </div>
-          </details>
-
           <details class="faq-item">
             <summary>
               <span class="faq-item__q">Is this for a specific denomination?</span>
@@ -6986,13 +5952,11 @@
               <p>
                 MyBibleLens is built for anyone who reads the Bible. The AI is tuned to be reverent and scripturally grounded without
                 leaning into any one denomination's distinctives. You'll find believers from Catholic, Protestant, Orthodox, and
-                non-denominational backgrounds using it side by side. If a feature ever pushes a particular tradition, that's a bug — tell
-                us at
-                <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a>.
+                non-denominational backgrounds using it side by side. If a feature ever pushes a particular tradition, that's a bug. Tell us
+                at <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a>.
               </p>
             </div>
           </details>
-
           <details class="faq-item">
             <summary>
               <span class="faq-item__q">How is my data protected?</span>
@@ -7000,14 +5964,13 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Reflections, mosaics, and prayers are private by default — only you and the seats you've explicitly shared with can access
-                them. Supabase Row-Level Security enforces this at the database level. AI requests are routed through our edge gateway with
-                no third-party tracking, and we never sell or advertise against your spiritual content. Read the full
-                <a href="legal.html#privacy">Privacy Policy</a> and <a href="legal.html#ai-disclosure">AI Disclosure</a> for details.
+                Reflections and boards are private by default. Only you and the friends you have explicitly shared with can see them.
+                Supabase Row-Level Security enforces this at the database level, and we never sell or advertise against your spiritual
+                content. Read the full <a href="legal.html#privacy">Privacy Policy</a> and
+                <a href="legal.html#ai-disclosure">AI Disclosure</a> for details.
               </p>
             </div>
           </details>
-
           <details class="faq-item">
             <summary>
               <span class="faq-item__q">Where can I get the app?</span>
@@ -7015,13 +5978,11 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                MyBibleLens is live —
-                <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener"
-                  >download it now on the App Store</a
-                >
-                for iPhone and iPad. The Android version is in the works; follow
-                <a href="https://instagram.com/mybiblelens" target="_blank" rel="noopener">@mybiblelens on Instagram</a>
-                to be the first to know when it lands on Google Play.
+                MyBibleLens is on the
+                <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener">App Store</a> for iPhone and
+                iPad, and it is being rebuilt right now, so some things may not work while we finish. The Android version is in the works.
+                Follow <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a> to be
+                the first to know.
               </p>
             </div>
           </details>
@@ -7253,35 +6214,6 @@
           });
         }
       })();
-
-      /* ========== PRICING TOGGLE ========== */
-      document.querySelectorAll(".pricing-toggle").forEach(function (toggle) {
-        const cardInner = toggle.closest(".pricing-card-inner");
-        const priceEl = cardInner.querySelector(".pricing-price");
-        const subEl = cardInner.querySelector(".pricing-price-sub");
-
-        toggle.querySelectorAll(".pricing-toggle-btn").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            toggle.querySelectorAll(".pricing-toggle-btn").forEach(function (b) {
-              b.classList.remove("active");
-            });
-            btn.classList.add("active");
-            var period = btn.getAttribute("data-period");
-            priceEl.textContent = priceEl.getAttribute("data-" + period + "-price");
-            subEl.textContent = subEl.getAttribute("data-" + period + "-sub");
-          });
-        });
-      });
-
-      /* ========== PRICING EXPAND ========== */
-      document.querySelectorAll(".pricing-expand-btn").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var cardInner = btn.closest(".pricing-card-inner");
-          cardInner.classList.toggle("expanded");
-        });
-      });
-
-      /* ("What are seats?" card is always visible — no toggle JS needed) */
 
       /* ========== GSAP ANIMATIONS ========== */
       document.addEventListener("DOMContentLoaded", function () {
@@ -8577,7 +7509,7 @@
             "repo.betaPill": "Beta de prueba disponible en la App Store",
             "repo.title": "Tu repositorio de estudio",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
+              "Scripture Canvas. Mosaic. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
             "pricing.title": "Paga una vez. Tuyo para siempre.",
             "pricing.subtitle":
               "Sin suscripción para las funciones de la app. Una compra desbloquea todas las funciones de por vida. El almacenamiento opcional en la nube es la única suscripción mensual o anual.",
@@ -8595,7 +7527,7 @@
             "repo.betaPill": "Beta em testes disponível na App Store",
             "repo.title": "Seu repositório de estudo",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
+              "Scripture Canvas. Mosaic. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
             "pricing.title": "Pague uma vez. Seu para sempre.",
             "pricing.subtitle":
               "Sem assinatura para os recursos do app. Uma compra libera todos os recursos para sempre. O armazenamento em nuvem opcional é a única assinatura mensal ou anual.",
@@ -8613,7 +7545,7 @@
             "repo.betaPill": "Bêta en test disponible sur l'App Store",
             "repo.title": "Votre répertoire d'étude",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
+              "Scripture Canvas. Mosaic. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
             "pricing.title": "Payez une fois. À vous pour toujours.",
             "pricing.subtitle":
               "Aucun abonnement pour les fonctions de l’app. Un achat débloque toutes les fonctions à vie. Le stockage cloud facultatif est le seul abonnement mensuel ou annuel.",
@@ -8631,7 +7563,7 @@
             "repo.betaPill": "App Store에서 베타 테스트 진행 중",
             "repo.title": "나의 학습 저장소",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
+              "Scripture Canvas. Mosaic. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
             "pricing.title": "한 번 결제, 평생 소유.",
             "pricing.subtitle":
               "앱 기능은 구독이 아닙니다. 한 번 구매하면 모든 기능을 평생 이용할 수 있습니다. 선택형 클라우드 저장 공간만 월간 또는 연간 구독입니다.",
@@ -8649,7 +7581,7 @@
             "repo.betaPill": "App Store Beta 测试现已上线",
             "repo.title": "你的学习资源库",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
+              "Scripture Canvas. Mosaic. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
             "pricing.title": "一次付费，永久拥有。",
             "pricing.subtitle": "应用功能无需订阅。一次购买即可终身解锁全部功能。可选云存储是唯一按月或按年续订的服务。",
             "faq.title": "诚实的回答",
