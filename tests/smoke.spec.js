@@ -146,7 +146,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(eyebrow).toContainText("Sanctuary App for Christianity");
   });
 
-  test("spotlight flow renders all 10 feature iframes in order without nested scrolling", async ({
+  test("spotlight flow renders all 8 feature iframes in order without nested scrolling", async ({
     page,
   }) => {
     await page.goto("/");
@@ -161,17 +161,18 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     // (customize-flow) after Canvas, and swapped Mosaic ahead of Scripture Glow.
     // 2026-09-10: Scripture Glow, Sermon Builder, and The Orb left the app, so
     // their spotlight sections were removed from the site.
+    // 2026-09-20: rebuilt for the remodel. Milestone (the Bible study plan) now sits
+    // directly under Scripture Canvas; the Before-we-get-started band and Parental
+    // Lock are gone; Games became Gather.
     const order = [
       "canvas-flow",
-      "customize-flow",
+      "milestone-flow",
       "mosaic-flow",
       "reflections-flow",
-      "milestone-flow",
       "fellowship-flow",
       "games-flow",
       "themes-flow",
       "timer-flow",
-      "parental-lock-flow",
     ];
     const wraps = page.locator(".flow-iframe-wrap");
     await expect(wraps).toHaveCount(order.length);
@@ -218,21 +219,6 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     }
   });
 
-  test("Parental Lock explains how to hide Ask Lens for an AI-free experience", async ({
-    page,
-  }) => {
-    await page.goto("/mockups/parental-lock-spotlight.html");
-    await waitForPageReady(page);
-
-    await expect(page.locator(".pl-title")).toContainText("Remove AI Completely.");
-    await expect(page.locator(".pl-ai-control")).toContainText("Hide Ask Lens");
-    await expect(page.locator(".pl-ai-control")).toContainText("On");
-    await expect(page.locator(".pl-bullets")).toContainText(
-      "removes Ask Lens from Home and Lens from the Infinite Canvas toolbar"
-    );
-    await expect(page.locator(".pl-bullets")).toContainText("AI-free experience");
-  });
-
   test("Supabase security badge appears with the right link", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
@@ -260,10 +246,9 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator("#platforms")).toContainText("One sanctuary. iPhone and iPad.");
     await expect(page.locator("#platforms")).toContainText("Android is coming soon");
     await expect(page.locator("#platforms")).not.toContainText(/Now on Mac|Apple TV/);
-    await expect(page.locator(".pricing-section")).toContainText("Cloud sync across iPhone & iPad");
-    await expect(page.locator(".pricing-section")).not.toContainText(
-      "Cloud sync across iPhone, iPad & Android"
-    );
+    // The red rebuild notice sits directly under the beta pill (2026-09-20).
+    await expect(page.locator(".repo-rebuild-pill")).toContainText("Rebuilding");
+    await expect(page.locator(".repo-beta-pill + .repo-rebuild-pill")).toHaveCount(1);
   });
 
   test("Expected End LLC is the consistent operating entity", async ({ page }) => {
@@ -274,52 +259,39 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator("body")).not.toContainText("MyBibleLens LLC");
   });
 
-  test("pricing section shows all 5 tiers with correct prices", async ({ page }) => {
-    await page.goto("/#pricing");
-    await waitForPageReady(page);
-    // Filter by .pricing-tier-name (one per card) to avoid cards matching
-    // each other's feature-list references ("Everything in Apostle", etc.).
-    const cardFor = (tier) =>
-      page.locator(".pricing-card-wrapper").filter({
-        has: page.locator(".pricing-tier-name", { hasText: new RegExp(`^${tier}`) }),
-      });
-    await expect(cardFor("Seeker")).toContainText("Free");
-    await expect(cardFor("Apostle")).toContainText("$14.99");
-    await expect(cardFor("Sanctuary")).toContainText("$29.99");
-    await expect(cardFor("Kingdom")).toContainText("$59.99");
-    await expect(cardFor("Founding")).toContainText("$99.99");
-  });
-
-  test("core tiers stay lifetime while cloud storage shows the current subscriptions", async ({
+  test("the landing page shows no prices, pricing section, seats or cloud-storage plans", async ({
     page,
   }) => {
     await page.goto("/");
     await waitForPageReady(page);
     const body = (await page.locator("body").textContent()) ?? "";
 
-    await expect(page.locator(".pricing-section")).toContainText("Pay Once. Yours Forever.");
-    await expect(page.locator(".cloud-storage-section")).toContainText("10 GB included free");
-    await expect(page.locator(".cloud-storage-section")).toContainText("20 GB total");
-    await expect(page.locator(".cloud-storage-section")).toContainText("$1.99/month");
-    await expect(page.locator(".cloud-storage-section")).toContainText("$19.99/year");
-    await expect(page.locator(".cloud-storage-section")).toContainText("50 GB total");
-    await expect(page.locator(".cloud-storage-section")).toContainText("$3.99/month");
-    await expect(page.locator(".cloud-storage-section")).toContainText("$39.99/year");
-    await expect(page.locator(".cloud-storage-section")).toContainText(
-      "Existing accounts keep their included 20 GB"
-    );
-    await expect(page.locator(".cloud-storage-section")).toContainText(
-      "Your files are never deleted automatically"
-    );
+    await expect(page.locator("#pricing")).toHaveCount(0);
+    await expect(page.locator(".pricing-section")).toHaveCount(0);
+    await expect(page.locator(".cloud-storage-section")).toHaveCount(0);
+    await expect(page.locator(".floating-nav__links")).not.toContainText("Pricing");
+    expect(body, "no dollar amounts on the landing page").not.toMatch(/\$\s?\d/);
+    expect(body, "no seat language on the landing page").not.toMatch(/\bseats?\b/i);
+    expect(body, "no Pay Once pitch").not.toMatch(/Pay Once/i);
+    expect(body, "Infinite Canvas is now Scripture Canvas").not.toMatch(/Infinite Canvas/i);
+  });
 
-    // Old pricing model leftovers — guard against accidental rollback.
-    expect(body, "old $7.77 monthly Apostle price should be gone").not.toMatch(/\$7\.77/);
-    expect(body, "retired +10 GB storage pack should be gone").not.toMatch(/Storage Pack \+10 GB/i);
-    expect(body, "retired +50 GB storage pack should be gone").not.toMatch(/Storage Pack \+50 GB/i);
-    expect(body, "retired $12.99 storage price should be gone").not.toMatch(/\$12\.99/);
-    expect(body, "retired $49.99 storage price should be gone").not.toMatch(/\$49\.99/);
-    expect(body, "70,000-seat narrative is retired").not.toMatch(/70,000\s+seats/i);
-    expect(body, "Founding $144 price is retired").not.toMatch(/founding\s+member.*\$144/i);
+  test("structured data and share text carry no prices", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const meta = await page.evaluate(() => ({
+      description: document.querySelector('meta[name="description"]')?.content ?? "",
+      og: document.querySelector('meta[property="og:description"]')?.content ?? "",
+      ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(
+        (n) => n.textContent
+      ),
+    }));
+    expect(meta.description).not.toMatch(/\$|one-time|lifetime/i);
+    expect(meta.og).not.toMatch(/\$|one-time|lifetime/i);
+    for (const block of meta.ld) {
+      expect(() => JSON.parse(block), "JSON-LD must stay valid").not.toThrow();
+      expect(block).not.toMatch(/"price"|priceCurrency|"@type":\s*"Offer"/);
+    }
   });
 
   test("billing disclosure explains storage renewal, cancellation, and safe over-cap behavior", async ({
@@ -447,7 +419,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await page.goto("/#faq");
     await waitForPageReady(page);
     const items = page.locator(".faq-item");
-    await expect(items).toHaveCount(8);
+    await expect(items).toHaveCount(7);
     // Click the first one open and confirm the answer becomes visible
     const first = items.first();
     await first.locator("summary").click();
@@ -531,195 +503,106 @@ test.describe("MyBibleLens marketing site — smoke", () => {
   });
 });
 
-test.describe("Infinite Canvas — Living Sanctuary Board", () => {
-  test("preserves every capability inside four readable chapters", async ({ page }) => {
+test.describe("Scripture Canvas — live showcase", () => {
+  // 2026-09-20: the twelve screen recordings were replaced with live demos built
+  // from the app's own note engine, sticker art, layout data and landscapes.
+  test("has six chapters, no video, and the real counts", async ({ page }) => {
     await page.goto("/mockups/canvas-spotlight.html");
     await waitForPageReady(page);
 
-    await expect(page.locator(".sanctuary-stage")).toBeVisible();
-    await expect(page.locator(".feature-chapter")).toHaveCount(4);
-    await expect(page.locator("video")).toHaveCount(12);
-    await expect(page.locator("body")).toContainText("Gold Threads");
-    await expect(page.locator("body")).toContainText("1,000+ Stickers");
-    await expect(page.locator("body")).toContainText("50+ Sacred Templates");
-    await expect(page.locator("body")).toContainText("Lasso, Duplicate & Move Anywhere");
-    await expect(page.locator("body")).toContainText("30+ people at once");
+    await expect(page.locator("section.chapter")).toHaveCount(6);
+    await expect(page.locator("video")).toHaveCount(0);
+    await expect(page.locator(".stats")).toContainText("1,119");
+    await expect(page.locator(".stats")).toContainText("46");
+    await expect(page.locator(".stats")).toContainText("68");
+    await expect(page.locator("body")).toContainText("gold threads");
+    await expect(page.locator("body")).toContainText("Lasso, duplicate and");
+    await expect(page.locator("body")).not.toContainText(/Infinite Canvas|30\+|50\+/);
   });
 
-  test("shows every culture sticker video without cropping", async ({ page }) => {
+  test("the note answers typed words using the app's own engine", async ({ page }) => {
+    await page.goto("/mockups/canvas-spotlight.html");
+    await waitForPageReady(page);
+    const note = page.locator("#noteText");
+    const tag = page.locator("#noteTag");
+
+    await note.fill("Love");
+    await expect(tag).toContainText("Drawing: Love");
+    await expect(tag).toContainText("Colour family: Grace");
+    await note.fill("Sea");
+    await expect(tag).toContainText("Drawing: Sea");
+    await note.fill("Devil");
+    await expect(tag).toContainText("Colour family: Warfare");
+    await note.fill("hello there");
+    await expect(tag).toContainText("A plain note");
+  });
+
+  test("the sticker wall collects, switches collections and clears", async ({ page }) => {
     await page.goto("/mockups/canvas-spotlight.html");
     await waitForPageReady(page);
 
-    const videos = await page.locator(".chapter--culture video").evaluateAll((elements) =>
-      elements.map((video) => {
-        const style = getComputedStyle(video);
-        const bounds = video.getBoundingClientRect();
-        return {
-          aspectRatio: style.aspectRatio,
-          objectFit: style.objectFit,
-          renderedRatio: bounds.width / bounds.height,
-        };
-      })
+    await expect(page.locator("#stkTabs .tab")).toHaveCount(6);
+    await expect(page.locator("#tray button")).toHaveCount(26);
+    const before = await page.locator("#wall .stk").count();
+    await page.locator("#tray button").first().click();
+    await expect(page.locator("#wall .stk")).toHaveCount(before + 1);
+
+    await page.locator("#stkTabs .tab", { hasText: "Pixel" }).click();
+    await expect(page.locator("#tray button img").first()).toHaveAttribute(
+      "src",
+      /stickers\/pixel\//
     );
-
-    expect(videos).toHaveLength(6);
-    for (const video of videos) {
-      expect(video.objectFit).toBe("contain");
-      expect(video.aspectRatio).toBe("4 / 5");
-      expect(video.renderedRatio).toBeCloseTo(4 / 5, 1);
-    }
+    await page.locator("#stkClear").click();
+    await expect(page.locator("#wall .stk")).toHaveCount(0);
+    await expect(page.locator("#tones .tone")).toHaveCount(4);
   });
 
-  test("shows every sacred template video without cropping", async ({ page }) => {
+  test("the layout gallery lists all 46 layouts in two styles", async ({ page }) => {
     await page.goto("/mockups/canvas-spotlight.html");
     await waitForPageReady(page);
 
-    const chapter = page.locator(".chapter--templates");
-    const mainVideo = chapter.locator(".chapter-media video");
-    const galleryVideos = chapter.locator(".gallery video");
-
-    await expect(mainVideo).toHaveCSS("object-fit", "contain");
-    await expect(mainVideo).toHaveCSS("aspect-ratio", "4 / 5");
-    await expect(galleryVideos).toHaveCount(2);
-    for (const video of await galleryVideos.all()) {
-      await expect(video).toHaveCSS("object-fit", "contain");
-      await expect(video).toHaveCSS("aspect-ratio", "1 / 1");
-    }
+    await expect(page.locator(".lay-card")).toHaveCount(46);
+    await page.locator("#layTabs .tab", { hasText: "Prayer" }).click();
+    await expect(page.locator(".lay-card")).toHaveCount(5);
+    await page.locator("#segCards").click();
+    await expect(page.locator("#segCards")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("#layStage svg rect[rx='14']").first()).toBeAttached();
   });
 
-  test("runs each reveal once and does not restart it after re-entry", async ({ page }) => {
-    await page.goto("/mockups/canvas-spotlight.html");
-
-    const hero = page.locator(".sanctuary-stage");
-    const chapter = page.locator(".feature-chapter").first();
-    await expect(hero).toHaveClass(/is-revealed/);
-    await expect(page.locator(".stage-halo")).toHaveCSS("animation-name", "halo-breathe");
-    expect(
-      await page
-        .locator(".feature-chapter")
-        .evaluateAll((chapters) => chapters.map((item) => item.getAttribute("data-reveal")))
-    ).toEqual(["pop", "flip", "spin", "flip"]);
-    const entrance = await page.evaluate(() => {
-      const probe = document.createElement("div");
-      probe.className = "motion-reveal";
-      probe.dataset.reveal = "spin";
-      document.body.appendChild(probe);
-      const style = getComputedStyle(probe);
-      const values = {
-        opacity: style.opacity,
-        transform: style.transform,
-        transitionDuration: style.transitionDuration,
-      };
-      probe.remove();
-      return values;
-    });
-    expect(entrance.opacity).toBe("0");
-    expect(entrance.transform).not.toBe("none");
-    expect(entrance.transitionDuration).not.toBe("0s");
-
-    await chapter.scrollIntoViewIfNeeded();
-    await expect(chapter).toHaveClass(/is-revealed/);
-    await expect(chapter).toHaveAttribute("data-reveal-count", "1");
-
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-    await chapter.scrollIntoViewIfNeeded();
-    await expect(chapter).toHaveAttribute("data-reveal-count", "1");
-  });
-
-  test("reduced motion exposes a static final state and pauses every video", async ({ page }) => {
+  test("the landscape compare slider answers the keyboard", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/mockups/canvas-spotlight.html");
+    await waitForPageReady(page);
 
-    await expect(page.locator("html")).toHaveAttribute("data-motion", "reduced");
-    const states = await page.locator(".motion-reveal").evaluateAll((elements) =>
-      elements.map((element) => {
-        const style = getComputedStyle(element);
-        return {
-          opacity: style.opacity,
-          transform: style.transform,
-          animationDuration: style.animationDuration,
-          transitionDuration: style.transitionDuration,
-        };
-      })
-    );
-    for (const state of states) {
-      expect(state.opacity).toBe("1");
-      expect(state.transform).toBe("none");
-      expect(state.animationDuration).toBe("0s");
-      expect(state.transitionDuration).toBe("0s");
-    }
-    expect(await page.locator("video").evaluateAll((videos) => videos.every((v) => v.paused))).toBe(
-      true
-    );
+    const stage = page.locator("#landStage");
+    await stage.focus();
+    const cut = () =>
+      stage.evaluate((el) => parseFloat(getComputedStyle(el).getPropertyValue("--cut")));
+    const start = await cut();
+    await page.keyboard.press("ArrowRight");
+    expect(await cut()).toBeGreaterThan(start);
+    await page.locator("[data-cmp='3d']").click();
+    await expect(page.locator("#tagR")).toHaveText("3D");
   });
 
-  test("reveals the complete static experience when IntersectionObserver is unavailable", async ({
-    page,
-  }) => {
-    await page.addInitScript(() => {
-      Object.defineProperty(window, "IntersectionObserver", {
-        value: undefined,
-        configurable: true,
-      });
-    });
-    const getErrors = attachConsoleErrorWatch(page);
+  test("reduced motion shows the finished lasso state and drawn threads", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/mockups/canvas-spotlight.html");
+    await waitForPageReady(page);
 
-    await expect(page.locator("html")).toHaveAttribute("data-motion", "fallback");
-    await expect(page.locator(".motion-reveal:not(.is-revealed)")).toHaveCount(0);
-    expect(getErrors(), "observer fallback must not log errors").toHaveLength(0);
+    await expect(page.locator("#move")).toHaveAttribute("data-stage", "4");
+    await expect(page.locator("#threads")).toHaveClass(/is-live/);
   });
 
-  test("stays inside a 375px viewport and removes pointer-only depth", async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 812 });
-    await page.goto("/mockups/canvas-spotlight.html");
-
-    const width = await page.evaluate(() => ({
-      client: document.documentElement.clientWidth,
-      scroll: document.documentElement.scrollWidth,
-    }));
-    expect(width.scroll).toBeLessThanOrEqual(width.client);
-
-    for (const selector of [".sanctuary-stage", ".feature-chapter", ".media-frame"]) {
-      const boxes = await page.locator(selector).evaluateAll((elements) =>
-        elements.map((element) => {
-          const rect = element.getBoundingClientRect();
-          return { left: rect.left, right: rect.right };
-        })
-      );
-      for (const box of boxes) {
-        expect(box.left).toBeGreaterThanOrEqual(0);
-        expect(box.right).toBeLessThanOrEqual(375);
-      }
-    }
-    await expect(page.locator("html")).toHaveAttribute("data-pointer-depth", "off");
-  });
-
-  test("hands the closing action to the parent download section", async ({ page }) => {
-    await page.goto("/mockups/canvas-spotlight.html");
-    const cta = page.locator(".cta");
-    await expect(cta).toHaveAttribute("href", "../index.html#download");
-    await expect(cta).toHaveAttribute("target", "_parent");
-  });
-
-  test("pauses spotlight media after it leaves the viewport", async ({ page }) => {
-    await page.goto("/mockups/canvas-spotlight.html");
-    const heroVideo = page.locator(".stage-board video");
-    await heroVideo.evaluate((video) => video.scrollIntoView({ block: "center" }));
-    await expect.poll(() => heroVideo.evaluate((video) => video.paused)).toBe(false);
-
-    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-    await expect.poll(() => heroVideo.evaluate((video) => video.paused)).toBe(true);
-  });
-
-  test("loads the versioned spotlight and completes the parent-page handoff", async ({ page }) => {
+  test("loads inside the parent page without console errors", async ({ page }) => {
+    const errors = [];
+    page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
     await page.goto("/");
     await waitForPageReady(page);
+
     const frame = page.locator("#canvas-flow iframe");
-    await expect(frame).toHaveAttribute("src", "mockups/canvas-spotlight.html?v=5");
-    await frame.contentFrame().locator(".cta").click();
-    await expect(page).toHaveURL(/index\.html#download$/);
-    await expect(page.locator("#download")).toBeInViewport();
+    await expect(frame).toHaveAttribute("src", /canvas-spotlight\.html\?v=6/);
+    await expect(page.frameLocator("#canvas-flow iframe").locator("#threads")).toBeAttached();
+    expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });
 });

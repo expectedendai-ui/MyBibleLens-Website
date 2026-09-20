@@ -4,109 +4,548 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gather · MyBibleLens</title>
-    <meta name="description" content="Gather: 125 group games and Bible trivia that get a room talking about scripture, unlocked by the chapters you read." />
+    <meta
+      name="description"
+      content="Gather: 125 group games and Bible trivia that get a room talking about scripture, unlocked by the chapters you read."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/spot.css" />
     <style>
-      .hero { padding: 54px 0 22px; text-align: center; }
-      .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); margin: 12px 0 14px; }
-      .hero p.lead { max-width: 660px; margin: 0 auto; color: var(--brown-soft); font-size: clamp(1rem, 2vw, 1.2rem); }
-      .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 0; }
-      .stat { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-weight: 700; font-size: .95rem; box-shadow: 0 8px 22px -14px rgba(61,43,31,.5); }
-      .stat b { font-family: var(--font-display); font-weight: 400; color: var(--gold); font-size: 1.1rem; margin-right: 6px; }
-      .med { display: block; width: 100%; height: 100%; filter: drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
+      .hero {
+        padding: 54px 0 22px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 7vw, 5rem);
+        margin: 12px 0 14px;
+      }
+      .hero p.lead {
+        max-width: 660px;
+        margin: 0 auto;
+        color: var(--brown-soft);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 26px 0 0;
+      }
+      .stat {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 18px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        box-shadow: 0 8px 22px -14px rgba(61, 43, 31, 0.5);
+      }
+      .stat b {
+        font-family: var(--font-display);
+        font-weight: 400;
+        color: var(--gold);
+        font-size: 1.1rem;
+        margin-right: 6px;
+      }
+      .med {
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+      }
 
       /* ---- doors ---- */
-      .doors { padding: 26px; }
-      .seals-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px; padding: 4px 4px 22px; }
-      .seals-ctl .num { font-family: var(--font-display); font-size: 3rem; line-height: 1; color: var(--gold-light); min-width: 3.4ch; }
-      .seals-ctl .lab { color: #dcc8a3; font-weight: 600; }
-      .seals-ctl input { flex: 1 1 240px; }
-      input[type=range] { width: 100%; accent-color: #f0c850; height: 34px; cursor: pointer; }
-      .door-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
-      .door { position: relative; border-radius: 22px; padding: 22px 16px 18px; text-align: center; background: linear-gradient(160deg, rgba(58,40,24,.9), rgba(30,17,8,.9));
-        box-shadow: inset 0 0 0 1px rgba(240,200,80,.2), 0 20px 30px -22px #000; transition: transform .35s var(--spring), box-shadow .35s, filter .35s; }
-      .door .disc { width: 84px; height: 84px; margin: 0 auto 10px; transition: transform .5s var(--spring), filter .5s; }
-      .door h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; margin: 0 0 4px; }
-      .door p { color: #cdb892; font-size: .8rem; margin: 0; min-height: 3.6em; }
-      .door .need { display: inline-block; margin-top: 10px; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(240,200,80,.35); color: #ffe9a8; }
-      .door.locked { filter: saturate(.15) brightness(.7); }
-      .door.locked .disc { transform: scale(.92); }
-      .door.locked .need { color: #cdb892; border-color: rgba(255,255,255,.2); }
-      .door.open { box-shadow: inset 0 0 0 1.5px rgba(240,200,80,.6), 0 0 40px -6px rgba(240,200,80,.5), 0 20px 30px -22px #000; transform: translateY(-3px); }
-      .door.open .disc { animation: unlock .7s var(--spring); }
-      @keyframes unlock { 0% { transform: scale(.6) rotate(-14deg); } 100% { transform: none; } }
-      .door .lock { position: absolute; top: 12px; right: 14px; font-size: 1rem; }
+      .doors {
+        padding: 26px;
+      }
+      .seals-ctl {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px 26px;
+        padding: 4px 4px 22px;
+      }
+      .seals-ctl .num {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        line-height: 1;
+        color: var(--gold-light);
+        min-width: 3.4ch;
+      }
+      .seals-ctl .lab {
+        color: #dcc8a3;
+        font-weight: 600;
+      }
+      .seals-ctl input {
+        flex: 1 1 240px;
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: #f0c850;
+        height: 34px;
+        cursor: pointer;
+      }
+      .door-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 14px;
+      }
+      .door {
+        position: relative;
+        border-radius: 22px;
+        padding: 22px 16px 18px;
+        text-align: center;
+        background: linear-gradient(160deg, rgba(58, 40, 24, 0.9), rgba(30, 17, 8, 0.9));
+        box-shadow:
+          inset 0 0 0 1px rgba(240, 200, 80, 0.2),
+          0 20px 30px -22px #000;
+        transition:
+          transform 0.35s var(--spring),
+          box-shadow 0.35s,
+          filter 0.35s;
+      }
+      .door .disc {
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 10px;
+        transition:
+          transform 0.5s var(--spring),
+          filter 0.5s;
+      }
+      .door h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 1.15rem;
+        margin: 0 0 4px;
+      }
+      .door p {
+        color: #cdb892;
+        font-size: 0.8rem;
+        margin: 0;
+        min-height: 3.6em;
+      }
+      .door .need {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(240, 200, 80, 0.35);
+        color: #ffe9a8;
+      }
+      .door.locked {
+        filter: saturate(0.15) brightness(0.7);
+      }
+      .door.locked .disc {
+        transform: scale(0.92);
+      }
+      .door.locked .need {
+        color: #cdb892;
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .door.open {
+        box-shadow:
+          inset 0 0 0 1.5px rgba(240, 200, 80, 0.6),
+          0 0 40px -6px rgba(240, 200, 80, 0.5),
+          0 20px 30px -22px #000;
+        transform: translateY(-3px);
+      }
+      .door.open .disc {
+        animation: unlock 0.7s var(--spring);
+      }
+      @keyframes unlock {
+        0% {
+          transform: scale(0.6) rotate(-14deg);
+        }
+        100% {
+          transform: none;
+        }
+      }
+      .door .lock {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        font-size: 1rem;
+      }
 
       /* ---- draw a game ---- */
-      .draw { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 30px; padding: 28px; align-items: center; }
-      @media (max-width: 820px) { .draw { grid-template-columns: 1fr; padding: 20px; } }
-      .draw h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 10px; }
-      .draw p { color: #dcc8a3; }
-      .draw .tabs { margin: 16px 0; }
-      .deck { perspective: 1400px; min-height: 380px; display: grid; }
-      .flip { position: relative; transform-style: preserve-3d; transition: transform .8s var(--ease); min-height: 380px; }
-      .flip.turned { transform: rotateY(180deg); }
-      .face { position: absolute; inset: 0; border-radius: 26px; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 26px; overflow: hidden; }
-      .face.back { display: grid; place-items: center; text-align: center; background: radial-gradient(circle at 50% 40%, #6a4626, #2a170a 70%); box-shadow: inset 0 0 0 1.5px rgba(240,200,80,.5), 0 30px 44px -26px #000; }
-      .face.back .med { width: 96px; height: 96px; margin: 0 auto 10px; }
-      .face.back span { color: #f6dc8c; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; font-size: .8rem; }
-      .face.front { transform: rotateY(180deg); color: #3d2b1f; background: linear-gradient(165deg, #fff8ea, #efdfc0); box-shadow: inset 0 0 0 1px #dcc39a, 0 30px 44px -26px #000; display: grid; align-content: start; gap: 10px; }
-      .face.front .cat { display: flex; align-items: center; gap: 10px; font-size: .7rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #8a6d4c; }
-      .face.front .cat .med { width: 34px; height: 34px; flex: none; }
-      .face.front h4 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.3rem, 3vw, 1.75rem); line-height: 1.08; margin: 0; }
-      .face.front .sub { font-weight: 700; color: var(--gold-deep); font-size: .92rem; }
-      .face.front .hook { font-style: italic; color: #5a4432; }
-      .face.front ul { margin: 4px 0 0; padding-left: 1.1em; font-size: .86rem; color: #4a382a; display: grid; gap: 4px; }
-      .metas { display: flex; flex-wrap: wrap; gap: 6px; }
-      .metas i { font-style: normal; font-size: .7rem; font-weight: 800; padding: 4px 9px; border-radius: 999px; background: rgba(182,117,29,.14); color: #7a4f12; }
+      .draw {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+        gap: 30px;
+        padding: 28px;
+        align-items: center;
+      }
+      @media (max-width: 820px) {
+        .draw {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+      }
+      .draw h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin: 0 0 10px;
+      }
+      .draw p {
+        color: #dcc8a3;
+      }
+      .draw .tabs {
+        margin: 16px 0;
+      }
+      .deck {
+        perspective: 1400px;
+        min-height: 380px;
+        display: grid;
+      }
+      .flip {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s var(--ease);
+        min-height: 380px;
+      }
+      .flip.turned {
+        transform: rotateY(180deg);
+      }
+      .face {
+        position: absolute;
+        inset: 0;
+        border-radius: 26px;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        padding: 26px;
+        overflow: hidden;
+      }
+      .face.back {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: radial-gradient(circle at 50% 40%, #6a4626, #2a170a 70%);
+        box-shadow:
+          inset 0 0 0 1.5px rgba(240, 200, 80, 0.5),
+          0 30px 44px -26px #000;
+      }
+      .face.back .med {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 10px;
+      }
+      .face.back span {
+        color: #f6dc8c;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+      .face.front {
+        transform: rotateY(180deg);
+        color: #3d2b1f;
+        background: linear-gradient(165deg, #fff8ea, #efdfc0);
+        box-shadow:
+          inset 0 0 0 1px #dcc39a,
+          0 30px 44px -26px #000;
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+      .face.front .cat {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8a6d4c;
+      }
+      .face.front .cat .med {
+        width: 34px;
+        height: 34px;
+        flex: none;
+      }
+      .face.front h4 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.3rem, 3vw, 1.75rem);
+        line-height: 1.08;
+        margin: 0;
+      }
+      .face.front .sub {
+        font-weight: 700;
+        color: var(--gold-deep);
+        font-size: 0.92rem;
+      }
+      .face.front .hook {
+        font-style: italic;
+        color: #5a4432;
+      }
+      .face.front ul {
+        margin: 4px 0 0;
+        padding-left: 1.1em;
+        font-size: 0.86rem;
+        color: #4a382a;
+        display: grid;
+        gap: 4px;
+      }
+      .metas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .metas i {
+        font-style: normal;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(182, 117, 29, 0.14);
+        color: #7a4f12;
+      }
 
       /* ---- trivia ---- */
-      .triv { padding: 26px; }
-      .triv-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: center; margin-bottom: 16px; }
-      .triv-top h3 { font-family: var(--font-display); font-weight: 400; margin: 0; font-size: 1.5rem; }
-      .hud { display: flex; gap: 10px; flex-wrap: wrap; }
-      .hud span { font-size: .8rem; font-weight: 800; padding: 6px 13px; border-radius: 999px; background: rgba(0,0,0,.35); border: 1px solid rgba(240,200,80,.3); }
-      .hud b { color: var(--gold-light); font-family: var(--font-display); font-weight: 400; }
-      .qcard { position: relative; border-radius: 26px; padding: 28px; min-height: 360px; background: linear-gradient(165deg, #fff8ea, #efdfc0); color: #3d2b1f; box-shadow: 0 30px 44px -26px #000, inset 0 0 0 1px #dcc39a; overflow: hidden; }
-      .timer { height: 8px; border-radius: 999px; background: rgba(61,43,31,.14); overflow: hidden; margin-bottom: 20px; }
-      .timer i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #f0c850, #b6751d); transform-origin: left; }
-      .timer i.run { transition: width 15s linear; width: 0; }
-      .timer i.low { background: linear-gradient(90deg, #d8483a, #b03325); }
-      .q { font-family: var(--font-display); font-size: clamp(1.3rem, 3.2vw, 1.9rem); line-height: 1.15; margin: 0 0 20px; }
-      .ans { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-      @media (max-width: 640px) { .ans { grid-template-columns: 1fr; } }
-      .ans button { text-align: left; padding: 14px 16px; border-radius: 16px; border: 1.5px solid rgba(154,98,24,.35); background: #fff; color: #3d2b1f; font-weight: 700; font-size: 1rem;
-        transition: transform .2s var(--spring), background .25s, border-color .25s; }
-      .ans button:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--gold); }
-      .ans button.right { background: linear-gradient(145deg, #ffe9a8, #f0c168); border-color: #b6751d; }
-      .ans button.wrong { background: #f6d2cc; border-color: #b03325; animation: shake .4s; }
-      .ans button:disabled { cursor: default; }
-      @keyframes shake { 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
-      .why { margin-top: 16px; padding: 14px 16px; border-radius: 16px; background: rgba(182,117,29,.12); font-size: .92rem; display: none; }
-      .why.show { display: block; animation: rise .4s var(--ease); }
-      .why b { color: var(--gold-deep); }
-      @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
-      .qfoot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; min-height: 44px; }
-      .qfoot .ref { font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #8a6d4c; }
-      .startpane, .endpane { display: grid; place-items: center; text-align: center; gap: 12px; min-height: 340px; }
-      .startpane h4, .endpane h4 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0; }
-      .levels { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 6px; }
-      .levels button { padding: 13px 22px; border-radius: 999px; border: 0; font-weight: 800; color: #33210f; background: linear-gradient(145deg, #f0c850, #b6751d); box-shadow: 0 10px 20px -10px rgba(0,0,0,.6); transition: transform .25s var(--spring); }
-      .levels button:hover { transform: translateY(-3px) scale(1.05); }
-      .big { font-family: var(--font-display); font-size: clamp(3rem, 9vw, 5rem); color: var(--gold); line-height: 1; }
-      .confetti { position: absolute; width: 9px; height: 9px; border-radius: 50%; pointer-events: none; z-index: 20; animation: burst 1s ease-out forwards; }
-      @keyframes burst { 0% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(.3); } }
-      .streak { color: #ffb347; }
+      .triv {
+        padding: 26px;
+      }
+      .triv-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .triv-top h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      .hud {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .hud span {
+        font-size: 0.8rem;
+        font-weight: 800;
+        padding: 6px 13px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(240, 200, 80, 0.3);
+      }
+      .hud b {
+        color: var(--gold-light);
+        font-family: var(--font-display);
+        font-weight: 400;
+      }
+      .qcard {
+        position: relative;
+        border-radius: 26px;
+        padding: 28px;
+        min-height: 360px;
+        background: linear-gradient(165deg, #fff8ea, #efdfc0);
+        color: #3d2b1f;
+        box-shadow:
+          0 30px 44px -26px #000,
+          inset 0 0 0 1px #dcc39a;
+        overflow: hidden;
+      }
+      .timer {
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(61, 43, 31, 0.14);
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .timer i {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, #f0c850, #b6751d);
+        transform-origin: left;
+      }
+      .timer i.run {
+        transition: width 15s linear;
+        width: 0;
+      }
+      .timer i.low {
+        background: linear-gradient(90deg, #d8483a, #b03325);
+      }
+      .q {
+        font-family: var(--font-display);
+        font-size: clamp(1.3rem, 3.2vw, 1.9rem);
+        line-height: 1.15;
+        margin: 0 0 20px;
+      }
+      .ans {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      @media (max-width: 640px) {
+        .ans {
+          grid-template-columns: 1fr;
+        }
+      }
+      .ans button {
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1.5px solid rgba(154, 98, 24, 0.35);
+        background: #fff;
+        color: #3d2b1f;
+        font-weight: 700;
+        font-size: 1rem;
+        transition:
+          transform 0.2s var(--spring),
+          background 0.25s,
+          border-color 0.25s;
+      }
+      .ans button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        border-color: var(--gold);
+      }
+      .ans button.right {
+        background: linear-gradient(145deg, #ffe9a8, #f0c168);
+        border-color: #b6751d;
+      }
+      .ans button.wrong {
+        background: #f6d2cc;
+        border-color: #b03325;
+        animation: shake 0.4s;
+      }
+      .ans button:disabled {
+        cursor: default;
+      }
+      @keyframes shake {
+        20% {
+          transform: translateX(-6px);
+        }
+        40% {
+          transform: translateX(6px);
+        }
+        60% {
+          transform: translateX(-4px);
+        }
+        80% {
+          transform: translateX(4px);
+        }
+      }
+      .why {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(182, 117, 29, 0.12);
+        font-size: 0.92rem;
+        display: none;
+      }
+      .why.show {
+        display: block;
+        animation: rise 0.4s var(--ease);
+      }
+      .why b {
+        color: var(--gold-deep);
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+      }
+      .qfoot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        min-height: 44px;
+      }
+      .qfoot .ref {
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #8a6d4c;
+      }
+      .startpane,
+      .endpane {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        gap: 12px;
+        min-height: 340px;
+      }
+      .startpane h4,
+      .endpane h4 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin: 0;
+      }
+      .levels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 6px;
+      }
+      .levels button {
+        padding: 13px 22px;
+        border-radius: 999px;
+        border: 0;
+        font-weight: 800;
+        color: #33210f;
+        background: linear-gradient(145deg, #f0c850, #b6751d);
+        box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.6);
+        transition: transform 0.25s var(--spring);
+      }
+      .levels button:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
+      .big {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 9vw, 5rem);
+        color: var(--gold);
+        line-height: 1;
+      }
+      .confetti {
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 20;
+        animation: burst 1s ease-out forwards;
+      }
+      @keyframes burst {
+        0% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--x), var(--y)) scale(0.3);
+        }
+      }
+      .streak {
+        color: #ffb347;
+      }
     </style>
   </head>
   <body>
     <header class="hero wrap">
       <div class="eyebrow">MyBibleLens · Gather</div>
       <h1 class="display">Read <span class="gold">together.</span></h1>
-      <p class="lead">Games and trivia that get a room talking about scripture instead of talking around it. Close the app, go play with people, and let the reading open the doors.</p>
+      <p class="lead">
+        Games and trivia that get a room talking about scripture instead of talking around it. Close the app, go play with people, and let
+        the reading open the doors.
+      </p>
       <div class="stats" aria-label="Gather at a glance">
         <span class="stat"><b>125</b>group games</span>
         <span class="stat"><b>5</b>categories</span>
@@ -119,11 +558,17 @@
       <div class="chapter__head">
         <div class="eyebrow">Chapter 01 · Unlock</div>
         <h2 id="g1" class="display">Every chapter you read <span class="gold">opens a door.</span></h2>
-        <p>Gather is earned by reading, not bought. Drag the slider to see which doors open as your Scripture Seals add up. <strong>Bible Trivia is open from the very first day.</strong></p>
+        <p>
+          Gather is earned by reading, not bought. Drag the slider to see which doors open as your Scripture Seals add up.
+          <strong>Bible Trivia is open from the very first day.</strong>
+        </p>
       </div>
       <div class="board doors">
         <div class="seals-ctl">
-          <div><div class="num" id="sealNum">120</div><div class="lab">chapters sealed</div></div>
+          <div>
+            <div class="num" id="sealNum">120</div>
+            <div class="lab">chapters sealed</div>
+          </div>
           <input id="sealRange" type="range" min="0" max="800" step="10" value="120" aria-label="Chapters sealed" />
         </div>
         <div class="door-grid" id="doors"></div>
@@ -134,7 +579,10 @@
       <div class="chapter__head">
         <div class="eyebrow">Chapter 02 · Surprise me</div>
         <h2 id="g2" class="display">Draw a game. <span class="gold">Go play it.</span></h2>
-        <p>These are real games from the app: Four Corners, Jonah's Run, Burning Bush and 122 more, each with plain steps you can read out loud. Pick a mood and draw one.</p>
+        <p>
+          These are real games from the app: Four Corners, Jonah's Run, Burning Bush and 122 more, each with plain steps you can read out
+          loud. Pick a mood and draw one.
+        </p>
       </div>
       <div class="board draw">
         <div>
@@ -143,10 +591,17 @@
           <div class="tabs" id="drawTabs" role="group" aria-label="Game category"></div>
           <button class="btn" id="drawBtn" type="button">Draw a game</button>
         </div>
-        <div class="deck"><div class="flip" id="flip">
-          <div class="face back"><div><div id="backMed"></div><span>Tap draw to begin</span></div></div>
-          <div class="face front" id="front"></div>
-        </div></div>
+        <div class="deck">
+          <div class="flip" id="flip">
+            <div class="face back">
+              <div>
+                <div id="backMed"></div>
+                <span>Tap draw to begin</span>
+              </div>
+            </div>
+            <div class="face front" id="front"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -154,10 +609,19 @@
       <div class="chapter__head">
         <div class="eyebrow">Chapter 03 · Play</div>
         <h2 id="g3" class="display">Bible Trivia, <span class="gold">right here.</span></h2>
-        <p>Five questions, fifteen seconds each, straight from the app's Old &amp; New pack of 90. Choose Easy, Medium or Scholar and see how far your streak goes.</p>
+        <p>
+          Five questions, fifteen seconds each, straight from the app's Old &amp; New pack of 90. Choose Easy, Medium or Scholar and see how
+          far your streak goes.
+        </p>
       </div>
       <div class="board triv">
-        <div class="triv-top"><h3>Old &amp; New</h3><div class="hud"><span>Round <b id="hRound">0</b>/5</span><span>Score <b id="hScore">0</b></span><span class="streak">Streak <b id="hStreak">0</b></span></div></div>
+        <div class="triv-top">
+          <h3>Old &amp; New</h3>
+          <div class="hud">
+            <span>Round <b id="hRound">0</b>/5</span><span>Score <b id="hScore">0</b></span
+            ><span class="streak">Streak <b id="hStreak">0</b></span>
+          </div>
+        </div>
         <div class="qcard" id="qcard"></div>
       </div>
     </section>
@@ -168,29 +632,84 @@
     <script>
       (function () {
         "use strict";
-        var S = window.SPOT, $ = S.$, $$ = S.$$, esc = S.esc, rand = S.rand, reduce = S.reduce;
-        function clean(t) { return String(t).replace(/\s*\u2014\s*/g, ", ").replace(/\s*\u2013\s*/g, "-"); }
-        function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+        var S = window.SPOT,
+          $ = S.$,
+          $$ = S.$$,
+          esc = S.esc,
+          rand = S.rand,
+          reduce = S.reduce;
+        function clean(t) {
+          return String(t)
+            .replace(/\s*\u2014\s*/g, ", ")
+            .replace(/\s*\u2013\s*/g, "-");
+        }
+        function shuffle(a) {
+          a = a.slice();
+          for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1)),
+              t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+          }
+          return a;
+        }
 
         /* the app's own gold medallions (frames and motifs from GatherArt) */
-        var FRAME = { circle: "M50 5A45 45 0 1 1 49.99 5Z", arch: "M18 94V39A32 32 0 0 1 82 39V94Z", shield: "M50 5L89 23V56Q88 80 50 96Q12 80 11 56V23Z", hex: "M50 4L92 38L85 76L50 96L15 76L8 38Z",
-          banner: "M19 8Q35 4 50 14Q65 4 81 8V86Q65 82 50 94Q35 82 19 86Z", burst: "M50 4L61 11L75 10L81 23L94 30L90 45L97 57L86 69L84 83L68 87L57 97L44 91L28 94L20 81L7 73L12 58L4 45L15 33L16 18L32 15Z" };
+        var FRAME = {
+          circle: "M50 5A45 45 0 1 1 49.99 5Z",
+          arch: "M18 94V39A32 32 0 0 1 82 39V94Z",
+          shield: "M50 5L89 23V56Q88 80 50 96Q12 80 11 56V23Z",
+          hex: "M50 4L92 38L85 76L50 96L15 76L8 38Z",
+          banner: "M19 8Q35 4 50 14Q65 4 81 8V86Q65 82 50 94Q35 82 19 86Z",
+          burst: "M50 4L61 11L75 10L81 23L94 30L90 45L97 57L86 69L84 83L68 87L57 97L44 91L28 94L20 81L7 73L12 58L4 45L15 33L16 18L32 15Z",
+        };
         var MOT = {
           action: ["shield", "M56 24L36 54h13l-5 23 21-31H52z"],
           imagination: ["arch", "M50 24c2 14 8 20 22 22-14 2-20 8-22 22-2-14-8-20-22-22 14-2 20-8 22-22z M74 26v8M70 30h8M27 66v6M24 69h6"],
           mind: ["hex", "M50 24a17 17 0 0 0-10 30.5V62h20v-7.5A17 17 0 0 0 50 24z M42 69h16M45 75h10 M50 40v10M45 45h10"],
-          conversation: ["circle", "M26 30h32a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H42l-9 8v-8h-7a5 5 0 0 1-5-5V35a5 5 0 0 1 5-5z M69 44h5a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5h-3v7l-8-7H52"],
-          icebreaker: ["burst", "M50 24v52M27.5 37l45 26M27.5 63l45-26 M44 29l6 6 6-6M44 71l6-6 6 6M30 46l-1-8 8-1M70 54l1 8-8 1M30 54l-1 8 8 1M70 46l1-8-8-1"],
+          conversation: [
+            "circle",
+            "M26 30h32a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H42l-9 8v-8h-7a5 5 0 0 1-5-5V35a5 5 0 0 1 5-5z M69 44h5a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5h-3v7l-8-7H52",
+          ],
+          icebreaker: [
+            "burst",
+            "M50 24v52M27.5 37l45 26M27.5 63l45-26 M44 29l6 6 6-6M44 71l6-6 6 6M30 46l-1-8 8-1M70 54l1 8-8 1M30 54l-1 8 8 1M70 46l1-8-8-1",
+          ],
           trivia: ["banner", "M50 24a14 14 0 0 1 5 27c-3 1-5 3-5 7 M50 68v6"],
-          surprise: ["banner", "M28 46h44v28H28z M24 36h52v10H24z M50 36v38 M50 36c-5-10-16-9-14-2 1 4 8 3 14 2zM50 36c5-10 16-9 14-2-1 4-8 3-14 2z"]
+          surprise: [
+            "banner",
+            "M28 46h44v28H28z M24 36h52v10H24z M50 36v38 M50 36c-5-10-16-9-14-2 1 4 8 3 14 2zM50 36c5-10 16-9 14-2-1 4-8 3-14 2z",
+          ],
         };
         var uid = 0;
         function medal(id) {
-          var m = MOT[id], o = FRAME[m[0]], n = "gm" + (++uid);
-          return '<svg class="med" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="' + n + 'g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbe9ad"/><stop offset=".48" stop-color="#d9a441"/><stop offset="1" stop-color="#8f5916"/></linearGradient><clipPath id="' + n + 'c"><path d="' + o + '"/></clipPath></defs>' +
-            '<path d="' + o + '" fill="url(#' + n + 'g)" stroke="#f7e4b4" stroke-width="1.4"/><path d="' + o + '" transform="translate(50 50) scale(.85) translate(-50 -50)" fill="none" stroke="#5b3608" stroke-opacity=".5" stroke-width=".9" stroke-dasharray="2 3"/>' +
-            '<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#fff3cf" stroke-opacity=".55" stroke-width="3.4" transform="translate(.8 1)"><path d="' + m[1] + '"/></g><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#4a2a0c" stroke-width="3.2"><path d="' + m[1] + '"/></g>' +
-            '<ellipse cx="32" cy="24" rx="34" ry="16" fill="#fff" opacity=".17" transform="rotate(-24 32 24)" clip-path="url(#' + n + 'c)"/></svg>';
+          var m = MOT[id],
+            o = FRAME[m[0]],
+            n = "gm" + ++uid;
+          return (
+            '<svg class="med" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="' +
+            n +
+            'g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbe9ad"/><stop offset=".48" stop-color="#d9a441"/><stop offset="1" stop-color="#8f5916"/></linearGradient><clipPath id="' +
+            n +
+            'c"><path d="' +
+            o +
+            '"/></clipPath></defs>' +
+            '<path d="' +
+            o +
+            '" fill="url(#' +
+            n +
+            'g)" stroke="#f7e4b4" stroke-width="1.4"/><path d="' +
+            o +
+            '" transform="translate(50 50) scale(.85) translate(-50 -50)" fill="none" stroke="#5b3608" stroke-opacity=".5" stroke-width=".9" stroke-dasharray="2 3"/>' +
+            '<g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#fff3cf" stroke-opacity=".55" stroke-width="3.4" transform="translate(.8 1)"><path d="' +
+            m[1] +
+            '"/></g><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#4a2a0c" stroke-width="3.2"><path d="' +
+            m[1] +
+            '"/></g>' +
+            '<ellipse cx="32" cy="24" rx="34" ry="16" fill="#fff" opacity=".17" transform="rotate(-24 32 24)" clip-path="url(#' +
+            n +
+            'c)"/></svg>'
+          );
         }
 
         /* ---- 1. doors ---- */
@@ -200,86 +719,311 @@
           ["conversation", "Conversation", "Sit-down, story-driven, go-deep games.", 200],
           ["action", "Action", "Get up. Run around. Burn off the snacks.", 350],
           ["imagination", "Imagination", "Roleplay, improv, retelling. Scripture made vivid.", 500],
-          ["mind", "Mind", "Memory drills, riddles, puzzles. Brain warm-ups.", 750]
+          ["mind", "Mind", "Memory drills, riddles, puzzles. Brain warm-ups.", 750],
         ];
-        var doorsEl = $("#doors"), sealRange = $("#sealRange"), prev = {};
-        doorsEl.innerHTML = DOORS.map(function (d) { return '<div class="door" data-id="' + d[0] + '" data-need="' + d[3] + '"><span class="lock" aria-hidden="true"></span><div class="disc">' + medal(d[0]) + "</div><h3>" + d[1] + "</h3><p>" + d[2] + '</p><span class="need">' + (d[3] ? "Opens at " + d[3] + " chapters" : "Open from day one") + "</span></div>"; }).join("");
+        var doorsEl = $("#doors"),
+          sealRange = $("#sealRange"),
+          prev = {};
+        doorsEl.innerHTML = DOORS.map(function (d) {
+          return (
+            '<div class="door" data-id="' +
+            d[0] +
+            '" data-need="' +
+            d[3] +
+            '"><span class="lock" aria-hidden="true"></span><div class="disc">' +
+            medal(d[0]) +
+            "</div><h3>" +
+            d[1] +
+            "</h3><p>" +
+            d[2] +
+            '</p><span class="need">' +
+            (d[3] ? "Opens at " + d[3] + " chapters" : "Open from day one") +
+            "</span></div>"
+          );
+        }).join("");
         function setDoors() {
-          var v = +sealRange.value; $("#sealNum").textContent = v;
+          var v = +sealRange.value;
+          $("#sealNum").textContent = v;
           $$(".door", doorsEl).forEach(function (el) {
-            var open = v >= +el.dataset.need, was = prev[el.dataset.id];
-            el.classList.toggle("open", open); el.classList.toggle("locked", !open);
+            var open = v >= +el.dataset.need,
+              was = prev[el.dataset.id];
+            el.classList.toggle("open", open);
+            el.classList.toggle("locked", !open);
             $(".lock", el).textContent = open ? "" : "🔒";
-            if (open && was === false) { var d = $(".disc", el); d.style.animation = "none"; void d.offsetWidth; d.style.animation = ""; }
+            if (open && was === false) {
+              var d = $(".disc", el);
+              d.style.animation = "none";
+              void d.offsetWidth;
+              d.style.animation = "";
+            }
             prev[el.dataset.id] = open;
           });
         }
-        sealRange.addEventListener("input", setDoors); setDoors();
+        sealRange.addEventListener("input", setDoors);
+        setDoors();
 
         /* ---- 2. draw a game ---- */
-        var GAMES, CATS = [["all", "Any"], ["icebreaker", "Icebreakers"], ["conversation", "Conversation"], ["action", "Action"], ["imagination", "Imagination"], ["mind", "Mind"]];
-        var cat = "all", flip = $("#flip"), front = $("#front"), tabs = $("#drawTabs");
+        var GAMES,
+          CATS = [
+            ["all", "Any"],
+            ["icebreaker", "Icebreakers"],
+            ["conversation", "Conversation"],
+            ["action", "Action"],
+            ["imagination", "Imagination"],
+            ["mind", "Mind"],
+          ];
+        var cat = "all",
+          flip = $("#flip"),
+          front = $("#front"),
+          tabs = $("#drawTabs");
         $("#backMed").innerHTML = medal("surprise");
-        tabs.innerHTML = CATS.map(function (c, i) { return '<button class="tab" type="button" data-c="' + c[0] + '" aria-pressed="' + (i === 0) + '">' + c[1] + "</button>"; }).join("");
-        tabs.addEventListener("click", function (e) { var b = e.target.closest(".tab"); if (!b) return; cat = b.dataset.c; $$(".tab", tabs).forEach(function (t) { t.setAttribute("aria-pressed", t === b); }); });
+        tabs.innerHTML = CATS.map(function (c, i) {
+          return '<button class="tab" type="button" data-c="' + c[0] + '" aria-pressed="' + (i === 0) + '">' + c[1] + "</button>";
+        }).join("");
+        tabs.addEventListener("click", function (e) {
+          var b = e.target.closest(".tab");
+          if (!b) return;
+          cat = b.dataset.c;
+          $$(".tab", tabs).forEach(function (t) {
+            t.setAttribute("aria-pressed", t === b);
+          });
+        });
         var ENERGY = { low: "Low energy", medium: "Medium energy", high: "High energy" };
         function draw() {
           if (!GAMES) return;
-          var pool = GAMES.games.filter(function (g) { return cat === "all" || g.c === cat; }), g = pool[Math.floor(Math.random() * pool.length)];
-          var parts = g.t.split(" · "), label = { icebreaker: "Icebreaker", conversation: "Conversation", action: "Action", imagination: "Imagination", mind: "Mind" }[g.c];
+          var pool = GAMES.games.filter(function (g) {
+              return cat === "all" || g.c === cat;
+            }),
+            g = pool[Math.floor(Math.random() * pool.length)];
+          var parts = g.t.split(" · "),
+            label = { icebreaker: "Icebreaker", conversation: "Conversation", action: "Action", imagination: "Imagination", mind: "Mind" }[
+              g.c
+            ];
           function fill() {
-            front.innerHTML = '<div class="cat">' + medal(g.c) + "<span>" + label + '</span></div><h4>' + esc(parts[0]) + "</h4>" + (parts[1] ? '<div class="sub">' + esc(parts[1]) + "</div>" : "") + '<div class="hook">' + esc(clean(g.h)) + '</div><div class="metas"><i>' + esc(g.s) + "</i><i>" + esc(g.m) + "</i><i>" + ENERGY[g.e] + "</i>" + (g.p ? "<i>Pen &amp; paper</i>" : "") + "</div><ul>" + g.steps.slice(0, 3).map(function (s) { return "<li>" + esc(clean(s)) + "</li>"; }).join("") + "</ul>";
+            front.innerHTML =
+              '<div class="cat">' +
+              medal(g.c) +
+              "<span>" +
+              label +
+              "</span></div><h4>" +
+              esc(parts[0]) +
+              "</h4>" +
+              (parts[1] ? '<div class="sub">' + esc(parts[1]) + "</div>" : "") +
+              '<div class="hook">' +
+              esc(clean(g.h)) +
+              '</div><div class="metas"><i>' +
+              esc(g.s) +
+              "</i><i>" +
+              esc(g.m) +
+              "</i><i>" +
+              ENERGY[g.e] +
+              "</i>" +
+              (g.p ? "<i>Pen &amp; paper</i>" : "") +
+              "</div><ul>" +
+              g.steps
+                .slice(0, 3)
+                .map(function (s) {
+                  return "<li>" + esc(clean(s)) + "</li>";
+                })
+                .join("") +
+              "</ul>";
           }
-          if (flip.classList.contains("turned") && !reduce) { flip.classList.remove("turned"); setTimeout(function () { fill(); flip.classList.add("turned"); }, 520); }
-          else { fill(); flip.classList.add("turned"); }
+          if (flip.classList.contains("turned") && !reduce) {
+            flip.classList.remove("turned");
+            setTimeout(function () {
+              fill();
+              flip.classList.add("turned");
+            }, 520);
+          } else {
+            fill();
+            flip.classList.add("turned");
+          }
           $("#drawBtn").textContent = "Draw another";
         }
         $("#drawBtn").addEventListener("click", draw);
-        fetch("assets/gather/games.json").then(function (r) { return r.json(); }).then(function (d) { GAMES = d; });
+        fetch("assets/gather/games.json")
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (d) {
+            GAMES = d;
+          });
 
         /* ---- 3. trivia ---- */
-        var TRIV, deck, idx, score, streak, timer, level, qcard = $("#qcard"), locked = false;
-        var LEVELS = [["easy", "Easy"], ["medium", "Medium"], ["hard", "Scholar"]];
-        function hud() { $("#hRound").textContent = Math.min(idx + 1, 5); $("#hScore").textContent = score; $("#hStreak").textContent = streak; }
+        var TRIV,
+          deck,
+          idx,
+          score,
+          streak,
+          timer,
+          level,
+          qcard = $("#qcard"),
+          locked = false;
+        var LEVELS = [
+          ["easy", "Easy"],
+          ["medium", "Medium"],
+          ["hard", "Scholar"],
+        ];
+        function hud() {
+          $("#hRound").textContent = Math.min(idx + 1, 5);
+          $("#hScore").textContent = score;
+          $("#hStreak").textContent = streak;
+        }
         function start() {
-          qcard.innerHTML = '<div class="startpane"><div style="width:84px;height:84px">' + medal("trivia") + '</div><h4>Ready to play?</h4><p style="color:#5a4432;margin:0">Pick a level. Five questions, fifteen seconds each.</p><div class="levels">' + LEVELS.map(function (l) { return '<button type="button" data-l="' + l[0] + '">' + l[1] + "</button>"; }).join("") + "</div></div>";
-          idx = 0; score = 0; streak = 0; $("#hRound").textContent = 0; $("#hScore").textContent = 0; $("#hStreak").textContent = 0;
+          qcard.innerHTML =
+            '<div class="startpane"><div style="width:84px;height:84px">' +
+            medal("trivia") +
+            '</div><h4>Ready to play?</h4><p style="color:#5a4432;margin:0">Pick a level. Five questions, fifteen seconds each.</p><div class="levels">' +
+            LEVELS.map(function (l) {
+              return '<button type="button" data-l="' + l[0] + '">' + l[1] + "</button>";
+            }).join("") +
+            "</div></div>";
+          idx = 0;
+          score = 0;
+          streak = 0;
+          $("#hRound").textContent = 0;
+          $("#hScore").textContent = 0;
+          $("#hStreak").textContent = 0;
         }
         function confetti(x, y) {
-          if (reduce) return; var r = qcard.getBoundingClientRect();
-          for (var i = 0; i < 26; i++) { var c = document.createElement("i"), a = Math.random() * Math.PI * 2, d = rand(50, 150); c.className = "confetti"; c.style.left = x - r.left + "px"; c.style.top = y - r.top + "px"; c.style.background = ["#f0c850", "#b6751d", "#ffe9a8", "#d4921f", "#f4a9c4"][i % 5]; c.style.setProperty("--x", Math.cos(a) * d + "px"); c.style.setProperty("--y", Math.sin(a) * d - 30 + "px"); qcard.appendChild(c); setTimeout(function (el) { el.remove(); }.bind(null, c), 1000); }
+          if (reduce) return;
+          var r = qcard.getBoundingClientRect();
+          for (var i = 0; i < 26; i++) {
+            var c = document.createElement("i"),
+              a = Math.random() * Math.PI * 2,
+              d = rand(50, 150);
+            c.className = "confetti";
+            c.style.left = x - r.left + "px";
+            c.style.top = y - r.top + "px";
+            c.style.background = ["#f0c850", "#b6751d", "#ffe9a8", "#d4921f", "#f4a9c4"][i % 5];
+            c.style.setProperty("--x", Math.cos(a) * d + "px");
+            c.style.setProperty("--y", Math.sin(a) * d - 30 + "px");
+            qcard.appendChild(c);
+            setTimeout(
+              function (el) {
+                el.remove();
+              }.bind(null, c),
+              1000
+            );
+          }
         }
         function ask() {
-          var q = deck[idx]; locked = false; hud();
+          var q = deck[idx];
+          locked = false;
+          hud();
           var choices = shuffle(q.c);
-          qcard.innerHTML = '<div class="timer"><i id="tbar"></i></div><p class="q">' + esc(q.q) + '</p><div class="ans">' + choices.map(function (c) { return '<button type="button">' + esc(c) + "</button>"; }).join("") + '</div><div class="why" id="why"></div><div class="qfoot"><span class="ref" id="ref"></span><button class="btn" id="nxt" type="button" style="display:none">' + (idx === 4 ? "See my score" : "Next question") + "</button></div>";
-          var bar = $("#tbar"); void bar.offsetWidth; if (!reduce) { bar.classList.add("run"); setTimeout(function () { if (bar) bar.classList.add("low"); }, 10500); }
-          clearTimeout(timer); timer = setTimeout(function () { reveal(null, q); }, 15000);
-          $$(".ans button", qcard).forEach(function (b) { b.addEventListener("click", function (e) { reveal(b, q, e); }); });
-          $("#nxt").addEventListener("click", function () { idx++; if (idx < 5) ask(); else end(); });
+          qcard.innerHTML =
+            '<div class="timer"><i id="tbar"></i></div><p class="q">' +
+            esc(q.q) +
+            '</p><div class="ans">' +
+            choices
+              .map(function (c) {
+                return '<button type="button">' + esc(c) + "</button>";
+              })
+              .join("") +
+            '</div><div class="why" id="why"></div><div class="qfoot"><span class="ref" id="ref"></span><button class="btn" id="nxt" type="button" style="display:none">' +
+            (idx === 4 ? "See my score" : "Next question") +
+            "</button></div>";
+          var bar = $("#tbar");
+          void bar.offsetWidth;
+          if (!reduce) {
+            bar.classList.add("run");
+            setTimeout(function () {
+              if (bar) bar.classList.add("low");
+            }, 10500);
+          }
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            reveal(null, q);
+          }, 15000);
+          $$(".ans button", qcard).forEach(function (b) {
+            b.addEventListener("click", function (e) {
+              reveal(b, q, e);
+            });
+          });
+          $("#nxt").addEventListener("click", function () {
+            idx++;
+            if (idx < 5) ask();
+            else end();
+          });
         }
         function reveal(btn, q, e) {
-          if (locked) return; locked = true; clearTimeout(timer);
-          var bar = $("#tbar"); if (bar) { bar.style.transition = "none"; bar.style.width = getComputedStyle(bar).width; }
-          $$(".ans button", qcard).forEach(function (b) { b.disabled = true; if (b.textContent === q.a) b.classList.add("right"); });
+          if (locked) return;
+          locked = true;
+          clearTimeout(timer);
+          var bar = $("#tbar");
+          if (bar) {
+            bar.style.transition = "none";
+            bar.style.width = getComputedStyle(bar).width;
+          }
+          $$(".ans button", qcard).forEach(function (b) {
+            b.disabled = true;
+            if (b.textContent === q.a) b.classList.add("right");
+          });
           var ok = btn && btn.textContent === q.a;
           if (btn && !ok) btn.classList.add("wrong");
-          if (ok) { score++; streak++; if (e) confetti(e.clientX, e.clientY); } else streak = 0;
+          if (ok) {
+            score++;
+            streak++;
+            if (e) confetti(e.clientX, e.clientY);
+          } else streak = 0;
           hud();
-          $("#why").innerHTML = "<b>" + (ok ? "Yes. " : btn ? "Not quite. " : "Time is up. ") + "</b>The answer is " + esc(clean(q.a)) + ". " + esc(clean(q.x)); $("#why").classList.add("show");
-          $("#ref").textContent = q.r; $("#nxt").style.display = "";
+          $("#why").innerHTML =
+            "<b>" + (ok ? "Yes. " : btn ? "Not quite. " : "Time is up. ") + "</b>The answer is " + esc(clean(q.a)) + ". " + esc(clean(q.x));
+          $("#why").classList.add("show");
+          $("#ref").textContent = q.r;
+          $("#nxt").style.display = "";
         }
         function end() {
-          var msg = score === 5 ? "Flawless. The Word is in you." : score === 4 ? "So close to perfect." : score === 3 ? "Solid. You know your way around." : score >= 1 ? "A good start. Keep reading." : "Every chapter you read will help.";
-          qcard.innerHTML = '<div class="endpane"><div class="big">' + score + '/5</div><h4>' + msg + '</h4><p style="color:#5a4432;margin:0">' + LEVELS.filter(function (l) { return l[0] === level; })[0][1] + ' level</p><div class="levels"><button type="button" data-l="' + level + '">Play again</button><button type="button" data-l="_menu" style="background:#fff;color:#3d2b1f;border:1.5px solid #b6751d">Change level</button></div></div>';
-          if (score >= 4) { var r = qcard.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top + 120); }
+          var msg =
+            score === 5
+              ? "Flawless. The Word is in you."
+              : score === 4
+                ? "So close to perfect."
+                : score === 3
+                  ? "Solid. You know your way around."
+                  : score >= 1
+                    ? "A good start. Keep reading."
+                    : "Every chapter you read will help.";
+          qcard.innerHTML =
+            '<div class="endpane"><div class="big">' +
+            score +
+            "/5</div><h4>" +
+            msg +
+            '</h4><p style="color:#5a4432;margin:0">' +
+            LEVELS.filter(function (l) {
+              return l[0] === level;
+            })[0][1] +
+            ' level</p><div class="levels"><button type="button" data-l="' +
+            level +
+            '">Play again</button><button type="button" data-l="_menu" style="background:#fff;color:#3d2b1f;border:1.5px solid #b6751d">Change level</button></div></div>';
+          if (score >= 4) {
+            var r = qcard.getBoundingClientRect();
+            confetti(r.left + r.width / 2, r.top + 120);
+          }
         }
         qcard.addEventListener("click", function (e) {
-          var b = e.target.closest("[data-l]"); if (!b || !TRIV) return;
+          var b = e.target.closest("[data-l]");
+          if (!b || !TRIV) return;
           if (b.dataset.l === "_menu") return start();
-          level = b.dataset.l; deck = shuffle(TRIV.questions.filter(function (q) { return q.d === level; })).slice(0, 5); idx = 0; score = 0; streak = 0; ask();
+          level = b.dataset.l;
+          deck = shuffle(
+            TRIV.questions.filter(function (q) {
+              return q.d === level;
+            })
+          ).slice(0, 5);
+          idx = 0;
+          score = 0;
+          streak = 0;
+          ask();
         });
-        fetch("assets/gather/trivia.json").then(function (r) { return r.json(); }).then(function (d) { TRIV = d; });
+        fetch("assets/gather/trivia.json")
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (d) {
+            TRIV = d;
+          });
         start();
       })();
     </script>

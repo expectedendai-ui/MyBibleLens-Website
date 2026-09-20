@@ -2760,11 +2760,18 @@
         animation: repo-rebuild-pulse 1.8s ease-out infinite;
       }
       @keyframes repo-rebuild-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55); }
-        70%, 100% { box-shadow: 0 0 0 0.6rem rgba(192, 57, 43, 0); }
+        0% {
+          box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55);
+        }
+        70%,
+        100% {
+          box-shadow: 0 0 0 0.6rem rgba(192, 57, 43, 0);
+        }
       }
       @media (prefers-reduced-motion: reduce) {
-        .repo-rebuild-pill__dot { animation: none; }
+        .repo-rebuild-pill__dot {
+          animation: none;
+        }
       }
       .repo-beta-pill {
         display: flex;
@@ -4947,7 +4954,7 @@
               <rect x="9" y="4" width="12" height="14" rx="1.5" transform="rotate(8 15 11)" />
             </svg>
           </span>
-          <span class="canvas-node__label">Games</span>
+          <span class="canvas-node__label">Gather</span>
         </div>
         <div class="canvas-node" data-feature="sanctuary" style="--nx: 8%; --ny: 56%; --node-delay: -1.4s">
           <span class="canvas-node__icon" aria-hidden="true">
@@ -5156,7 +5163,44 @@
         data-src="assets/stickers/3d-119-gold-coins.png"
         style="top: 5%; right: 0.5%; transform: rotate(7deg); background-image: url(&quot;assets/stickers/3d-119-gold-coins.png&quot;)"
       ></span>
-      <iframe src="mockups/canvas-spotlight.html?v=5" loading="lazy" title="Scripture Canvas" scrolling="no"></iframe>
+      <iframe src="mockups/canvas-spotlight.html?v=6" loading="lazy" title="Scripture Canvas" scrolling="no"></iframe>
+    </div>
+
+    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
+      <span class="gold-divider__line"></span>
+      <span class="gold-divider__ornament">Milestone</span>
+      <span class="gold-divider__line"></span>
+
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/ren-56-seraphim.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
+      />
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/ren-17-jerusalem-cross.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 50%; right: 1.5%; transform: translateY(-50%) rotate(9deg)"
+      />
+    </div>
+    <div class="flow-iframe-wrap" id="milestone-flow">
+      <img
+        loading="lazy"
+        decoding="async"
+        class="scatter-sticker"
+        src="assets/stickers/3d-104-open-bible.png"
+        alt=""
+        aria-hidden="true"
+        style="top: 6%; right: 0.5%; transform: rotate(7deg)"
+      />
+      <iframe src="mockups/milestone-spotlight.html?v=6" loading="lazy" title="Milestone" scrolling="no"></iframe>
     </div>
 
     <!-- Gold divider between repository and Mosaic showcase -->
@@ -5189,7 +5233,7 @@
       ></span>
     </div>
 
-<!-- Supabase security badge — sits under the Mosaic divider -->
+    <!-- Supabase security badge — sits under the Mosaic divider -->
     <style>
       .supabase-badge-wrap {
         padding: 1.2rem 1.5rem 2rem;
@@ -5467,49 +5511,12 @@
           background-image: url(&quot;assets/stickers/3d-120-treasure-chest-open.png&quot;);
         "
       ></span>
-      <iframe src="mockups/reflections-spotlight.html" loading="lazy" title="Reflections" scrolling="no"></iframe>
+      <iframe src="mockups/reflections-spotlight.html?v=6" loading="lazy" title="Reflections" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Milestone</span>
-      <span class="gold-divider__line"></span>
-
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/ren-56-seraphim.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
-      />
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/ren-17-jerusalem-cross.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; right: 1.5%; transform: translateY(-50%) rotate(9deg)"
-      />
-    </div>
-    <div class="flow-iframe-wrap" id="milestone-flow">
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/3d-104-open-bible.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 6%; right: 0.5%; transform: rotate(7deg)"
-      />
-      <iframe src="mockups/milestone-spotlight.html" loading="lazy" title="Milestone" scrolling="no"></iframe>
-    </div>
-
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Fellowship</span>
+      <span class="gold-divider__ornament">Friends &amp; Fellowship</span>
       <span class="gold-divider__line"></span>
 
       <img
@@ -5541,12 +5548,12 @@
         aria-hidden="true"
         style="top: 6%; left: 0.5%; transform: rotate(8deg)"
       />
-      <iframe src="mockups/fellowship-spotlight.html" loading="lazy" title="Fellowship" scrolling="no"></iframe>
+      <iframe src="mockups/fellowship-spotlight.html?v=6" loading="lazy" title="Friends and Fellowship" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Games</span>
+      <span class="gold-divider__ornament">Gather</span>
       <span class="gold-divider__line"></span>
 
       <img
@@ -5581,7 +5588,7 @@
         data-src="assets/stickers/3d-125-jeweled-crown.png"
         style="top: 5%; left: 0.5%; transform: rotate(-6deg); background-image: url(&quot;assets/stickers/3d-125-jeweled-crown.png&quot;)"
       ></span
-      ><iframe src="mockups/games-spotlight.html" loading="lazy" title="Games" scrolling="no"></iframe>
+      ><iframe src="mockups/games-spotlight.html?v=6" loading="lazy" title="Gather" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
@@ -5617,7 +5624,7 @@
         alt=""
         aria-hidden="true"
         style="top: 76%; right: 0.5%; transform: rotate(7deg)"
-      /><iframe src="mockups/themes-spotlight.html" loading="lazy" title="Themes" scrolling="no"></iframe>
+      /><iframe src="mockups/themes-spotlight.html?v=6" loading="lazy" title="Themes" scrolling="no"></iframe>
     </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
@@ -5654,10 +5661,10 @@
         aria-hidden="true"
         style="top: 6%; left: 0.5%; transform: rotate(6deg)"
       />
-      <iframe src="mockups/timer-spotlight.html" loading="lazy" title="Focus Timer" scrolling="no"></iframe>
+      <iframe src="mockups/timer-spotlight.html?v=6" loading="lazy" title="Focus Timer" scrolling="no"></iframe>
     </div>
 
-<script>
+    <script>
       // Auto-resize each flow iframe to its content's height
       (function () {
         function sizeFrame(f) {
@@ -5835,7 +5842,7 @@
       </div>
     </section>
 
-<!-- Gold divider between pricing and FAQ -->
+    <!-- Gold divider between pricing and FAQ -->
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
       <span class="gold-divider__ornament">Honest Answers</span>
@@ -5893,7 +5900,9 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading.
+                MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and
+                keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the
+                reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading.
               </p>
             </div>
           </details>
@@ -5904,7 +5913,9 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Every one of the 1,189 chapters in the Bible has its own Scripture Seal. You earn it by reading the chapter and writing a short reflection. The more of yourself you put into a chapter, the brighter its seal finishes. Your seals are collected in your Scripture Book, and the more you read, the more of the rest of the app opens up.
+                Every one of the 1,189 chapters in the Bible has its own Scripture Seal. You earn it by reading the chapter and writing a
+                short reflection. The more of yourself you put into a chapter, the brighter its seal finishes. Your seals are collected in
+                your Scripture Book, and the more you read, the more of the rest of the app opens up.
               </p>
             </div>
           </details>
@@ -5915,7 +5926,8 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Sign in on the new device and your reflections, boards and seals come back. They live in the cloud and sync across your iPhone and iPad, so you won't lose a single page.
+                Sign in on the new device and your reflections, boards and seals come back. They live in the cloud and sync across your
+                iPhone and iPad, so you won't lose a single page.
               </p>
             </div>
           </details>
@@ -5926,7 +5938,8 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Yes. Add people by their Kingdom ID, and share Scripture Canvas boards with the friends you have accepted, right inside the app. There are no public links and nothing is posted where strangers can find it.
+                Yes. Add people by their Kingdom ID, and share Scripture Canvas boards with the friends you have accepted, right inside the
+                app. There are no public links and nothing is posted where strangers can find it.
               </p>
             </div>
           </details>
@@ -5937,7 +5950,10 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                MyBibleLens is built for anyone who reads the Bible. The AI is tuned to be reverent and scripturally grounded without leaning into any one denomination's distinctives. You'll find believers from Catholic, Protestant, Orthodox, and non-denominational backgrounds using it side by side. If a feature ever pushes a particular tradition, that's a bug. Tell us at <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a>.
+                MyBibleLens is built for anyone who reads the Bible. The AI is tuned to be reverent and scripturally grounded without
+                leaning into any one denomination's distinctives. You'll find believers from Catholic, Protestant, Orthodox, and
+                non-denominational backgrounds using it side by side. If a feature ever pushes a particular tradition, that's a bug. Tell us
+                at <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a>.
               </p>
             </div>
           </details>
@@ -5948,7 +5964,10 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                Reflections and boards are private by default. Only you and the friends you have explicitly shared with can see them. Supabase Row-Level Security enforces this at the database level, and we never sell or advertise against your spiritual content. Read the full <a href="legal.html#privacy">Privacy Policy</a> and <a href="legal.html#ai-disclosure">AI Disclosure</a> for details.
+                Reflections and boards are private by default. Only you and the friends you have explicitly shared with can see them.
+                Supabase Row-Level Security enforces this at the database level, and we never sell or advertise against your spiritual
+                content. Read the full <a href="legal.html#privacy">Privacy Policy</a> and
+                <a href="legal.html#ai-disclosure">AI Disclosure</a> for details.
               </p>
             </div>
           </details>
@@ -5959,7 +5978,11 @@
             </summary>
             <div class="faq-item__a">
               <p>
-                MyBibleLens is on the <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener">App Store</a> for iPhone and iPad, and it is being rebuilt right now, so some things may not work while we finish. The Android version is in the works. Follow <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a> to be the first to know.
+                MyBibleLens is on the
+                <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener">App Store</a> for iPhone and
+                iPad, and it is being rebuilt right now, so some things may not work while we finish. The Android version is in the works.
+                Follow <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a> to be
+                the first to know.
               </p>
             </div>
           </details>
@@ -6191,7 +6214,6 @@
           });
         }
       })();
-
 
       /* ========== GSAP ANIMATIONS ========== */
       document.addEventListener("DOMContentLoaded", function () {

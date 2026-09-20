@@ -4,47 +4,183 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Focus Timer · MyBibleLens</title>
-    <meta name="description" content="The MyBibleLens Focus Timer: eight looks, twelve colours, and a screen that becomes a quiet room until the bell rings." />
+    <meta
+      name="description"
+      content="The MyBibleLens Focus Timer: eight looks, twelve colours, and a screen that becomes a quiet room until the bell rings."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/spot.css" />
     <link rel="stylesheet" href="assets/timer/mbl-timer.css" />
     <style>
-      .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin: 12px 0 14px; }
-      .hero p.lead { max-width: 640px; margin: 0 auto; color: var(--brown-soft); font-size: clamp(1rem, 2vw, 1.2rem); }
-      .stage { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 36px; padding: 30px; align-items: center; }
-      @media (max-width: 860px) { .stage { grid-template-columns: 1fr; padding: 20px; } }
-      .tphone { position: relative; width: 100%; max-width: 320px; aspect-ratio: 320 / 640; margin-inline: auto; border-radius: 40px; padding: 8px; background: linear-gradient(150deg, #6a5038, #1b1109 62%);
-        box-shadow: 0 40px 60px -28px #000, 0 0 0 1px rgba(240,200,80,.25); }
-      .tphone .scr { position: absolute; inset: 8px; border-radius: 32px; overflow: hidden; background: #000; contain: strict; }
-      .tphone .sanctuary-timer-scene { height: 100% !important; min-height: 0 !important; }
-      .stage h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 8px; }
-      .stage p { color: #dcc8a3; margin: 0 0 16px; }
-      .looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-      @media (max-width: 560px) { .looks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-      .look { display: grid; justify-items: center; gap: 8px; padding: 12px 6px 10px; border-radius: 20px; border: 1.5px solid rgba(240,200,80,.2); background: rgba(0,0,0,.28); color: #f0dfbd; font-weight: 800; font-size: .78rem;
-        transition: transform .3s var(--spring), border-color .25s, background .25s; }
-      .look:hover { transform: translateY(-3px); }
-      .look[aria-pressed="true"] { border-color: var(--gold-light); background: rgba(240,200,80,.14); box-shadow: 0 0 0 2px rgba(240,200,80,.4); }
-      .look .pv { pointer-events: none; }
-      .chips2 { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-      .dot { width: 34px; height: 34px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); position: relative; transition: transform .25s var(--spring); }
-      .dot:hover { transform: scale(1.12); }
-      .dot[aria-pressed="true"] { border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(240,200,80,.4); transform: scale(1.1); }
-      .dot::after { content: ""; position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 50%; background: var(--a); border: 2px solid #2a170a; }
-      .ctl { display: flex; align-items: center; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
-      .ctl input[type=range] { flex: 1 1 200px; accent-color: #f0c850; height: 30px; }
-      .lab { font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin: 22px 0 8px; }
-      .blurb { color: #e6d3ad; min-height: 3.2em; }
-      .note2 { margin-top: 20px; color: #cdb892; font-size: .9rem; }
+      .hero h1 {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        margin: 12px 0 14px;
+      }
+      .hero p.lead {
+        max-width: 640px;
+        margin: 0 auto;
+        color: var(--brown-soft);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+      .stage {
+        display: grid;
+        grid-template-columns: minmax(0, 330px) minmax(0, 1fr);
+        gap: 36px;
+        padding: 30px;
+        align-items: center;
+      }
+      @media (max-width: 860px) {
+        .stage {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+      }
+      .tphone {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 320 / 640;
+        margin-inline: auto;
+        border-radius: 40px;
+        padding: 8px;
+        background: linear-gradient(150deg, #6a5038, #1b1109 62%);
+        box-shadow:
+          0 40px 60px -28px #000,
+          0 0 0 1px rgba(240, 200, 80, 0.25);
+      }
+      .tphone .scr {
+        position: absolute;
+        inset: 8px;
+        border-radius: 32px;
+        overflow: hidden;
+        background: #000;
+        contain: strict;
+      }
+      .tphone .sanctuary-timer-scene {
+        height: 100% !important;
+        min-height: 0 !important;
+      }
+      .stage h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin: 0 0 8px;
+      }
+      .stage p {
+        color: #dcc8a3;
+        margin: 0 0 16px;
+      }
+      .looks {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      @media (max-width: 560px) {
+        .looks {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .look {
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        padding: 12px 6px 10px;
+        border-radius: 20px;
+        border: 1.5px solid rgba(240, 200, 80, 0.2);
+        background: rgba(0, 0, 0, 0.28);
+        color: #f0dfbd;
+        font-weight: 800;
+        font-size: 0.78rem;
+        transition:
+          transform 0.3s var(--spring),
+          border-color 0.25s,
+          background 0.25s;
+      }
+      .look:hover {
+        transform: translateY(-3px);
+      }
+      .look[aria-pressed="true"] {
+        border-color: var(--gold-light);
+        background: rgba(240, 200, 80, 0.14);
+        box-shadow: 0 0 0 2px rgba(240, 200, 80, 0.4);
+      }
+      .look .pv {
+        pointer-events: none;
+      }
+      .chips2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .dot {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        position: relative;
+        transition: transform 0.25s var(--spring);
+      }
+      .dot:hover {
+        transform: scale(1.12);
+      }
+      .dot[aria-pressed="true"] {
+        border-color: var(--gold-light);
+        box-shadow: 0 0 0 3px rgba(240, 200, 80, 0.4);
+        transform: scale(1.1);
+      }
+      .dot::after {
+        content: "";
+        position: absolute;
+        right: -1px;
+        bottom: -1px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--a);
+        border: 2px solid #2a170a;
+      }
+      .ctl {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+      .ctl input[type="range"] {
+        flex: 1 1 200px;
+        accent-color: #f0c850;
+        height: 30px;
+      }
+      .lab {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin: 22px 0 8px;
+      }
+      .blurb {
+        color: #e6d3ad;
+        min-height: 3.2em;
+      }
+      .note2 {
+        margin-top: 20px;
+        color: #cdb892;
+        font-size: 0.9rem;
+      }
     </style>
   </head>
   <body>
     <header class="hero wrap">
       <div class="eyebrow">MyBibleLens · Focus Timer</div>
       <h1 class="display">Sit with <span class="gold">the verse.</span></h1>
-      <p class="lead">Set the timer and the whole screen becomes a quiet room, with no notifications until the bell rings. Pick a look, pick a colour, and stay with the Word.</p>
+      <p class="lead">
+        Set the timer and the whole screen becomes a quiet room, with no notifications until the bell rings. Pick a look, pick a colour, and
+        stay with the Word.
+      </p>
     </header>
 
     <section class="chapter wrap reveal" aria-label="Focus timer looks">
@@ -57,8 +193,11 @@
           <div class="lab">Colour</div>
           <div class="chips2" id="dots" role="group" aria-label="Timer colours"></div>
           <div class="lab">Watch it run</div>
-          <div class="ctl"><button class="btn" id="play" type="button">Pause</button><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Timer progress" /></div>
-          <p class="blurb" id="blurb" style="margin-top:14px"></p>
+          <div class="ctl">
+            <button class="btn" id="play" type="button">Pause</button
+            ><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Timer progress" />
+          </div>
+          <p class="blurb" id="blurb" style="margin-top: 14px"></p>
           <p class="note2">A gentle chime, works offline. No streaks. No leaderboard. Just time with God.</p>
         </div>
       </div>
@@ -71,7 +210,11 @@
     <script>
       (function () {
         "use strict";
-        var S = window.SPOT, $ = S.$, $$ = S.$$, esc = S.esc, reduce = S.reduce;
+        var S = window.SPOT,
+          $ = S.$,
+          $$ = S.$$,
+          esc = S.esc,
+          reduce = S.reduce;
         var LOOKS = [
           ["classic-ring", "Classic Ring", "A calm ring that empties as the minutes pass."],
           ["cross-fill", "Cross Fill", "A cross that fills with light from the bottom up."],
@@ -80,43 +223,132 @@
           ["water-rise", "Water Rise", "Quiet water rises around you, minute by minute."],
           ["candle-glow", "Candle Glow", "A candle burns down in the dark, warm and steady."],
           ["analog", "Analog", "A single hand sweeps the face, slow and unhurried."],
-          ["word-clock", "Word Clock", "Time told in words, over a night sky."]
+          ["word-clock", "Word Clock", "Time told in words, over a night sky."],
         ];
-        var DURATION = 10 * 60, LOOP_MS = 24000;
-        var look = "heavenly", preset = null, progress = 0.18, playing = !reduce, t0 = performance.now();
+        var DURATION = 10 * 60,
+          LOOP_MS = 24000;
+        var look = "heavenly",
+          preset = null,
+          progress = 0.18,
+          playing = !reduce,
+          t0 = performance.now();
         var view = window.MBLTimer && window.MBLTimer.mount($("#scene"));
-        function mmss(p) { var s = Math.round(DURATION * (1 - p)); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); }
+        function mmss(p) {
+          var s = Math.round(DURATION * (1 - p));
+          return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+        }
         function paint() {
           if (!view || !preset) return;
-          view.render({ styleId: look, visual: { surface: preset.surface, accent: preset.accent, track: preset.track, text: preset.text, ringGlow: preset.ringGlow },
-            numberStyle: { color: preset.text, fontFamily: '"Hammersmith One", sans-serif' }, timeLabel: mmss(progress), progress: progress, wordClockLabel: "Be still", elapsedSeconds: DURATION * progress });
+          view.render({
+            styleId: look,
+            visual: { surface: preset.surface, accent: preset.accent, track: preset.track, text: preset.text, ringGlow: preset.ringGlow },
+            numberStyle: { color: preset.text, fontFamily: '"Hammersmith One", sans-serif' },
+            timeLabel: mmss(progress),
+            progress: progress,
+            wordClockLabel: "Be still",
+            elapsedSeconds: DURATION * progress,
+          });
         }
         function loop(now) {
-          if (playing) { progress = ((now - t0) / LOOP_MS) % 1; $("#scrub").value = Math.round(progress * 1000); paint(); }
+          if (playing) {
+            progress = ((now - t0) / LOOP_MS) % 1;
+            $("#scrub").value = Math.round(progress * 1000);
+            paint();
+          }
           requestAnimationFrame(loop);
         }
-        var looksEl = $("#looks"), pv = [];
-        looksEl.innerHTML = LOOKS.map(function (l) { return '<button class="look" type="button" data-id="' + l[0] + '" aria-pressed="' + (l[0] === look) + '"><span class="pv"></span>' + esc(l[1]) + "</button>"; }).join("");
+        var looksEl = $("#looks"),
+          pv = [];
+        looksEl.innerHTML = LOOKS.map(function (l) {
+          return (
+            '<button class="look" type="button" data-id="' +
+            l[0] +
+            '" aria-pressed="' +
+            (l[0] === look) +
+            '"><span class="pv"></span>' +
+            esc(l[1]) +
+            "</button>"
+          );
+        }).join("");
         looksEl.addEventListener("click", function (e) {
-          var b = e.target.closest(".look"); if (!b) return; look = b.dataset.id;
-          $$(".look", looksEl).forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
-          $("#blurb").textContent = LOOKS.filter(function (l) { return l[0] === look; })[0][2]; paint();
+          var b = e.target.closest(".look");
+          if (!b) return;
+          look = b.dataset.id;
+          $$(".look", looksEl).forEach(function (x) {
+            x.setAttribute("aria-pressed", x === b);
+          });
+          $("#blurb").textContent = LOOKS.filter(function (l) {
+            return l[0] === look;
+          })[0][2];
+          paint();
         });
-        $("#blurb").textContent = LOOKS.filter(function (l) { return l[0] === look; })[0][2];
-        $("#play").addEventListener("click", function () { playing = !playing; this.textContent = playing ? "Pause" : "Play"; if (playing) t0 = performance.now() - progress * LOOP_MS; });
-        $("#scrub").addEventListener("input", function () { playing = false; $("#play").textContent = "Play"; progress = this.value / 1000; paint(); });
-        fetch("assets/timer/presets.json").then(function (r) { return r.json(); }).then(function (list) {
-          preset = list.filter(function (p) { return p.id === "sanctuary"; })[0] || list[0];
-          var dots = $("#dots");
-          dots.innerHTML = list.map(function (p) { return '<button class="dot" type="button" data-id="' + p.id + '" aria-label="' + esc(p.n) + '" aria-pressed="' + (p.id === preset.id) + '" style="background:' + p.surface + ";--a:" + p.accent + '"></button>'; }).join("");
-          dots.addEventListener("click", function (e) { var b = e.target.closest(".dot"); if (!b) return; preset = list.filter(function (p) { return p.id === b.dataset.id; })[0]; $$(".dot", dots).forEach(function (x) { x.setAttribute("aria-pressed", x === b); }); paint(); previews(list); });
-          previews(list); paint(); requestAnimationFrame(loop);
+        $("#blurb").textContent = LOOKS.filter(function (l) {
+          return l[0] === look;
+        })[0][2];
+        $("#play").addEventListener("click", function () {
+          playing = !playing;
+          this.textContent = playing ? "Pause" : "Play";
+          if (playing) t0 = performance.now() - progress * LOOP_MS;
         });
+        $("#scrub").addEventListener("input", function () {
+          playing = false;
+          $("#play").textContent = "Play";
+          progress = this.value / 1000;
+          paint();
+        });
+        fetch("assets/timer/presets.json")
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (list) {
+            preset =
+              list.filter(function (p) {
+                return p.id === "sanctuary";
+              })[0] || list[0];
+            var dots = $("#dots");
+            dots.innerHTML = list
+              .map(function (p) {
+                return (
+                  '<button class="dot" type="button" data-id="' +
+                  p.id +
+                  '" aria-label="' +
+                  esc(p.n) +
+                  '" aria-pressed="' +
+                  (p.id === preset.id) +
+                  '" style="background:' +
+                  p.surface +
+                  ";--a:" +
+                  p.accent +
+                  '"></button>'
+                );
+              })
+              .join("");
+            dots.addEventListener("click", function (e) {
+              var b = e.target.closest(".dot");
+              if (!b) return;
+              preset = list.filter(function (p) {
+                return p.id === b.dataset.id;
+              })[0];
+              $$(".dot", dots).forEach(function (x) {
+                x.setAttribute("aria-pressed", x === b);
+              });
+              paint();
+              previews(list);
+            });
+            previews(list);
+            paint();
+            requestAnimationFrame(loop);
+          });
         function previews(list) {
           if (!window.MBLTimer) return;
           $$(".look .pv", looksEl).forEach(function (el, i) {
             if (!pv[i]) pv[i] = window.MBLTimer.mountPreview(el);
-            pv[i].render({ styleId: LOOKS[i][0], visual: { surface: preset.surface, accent: preset.accent, track: preset.track, text: preset.text, ringGlow: preset.ringGlow }, progress: 0.6, wordClockLabel: "Be still" });
+            pv[i].render({
+              styleId: LOOKS[i][0],
+              visual: { surface: preset.surface, accent: preset.accent, track: preset.track, text: preset.text, ringGlow: preset.ringGlow },
+              progress: 0.6,
+              wordClockLabel: "Be still",
+            });
           });
         }
       })();

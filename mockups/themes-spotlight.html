@@ -4,84 +4,393 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Themes · MyBibleLens</title>
-    <meta name="description" content="Sixteen atmospheres for MyBibleLens, from warm Milestone Brown to bright Temple Linen. Tap one and watch the whole app change." />
+    <meta
+      name="description"
+      content="Sixteen atmospheres for MyBibleLens, from warm Milestone Brown to bright Temple Linen. Tap one and watch the whole app change."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/spot.css" />
     <style>
-      .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin: 12px 0 14px; }
-      .hero p.lead { max-width: 640px; margin: 0 auto; color: var(--brown-soft); font-size: clamp(1rem, 2vw, 1.2rem); }
-      .stage { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 36px; padding: 30px; align-items: center; }
-      @media (max-width: 860px) { .stage { grid-template-columns: 1fr; padding: 20px; } }
+      .hero h1 {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        margin: 12px 0 14px;
+      }
+      .hero p.lead {
+        max-width: 640px;
+        margin: 0 auto;
+        color: var(--brown-soft);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+      .stage {
+        display: grid;
+        grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+        gap: 36px;
+        padding: 30px;
+        align-items: center;
+      }
+      @media (max-width: 860px) {
+        .stage {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+      }
 
       /* the live phone: every colour comes from the selected theme's tokens */
-      .ph { --bg:#2a170a; --tx:#f5ecdd; --ac:#d7ab63; --cd:rgba(58,36,18,.88); --cb:rgba(240,200,80,.4); --mu:rgba(245,236,221,.72); --fg:#2a170a;
-        position: relative; width: 100%; max-width: 320px; aspect-ratio: 320 / 640; margin-inline: auto; border-radius: 40px; padding: 8px; background: linear-gradient(150deg, #6a5038, #1b1109 62%);
-        box-shadow: 0 40px 60px -28px #000, 0 0 0 1px rgba(240,200,80,.25); }
-      .ph .scr { position: absolute; inset: 8px; border-radius: 32px; overflow: hidden; background: var(--bg); color: var(--tx); transition: background .55s var(--ease), color .55s var(--ease); }
-      .ph .scr * { transition: background .55s var(--ease), color .55s var(--ease), border-color .55s var(--ease), fill .55s var(--ease), stroke .55s var(--ease); }
-      .ph .top { display: flex; justify-content: space-between; align-items: center; padding: 26px 16px 0; }
-      .ph .clock { font-family: var(--font-display); font-size: 24px; line-height: 1; }
-      .ph .clock small { display: block; font: 600 8.5px var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--mu); margin-top: 4px; }
-      .ph .bk { display: inline-flex; gap: 6px; align-items: center; font-weight: 800; font-size: 10.5px; padding: 8px 12px; border-radius: 999px; color: #33210f; background: linear-gradient(145deg, #e5b94e, #b6751d); }
-      .ph .coin { position: absolute; width: 19%; aspect-ratio: 1; margin: -9.5% 0 0 -9.5%; display: grid; place-items: center; }
-      .ph .coin img { width: 118%; filter: drop-shadow(0 5px 6px rgba(0,0,0,.45)); }
-      .ph .ring { width: 100%; height: 100%; border-radius: 50%; border: 1.5px solid var(--cb); color: var(--mu); display: grid; place-items: center; font-family: var(--font-display); font-size: 18px; }
-      .ph .now .ring { border: 2px solid var(--ac); color: var(--ac); background: var(--cd); transform: scale(1.18); box-shadow: 0 0 26px -4px var(--ac); }
-      .ph .lbl { position: absolute; top: 112%; font-size: 8.5px; color: var(--mu); white-space: nowrap; }
-      .ph .dots { position: absolute; inset: 0; pointer-events: none; }
-      .ph .dots path { stroke: var(--ac); opacity: .4; }
-      .ph .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 74px; display: flex; justify-content: space-around; align-items: flex-start; padding-top: 10px; background: var(--cd); border-top: 1px solid var(--cb); }
-      .ph .tb { display: grid; justify-items: center; gap: 4px; font-size: 8px; color: var(--mu); width: 46px; }
-      .ph .tb.on { color: var(--ac); }
-      .ph .sealtab { width: 46px; height: 46px; margin-top: -18px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 34% 28%, #fff1c4, #e5b94e 42%, #b6751d 78%); box-shadow: 0 8px 18px -6px #000a, 0 0 0 3px var(--bg); }
-      .ph .sealtab img { width: 30px; }
-      .ph .card { position: absolute; left: 12px; right: 12px; bottom: 88px; border-radius: 16px; padding: 12px 14px; background: var(--cd); border: 1px solid var(--cb); }
-      .ph .card b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 13px; }
-      .ph .card span { font-size: 10px; color: var(--mu); }
+      .ph {
+        --bg: #2a170a;
+        --tx: #f5ecdd;
+        --ac: #d7ab63;
+        --cd: rgba(58, 36, 18, 0.88);
+        --cb: rgba(240, 200, 80, 0.4);
+        --mu: rgba(245, 236, 221, 0.72);
+        --fg: #2a170a;
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 320 / 640;
+        margin-inline: auto;
+        border-radius: 40px;
+        padding: 8px;
+        background: linear-gradient(150deg, #6a5038, #1b1109 62%);
+        box-shadow:
+          0 40px 60px -28px #000,
+          0 0 0 1px rgba(240, 200, 80, 0.25);
+      }
+      .ph .scr {
+        position: absolute;
+        inset: 8px;
+        border-radius: 32px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--tx);
+        transition:
+          background 0.55s var(--ease),
+          color 0.55s var(--ease);
+      }
+      .ph .scr * {
+        transition:
+          background 0.55s var(--ease),
+          color 0.55s var(--ease),
+          border-color 0.55s var(--ease),
+          fill 0.55s var(--ease),
+          stroke 0.55s var(--ease);
+      }
+      .ph .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 26px 16px 0;
+      }
+      .ph .clock {
+        font-family: var(--font-display);
+        font-size: 24px;
+        line-height: 1;
+      }
+      .ph .clock small {
+        display: block;
+        font: 600 8.5px var(--font-body);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--mu);
+        margin-top: 4px;
+      }
+      .ph .bk {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+        font-weight: 800;
+        font-size: 10.5px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        color: #33210f;
+        background: linear-gradient(145deg, #e5b94e, #b6751d);
+      }
+      .ph .coin {
+        position: absolute;
+        width: 19%;
+        aspect-ratio: 1;
+        margin: -9.5% 0 0 -9.5%;
+        display: grid;
+        place-items: center;
+      }
+      .ph .coin img {
+        width: 118%;
+        filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.45));
+      }
+      .ph .ring {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1.5px solid var(--cb);
+        color: var(--mu);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-display);
+        font-size: 18px;
+      }
+      .ph .now .ring {
+        border: 2px solid var(--ac);
+        color: var(--ac);
+        background: var(--cd);
+        transform: scale(1.18);
+        box-shadow: 0 0 26px -4px var(--ac);
+      }
+      .ph .lbl {
+        position: absolute;
+        top: 112%;
+        font-size: 8.5px;
+        color: var(--mu);
+        white-space: nowrap;
+      }
+      .ph .dots {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .ph .dots path {
+        stroke: var(--ac);
+        opacity: 0.4;
+      }
+      .ph .bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 74px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding-top: 10px;
+        background: var(--cd);
+        border-top: 1px solid var(--cb);
+      }
+      .ph .tb {
+        display: grid;
+        justify-items: center;
+        gap: 4px;
+        font-size: 8px;
+        color: var(--mu);
+        width: 46px;
+      }
+      .ph .tb.on {
+        color: var(--ac);
+      }
+      .ph .sealtab {
+        width: 46px;
+        height: 46px;
+        margin-top: -18px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 34% 28%, #fff1c4, #e5b94e 42%, #b6751d 78%);
+        box-shadow:
+          0 8px 18px -6px #000a,
+          0 0 0 3px var(--bg);
+      }
+      .ph .sealtab img {
+        width: 30px;
+      }
+      .ph .card {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 88px;
+        border-radius: 16px;
+        padding: 12px 14px;
+        background: var(--cd);
+        border: 1px solid var(--cb);
+      }
+      .ph .card b {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 13px;
+      }
+      .ph .card span {
+        font-size: 10px;
+        color: var(--mu);
+      }
 
       /* swatches */
-      .sw-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-      @media (max-width: 560px) { .sw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-      .sw { position: relative; border: 1.5px solid rgba(240,200,80,.2); border-radius: 20px; padding: 10px 10px 12px; text-align: left; color: #f0dfbd; background: rgba(0,0,0,.28);
-        transition: transform .3s var(--spring), border-color .25s, background .25s; }
-      .sw:hover { transform: translateY(-4px) rotate(-.6deg); }
-      .sw[aria-pressed="true"] { border-color: var(--gold-light); background: rgba(240,200,80,.14); box-shadow: 0 0 0 2px rgba(240,200,80,.4); }
-      .sw i { display: block; height: 58px; border-radius: 12px; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
-      .sw i::after { content: ""; position: absolute; right: 8px; bottom: 8px; width: 22px; height: 22px; border-radius: 50%; background: var(--a); box-shadow: 0 0 0 3px var(--c); }
-      .sw i::before { content: ""; position: absolute; left: 8px; top: 9px; width: 46%; height: 6px; border-radius: 3px; background: var(--t); opacity: .8; box-shadow: 0 12px 0 -1px var(--t); }
-      .sw span { display: block; font-weight: 800; font-size: .84rem; margin-top: 8px; }
-      .stage h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 8px; }
-      .stage p { color: #dcc8a3; margin: 0 0 18px; }
-      .now-name { margin-top: 18px; font-family: var(--font-display); color: var(--gold-light); font-size: 1.3rem; }
-      .fonts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-      .fonts span { padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(240,200,80,.3); background: rgba(0,0,0,.3); font-size: 1rem; }
+      .sw-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      @media (max-width: 560px) {
+        .sw-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .sw {
+        position: relative;
+        border: 1.5px solid rgba(240, 200, 80, 0.2);
+        border-radius: 20px;
+        padding: 10px 10px 12px;
+        text-align: left;
+        color: #f0dfbd;
+        background: rgba(0, 0, 0, 0.28);
+        transition:
+          transform 0.3s var(--spring),
+          border-color 0.25s,
+          background 0.25s;
+      }
+      .sw:hover {
+        transform: translateY(-4px) rotate(-0.6deg);
+      }
+      .sw[aria-pressed="true"] {
+        border-color: var(--gold-light);
+        background: rgba(240, 200, 80, 0.14);
+        box-shadow: 0 0 0 2px rgba(240, 200, 80, 0.4);
+      }
+      .sw i {
+        display: block;
+        height: 58px;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      }
+      .sw i::after {
+        content: "";
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--a);
+        box-shadow: 0 0 0 3px var(--c);
+      }
+      .sw i::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 9px;
+        width: 46%;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--t);
+        opacity: 0.8;
+        box-shadow: 0 12px 0 -1px var(--t);
+      }
+      .sw span {
+        display: block;
+        font-weight: 800;
+        font-size: 0.84rem;
+        margin-top: 8px;
+      }
+      .stage h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        margin: 0 0 8px;
+      }
+      .stage p {
+        color: #dcc8a3;
+        margin: 0 0 18px;
+      }
+      .now-name {
+        margin-top: 18px;
+        font-family: var(--font-display);
+        color: var(--gold-light);
+        font-size: 1.3rem;
+      }
+      .fonts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .fonts span {
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(240, 200, 80, 0.3);
+        background: rgba(0, 0, 0, 0.3);
+        font-size: 1rem;
+      }
     </style>
   </head>
   <body>
     <header class="hero wrap">
       <div class="eyebrow">MyBibleLens · Themes</div>
       <h1 class="display">Sixteen atmospheres.<br /><span class="gold">One sanctuary.</span></h1>
-      <p class="lead">Read in the mood you are in. From warm Milestone Brown to bright Temple Linen, every screen re-colors together: the path, the cards, the bar, even the timer.</p>
+      <p class="lead">
+        Read in the mood you are in. From warm Milestone Brown to bright Temple Linen, every screen re-colors together: the path, the cards,
+        the bar, even the timer.
+      </p>
     </header>
 
     <section class="chapter wrap reveal" aria-label="Theme picker">
       <div class="board stage">
         <div class="ph" id="ph" aria-label="A live preview of the app in the chosen theme">
           <div class="scr">
-            <div class="top"><div class="clock">7:14<small>Sunday morning</small></div><div class="bk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.2A2.2 2.2 0 016.2 3H19v15.5H6.2A2.2 2.2 0 004 20.7z"/><path d="M4 18.5h15"/></svg>Scripture Book</div></div>
-            <svg class="dots" viewBox="0 0 320 640" aria-hidden="true"><path d="M70 180 C 100 200, 200 210, 230 250 S 110 320, 100 370" fill="none" stroke-width="3" stroke-dasharray="1 11" stroke-linecap="round"/></svg>
-            <div class="coin" style="left:22%;top:26%"><img alt="" src="assets/seals/4-John-1.svg" /><span class="lbl">John 1</span></div>
-            <div class="coin" style="left:74%;top:38%"><img alt="" src="assets/seals/4-John-2.svg" /><span class="lbl">John 2</span></div>
-            <div class="coin now" style="left:30%;top:53%"><div class="ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5A2 2 0 016 3.5h12v15H6a2 2 0 00-2 2z"/><path d="M4 18.5h14"/></svg></div><span class="lbl">John 3</span></div>
+            <div class="top">
+              <div class="clock">7:14<small>Sunday morning</small></div>
+              <div class="bk">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 5.2A2.2 2.2 0 016.2 3H19v15.5H6.2A2.2 2.2 0 004 20.7z" />
+                  <path d="M4 18.5h15" /></svg
+                >Scripture Book
+              </div>
+            </div>
+            <svg class="dots" viewBox="0 0 320 640" aria-hidden="true">
+              <path
+                d="M70 180 C 100 200, 200 210, 230 250 S 110 320, 100 370"
+                fill="none"
+                stroke-width="3"
+                stroke-dasharray="1 11"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div class="coin" style="left: 22%; top: 26%">
+              <img alt="" src="assets/seals/4-John-1.svg" /><span class="lbl">John 1</span>
+            </div>
+            <div class="coin" style="left: 74%; top: 38%">
+              <img alt="" src="assets/seals/4-John-2.svg" /><span class="lbl">John 2</span>
+            </div>
+            <div class="coin now" style="left: 30%; top: 53%">
+              <div class="ring">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 5.5A2 2 0 016 3.5h12v15H6a2 2 0 00-2 2z" />
+                  <path d="M4 18.5h14" />
+                </svg>
+              </div>
+              <span class="lbl">John 3</span>
+            </div>
             <div class="card"><b>Next unlock</b><span>Every chapter you seal brings the next one closer.</span></div>
             <div class="bar">
-              <div class="tb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="11" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>Mosaic</div>
-              <div class="tb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h7v6H4z"/><path d="M14 11h6v7h-6z"/><path d="M11 10h3"/><path d="M8 13v4h6"/></svg>Canvas</div>
+              <div class="tb">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <rect x="3" y="3" width="7.5" height="7.5" rx="1.6" />
+                  <rect x="13.5" y="3" width="7.5" height="11" rx="1.6" />
+                  <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6" /></svg
+                >Mosaic
+              </div>
+              <div class="tb">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <path d="M4 7h7v6H4z" />
+                  <path d="M14 11h6v7h-6z" />
+                  <path d="M11 10h3" />
+                  <path d="M8 13v4h6" /></svg
+                >Canvas
+              </div>
               <div class="sealtab"><img alt="" src="assets/seals/4-John-1.svg" /></div>
-              <div class="tb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9" r="3.2"/><circle cx="16.5" cy="12" r="2.6"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/></svg>Gather</div>
-              <div class="tb on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8.2" r="3.6"/><path d="M4.8 20c.7-4 3.6-6.2 7.2-6.2S18.5 16 19.2 20"/></svg>Apostle</div>
+              <div class="tb">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <circle cx="9" cy="9" r="3.2" />
+                  <circle cx="16.5" cy="12" r="2.6" />
+                  <path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6" /></svg
+                >Gather
+              </div>
+              <div class="tb on">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <circle cx="12" cy="8.2" r="3.6" />
+                  <path d="M4.8 20c.7-4 3.6-6.2 7.2-6.2S18.5 16 19.2 20" /></svg
+                >Apostle
+              </div>
             </div>
           </div>
         </div>
@@ -90,7 +399,11 @@
           <p>These are the app's real palettes, not mockups. Your seals stay gold in every one of them.</p>
           <div class="sw-grid" id="swGrid" role="group" aria-label="Themes"></div>
           <div class="now-name" id="nowName"></div>
-          <div class="fonts" aria-label="Three typefaces"><span style="font-family:'Hammersmith One'">Hammersmith</span><span style="font-family:Montserrat,sans-serif;font-weight:700">Montserrat</span><span style="font-family:Alegreya,Georgia,serif;font-style:italic">Alegreya</span></div>
+          <div class="fonts" aria-label="Three typefaces">
+            <span style="font-family: &quot;Hammersmith One&quot;">Hammersmith</span
+            ><span style="font-family: Montserrat, sans-serif; font-weight: 700">Montserrat</span
+            ><span style="font-family: Alegreya, Georgia, serif; font-style: italic">Alegreya</span>
+          </div>
         </div>
       </div>
     </section>
@@ -101,18 +414,58 @@
     <script>
       (function () {
         "use strict";
-        var S = window.SPOT, $ = S.$, $$ = S.$$, esc = S.esc, ph = $("#ph"), grid = $("#swGrid"), name = $("#nowName");
+        var S = window.SPOT,
+          $ = S.$,
+          $$ = S.$$,
+          esc = S.esc,
+          ph = $("#ph"),
+          grid = $("#swGrid"),
+          name = $("#nowName");
         function apply(t) {
           var v = { "--bg": t.bg, "--tx": t.tx, "--ac": t.ac, "--cd": t.cd, "--cb": t.cb, "--mu": t.mu || t.tx, "--fg": t.fg };
-          Object.keys(v).forEach(function (k) { ph.style.setProperty(k, v[k]); });
-          $$(".sw", grid).forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.id === t.id); });
+          Object.keys(v).forEach(function (k) {
+            ph.style.setProperty(k, v[k]);
+          });
+          $$(".sw", grid).forEach(function (b) {
+            b.setAttribute("aria-pressed", b.dataset.id === t.id);
+          });
           name.textContent = t.n;
         }
-        fetch("assets/themes.json").then(function (r) { return r.json(); }).then(function (list) {
-          grid.innerHTML = list.map(function (t) { return '<button class="sw" type="button" data-id="' + t.id + '" aria-pressed="false" style="--a:' + t.ac + ";--c:" + t.bg + ";--t:" + t.tx + '"><i style="background:' + t.bg + '"></i><span>' + esc(t.n) + "</span></button>"; }).join("");
-          grid.addEventListener("click", function (e) { var b = e.target.closest(".sw"); if (!b) return; apply(list.filter(function (t) { return t.id === b.dataset.id; })[0]); });
-          apply(list[0]);
-        });
+        fetch("assets/themes.json")
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (list) {
+            grid.innerHTML = list
+              .map(function (t) {
+                return (
+                  '<button class="sw" type="button" data-id="' +
+                  t.id +
+                  '" aria-pressed="false" style="--a:' +
+                  t.ac +
+                  ";--c:" +
+                  t.bg +
+                  ";--t:" +
+                  t.tx +
+                  '"><i style="background:' +
+                  t.bg +
+                  '"></i><span>' +
+                  esc(t.n) +
+                  "</span></button>"
+                );
+              })
+              .join("");
+            grid.addEventListener("click", function (e) {
+              var b = e.target.closest(".sw");
+              if (!b) return;
+              apply(
+                list.filter(function (t) {
+                  return t.id === b.dataset.id;
+                })[0]
+              );
+            });
+            apply(list[0]);
+          });
       })();
     </script>
   </body>
