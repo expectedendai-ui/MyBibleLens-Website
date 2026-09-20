@@ -485,6 +485,86 @@
       .about-reward-download:hover { transform: translateY(-1px); filter: brightness(1.05); }
       .about-reward-download svg { width: 16px; height: 16px; }
 
+      /* ── Gold aside: an underlined phrase that opens a small note ── */
+      .gold-aside {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: none;
+        font: inherit;
+        color: inherit;
+        text-align: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #f0c850;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+        -webkit-tap-highlight-color: transparent;
+        transition: text-decoration-color 0.2s, text-shadow 0.2s;
+      }
+      .gold-aside:hover,
+      .gold-aside:focus-visible { text-decoration-color: #b6741d; text-shadow: 0 0 14px rgba(240, 200, 80, 0.45); outline: none; }
+      .aside-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6vw;
+        background: rgba(26, 16, 8, 0.72);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .aside-overlay.is-open { opacity: 1; pointer-events: auto; }
+      .aside-card {
+        position: relative;
+        max-width: min(88vw, 400px);
+        background: #fdf9f1;
+        color: #3d2b1f;
+        padding: 1.9rem 1.6rem 1.5rem;
+        border-radius: 0.8rem;
+        text-align: center;
+        box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.7);
+        transform: scale(0.7) rotate(-2deg);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.45, 0.5, 1), opacity 0.25s ease;
+      }
+      .aside-overlay.is-open .aside-card { transform: none; opacity: 1; }
+      .aside-card p { margin: 0; font-family: "Inter", sans-serif; font-size: 1.05rem; line-height: 1.55; }
+      .aside-card .aside-badge {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #f0c850, #b6741d);
+        color: #1a1008;
+        font-family: "Hammersmith One", sans-serif;
+        font-size: 0.78rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+      }
+      .aside-card .aside-close {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        width: 38px;
+        height: 38px;
+        border: none;
+        border-radius: 50%;
+        background: #b6741d;
+        color: #fff;
+        font-size: 1.25rem;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.6);
+      }
+      @media (prefers-reduced-motion: reduce) { .aside-card { transition: opacity 0.2s; transform: none; } }
+
       #my-mission { position: relative; }
       #my-mission .content-inner { position: relative; z-index: 1; }
       .about-sticker {
@@ -552,10 +632,10 @@
                 <p>I grew up in a household of four women: my mom, her wife, and my two sisters. Even as a young, carnal boy just trying to navigate the world, I spent my life listening deeply to the stories of dozens of women, the pillow talks made it all make sense. I was deep in my carnal season, but even then I was paying attention, and every woman carried the same wound. Catholic, Mormon, or strict Christian homes: <button type="button" class="verse-ref" data-ref="eph6-4" aria-haspopup="dialog">&mdash;Ephesians&nbsp;6:4</button> religion never felt like love to them. It felt like a chore. They were forced to listen to pastors who had absolutely no connection to a kid's real life. Instead of experiencing the joy of God, the routine was so deeply dreadful that their only goal was to escape the second they got older.</p>
                 <h3 style="font-family:'Hammersmith One', sans-serif; font-size:1.2rem; color:#f0c850; text-shadow:0 0 12px rgba(240, 200, 80, 0.35); margin:1.6rem 0 0.9rem;">The Void and The Noise</h3>
                 <p>When you run away from a forced foundation, the void gets filled by the other force. We let social media, toxic music, and outside voices teach our generation fear, shame, unworthiness, depression, and anxiety. We fall under SIN. We watch young women lose sight of their true strength, charity, and purity, while boys get stuck playing Peter Pan, completely avoiding the responsibility of becoming men. <button type="button" class="verse-ref" data-ref="2tim3" aria-haspopup="dialog">&mdash;2nd&nbsp;Timothy&nbsp;chapter&nbsp;3</button> To the point where, when they finally hear God's voice, they get skittish. They become afraid of the one thing trying to save them.</p>
-                <p>Instead of turning to the source that created love and marriage, we see people chasing temporary pleasures. We see a generation raised in the church turning to worship Money over God, status, and fleeting validation, allowing the pursuit of the wrong things to slowly destroy them. And I'm no hypocrite saying this; I lived that very life in my teens, so I see both sides, like a channel.</p>
+                <p>Instead of turning to the source that created love and marriage, we see people chasing temporary pleasures. We see a generation raised in the church turning to worship Money over God, status, and fleeting validation, allowing the pursuit of the wrong things to slowly destroy them. And I'm no hypocrite saying this; I lived that very life in my teens, so <button type="button" class="gold-aside" id="channel-aside" aria-haspopup="dialog">I see both sides, like a channel.</button></p>
                 <p>What I’m really getting at is this: even when parents try their best to guide their kids, what they pass down is often shaped by their own unhealed places: Unresolved guilt, insecurities, strongholds, baggage parents never worked through create weak-minded children who shield their vulnerabilities behind a Jezebel spirit. Because fathers aren't teaching their sons how to treat a lady or showing their daughters what a real man is, you have women looking for love in all the wrong places &mdash; seeking comfort in multiple men just to fill that void. Then, when she realizes the void is still there, she hardens her heart. None of that makes them bad parents; it makes them human. You can&rsquo;t blame them, since we all know the system controlled them. But it’s exactly why you still need the space to find your own understanding of God, on your own terms. You need your own personal time, away from their baggage, so you can genuinely grow into the loving, kind person you want to be. The kind of light this world actually needs.</p>
                 <h3 style="font-family:'Hammersmith One', sans-serif; font-size:1.2rem; color:#f0c850; text-shadow:0 0 12px rgba(240, 200, 80, 0.35); margin:1.6rem 0 0.9rem;">My Breaking Point</h3>
-                <p>I ask myself these questions because I lived it. I live in Miami, for crying out loud; I am surrounded by it every single daaaaay. uuugh. I was carnal. I drifted. Honestly, looking at the life I used to live, the things I've seen, and the ways I've been betrayed, manipulated, poison, and secretly cheated on&hellip; I should be the last person to have any faith left.</p>
+                <p>I ask myself these questions because I lived it. I live in Miami, for crying out loud; I&rsquo;ve seen it all. I was carnal. I drifted. Honestly, looking at the life I used to live, the things I've seen, and the ways I've been betrayed, manipulated, poison, and secretly cheated on&hellip; I should be the last person to have any faith left.</p>
                 <p>But I'm from Virginia, and Virginia is for <a href="https://www.google.com/search?q=virginia+for+lover&rlz=1C5CHFA_enUS943US944&oq=virginia&gs_lcrp=EgZjaHJvbWUqBggDECMYJzIHCAAQABiPAjIKCAEQLhixAxiABDIKCAIQLhixAxiABDIGCAMQIxgnMg0IBBAuGIMBGLEDGIAEMgoIBRAuGLEDGIAEMg0IBhAuGK8BGMcBGIAEMgoIBxAuGLEDGIAEMhAICBAAGIMBGLEDGIAEGIoFMgcICRAAGIAE0gEINDc0MmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" style="color:#b6741d; text-decoration:underline;">lovers</a>, I guess that's why I didn't give up. When you have zero hope in humanity, zero hope in love, and you hit rock bottom, you realize the truth. But for the ones who have fallen deeper into the noise, for the ones who drink, do drugs it's infinitely harder. I see it everywhere I go.</p>
                 <h3 style="font-family:'Hammersmith One', sans-serif; font-size:1.2rem; color:#f0c850; text-shadow:0 0 12px rgba(240, 200, 80, 0.35); margin:1.6rem 0 0.9rem;">Why I Built MyBibleLens</h3>
                 <p>Ultimately, it's a space for a mother or father to pull up a prayer they wrote years ago, side-by-side with the picture of how God actually answered it. It's built to forge a deeper family connection. For a pastor to show more. A kid shouldn't have to hit rock bottom just to find God. We can't keep throwing our children into a pew, letting someone preach over their heads, and expecting them to stay rooted. Kids read between the lines. They need living testimonies from their own parents. They need visuals, photos, collages, and authentic, joyful experiences with faith.</p>
@@ -4741,5 +4821,27 @@
         }
       })();
     </script>
-  </body>
+      <script>
+      // Gold aside: tap the underlined phrase, a small note pops up.
+      (function () {
+        var trigger = document.getElementById("channel-aside");
+        if (!trigger) return;
+        var ov = document.createElement("div");
+        ov.className = "aside-overlay";
+        ov.innerHTML =
+          '<div class="aside-card" role="dialog" aria-modal="true" aria-label="A note">' +
+          '<span class="aside-badge">&#10022;</span>' +
+          '<button type="button" class="aside-close" aria-label="Close">&times;</button>' +
+          "<p>Not the Frank Ocean way, more like I&rsquo;ve lived a life of many endeavors.</p>" +
+          "</div>";
+        document.body.appendChild(ov);
+        function open() { ov.classList.add("is-open"); ov.querySelector(".aside-close").focus(); }
+        function close() { ov.classList.remove("is-open"); trigger.focus(); }
+        trigger.addEventListener("click", open);
+        ov.querySelector(".aside-close").addEventListener("click", close);
+        ov.addEventListener("click", function (e) { if (e.target === ov) close(); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("is-open")) close(); });
+      })();
+    </script>
+</body>
 </html>
