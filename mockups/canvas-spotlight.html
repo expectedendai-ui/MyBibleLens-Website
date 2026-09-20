@@ -3,1546 +3,640 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Infinite Canvas · MyBibleLens</title>
-    <meta
-      name="description"
-      content="The Infinite Canvas by MyBibleLens — 1,000+ stickers from every culture, 50+ sacred templates, connectable idea nodes, and endless space to build Bible studies together."
-    />
+    <title>Scripture Canvas · MyBibleLens</title>
+    <meta name="description" content="Scripture Canvas by MyBibleLens: an endless board with gold threads, living notes, over a thousand stickers, 46 sacred layouts and 68 landscapes." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <style>
-      @font-face {
-        font-family: "Hammersmith One";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(assets/canvas/fonts/hammersmithone-latin.woff2) format("woff2");
-      }
-
+      @font-face { font-family: "Hammersmith One"; font-style: normal; font-weight: 400; font-display: swap;
+        src: url(assets/canvas/fonts/hammersmithone-latin.woff2) format("woff2"); }
       :root {
         --font-display: "Hammersmith One", "Arial Black", sans-serif;
         --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
-        --parchment: #f5f2ed;
-        --parchment-deep: #ead9b8;
-        --paper: #fffaf0;
-        --brown: #3d2b1f;
-        --brown-soft: #705a45;
-        --brown-dark: #1a1008;
-        --gold: #b6751d;
-        --gold-deep: #9a6218;
-        --gold-light: #f0c850;
-        --terra: #a95139;
-        --sage: #718050;
-        --line: rgba(154, 98, 24, 0.24);
-        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        margin: 0;
-        overflow-x: hidden;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        color: var(--brown);
-        background:
-          radial-gradient(circle at 12% 4%, rgba(240, 200, 80, 0.18), transparent 28rem),
-          radial-gradient(circle at 92% 18%, rgba(169, 81, 57, 0.12), transparent 28rem), var(--parchment);
-        font-family: var(--font-body);
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      video {
-        display: block;
-        width: 100%;
-      }
-
-      .wrap {
-        width: min(1120px, calc(100% - 44px));
-        margin-inline: auto;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        text-wrap: balance;
-      }
-
-      h1,
-      h2,
-      h3,
-      .kicker,
-      .eyebrow,
-      .chapter-number,
-      .tagline,
-      .stat,
-      .stage-toolbar,
-      .media-caption,
-      .gallery-label,
-      .live-badge,
-      .cta {
-        font-family: var(--font-display);
-      }
-
-      .hero {
-        position: relative;
-        isolation: isolate;
-        padding: 76px 0 96px;
-        overflow: clip;
-        background:
-          linear-gradient(rgba(182, 117, 29, 0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(182, 117, 29, 0.055) 1px, transparent 1px),
-          radial-gradient(circle at 50% 58%, rgba(240, 200, 80, 0.28), transparent 34rem),
-          linear-gradient(180deg, #f5f2ed 0%, #f4e6ca 70%, #ead9b8 100%);
-        background-size:
-          42px 42px,
-          42px 42px,
-          auto,
-          auto;
-      }
-
-      .hero::before,
-      .hero::after {
-        position: absolute;
-        z-index: -1;
-        content: "";
-        pointer-events: none;
-        border: 1px solid rgba(182, 117, 29, 0.22);
-        border-radius: 50%;
-      }
-
-      .hero::before {
-        width: 520px;
-        height: 520px;
-        top: -330px;
-        left: -130px;
-        box-shadow:
-          0 0 0 72px rgba(182, 117, 29, 0.035),
-          0 0 0 144px rgba(182, 117, 29, 0.025);
-      }
-
-      .hero::after {
-        width: 440px;
-        height: 440px;
-        right: -270px;
-        bottom: -180px;
-        border-color: rgba(169, 81, 57, 0.2);
-        box-shadow: 0 0 0 88px rgba(169, 81, 57, 0.035);
-      }
-
-      .hero-copy {
-        max-width: 790px;
-        margin: 0 auto 40px;
-        text-align: center;
-      }
-
-      .kicker,
-      .eyebrow,
-      .chapter-number {
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-      }
-
-      .kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        padding: 8px 16px;
-        color: var(--gold-deep);
-        border: 1px solid rgba(182, 117, 29, 0.35);
-        border-radius: 999px;
-        background: rgba(255, 250, 240, 0.82);
-        font-size: 12px;
-      }
-
-      .kicker::before {
-        width: 7px;
-        height: 7px;
-        content: "";
-        border-radius: 50%;
-        background: var(--gold-light);
-        box-shadow: 0 0 0 5px rgba(240, 200, 80, 0.18);
-      }
-
-      h1 {
-        margin: 22px 0 14px;
-        color: var(--brown);
-        font-size: clamp(44px, 7.8vw, 82px);
-        font-weight: 400;
-        letter-spacing: -0.045em;
-        line-height: 0.96;
-      }
-
-      h1 span {
-        color: var(--gold-deep);
-      }
-
-      .tagline {
-        max-width: 720px;
-        margin: 0 auto 14px;
-        color: var(--terra);
-        font-size: 13px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .intro {
-        max-width: 710px;
-        margin: 0 auto;
-        color: var(--brown-soft);
-        font-size: clamp(16px, 2.1vw, 19px);
-        line-height: 1.7;
-      }
-
-      .intro strong,
-      .chapter-copy strong {
-        color: var(--brown);
-      }
-
-      .stats {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 26px;
-      }
-
-      .stat {
-        min-width: 138px;
-        padding: 11px 15px;
-        border: 1px solid var(--line);
-        border-radius: 15px;
-        background: rgba(255, 250, 240, 0.66);
-      }
-
-      .stat b {
-        display: block;
-        color: var(--terra);
-        font-size: 24px;
-        line-height: 1;
-      }
-
-      .stat span {
-        color: var(--brown-soft);
-        font-size: 10px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .sanctuary-stage {
-        position: relative;
-        max-width: 1040px;
-        min-height: 650px;
-        margin: 0 auto;
-        perspective: 1600px;
-      }
-
-      .stage-halo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: min(84vw, 760px);
-        aspect-ratio: 1;
-        translate: -50% -50%;
-        border: 1px solid rgba(182, 117, 29, 0.26);
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(240, 200, 80, 0.22), rgba(240, 200, 80, 0.08) 42%, transparent 70%);
-        box-shadow:
-          0 0 0 58px rgba(182, 117, 29, 0.035),
-          0 0 0 118px rgba(182, 117, 29, 0.025);
-        pointer-events: none;
-      }
-
-      .stage-thread {
-        position: absolute;
-        z-index: 1;
-        height: 2px;
-        opacity: 0.72;
-        transform-origin: left center;
-        background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), transparent);
-        box-shadow: 0 0 12px rgba(240, 200, 80, 0.55);
-        pointer-events: none;
-      }
-
-      .stage-thread::before,
-      .stage-thread::after {
-        position: absolute;
-        top: 50%;
-        width: 9px;
-        height: 9px;
-        content: "";
-        translate: 0 -50%;
-        border: 2px solid var(--gold);
-        border-radius: 50%;
-        background: var(--paper);
-      }
-
-      .stage-thread::before {
-        left: 6%;
-      }
-
-      .stage-thread::after {
-        right: 6%;
-      }
-
-      .stage-thread--one {
-        width: 46%;
-        top: 20%;
-        left: 4%;
-        rotate: 12deg;
-      }
-
-      .stage-thread--two {
-        width: 42%;
-        right: -2%;
-        bottom: 22%;
-        rotate: -18deg;
-      }
-
-      .stage-board {
-        position: absolute;
-        z-index: 2;
-        top: 50%;
-        left: 50%;
-        width: min(86%, 880px);
-        padding: 12px;
-        transform: translate(-50%, -50%) rotateX(4deg) rotateZ(-1.2deg);
-        transform-style: preserve-3d;
-        border: 1px solid rgba(154, 98, 24, 0.32);
-        border-radius: 28px;
-        background: rgba(255, 250, 240, 0.9);
-        box-shadow:
-          0 42px 90px -38px rgba(26, 17, 7, 0.72),
-          0 1px 0 #fff inset,
-          0 0 0 7px rgba(255, 250, 240, 0.35);
-        backdrop-filter: blur(14px);
-      }
-
-      .stage-board::before {
-        position: absolute;
-        inset: 7px;
-        content: "";
-        border: 1px solid rgba(182, 117, 29, 0.28);
-        border-radius: 21px;
-        pointer-events: none;
-      }
-
-      .stage-toolbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 40px;
-        padding: 0 12px;
-        color: var(--brown-soft);
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .stage-toolbar-dots {
-        display: flex;
-        gap: 6px;
-      }
-
-      .stage-toolbar-dots span {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--gold);
-        opacity: 0.55;
-      }
-
-      .stage-toolbar-dots span:nth-child(2) {
-        background: var(--terra);
-      }
-
-      .stage-toolbar-dots span:nth-child(3) {
-        background: var(--sage);
-      }
-
-      .media-frame {
-        position: relative;
-        min-width: 0;
-        overflow: hidden;
-        border: 1px solid rgba(154, 98, 24, 0.26);
-        border-radius: 18px;
-        background: #ead9b8;
-        box-shadow:
-          0 22px 54px -32px rgba(26, 17, 7, 0.68),
-          0 1px 0 rgba(255, 255, 255, 0.8) inset;
-      }
-
-      .media-frame video {
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        background: #ead9b8;
-      }
-
-      .stage-board .media-frame {
-        border-radius: 19px;
-      }
-
-      .stage-note,
-      .stage-seal {
-        position: absolute;
-        z-index: 4;
-        box-shadow: 0 18px 40px -20px rgba(26, 17, 7, 0.68);
-      }
-
-      .stage-note {
-        width: 178px;
-        padding: 16px;
-        border: 1px solid rgba(154, 98, 24, 0.25);
-        border-radius: 6px 16px 16px;
-        color: var(--brown);
-        background: #f7d985;
-        font-size: 13px;
-        line-height: 1.35;
-      }
-
-      .stage-note::before {
-        display: block;
-        margin-bottom: 7px;
-        color: var(--gold-deep);
-        content: "STUDY NOTE";
-        font-size: 9px;
-        letter-spacing: 0.16em;
-      }
-
-      .stage-note--left {
-        top: 11%;
-        left: 0;
-        rotate: -7deg;
-      }
-
-      .stage-note--right {
-        right: 1%;
-        bottom: 7%;
-        rotate: 6deg;
-        background: #e7dfc5;
-      }
-
-      .stage-seal {
-        display: grid;
-        width: 92px;
-        aspect-ratio: 1;
-        place-items: center;
-        border: 1px solid rgba(255, 250, 240, 0.74);
-        border-radius: 50%;
-        color: #fff7df;
-        background: linear-gradient(145deg, var(--terra), #7e3524);
-        box-shadow:
-          0 0 0 7px rgba(255, 250, 240, 0.64),
-          0 18px 40px -20px rgba(26, 17, 7, 0.75);
-        font-size: 38px;
-      }
-
-      .stage-seal--cross {
-        top: 6%;
-        right: 9%;
-        rotate: 9deg;
-      }
-
-      .stage-seal--crown {
-        bottom: 4%;
-        left: 10%;
-        rotate: -8deg;
-        color: var(--brown);
-        background: linear-gradient(145deg, #f0c850, #d89d35);
-      }
-
-      .stage-cursor {
-        position: absolute;
-        z-index: 5;
-        top: 21%;
-        right: 3%;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: #fff;
-        font-size: 11px;
-      }
-
-      .stage-cursor::before {
-        content: "◆";
-        color: var(--terra);
-        font-size: 22px;
-        rotate: -18deg;
-      }
-
-      .stage-cursor span {
-        padding: 5px 9px;
-        border-radius: 999px;
-        background: var(--terra);
-      }
-
-      .showcase {
-        padding: 86px 0 74px;
-        background: linear-gradient(180deg, var(--parchment-deep), var(--parchment) 200px);
-      }
-
-      .section-intro {
-        max-width: 720px;
-        margin: 0 auto 50px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        color: var(--gold-deep);
-        font-size: 11px;
-      }
-
-      .section-intro h2 {
-        margin: 9px 0;
-        font-size: clamp(32px, 5vw, 52px);
-        font-weight: 400;
-        letter-spacing: -0.035em;
-        line-height: 1.04;
-      }
-
-      .section-intro p {
-        max-width: 620px;
-        margin: 0 auto;
-        color: var(--brown-soft);
-        font-size: 17px;
-      }
-
-      .chapters {
-        display: grid;
-        gap: 24px;
-      }
-
-      .feature-chapter {
-        position: relative;
-        isolation: isolate;
-        min-width: 0;
-        padding: clamp(24px, 4vw, 44px);
-        overflow: clip;
-        border: 1px solid var(--line);
-        border-radius: 32px;
-        background: radial-gradient(circle at 92% 4%, rgba(240, 200, 80, 0.18), transparent 22rem), rgba(255, 250, 240, 0.83);
-        box-shadow: 0 26px 70px -44px rgba(26, 17, 7, 0.72);
-      }
-
-      .chapter-grid {
-        display: grid;
-        grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.42fr);
-        align-items: center;
-        gap: clamp(24px, 5vw, 54px);
-      }
-
-      .chapter-grid--reverse {
-        grid-template-columns: minmax(0, 1.42fr) minmax(240px, 0.78fr);
-      }
-
-      .chapter-grid--reverse .chapter-copy {
-        grid-column: 2;
-      }
-
-      .chapter-grid--reverse .chapter-media {
-        grid-row: 1;
-        grid-column: 1;
-      }
-
-      .chapter-number {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        color: var(--gold-deep);
-        font-size: 10px;
-      }
-
-      .chapter-number::before {
-        width: 24px;
-        height: 1px;
-        content: "";
-        background: var(--gold);
-      }
-
-      .chapter-copy h3 {
-        margin: 12px 0;
-        font-size: clamp(29px, 4vw, 44px);
-        font-weight: 400;
-        letter-spacing: -0.035em;
-        line-height: 1.03;
-      }
-
-      .chapter-copy p {
-        margin: 0 0 19px;
-        color: var(--brown-soft);
-        font-family: var(--font-body);
-        font-size: 17px;
-        line-height: 1.65;
-      }
-
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-      }
-
-      .tag {
-        padding: 7px 11px;
-        border: 1px solid rgba(154, 98, 24, 0.24);
-        border-radius: 999px;
-        color: var(--brown);
-        background: rgba(255, 250, 240, 0.78);
-        font-size: 11px;
-        letter-spacing: 0.04em;
-      }
-
-      .tag--gold {
-        color: #73450d;
-        background: #f9e8b8;
-      }
-
-      .tag--terra {
-        color: #75301f;
-        background: #f7ddd4;
-      }
-
-      .tag--sage {
-        color: #455229;
-        background: #e9edd9;
-      }
-
-      .chapter-media {
-        min-width: 0;
-      }
-
-      .feature-chapter .media-frame {
-        padding: 8px;
-        border-radius: 22px;
-        background: rgba(255, 250, 240, 0.9);
-      }
-
-      .feature-chapter .media-frame video {
-        border-radius: 15px;
-      }
-
-      .chapter--culture .media-frame video {
-        height: auto;
-        aspect-ratio: 4 / 5;
-        object-fit: contain;
-      }
-
-      .chapter--templates .media-frame video {
-        height: auto;
-        object-fit: contain;
-      }
-
-      .chapter--templates .chapter-media video {
-        aspect-ratio: 4 / 5;
-      }
-
-      .chapter--templates .gallery video {
-        aspect-ratio: 1 / 1;
-      }
-
-      .chapter--connection .chapter-media {
-        transform: rotate(1.2deg);
-      }
-
-      .chapter--templates .chapter-media {
-        transform: rotate(-1deg);
-      }
-
-      .media-caption {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 10px 6px 2px;
-        color: var(--brown-soft);
-        font-size: 9px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .media-caption span:last-child {
-        color: var(--terra);
-      }
-
-      .gallery {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin-top: 28px;
-      }
-
-      .gallery .media-frame {
-        padding: 6px;
-        border-radius: 17px;
-      }
-
-      .gallery .media-frame video {
-        border-radius: 11px;
-      }
-
-      .gallery .media-frame:nth-child(2) {
-        transform: translateY(10px) rotate(1deg);
-      }
-
-      .gallery .media-frame:nth-child(3) {
-        transform: rotate(-1deg);
-      }
-
-      .gallery .media-frame:nth-child(4) {
-        transform: translateY(8px) rotate(-0.8deg);
-      }
-
-      .gallery .media-frame:nth-child(5) {
-        transform: rotate(0.8deg);
-      }
-
-      .chapter--templates .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .gallery-label {
-        position: absolute;
-        left: 12px;
-        bottom: 10px;
-        padding: 5px 8px;
-        border-radius: 999px;
-        color: #fffaf0;
-        background: rgba(26, 16, 8, 0.76);
-        font-size: 8px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .live-wrap {
-        padding-top: 10px;
-      }
-
-      .live {
-        position: relative;
-        isolation: isolate;
-        padding: clamp(40px, 7vw, 72px) 24px;
-        overflow: clip;
-        border: 1px solid rgba(240, 200, 80, 0.28);
-        border-radius: 34px;
-        color: #f8ecd5;
-        background:
-          radial-gradient(circle at 50% -10%, rgba(240, 200, 80, 0.28), transparent 24rem), linear-gradient(145deg, #3d2b1f, #1a1008);
-        box-shadow: 0 34px 80px -42px rgba(26, 16, 8, 0.8);
-        text-align: center;
-      }
-
-      .live::before,
-      .live::after {
-        position: absolute;
-        z-index: -1;
-        top: 50%;
-        left: 50%;
-        aspect-ratio: 1;
-        translate: -50% -50%;
-        content: "";
-        border: 1px solid rgba(240, 200, 80, 0.16);
-        border-radius: 50%;
-      }
-
-      .live::before {
-        width: min(88vw, 620px);
-      }
-
-      .live::after {
-        width: min(64vw, 440px);
-        border-color: rgba(240, 200, 80, 0.22);
-      }
-
-      .live-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        margin-bottom: 14px;
-        padding: 7px 14px;
-        border: 1px solid rgba(240, 200, 80, 0.3);
-        border-radius: 999px;
-        color: var(--gold-light);
-        font-size: 10px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-
-      .live-badge::before {
-        width: 8px;
-        height: 8px;
-        content: "";
-        border-radius: 50%;
-        background: var(--gold-light);
-        box-shadow: 0 0 0 6px rgba(240, 200, 80, 0.12);
-      }
-
-      .live h2 {
-        margin: 0 0 11px;
-        color: #fffaf0;
-        font-size: clamp(33px, 5vw, 52px);
-        font-weight: 400;
-        letter-spacing: -0.035em;
-        line-height: 1.03;
-      }
-
-      .live p,
-      .closer p {
-        max-width: 670px;
-        margin: 0 auto;
-        font-family: var(--font-body);
-        font-size: 17px;
-        line-height: 1.7;
-      }
-
-      .live p {
-        color: #e9d8ba;
-      }
-
-      .live strong {
-        color: var(--gold-light);
-      }
-
-      .closer {
-        padding: 70px 0 80px;
-        text-align: center;
-      }
-
-      .closer h2 {
-        margin: 0 0 10px;
-        font-size: clamp(34px, 5vw, 54px);
-        font-weight: 400;
-        letter-spacing: -0.04em;
-        line-height: 1.02;
-      }
-
-      .closer p {
-        max-width: 620px;
-        margin-bottom: 24px;
-        color: var(--brown-soft);
-      }
-
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 11px;
-        padding: 15px 24px;
-        color: #fffaf0;
-        border: 1px solid rgba(255, 250, 240, 0.24);
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--gold-deep), #7b4811);
-        box-shadow: 0 18px 34px -16px rgba(154, 98, 24, 0.76);
-        font-size: 15px;
-        text-decoration: none;
-        transition:
-          transform 200ms var(--ease-out),
-          box-shadow 200ms var(--ease-out);
-      }
-
-      .cta::after {
-        content: "→";
-        font-size: 19px;
-      }
-
-      footer {
-        padding: 0 22px 42px;
-        color: var(--brown-soft);
-        font-size: 12px;
-        text-align: center;
-      }
-
-      .motion-enabled .motion-reveal:not(.is-revealed) {
-        opacity: 0;
-      }
-
-      .motion-enabled .motion-reveal {
-        transition:
-          opacity 760ms var(--ease-out),
-          transform 920ms var(--ease-out),
-          filter 920ms var(--ease-out);
-        will-change: opacity, transform;
-      }
-
-      .motion-enabled [data-reveal="hero"]:not(.is-revealed) {
-        transform: translateY(46px) rotateX(9deg) scale(0.94);
-        filter: blur(7px);
-      }
-
-      .motion-enabled [data-reveal="pop"]:not(.is-revealed) {
-        transform: translateY(38px) scale(0.94);
-      }
-
-      .motion-enabled [data-reveal="flip"]:not(.is-revealed) {
-        transform: translateY(34px) rotateX(8deg) rotateY(-5deg);
-        transform-origin: center top;
-      }
-
-      .motion-enabled [data-reveal="spin"]:not(.is-revealed) {
-        transform: translateY(38px) rotateZ(-3deg) scale(0.96);
-      }
-
-      .motion-enabled [data-reveal="rise"]:not(.is-revealed) {
-        transform: translateY(34px);
-      }
-
-      .motion-enabled .motion-reveal.is-revealed {
-        opacity: 1;
-        transform: none;
-        filter: none;
-      }
-
-      .is-revealed .stage-halo {
-        animation: halo-breathe 8s ease-in-out infinite;
-      }
-
-      .is-revealed .stage-board {
-        animation: board-drift 11s ease-in-out infinite;
-      }
-
-      .is-revealed .stage-note--left,
-      .is-revealed .stage-seal--cross {
-        animation: drift-one 9s ease-in-out infinite;
-      }
-
-      .is-revealed .stage-note--right,
-      .is-revealed .stage-seal--crown {
-        animation: drift-two 10s ease-in-out infinite;
-      }
-
-      .is-revealed .stage-thread {
-        animation: thread-breathe 6s ease-in-out infinite;
-      }
-
-      .is-revealed .live-badge::before {
-        animation: fellowship-pulse 2.8s ease-in-out infinite;
-      }
-
-      @keyframes halo-breathe {
-        0%,
-        100% {
-          opacity: 0.72;
-          scale: 0.98;
-        }
-        50% {
-          opacity: 1;
-          scale: 1.025;
-        }
-      }
-
-      @keyframes board-drift {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) rotateX(4deg) rotateZ(-1.2deg);
-        }
-        50% {
-          transform: translate(-50%, calc(-50% - 7px)) rotateX(3deg) rotateZ(-0.6deg);
-        }
-      }
-
-      @keyframes drift-one {
-        0%,
-        100% {
-          translate: 0;
-        }
-        50% {
-          translate: 0 -8px;
-        }
-      }
-
-      @keyframes drift-two {
-        0%,
-        100% {
-          translate: 0;
-        }
-        50% {
-          translate: 0 7px;
-        }
-      }
-
-      @keyframes thread-breathe {
-        0%,
-        100% {
-          opacity: 0.48;
-        }
-        50% {
-          opacity: 0.86;
-        }
-      }
-
-      @keyframes fellowship-pulse {
-        0%,
-        100% {
-          opacity: 0.68;
-          box-shadow: 0 0 0 5px rgba(240, 200, 80, 0.1);
-        }
-        50% {
-          opacity: 1;
-          box-shadow: 0 0 0 8px rgba(240, 200, 80, 0.04);
-        }
-      }
-
-      @media (hover: hover) and (pointer: fine) and (min-width: 821px) {
-        .feature-chapter,
-        .chapter-media {
-          transition:
-            transform 200ms var(--ease-out),
-            box-shadow 200ms var(--ease-out);
-        }
-
-        .feature-chapter:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 34px 80px -44px rgba(26, 17, 7, 0.82);
-        }
-
-        .feature-chapter:hover .chapter-media {
-          transform: rotate(0deg) scale(1.012);
-        }
-
-        .cta:hover,
-        .cta:focus-visible {
-          transform: translateY(-3px);
-          box-shadow: 0 23px 42px -17px rgba(154, 98, 24, 0.82);
-        }
-      }
-
-      @media (max-width: 820px), (pointer: coarse) {
-        .sanctuary-stage {
-          min-height: 590px;
-          perspective: none;
-        }
-
-        .stage-board {
-          transform: translate(-50%, -50%);
-        }
-
-        .is-revealed .stage-board {
-          animation: none;
-        }
-
-        .chapter-grid,
-        .chapter-grid--reverse {
-          grid-template-columns: 1fr;
-        }
-
-        .chapter-grid--reverse .chapter-copy,
-        .chapter-grid--reverse .chapter-media {
-          grid-row: auto;
-          grid-column: auto;
-        }
-
-        .chapter-grid--reverse .chapter-copy {
-          order: -1;
-        }
-
-        .chapter--connection .chapter-media,
-        .chapter--templates .chapter-media {
-          transform: none;
-        }
-
-        .motion-enabled [data-reveal="spin"]:not(.is-revealed) {
-          transform: translateY(38px) scale(0.96);
-        }
-      }
-
-      @media (max-width: 600px) {
-        .wrap {
-          width: calc(100% - 28px);
-        }
-
-        .hero {
-          padding: 50px 0 70px;
-          background-size:
-            32px 32px,
-            32px 32px,
-            auto,
-            auto;
-        }
-
-        .hero-copy {
-          margin-bottom: 26px;
-        }
-
-        .kicker {
-          padding: 7px 11px;
-          font-size: 9px;
-          letter-spacing: 0.15em;
-        }
-
-        h1 {
-          margin-top: 18px;
-          font-size: clamp(42px, 13vw, 58px);
-        }
-
-        .tagline {
-          font-size: 10px;
-          line-height: 1.55;
-        }
-
-        .intro,
-        .section-intro p {
-          font-family: var(--font-body);
-          font-size: 15px;
-          line-height: 1.62;
-        }
-
-        .stats {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 8px;
-        }
-
-        .stat {
-          min-width: 0;
-        }
-
-        .sanctuary-stage {
-          min-height: 475px;
-        }
-
-        .stage-board {
-          width: 96%;
-          padding: 7px;
-          border-radius: 20px;
-        }
-
-        .stage-board::before {
-          inset: 4px;
-          border-radius: 15px;
-        }
-
-        .stage-toolbar {
-          min-height: 32px;
-          padding: 0 7px;
-          font-size: 8px;
-        }
-
-        .stage-board .media-frame,
-        .stage-board .media-frame video {
-          border-radius: 13px;
-        }
-
-        .stage-halo {
-          width: 430px;
-        }
-
-        .stage-note {
-          width: 124px;
-          padding: 10px;
-          font-size: 10px;
-        }
-
-        .stage-note--left {
-          top: 2%;
-          left: -2%;
-        }
-
-        .stage-note--right {
-          right: -1%;
-          bottom: 2%;
-        }
-
-        .stage-seal {
-          width: 58px;
-          font-size: 25px;
-          box-shadow: 0 0 0 4px rgba(255, 250, 240, 0.64);
-        }
-
-        .stage-seal--cross {
-          top: 4%;
-          right: 4%;
-        }
-
-        .stage-seal--crown {
-          bottom: 4%;
-          left: 5%;
-        }
-
-        .stage-cursor {
-          display: none;
-        }
-
-        .showcase {
-          padding: 62px 0 52px;
-        }
-
-        .section-intro {
-          margin-bottom: 30px;
-        }
-
-        .chapters {
-          gap: 15px;
-        }
-
-        .feature-chapter {
-          padding: 22px 16px;
-          border-radius: 23px;
-        }
-
-        .chapter-grid {
-          gap: 20px;
-        }
-
-        .chapter-copy h3 {
-          margin-top: 9px;
-          font-size: 29px;
-        }
-
-        .chapter-copy p {
-          font-size: 15px;
-          line-height: 1.58;
-        }
-
-        .gallery {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 7px;
-          margin-top: 18px;
-        }
-
-        .gallery .media-frame:nth-child(n) {
-          transform: none;
-        }
-
-        .gallery .media-frame:last-child:nth-child(odd) {
-          grid-column: 1 / -1;
-          width: calc(50% - 4px);
-          margin-inline: auto;
-        }
-
-        .media-caption {
-          font-size: 8px;
-        }
-
-        .live {
-          border-radius: 24px;
-        }
-
-        .live p,
-        .closer p {
-          font-size: 15px;
-        }
-
-        .closer {
-          padding: 54px 0 64px;
-        }
-
-        .cta {
-          width: 100%;
-          justify-content: center;
-        }
-      }
+        --parchment: #f5f2ed; --paper: #fffaf0; --brown: #3d2b1f; --brown-soft: #705a45; --brown-dark: #1a1008;
+        --board: #2a170a; --board-2: #3a2418; --gold: #b6751d; --gold-deep: #9a6218; --gold-light: #f0c850; --ember: #d4921f;
+        --line: rgba(154, 98, 24, 0.24); --ease: cubic-bezier(0.16, 1, 0.3, 1); --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; overflow-x: hidden; }
+      body { color: var(--brown); font-family: var(--font-body); line-height: 1.5; -webkit-font-smoothing: antialiased;
+        background: radial-gradient(circle at 10% 3%, rgba(240,200,80,.2), transparent 30rem),
+                    radial-gradient(circle at 94% 20%, rgba(169,81,57,.1), transparent 30rem), var(--parchment); }
+      h1, h2, h3, p { text-wrap: balance; margin: 0; }
+      button { font: inherit; cursor: pointer; }
+      .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+      .eyebrow { font-size: .74rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); }
+      .display { font-family: var(--font-display); line-height: 1.02; letter-spacing: -.01em; }
+      .gold { color: var(--gold); }
+
+      /* ---------- hero ---------- */
+      .hero { padding: 54px 0 26px; text-align: center; }
+      .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin: 12px 0 14px; }
+      .hero p.lead { max-width: 640px; margin: 0 auto; color: var(--brown-soft); font-size: clamp(1rem, 2vw, 1.2rem); }
+      .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 0; }
+      .stat { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-weight: 700; font-size: .95rem;
+        box-shadow: 0 8px 22px -14px rgba(61,43,31,.5); }
+      .stat b { font-family: var(--font-display); font-weight: 400; color: var(--gold); font-size: 1.1rem; margin-right: 6px; }
+
+      /* ---------- chapters ---------- */
+      .chapter { padding: 46px 0 10px; }
+      .chapter__head { display: grid; gap: 10px; max-width: 720px; margin-bottom: 22px; }
+      .chapter__head h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); }
+      .chapter__head p { color: var(--brown-soft); font-size: 1.05rem; }
+      .chapter__head p strong { color: var(--brown); }
+
+      /* dark "board" panels hold every demo so the art pops */
+      .board { position: relative; border-radius: 30px; overflow: hidden; color: #f5ecdd;
+        background: radial-gradient(circle at 18% 12%, #4a3020, var(--board) 58%);
+        box-shadow: 0 40px 70px -34px rgba(26,16,8,.75), 0 0 0 1px rgba(240,200,80,.16), inset 0 1px 0 rgba(255,255,255,.06); }
+      .board::before { content: ""; position: absolute; inset: 0; opacity: .16; pointer-events: none;
+        background-image: radial-gradient(#f5ecdd 1.2px, transparent 1.2px); background-size: 28px 28px; }
+      .board > * { position: relative; }
+      .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tab { border: 1px solid rgba(240,200,80,.3); background: rgba(0,0,0,.28); color: #ecdcc0; padding: 9px 16px; border-radius: 999px;
+        font-weight: 700; font-size: .86rem; transition: transform .25s var(--spring), background .2s, color .2s, border-color .2s; }
+      .tab:hover { transform: translateY(-2px); border-color: var(--gold-light); }
+      .tab[aria-pressed="true"], .tab[aria-selected="true"] { background: linear-gradient(145deg, #f0c850, #b6751d); color: #33210f; border-color: transparent; }
+      .tab:focus-visible, .chip:focus-visible, .btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+      .btn { border: 0; padding: 10px 18px; border-radius: 999px; font-weight: 800; font-size: .86rem; color: #33210f;
+        background: linear-gradient(145deg, #f0c850, #b6751d); box-shadow: 0 10px 22px -10px rgba(0,0,0,.7); transition: transform .25s var(--spring); }
+      .btn:hover { transform: translateY(-2px) scale(1.03); }
+      .btn.ghost { background: rgba(0,0,0,.3); color: #ecdcc0; border: 1px solid rgba(240,200,80,.3); box-shadow: none; }
+      .hint { font-size: .82rem; color: #cdb892; }
+
+      /* ---------- 1. gold threads ---------- */
+      .threads { padding: 18px; }
+      .threads svg { display: block; width: 100%; height: auto; }
+      .th-path { fill: none; stroke: url(#goldThread); stroke-width: 4.5; stroke-linecap: round; stroke-dasharray: var(--len, 1200); stroke-dashoffset: var(--len, 1200);
+        filter: drop-shadow(0 0 6px rgba(240,200,80,.6)); }
+      .threads.is-live .th-path { animation: draw 1.6s var(--ease) forwards; animation-delay: var(--d, 0s); }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      .th-node { transition: transform .35s var(--spring); transform-box: fill-box; transform-origin: center; }
+      .th-node:hover { transform: scale(1.06) rotate(-1deg); }
+      .th-cap { text-align: center; padding: 8px 0 4px; }
+
+      /* ---------- 2. living notes ---------- */
+      .notes { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 26px; padding: 26px; align-items: center; }
+      @media (max-width: 820px) { .notes { grid-template-columns: 1fr; padding: 18px; } }
+      .note-stage { display: grid; place-items: center; min-height: 340px; }
+      .note { position: relative; width: min(100%, 400px); aspect-ratio: 1.22 / 1; border-radius: 18px; background: #fff; overflow: hidden;
+        border: 3px solid var(--nb, #d9c9ad); box-shadow: 0 0 0 0 transparent, 0 26px 46px -22px rgba(0,0,0,.8), 0 0 46px 2px var(--ng, transparent);
+        transition: border-color .5s var(--ease), box-shadow .6s var(--ease); }
+      .note .art { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .55s var(--ease); pointer-events: none; }
+      .note .art.on { opacity: 1; }
+      .note .wash { position: absolute; inset: 0; opacity: 0; transition: opacity .6s var(--ease); pointer-events: none; }
+      .note .wash.on { opacity: 1; }
+      .note .accent { position: absolute; left: 0; right: 0; bottom: 0; height: 9%; opacity: 0; transition: opacity .5s; }
+      .note textarea { position: absolute; inset: 0; width: 100%; height: 100%; padding: 18px 20px; border: 0; resize: none; background: transparent;
+        font: 800 clamp(1.3rem, 3.4vw, 2rem)/1.15 var(--font-body); color: #3d2b1f; outline: none; text-align: center; display: block; z-index: 2;
+        padding-top: 30%; caret-color: var(--gold); }
+      .note.has-art textarea { text-shadow: 0 0 6px var(--paper, #fff8e8), 0 0 14px var(--paper, #fff8e8), 0 1px 0 var(--paper, #fff8e8); }
+      .note-tag { margin-top: 14px; min-height: 2.4em; text-align: center; font-size: .9rem; color: #e6d3ad; }
+      .note-tag b { color: var(--gold-light); }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+      .chip { border: 1px solid rgba(240,200,80,.28); background: rgba(0,0,0,.3); color: #f0dfbd; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: .86rem;
+        transition: transform .25s var(--spring), background .2s; }
+      .chip:hover { transform: translateY(-2px) scale(1.04); background: rgba(240,200,80,.16); }
+      .notes h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 8px; }
+      .notes p.sub { color: #dcc8a3; }
+      .families { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+      .fam { font-size: .74rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1.5px solid var(--c); color: var(--c); background: rgba(0,0,0,.25); }
+
+      /* ---------- 3. sticker wall ---------- */
+      .stickers { padding: 22px; }
+      .stickers__top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+      .wall { position: relative; height: clamp(360px, 52vw, 520px); border-radius: 22px; overflow: hidden; touch-action: none;
+        background: radial-gradient(circle at 50% 40%, rgba(255,255,255,.05), rgba(0,0,0,.28)); box-shadow: inset 0 0 0 1px rgba(240,200,80,.14); }
+      .stk { position: absolute; width: var(--s, 116px); height: var(--s, 116px); object-fit: contain; user-select: none; -webkit-user-drag: none; cursor: grab;
+        filter: drop-shadow(0 10px 12px rgba(0,0,0,.55)); transition: transform .5s var(--spring), opacity .3s; will-change: transform; }
+      .stk.pop { animation: pop .55s var(--spring); }
+      .stk.dragging { cursor: grabbing; transition: none; filter: drop-shadow(0 22px 22px rgba(0,0,0,.6)); z-index: 50; }
+      @keyframes pop { 0% { transform: translate(var(--x,0), var(--y,0)) scale(.2) rotate(var(--r,0deg)); opacity: 0; } 100% { opacity: 1; } }
+      .wall .count { position: absolute; left: 16px; bottom: 14px; z-index: 60; background: rgba(0,0,0,.5); border: 1px solid rgba(240,200,80,.3); border-radius: 999px; padding: 7px 14px; font-weight: 700; font-size: .84rem; }
+      .wall .count b { color: var(--gold-light); font-family: var(--font-display); font-weight: 400; }
+      .tray { display: flex; gap: 10px; overflow-x: auto; padding: 14px 4px 6px; scrollbar-width: thin; scrollbar-color: rgba(240,200,80,.5) transparent; }
+      .tray button { flex: none; width: 74px; height: 74px; border-radius: 18px; border: 1px solid rgba(240,200,80,.22); background: rgba(0,0,0,.3); padding: 6px;
+        transition: transform .25s var(--spring), border-color .2s, background .2s; }
+      .tray button:hover { transform: translateY(-4px) scale(1.06); border-color: var(--gold-light); background: rgba(240,200,80,.12); }
+      .tray button img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+      .tones { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+      .tone { width: 62px; height: 62px; border-radius: 50%; border: 2px solid transparent; background: rgba(0,0,0,.3); padding: 3px; transition: transform .25s var(--spring); }
+      .tone[aria-pressed="true"] { border-color: var(--gold-light); transform: scale(1.1); }
+      .tone img { width: 100%; height: 100%; object-fit: contain; }
+
+      /* ---------- 4. layouts ---------- */
+      .layouts { padding: 22px; }
+      .lay-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 16px; max-height: 420px; overflow-y: auto; padding: 4px; scrollbar-width: thin; scrollbar-color: rgba(240,200,80,.5) transparent; }
+      .lay-card { border: 1px solid rgba(154,98,24,.28); background: #fdf8f3; border-radius: 16px; padding: 8px 8px 10px; text-align: left; color: #3d2b1f;
+        transition: transform .25s var(--spring), border-color .2s, background .2s, box-shadow .2s; }
+      .lay-card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 14px 22px -14px rgba(0,0,0,.7); }
+      .lay-card[aria-pressed="true"] { border-color: var(--gold); background: #fff0c8; box-shadow: 0 0 0 2px rgba(240,200,80,.6); }
+      .lay-card svg { display: block; width: 100%; height: 92px; }
+      .lay-card span { display: block; margin-top: 6px; font-size: .74rem; font-weight: 700; line-height: 1.2; }
+      .lay-card .lb { display: none; }
+      .lay-view { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 22px; align-items: center; }
+      @media (max-width: 820px) { .lay-view { grid-template-columns: 1fr; } }
+      .lay-stage { border-radius: 22px; background: #fdf8f3 radial-gradient(#e6d8bf 1.1px, transparent 1.1px) 0 0 / 26px 26px; box-shadow: inset 0 0 0 1px rgba(154,98,24,.3), 0 22px 40px -24px #000; padding: 12px; min-height: 300px; display: grid; place-items: center; }
+      .lay-stage svg { width: 100%; height: clamp(260px, 38vw, 380px); }
+      .lk { fill: none; stroke: #b6751d; stroke-width: 3; stroke-linecap: round; opacity: .75; }
+      .lay-info h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.4rem, 3vw, 2.1rem); margin-bottom: 6px; }
+      .lay-info .catlab { color: var(--gold-light); font-weight: 800; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+      .seg { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(0,0,0,.35); border: 1px solid rgba(240,200,80,.25); margin-top: 14px; }
+      .seg button { border: 0; background: none; color: #ecdcc0; padding: 8px 16px; border-radius: 999px; font-weight: 800; font-size: .82rem; }
+      .seg button[aria-pressed="true"] { background: linear-gradient(145deg, #f0c850, #b6751d); color: #33210f; }
+
+      /* ---------- 5. landscapes ---------- */
+      .land { padding: 22px; }
+      .land-stage { position: relative; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; user-select: none; touch-action: pan-y; cursor: ew-resize;
+        box-shadow: 0 30px 50px -30px #000, 0 0 0 1px rgba(240,200,80,.22); background: #000; }
+      .land-layer { position: absolute; inset: 0; }
+      .land-layer img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .land-layer .placed { position: absolute; width: 17%; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0,0,0,.55)); }
+      .land-top { clip-path: inset(0 0 0 var(--cut, 50%)); }
+      .handle { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 0; z-index: 5; }
+      .handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: -1.5px; width: 3px; background: linear-gradient(#fff5c8, #f0c850 60%, #b6751d); box-shadow: 0 0 16px rgba(240,200,80,.8); }
+      .handle i { position: absolute; top: 50%; left: 0; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; display: grid; place-items: center; font-style: normal;
+        background: linear-gradient(145deg, #f0c850, #b6751d); color: #33210f; font-weight: 900; box-shadow: 0 10px 22px -6px rgba(0,0,0,.8); }
+      .land-tag { position: absolute; top: 14px; z-index: 6; background: rgba(0,0,0,.55); border: 1px solid rgba(240,200,80,.35); border-radius: 999px; padding: 6px 13px; font-weight: 800; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: #ffe9a8; }
+      .land-controls { display: flex; flex-wrap: wrap; gap: 14px 22px; justify-content: space-between; align-items: center; margin-top: 16px; }
+
+      /* ---------- 6. lasso / duplicate / move ---------- */
+      .move { padding: 18px; }
+      .move svg { display: block; width: 100%; height: auto; }
+      .mv-note { transition: transform 1.1s var(--ease), opacity .6s; transform-box: fill-box; }
+      .lasso { fill: rgba(240,200,80,.08); stroke: #f0c850; stroke-width: 3.5; stroke-dasharray: 9 8; stroke-linecap: round;
+        stroke-dashoffset: 0; opacity: 0; transition: opacity .3s; }
+      .move[data-stage="1"] .lasso, .move[data-stage="2"] .lasso { opacity: 1; animation: march 1s linear infinite; }
+      @keyframes march { to { stroke-dashoffset: -34; } }
+      .move[data-stage="3"] .copy-a { transform: translate(560px, 6px) rotate(-3deg); }
+      .move[data-stage="3"] .copy-b { transform: translate(560px, 30px) rotate(4deg); }
+      .move[data-stage="3"] .copy-c { transform: translate(560px, -8px) rotate(-1deg); }
+      .move[data-stage="4"] .copy-a { transform: translate(560px, 6px) rotate(-3deg); }
+      .move[data-stage="4"] .copy-b { transform: translate(560px, 30px) rotate(4deg); }
+      .move[data-stage="4"] .copy-c { transform: translate(560px, -8px) rotate(-1deg); }
+      .move .copy { opacity: 0; }
+      .move[data-stage="2"] .copy { opacity: 1; }
+      .move[data-stage="3"] .copy, .move[data-stage="4"] .copy { opacity: 1; }
+      .move[data-stage="2"] .orig { filter: drop-shadow(0 0 10px rgba(240,200,80,.9)); }
+      .mv-badge { opacity: 0; transition: opacity .5s, transform .6s var(--spring); transform: translateY(8px); }
+      .move[data-stage="4"] .mv-badge { opacity: 1; transform: none; }
+      .move[data-snap] .mv-note, .move[data-snap] .mv-badge { transition: none; }
+
+      /* ---------- live ---------- */
+      .live { padding: 40px 0 8px; }
+      .live-card { display: grid; grid-template-columns: 1.1fr 1fr; gap: 26px; padding: 30px; align-items: center; }
+      @media (max-width: 820px) { .live-card { grid-template-columns: 1fr; padding: 22px; } }
+      .live-card h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 8px 0 12px; }
+      .live-card p { color: #dcc8a3; }
+      .live-stage { position: relative; height: 240px; border-radius: 20px; background: rgba(0,0,0,.25); box-shadow: inset 0 0 0 1px rgba(240,200,80,.14); overflow: hidden; }
+      .cursor { position: absolute; display: flex; align-items: center; gap: 6px; font-size: .74rem; font-weight: 800; color: #33210f; animation: roam var(--t, 9s) ease-in-out infinite alternate; }
+      .cursor svg { width: 18px; height: 18px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
+      .cursor span { background: var(--c); padding: 3px 9px; border-radius: 999px; }
+      @keyframes roam { 0% { transform: translate(var(--ax), var(--ay)); } 50% { transform: translate(var(--bx), var(--by)); } 100% { transform: translate(var(--cx), var(--cy)); } }
+      .foot { padding: 34px 0 44px; text-align: center; color: var(--brown-soft); font-size: .92rem; }
 
       @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0s !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0s !important;
-          transition-delay: 0s !important;
-        }
-
-        .motion-reveal,
-        .motion-enabled .motion-reveal,
-        .motion-enabled .motion-reveal:not(.is-revealed) {
-          opacity: 1 !important;
-          transform: none !important;
-          filter: none !important;
-        }
-
-        .stage-board {
-          transform: translate(-50%, -50%) !important;
-        }
+        * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+        .th-path { stroke-dashoffset: 0; }
       }
     </style>
   </head>
   <body>
-    <header class="hero">
-      <div class="wrap">
-        <div class="hero-copy motion-reveal" data-reveal="rise">
-          <span class="kicker">MyBibleLens · Living Sanctuary Board</span>
-          <h1>An infinite board<br /><span>for your faith.</span></h1>
-          <p class="tagline">Testimony · Story-sharing · Correlating your life to the verse · and so much more</p>
-          <p class="intro">
-            Bible study isn't linear. Verses connect. Cross-references run for miles. Notes pile up. Photos bring a moment back.
-            <strong>Infinite Canvas gives every thought you've ever had about scripture one place to live</strong>
-            — on a single endless, zoomable, shareable board.
-          </p>
-          <div class="stats" aria-label="Infinite Canvas highlights">
-            <div class="stat"><b>1,000+</b><span>Cultural Stickers</span></div>
-            <div class="stat"><b>50+</b><span>Sacred Templates</span></div>
-            <div class="stat"><b>∞</b><span>Space to Build</span></div>
-            <div class="stat"><b>30+</b><span>Live Collaborators</span></div>
-          </div>
-        </div>
-
-        <div class="sanctuary-stage motion-reveal" data-reveal="hero">
-          <div class="stage-halo" aria-hidden="true"></div>
-          <div class="stage-thread stage-thread--one" aria-hidden="true"></div>
-          <div class="stage-thread stage-thread--two" aria-hidden="true"></div>
-          <div class="stage-board">
-            <div class="stage-toolbar">
-              <div class="stage-toolbar-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span>Romans 8 · Living study map</span>
-              <span>142%</span>
-            </div>
-            <div class="media-frame">
-              <video src="assets/canvas/videos/study-map.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            </div>
-          </div>
-          <div class="stage-note stage-note--left" aria-hidden="true">Grace is the thread running through every chapter.</div>
-          <div class="stage-note stage-note--right" aria-hidden="true">Connect testimony to scripture.</div>
-          <div class="stage-seal stage-seal--cross" aria-hidden="true">✝</div>
-          <div class="stage-seal stage-seal--crown" aria-hidden="true">♕</div>
-          <div class="stage-cursor" aria-hidden="true"><span>Jordan is here</span></div>
-        </div>
+    <header class="hero wrap">
+      <div class="eyebrow">MyBibleLens · Scripture Canvas</div>
+      <h1 class="display">An endless board<br /><span class="gold">for your faith.</span></h1>
+      <p class="lead">Bible study is not a straight line. Verses connect, notes pile up and photos bring a moment back. Scripture Canvas gives every thought one place to live.</p>
+      <div class="stats" aria-label="Scripture Canvas at a glance">
+        <span class="stat"><b>1,119</b>stickers</span>
+        <span class="stat"><b>46</b>sacred layouts</span>
+        <span class="stat"><b>68</b>landscapes</span>
+        <span class="stat"><b>Live</b>with your friends</span>
       </div>
     </header>
 
-    <main>
-      <section class="showcase" aria-labelledby="showcase-title">
-        <div class="wrap">
-          <div class="section-intro motion-reveal" data-reveal="rise">
-            <span class="eyebrow">Build the study you can see</span>
-            <h2 id="showcase-title">Four chapters. One endless sanctuary.</h2>
-            <p>Scripture becomes something you can connect, decorate, share, and return to with joy.</p>
-          </div>
+    <!-- 01 CONNECT -->
+    <section class="chapter wrap" aria-labelledby="c1">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 01 · Connect</div>
+        <h2 id="c1" class="display">Connect anything with <span class="gold">gold threads.</span></h2>
+        <p>Link verse to verse and story to testimony with living gold threads. Build mind maps, timelines and flowcharts where cross-references run for miles, <strong>a web of understanding only you could map.</strong></p>
+      </div>
+      <div class="board threads" id="threads">
+        <svg viewBox="0 0 1000 540" role="img" aria-label="Six notes joined by glowing gold threads around Romans 8:28">
+          <defs>
+            <linearGradient id="goldThread" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#f0c850"/><stop offset="1" stop-color="#b6751d"/></linearGradient>
+            <linearGradient id="nGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#f0c168"/></linearGradient>
+            <linearGradient id="nRose" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe1ec"/><stop offset="1" stop-color="#f4a9c4"/></linearGradient>
+            <linearGradient id="nSage" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f2c8"/><stop offset="1" stop-color="#a9cf83"/></linearGradient>
+            <linearGradient id="nTerra" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffdcc4"/><stop offset="1" stop-color="#eaa07a"/></linearGradient>
+            <linearGradient id="nPlum" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecd9f6"/><stop offset="1" stop-color="#bf9bdc"/></linearGradient>
+            <filter id="nShadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000" flood-opacity=".55"/></filter>
+          </defs>
+          <g id="thPaths">
+            <path class="th-path" style="--d:.1s" d="M250 118 C 330 130, 380 200, 452 238"/>
+            <path class="th-path" style="--d:.5s" d="M250 388 C 330 380, 390 320, 452 296"/>
+            <path class="th-path" style="--d:.9s" d="M650 236 C 720 200, 760 150, 770 128"/>
+            <path class="th-path" style="--d:1.3s" d="M650 298 C 720 330, 760 372, 770 392"/>
+            <path class="th-path" style="--d:1.7s" d="M556 330 C 578 366, 528 396, 550 430"/>
+            <path class="th-path" style="--d:2.1s" d="M250 86 C 470 -10, 700 -6, 770 84"/>
+          </g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="60" y="70" width="200" height="96" rx="16" fill="url(#nSage)"/><text x="160" y="106" text-anchor="middle" font-family="Hammersmith One" font-size="17" fill="#2f3f22">Genesis 50:20</text><text x="160" y="134" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#3d4d2c">You meant it for evil,</text><text x="160" y="152" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#3d4d2c">God meant it for good.</text></g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="60" y="340" width="200" height="96" rx="16" fill="url(#nRose)"/><text x="160" y="376" text-anchor="middle" font-family="Hammersmith One" font-size="17" fill="#5a2340">My testimony</text><text x="160" y="404" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#6e3350">The year everything fell</text><text x="160" y="422" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#6e3350">apart, and how he held it.</text></g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="440" y="222" width="220" height="118" rx="18" fill="url(#nGold)" stroke="#f0c850" stroke-width="3"/><text x="550" y="264" text-anchor="middle" font-family="Hammersmith One" font-size="22" fill="#4a3210">Romans 8:28</text><text x="550" y="294" text-anchor="middle" font-family="Inter" font-weight="700" font-size="14" fill="#5a3f15">All things work together</text><text x="550" y="314" text-anchor="middle" font-family="Inter" font-weight="700" font-size="14" fill="#5a3f15">for good.</text></g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="770" y="60" width="180" height="96" rx="16" fill="url(#nTerra)"/><text x="860" y="98" text-anchor="middle" font-family="Hammersmith One" font-size="17" fill="#552a14">Joseph</text><text x="860" y="126" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#6b3a20">Sold, forgotten, then</text><text x="860" y="144" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#6b3a20">lifted up.</text></g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="770" y="340" width="180" height="96" rx="16" fill="url(#nPlum)"/><text x="860" y="378" text-anchor="middle" font-family="Hammersmith One" font-size="17" fill="#3f2354">Grace</text><text x="860" y="406" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#503068">The thread running</text><text x="860" y="424" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#503068">through every chapter.</text></g>
+          <g class="th-node" filter="url(#nShadow)"><rect x="455" y="430" width="190" height="80" rx="16" fill="url(#nSage)"/><text x="550" y="464" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#2f3f22">Philippians 4:13</text><text x="550" y="490" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#3d4d2c">Strength for the season.</text></g>
+          <circle r="7" fill="#fff5c8" opacity=".95"><animateMotion dur="5.2s" repeatCount="indefinite" path="M250 118 C 330 130, 380 200, 452 238"/></circle>
+          <circle r="7" fill="#fff5c8" opacity=".95"><animateMotion dur="6.4s" repeatCount="indefinite" path="M650 298 C 720 330, 760 372, 770 392"/></circle>
+          <circle r="7" fill="#fff5c8" opacity=".95"><animateMotion dur="7.6s" repeatCount="indefinite" path="M250 86 C 470 -10, 700 -6, 770 84"/></circle>
+        </svg>
+        <p class="hint th-cap">Every note is joined to the thoughts around it, and the threads follow when you move it.</p>
+      </div>
+    </section>
 
-          <div class="chapters">
-            <article class="feature-chapter chapter--connection motion-reveal" data-reveal="pop">
-              <div class="chapter-grid">
-                <div class="chapter-copy">
-                  <span class="chapter-number">Chapter 01 · Connect</span>
-                  <h3>Connect Anything With Gold Threads</h3>
-                  <p>
-                    Link verse to verse and theme to theme with living
-                    <strong>gold threads</strong>. Build mind maps, timelines, and flowcharts where cross-references run for miles—a web of
-                    understanding only you could map.
-                  </p>
-                  <div class="tags">
-                    <span class="tag tag--gold">Gold threads</span>
-                    <span class="tag">Mind maps · timelines</span>
-                    <span class="tag">Flowcharts</span>
-                  </div>
-                </div>
-                <div class="chapter-media">
-                  <div class="media-frame">
-                    <video src="assets/canvas/videos/connect-nodes.mp4" autoplay muted loop playsinline preload="none"></video>
-                    <div class="media-caption"><span>Living connections</span><span>Verse ↔ testimony</span></div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="feature-chapter chapter--culture motion-reveal" data-reveal="flip">
-              <div class="chapter-grid chapter-grid--reverse">
-                <div class="chapter-copy">
-                  <span class="chapter-number">Chapter 02 · Create</span>
-                  <h3>1,000+ Stickers From Every Culture</h3>
-                  <p>
-                    Renaissance, Afro Art, Eastern Light, pixel, and 3D—hundreds of faces and skin tones so
-                    <strong>everyone sees themselves</strong> in the story. Search instantly, layer freely, and make the board unmistakably
-                    yours.
-                  </p>
-                  <div class="tags">
-                    <span class="tag tag--gold">Every culture</span>
-                    <span class="tag tag--terra">All skin tones</span>
-                    <span class="tag">Search instantly</span>
-                  </div>
-                </div>
-                <div class="chapter-media">
-                  <div class="media-frame">
-                    <video src="assets/canvas/videos/culture-stickers.mp4" autoplay muted loop playsinline preload="none"></video>
-                    <div class="media-caption"><span>Inclusive sacred art</span><span>1,000+ pieces</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="gallery" aria-label="Sticker art styles">
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/pixel-stickers.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Pixel</span>
-                </div>
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/stickers-3d.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">3D</span>
-                </div>
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/afro-stickers.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Afro Art</span>
-                </div>
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/hail-daughter-zion.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Eastern Light</span>
-                </div>
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/renaissance-stickers.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Renaissance</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="feature-chapter chapter--templates motion-reveal" data-reveal="spin">
-              <div class="chapter-grid">
-                <div class="chapter-copy">
-                  <span class="chapter-number">Chapter 03 · Shape</span>
-                  <h3>50+ Sacred Templates</h3>
-                  <p>
-                    Sevenfold Spirit, Twelve Stones, Sun of Righteousness, and Cross Paths—<strong>expert study frameworks</strong> for
-                    prayer, teaching, and discernment, ready in one tap. Add a warm landscape and turn a study into a gallery-worthy board.
-                  </p>
-                  <div class="tags">
-                    <span class="tag tag--gold">50+ layouts</span>
-                    <span class="tag tag--sage">Custom backdrops</span>
-                    <span class="tag">Save your own</span>
-                  </div>
-                </div>
-                <div class="chapter-media">
-                  <div class="media-frame">
-                    <video src="assets/canvas/videos/sacred-templates.mp4" autoplay muted loop playsinline preload="none"></video>
-                    <div class="media-caption"><span>Sacred study frameworks</span><span>Ready in one tap</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="gallery" aria-label="Templates and landscapes">
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/landscapes.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Sanctuary scenes</span>
-                </div>
-                <div class="media-frame">
-                  <video src="assets/canvas/videos/cross-layout.mp4" autoplay muted loop playsinline preload="none"></video>
-                  <span class="gallery-label">Cross Paths</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="feature-chapter chapter--movement motion-reveal" data-reveal="flip">
-              <div class="chapter-grid chapter-grid--reverse">
-                <div class="chapter-copy">
-                  <span class="chapter-number">Chapter 04 · Move</span>
-                  <h3>Lasso, Duplicate &amp; Move Anywhere</h3>
-                  <p>
-                    Lasso anything and glide it across the canvas. Then
-                    <strong>duplicate it in a tap</strong> and send it to another board—keep one in your private study, drop a copy onto
-                    your group's shared board. Your work moves as freely as your thoughts do.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Lasso select</span>
-                    <span class="tag tag--gold">One-tap duplicate</span>
-                    <span class="tag tag--terra">Private &amp; shared</span>
-                  </div>
-                </div>
-                <div class="chapter-media">
-                  <div class="media-frame">
-                    <video src="assets/canvas/videos/endless-canvas.mp4" autoplay muted loop playsinline preload="none"></video>
-                    <div class="media-caption"><span>Endless movement</span><span>Private ↔ shared</span></div>
-                  </div>
-                </div>
-              </div>
-            </article>
+    <!-- 02 LIVING NOTES -->
+    <section class="chapter wrap" aria-labelledby="c2">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 02 · Write</div>
+        <h2 id="c2" class="display">Notes that <span class="gold">feel your words.</span></h2>
+        <p>Type a word and the note answers. Write <strong>Love</strong> and a heart blooms. Write <strong>Sea</strong> and the water rises. Name the <strong>Devil</strong> and the whole note darkens. Thirty words have their own drawing, and every kind of word has its own colour glowing around it.</p>
+      </div>
+      <div class="board notes">
+        <div class="note-stage">
+          <div>
+            <div class="note" id="note" style="--nb:#d9c9ad">
+              <svg class="art" id="noteArt" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <div class="wash" id="noteWash"></div>
+              <div class="accent" id="noteAccent"></div>
+              <textarea id="noteText" rows="3" maxlength="60" aria-label="Type a word to change the note" spellcheck="false">Grace</textarea>
+            </div>
+            <div class="note-tag" id="noteTag" aria-live="polite"></div>
           </div>
         </div>
-      </section>
+        <div>
+          <h3>Go on, type something.</h3>
+          <p class="sub">This is the real note engine from the app. Try a word, or tap one below.</p>
+          <div class="chips" id="noteChips"></div>
+          <div class="families" id="noteFamilies" aria-label="The colour families"></div>
+        </div>
+      </div>
+    </section>
 
-      <section class="live-wrap">
-        <div class="wrap">
-          <div class="live motion-reveal" data-reveal="rise">
-            <span class="live-badge">Live Sanctuary</span>
-            <h2>Study together, in real time.</h2>
-            <p>
-              Invite your small group, your church, your friends—
-              <strong>collaborate with 30+ people at once</strong>, cursors and all. Everyone builds on the same endless board, live. Faith
-              was never meant to be walked alone.
-            </p>
+    <!-- 03 STICKERS -->
+    <section class="chapter wrap" aria-labelledby="c3">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 03 · Create</div>
+        <h2 id="c3" class="display">Collect the <span class="gold">whole sanctuary.</span></h2>
+        <p>Over a thousand hand-made stickers in seven art styles: Renaissance, Pixel, 3D, Afro Art, Eastern Light, Hail, Daughter of Zion, and Jesus. <strong>Every figure comes in four skin tones,</strong> so everyone sees themselves in the story.</p>
+      </div>
+      <div class="board stickers">
+        <div class="stickers__top">
+          <div class="tabs" id="stkTabs" role="group" aria-label="Sticker collections"></div>
+          <div style="display:flex;gap:8px"><button class="btn ghost" id="stkShuffle" type="button">Shuffle</button><button class="btn ghost" id="stkClear" type="button">Clear</button></div>
+        </div>
+        <div class="wall" id="wall"><div class="count" id="wallCount"></div></div>
+        <div class="tray" id="tray" aria-label="Tap a sticker to drop it on the board"></div>
+        <div class="tones"><span class="hint" style="margin-right:4px">Same figure, four skin tones:</span><span id="tones" style="display:flex;gap:10px"></span></div>
+      </div>
+    </section>
+
+    <!-- 04 LAYOUTS -->
+    <section class="chapter wrap" aria-labelledby="c4">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 04 · Shape</div>
+        <h2 id="c4" class="display">46 sacred layouts, <span class="gold">ready in one tap.</span></h2>
+        <p>Sevenfold Spirit, Twelve Stones, Sun of Righteousness, Armor of God and more, arranged for prayer, teaching, timelines and discernment. <strong>Every layout comes as outlined shapes or gold cards.</strong></p>
+      </div>
+      <div class="board layouts">
+        <div class="tabs" id="layTabs" role="group" aria-label="Layout categories"></div>
+        <div class="lay-view" style="margin-top:18px">
+          <div class="lay-stage" id="layStage"></div>
+          <div class="lay-info">
+            <div class="catlab" id="layCat"></div>
+            <h3 id="layName"></h3>
+            <p class="hint" id="layMeta"></p>
+            <div class="seg" role="group" aria-label="Layout style"><button type="button" id="segShapes" aria-pressed="true">Shapes</button><button type="button" id="segCards" aria-pressed="false">Cards</button></div>
           </div>
         </div>
-      </section>
+        <div class="lay-grid" id="layGrid" role="list"></div>
+      </div>
+    </section>
 
-      <section class="closer motion-reveal" data-reveal="pop">
-        <div class="wrap">
-          <h2>Made for you and your friends.</h2>
-          <p>
-            Whether you're sharing your walk, leading a small group, or building with your church, Infinite Canvas turns Bible study into
-            something you'll want to return to.
-          </p>
-          <a class="cta" href="../index.html#download" target="_parent">Start on the Infinite Canvas</a>
+    <!-- 05 LANDSCAPES -->
+    <section class="chapter wrap" aria-labelledby="c5">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 05 · Set the scene</div>
+        <h2 id="c5" class="display">68 landscapes <span class="gold">under your study.</span></h2>
+        <p>A landscape is a mat that sits behind your notes and stickers, so a study becomes a scene. Drag the handle to compare the same place in <strong>Classic, Pixel and 3D.</strong></p>
+      </div>
+      <div class="board land">
+        <div class="land-stage" id="landStage">
+          <div class="land-layer" id="landBase"></div>
+          <div class="land-layer land-top" id="landTop"></div>
+          <span class="land-tag" style="left:14px" id="tagL">Classic</span>
+          <span class="land-tag" style="right:14px" id="tagR">Pixel</span>
+          <div class="handle" id="landHandle"><i aria-hidden="true">&#8646;</i></div>
         </div>
-      </section>
-    </main>
+        <div class="land-controls">
+          <div class="tabs" id="landScenes" role="group" aria-label="Landscape scene"></div>
+          <div class="seg" role="group" aria-label="Compare with"><button type="button" data-cmp="pixel" aria-pressed="true">Pixel</button><button type="button" data-cmp="3d" aria-pressed="false">3D</button></div>
+        </div>
+      </div>
+    </section>
 
-    <footer>MyBibleLens · The Infinite Canvas — the world's first sanctuary you can build.</footer>
+    <!-- 06 MOVE -->
+    <section class="chapter wrap" aria-labelledby="c6">
+      <div class="chapter__head">
+        <div class="eyebrow">Chapter 06 · Move</div>
+        <h2 id="c6" class="display">Lasso, duplicate and <span class="gold">move anywhere.</span></h2>
+        <p>Circle anything to lift it, copy it in a tap, and send it to another board. Keep one in your private study and drop a copy onto your group's shared board. <strong>Your work moves as freely as your thoughts do.</strong></p>
+      </div>
+      <div class="board move" id="move" data-stage="0">
+        <svg viewBox="0 0 1000 400" role="img" aria-label="A lasso circles three notes on a private board, and copies of them travel to a shared board">
+          <defs>
+            <linearGradient id="mvGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#f0c168"/></linearGradient>
+            <linearGradient id="mvRose" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe1ec"/><stop offset="1" stop-color="#f4a9c4"/></linearGradient>
+            <linearGradient id="mvSage" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f2c8"/><stop offset="1" stop-color="#a9cf83"/></linearGradient>
+            <filter id="mvSh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".5"/></filter>
+          </defs>
+          <rect x="20" y="30" width="430" height="340" rx="22" fill="rgba(0,0,0,.26)" stroke="rgba(240,200,80,.3)"/>
+          <rect x="550" y="30" width="430" height="340" rx="22" fill="rgba(0,0,0,.26)" stroke="rgba(240,200,80,.55)" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <text x="44" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#dcc8a3">MY PRIVATE STUDY</text>
+          <text x="574" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#f0c850">GROUP'S SHARED BOARD</text>
+          <g class="mv-note orig" filter="url(#mvSh)"><rect x="60" y="100" width="170" height="80" rx="14" fill="url(#mvGold)"/><text x="145" y="132" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#4a3210">John 15:5</text><text x="145" y="156" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#5a3f15">Abide in the vine.</text></g>
+          <g class="mv-note orig" filter="url(#mvSh)"><rect x="240" y="150" width="170" height="80" rx="14" fill="url(#mvSage)"/><text x="325" y="182" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#2f3f22">Fruit</text><text x="325" y="206" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#3d4d2c">Love, joy, peace.</text></g>
+          <g class="mv-note orig" filter="url(#mvSh)"><rect x="90" y="228" width="170" height="80" rx="14" fill="url(#mvRose)"/><text x="175" y="260" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#5a2340">Prayer</text><text x="175" y="284" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#6e3350">Lord, teach us.</text></g>
+          <ellipse class="lasso" cx="235" cy="205" rx="215" ry="128"/>
+          <g class="mv-note copy copy-a" filter="url(#mvSh)"><rect x="60" y="100" width="170" height="80" rx="14" fill="url(#mvGold)" stroke="#f0c850" stroke-width="2"/><text x="145" y="132" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#4a3210">John 15:5</text><text x="145" y="156" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#5a3f15">Abide in the vine.</text></g>
+          <g class="mv-note copy copy-b" filter="url(#mvSh)"><rect x="240" y="150" width="170" height="80" rx="14" fill="url(#mvSage)" stroke="#f0c850" stroke-width="2"/><text x="325" y="182" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#2f3f22">Fruit</text><text x="325" y="206" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#3d4d2c">Love, joy, peace.</text></g>
+          <g class="mv-note copy copy-c" filter="url(#mvSh)"><rect x="90" y="228" width="170" height="80" rx="14" fill="url(#mvRose)" stroke="#f0c850" stroke-width="2"/><text x="175" y="260" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#5a2340">Prayer</text><text x="175" y="284" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="#6e3350">Lord, teach us.</text></g>
+          <g class="mv-badge"><rect x="700" y="322" width="150" height="34" rx="17" fill="#f0c850"/><text x="775" y="344" text-anchor="middle" font-family="Inter" font-weight="800" font-size="13" fill="#33210f">Copied to shared</text></g>
+        </svg>
+        <p class="hint th-cap">The originals stay in your private study. The copies land on the shared board.</p>
+      </div>
+    </section>
 
+    <!-- LIVE -->
+    <section class="live wrap" aria-labelledby="c7">
+      <div class="board live-card">
+        <div>
+          <div class="eyebrow" style="color:#f0c850">Live Sanctuary</div>
+          <h2 id="c7">Study together, <span class="gold">in real time.</span></h2>
+          <p>Invite your small group, your church or your friends and build on the same endless board at once, cursors and all. Faith was never meant to be walked alone.</p>
+        </div>
+        <div class="live-stage" aria-hidden="true">
+          <div class="cursor" style="--c:#f0c850;--ax:30px;--ay:40px;--bx:190px;--by:120px;--cx:60px;--cy:170px;--t:8s"><svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" fill="#f0c850" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round"/></svg><span>Pastor James</span></div>
+          <div class="cursor" style="--c:#f4a9c4;--ax:220px;--ay:30px;--bx:80px;--by:150px;--cx:250px;--cy:170px;--t:10s"><svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" fill="#f4a9c4" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round"/></svg><span>Ashley</span></div>
+          <div class="cursor" style="--c:#a9cf83;--ax:120px;--ay:190px;--bx:260px;--by:60px;--cx:130px;--cy:60px;--t:9s"><svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" fill="#a9cf83" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round"/></svg><span>Kevin</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">MyBibleLens · Scripture Canvas, the world's first sanctuary you can build.</div>
+
+    <script src="assets/canvas/mbl-notes.js"></script>
     <script>
-      (() => {
-        const root = document.documentElement;
-        const revealTargets = [...document.querySelectorAll(".motion-reveal")];
-        const videos = [...document.querySelectorAll("video")];
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const pointerDepth = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 821px)");
+      (function () {
+        "use strict";
+        var $ = function (s, r) { return (r || document).querySelector(s); };
+        var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var ASSET = "assets/canvas/";
+        function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+        function rand(a, b) { return a + Math.random() * (b - a); }
+        function seeded(n) { var x = Math.sin(n * 9301 + 49297) * 233280; return x - Math.floor(x); }
 
-        const reveal = (element) => {
-          if (element.classList.contains("is-revealed")) return;
-          element.classList.add("is-revealed");
-          element.dataset.revealCount = "1";
-        };
-
-        root.dataset.pointerDepth = pointerDepth.matches ? "on" : "off";
-
-        if (reducedMotion.matches) {
-          root.dataset.motion = "reduced";
-          revealTargets.forEach(reveal);
-          videos.forEach((video) => video.pause());
-          return;
+        /* keep the parent's iframe exactly as tall as this page */
+        function fitFrame() {
+          try { if (window.frameElement) window.frameElement.style.height = document.body.scrollHeight + "px"; } catch (e) {}
         }
+        if (window.ResizeObserver) new ResizeObserver(fitFrame).observe(document.body);
+        window.addEventListener("load", function () { fitFrame(); setTimeout(fitFrame, 500); });
 
-        if (typeof window.IntersectionObserver !== "function") {
-          root.dataset.motion = "fallback";
-          revealTargets.forEach(reveal);
-          videos.forEach((video) => video.pause());
-          return;
-        }
+        /* ============ 1. GOLD THREADS ============ */
+        (function threads() {
+          var root = $("#threads");
+          $$(".th-path", root).forEach(function (p) { var L = Math.ceil(p.getTotalLength()) + 4; p.style.setProperty("--len", L); });
+          if (reduce || !("IntersectionObserver" in window)) { root.classList.add("is-live"); return; }
+          var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { root.classList.add("is-live"); io.disconnect(); } }); }, { threshold: 0.25 });
+          io.observe(root);
+        })();
 
-        root.dataset.motion = "enhanced";
-        root.classList.add("motion-enabled");
+        /* ============ 2. LIVING NOTES (the app's own engine) ============ */
+        (function notes() {
+          var M = window.MBLNotes;
+          var note = $("#note"), art = $("#noteArt"), wash = $("#noteWash"), accent = $("#noteAccent"), ta = $("#noteText"), tag = $("#noteTag");
+          if (!M) { tag.textContent = "The note engine did not load."; return; }
+          var WORDS = ["God", "Grace", "Love", "Sea", "Tree", "Peace", "Faith", "Hope", "Rainbow", "Righteous", "Devil", "Lucifer"];
+          var gid = 0;
+          function pretty(s) { return s.replace(/-/g, " ").replace(/^./, function (c) { return c.toUpperCase(); }); }
+          function paint(text) {
+            var res = M.resolveStickyNoteTheme(text), variant = M.resolveStickyNoteArtwork(text), fill = M.resolveStickyNoteFillStyle(text);
+            var scene = variant ? M.getStickyNoteArtwork(variant) : null;
+            var border = "#d9c9ad", glow = "transparent", washCss = "", parts = [];
+            if (scene) {
+              var id = "ng" + (++gid);
+              art.innerHTML = '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2=".45" y2="1"><stop offset="0" stop-color="' + scene.paper + '"/><stop offset=".38" stop-color="' + scene.paper + '"/><stop offset="1" stop-color="' + scene.depth + '"/></linearGradient></defs>' +
+                '<rect width="100" height="100" fill="url(#' + id + ')"/>' +
+                scene.paths.map(function (p) { return '<path d="' + p.d + '" fill="' + p.fill + '"' + (p.stroke ? ' stroke="' + p.stroke + '" stroke-width="' + (p.strokeWidth || 0.6) + '"' : "") + ' opacity="' + (p.opacity == null ? 1 : p.opacity) + '" stroke-linecap="round" stroke-linejoin="round"/>'; }).join("") +
+                '<rect x="2" y="3" width="96" height="94" rx="4" fill="none" stroke="' + scene.accent + '" stroke-width=".45" opacity=".45"/>';
+              art.classList.add("on"); border = scene.accent; glow = scene.accent + "66"; note.style.setProperty("--paper", scene.paper);
+              note.classList.add("has-art");
+            } else {
+              art.classList.remove("on"); note.classList.remove("has-art");
+              if (res.theme) { border = res.borderColor; glow = res.glowColor; washCss = "radial-gradient(circle at 18% 14%, " + res.washColor + ", transparent 72%), linear-gradient(180deg, transparent 55%, " + res.washColor + ")"; }
+              if (fill === "water") { border = "#32AFCF"; glow = "rgba(50,175,207,.42)"; washCss = "linear-gradient(180deg, transparent 20%, rgba(50,175,207,.34) 100%), radial-gradient(ellipse at 50% 120%, rgba(50,175,207,.5), transparent 70%)"; }
+              if (fill === "rainbow") { border = "#F4B642"; glow = "rgba(255,236,153,.7)"; washCss = "linear-gradient(115deg, rgba(255,154,162,.5), rgba(255,210,127,.5), rgba(255,240,138,.5), rgba(169,229,157,.5), rgba(143,211,255,.5), rgba(195,166,255,.5))"; }
+            }
+            note.style.setProperty("--nb", border); note.style.setProperty("--ng", glow);
+            wash.style.background = washCss; wash.classList.toggle("on", !!washCss);
+            if (res.secondaryTheme && res.secondaryBorderColor) { accent.style.background = res.secondaryBorderColor; accent.style.opacity = ".75"; } else { accent.style.opacity = "0"; }
+            if (variant) parts.push("Drawing: <b>" + pretty(variant) + "</b>");
+            if (res.theme) parts.push("Colour family: <b>" + pretty(res.theme) + "</b>");
+            if (!variant && fill === "water") parts.push("Fill: <b>Water</b>");
+            if (!variant && fill === "rainbow") parts.push("Fill: <b>Rainbow</b>");
+            if (res.secondaryTheme) parts.push("Dark edge: <b>" + pretty(res.secondaryTheme) + "</b>");
+            tag.innerHTML = parts.length ? parts.join(" &nbsp;·&nbsp; ") : "A plain note. Try a word like <b>Grace</b>, <b>Sea</b> or <b>Tree</b>.";
+          }
+          var typing;
+          function typeInto(word) {
+            clearTimeout(typing);
+            if (reduce) { ta.value = word; paint(word); return; }
+            ta.value = ""; paint(""); var i = 0;
+            (function step() { ta.value = word.slice(0, ++i); paint(ta.value); if (i < word.length) typing = setTimeout(step, 90); })();
+          }
+          $("#noteChips").innerHTML = WORDS.map(function (w) { return '<button class="chip" type="button" data-w="' + esc(w) + '">' + esc(w) + "</button>"; }).join("");
+          $("#noteChips").addEventListener("click", function (e) { var b = e.target.closest(".chip"); if (b) typeInto(b.dataset.w); });
+          ta.addEventListener("input", function () { clearTimeout(typing); paint(ta.value); });
+          var fams = ["divine", "faith", "grace", "growth", "warfare", "nature", "righteous", "lucifer"];
+          $("#noteFamilies").innerHTML = fams.map(function (f) { var t = M.stickyNoteFamilyTokens(f); return '<span class="fam" style="--c:' + (f === "lucifer" ? "#d24a3a" : f === "warfare" ? "#d8483a" : t.borderColor) + '">' + pretty(f) + "</span>"; }).join("");
+          paint(ta.value);
+        })();
 
-        const revealObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              reveal(entry.target);
-              observer.unobserve(entry.target);
+        /* ============ 3. STICKER WALL ============ */
+        (function stickers() {
+          var COLS = [
+            { k: "renaissance", n: "Renaissance" }, { k: "pixel", n: "Pixel" }, { k: "3d", n: "3D" },
+            { k: "afro", n: "Afro Art" }, { k: "eastern", n: "Eastern Light" }, { k: "zion", n: "Hail, Daughter of Zion" }
+          ];
+          var SUBJ = ["01-latin-cross", "02-virgin-mary", "03-lamb", "06-dove", "07-lion", "08-ichthys", "11-church", "26-king-david", "28-moses", "40-eve", "46-peter", "63-archangels",
+            "67-shield-faith", "71-crown-life", "72-anchor-hope", "74-living-water", "75-lamp", "84-loaves-fishes", "87-empty-tomb", "88-nativity-star", "92-love", "101-menorah",
+            "104-open-bible", "105-ten-commandments", "120-treasure-chest-open", "125-jeweled-crown"];
+          var START = ["01-latin-cross", "03-lamb", "06-dove", "07-lion", "26-king-david", "63-archangels", "67-shield-faith", "71-crown-life", "84-loaves-fishes", "87-empty-tomb", "88-nativity-star", "92-love", "104-open-bible", "125-jeweled-crown"];
+          var col = COLS[0], wall = $("#wall"), tray = $("#tray"), tabs = $("#stkTabs"), count = $("#wallCount"), z = 10;
+          var src = function (s) { return ASSET + "stickers/" + col.k + "/" + s + ".webp"; };
+          function counter() { count.innerHTML = "<b>" + $$(".stk", wall).length + "</b> on your board &nbsp;·&nbsp; 1,119 in the app"; }
+          function place(s, x, y, opts) {
+            opts = opts || {};
+            var img = document.createElement("img");
+            var size = opts.size || rand(104, 158), r = opts.r != null ? opts.r : rand(-16, 16);
+            img.className = "stk"; img.alt = ""; img.draggable = false; img.dataset.s = s; img.dataset.tone = opts.tone || "";
+            img.src = opts.url || src(s);
+            img.style.setProperty("--s", size + "px"); img.style.left = x + "%"; img.style.top = y + "%";
+            img.style.setProperty("--r", r + "deg"); img.style.transform = "translate(-50%,-50%) rotate(" + r + "deg)";
+            img.style.zIndex = ++z;
+            if (!reduce) { img.classList.add("pop"); setTimeout(function () { img.classList.remove("pop"); }, 600); }
+            wall.appendChild(img); counter(); return img;
+          }
+          function populate() {
+            START.forEach(function (s, i) {
+              var cols = 5, cx = (i % cols + 0.5) / cols * 100, cy = (Math.floor(i / cols) + 0.55) / 3 * 100;
+              place(s, cx + (seeded(i + 3) - 0.5) * 9, cy + (seeded(i + 11) - 0.5) * 12, { size: 100 + seeded(i + 7) * 60, r: (seeded(i + 1) - 0.5) * 30 });
             });
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-        );
-
-        revealTargets.forEach((target) => revealObserver.observe(target));
-
-        const videoObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const video = entry.target;
-              if (entry.isIntersecting) {
-                video.play().catch(() => {});
-              } else {
-                video.pause();
-              }
+          }
+          function buildTray() {
+            tray.innerHTML = SUBJ.map(function (s) { return '<button type="button" data-s="' + s + '" aria-label="Add ' + s.replace(/^\d+-/, "").replace(/-/g, " ") + '"><img alt="" loading="lazy" src="' + src(s) + '"></button>'; }).join("");
+          }
+          tray.addEventListener("click", function (e) {
+            var b = e.target.closest("button"); if (!b) return;
+            var all = $$(".stk", wall); if (all.length > 42) all[0].remove();
+            place(b.dataset.s, rand(10, 90), rand(14, 86));
+          });
+          tabs.innerHTML = COLS.map(function (c, i) { return '<button class="tab" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + c.n + "</button>"; }).join("");
+          tabs.addEventListener("click", function (e) {
+            var b = e.target.closest(".tab"); if (!b) return;
+            col = COLS[+b.dataset.i]; $$(".tab", tabs).forEach(function (t) { t.setAttribute("aria-pressed", t === b); });
+            $$(".stk", wall).forEach(function (img, i) {
+              if (img.dataset.tone) return;
+              var s = img.dataset.s; img.style.opacity = "0"; img.style.transform = "translate(-50%,-50%) scale(.2) rotate(" + rand(-40, 40) + "deg)";
+              setTimeout(function () {
+                img.src = src(s); img.style.opacity = "1";
+                img.style.transform = "translate(-50%,-50%) rotate(" + img.style.getPropertyValue("--r") + ")";
+              }, (reduce ? 0 : 280) + i * 24);
             });
-          },
-          { threshold: 0.25 }
-        );
+            buildTray();
+          });
+          $("#stkShuffle").addEventListener("click", function () {
+            $$(".stk", wall).forEach(function (img) {
+              var r = rand(-18, 18); img.style.setProperty("--r", r + "deg");
+              img.style.left = rand(10, 90) + "%"; img.style.top = rand(14, 86) + "%"; img.style.transform = "translate(-50%,-50%) rotate(" + r + "deg)";
+            });
+          });
+          $("#stkClear").addEventListener("click", function () { $$(".stk", wall).forEach(function (i) { i.remove(); }); counter(); });
+          /* drag to arrange */
+          var drag = null;
+          wall.addEventListener("pointerdown", function (e) {
+            var img = e.target.closest(".stk"); if (!img) return;
+            var wr = wall.getBoundingClientRect(); var ir = img.getBoundingClientRect();
+            drag = { img: img, dx: e.clientX - (ir.left + ir.width / 2), dy: e.clientY - (ir.top + ir.height / 2), wr: wr };
+            img.classList.add("dragging"); img.style.zIndex = ++z; img.setPointerCapture(e.pointerId); e.preventDefault();
+          });
+          wall.addEventListener("pointermove", function (e) {
+            if (!drag) return;
+            var x = (e.clientX - drag.dx - drag.wr.left) / drag.wr.width * 100, y = (e.clientY - drag.dy - drag.wr.top) / drag.wr.height * 100;
+            drag.img.style.left = Math.max(2, Math.min(98, x)) + "%"; drag.img.style.top = Math.max(2, Math.min(98, y)) + "%";
+          });
+          function end() { if (drag) { drag.img.classList.remove("dragging"); drag = null; } }
+          wall.addEventListener("pointerup", end); wall.addEventListener("pointercancel", end);
+          /* four skin tones of one figure */
+          var TONES = [["fair", "Fair"], ["olive", "Olive"], ["brown", "Brown"], ["ebony", "Ebony"]];
+          $("#tones").innerHTML = TONES.map(function (t, i) { return '<button class="tone" type="button" data-t="' + t[0] + '" aria-pressed="false" aria-label="Add Hannah, ' + t[1] + ' skin tone"><img alt="" loading="lazy" src="' + ASSET + "stickers/tones/43-hannah-" + t[0] + '.webp"></button>'; }).join("");
+          $("#tones").addEventListener("click", function (e) {
+            var b = e.target.closest(".tone"); if (!b) return;
+            $$(".tone", $("#tones")).forEach(function (t) { t.setAttribute("aria-pressed", t === b); });
+            place("43-hannah", rand(12, 88), rand(20, 80), { size: rand(126, 168), tone: b.dataset.t, url: ASSET + "stickers/tones/43-hannah-" + b.dataset.t + ".webp" });
+          });
+          populate(); buildTray(); counter();
+        })();
 
-        videos.forEach((video) => videoObserver.observe(video));
+        /* ============ 4. LAYOUT GALLERY ============ */
+        (function layouts() {
+          var data, flavor = "shapes", cat = "all", sel = null;
+          var grid = $("#layGrid"), stage = $("#layStage"), tabsEl = $("#layTabs");
+          function svgFor(l, f) { var v = l[f]; return '<svg viewBox="' + v.vb + '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + v.svg + "</svg>"; }
+          function catLabel(id) { var c = data.categories.filter(function (c) { return c.id === id; })[0]; return c ? c.label : id; }
+          function renderGrid() {
+            var list = data.layouts.filter(function (l) { return cat === "all" || l.cat === cat; });
+            grid.innerHTML = list.map(function (l) { return '<button class="lay-card" role="listitem" type="button" data-id="' + l.id + '" aria-pressed="' + (sel && sel.id === l.id) + '">' + svgFor(l, flavor) + "<span>" + esc(l.label) + "</span></button>"; }).join("");
+          }
+          function show(l) {
+            sel = l; stage.innerHTML = svgFor(l, flavor);
+            $("#layName").textContent = l.label; $("#layCat").textContent = catLabel(l.cat);
+            var nodes = (l[flavor].svg.match(/<(rect|ellipse|polygon)/g) || []).length;
+            $("#layMeta").textContent = "One tap places it on your board. Every piece is a real note or shape you can edit.";
+            $$(".lay-card", grid).forEach(function (c) { c.setAttribute("aria-pressed", c.dataset.id === l.id); });
+          }
+          fetch(ASSET + "layouts.json").then(function (r) { return r.json(); }).then(function (d) {
+            data = d;
+            tabsEl.innerHTML = '<button class="tab" type="button" data-c="all" aria-pressed="true">All 46</button>' + d.categories.map(function (c) { return '<button class="tab" type="button" data-c="' + c.id + '" aria-pressed="false">' + esc(c.label) + "</button>"; }).join("");
+            var first = d.layouts.filter(function (l) { return /sevenfold/i.test(l.label); })[0] || d.layouts[0];
+            renderGrid(); show(first); setTimeout(fitFrame, 50);
+          });
+          tabsEl.addEventListener("click", function (e) { var b = e.target.closest(".tab"); if (!b || !data) return; cat = b.dataset.c; $$(".tab", tabsEl).forEach(function (t) { t.setAttribute("aria-pressed", t === b); }); renderGrid(); });
+          grid.addEventListener("click", function (e) { var b = e.target.closest(".lay-card"); if (!b) return; show(data.layouts.filter(function (l) { return l.id === b.dataset.id; })[0]); });
+          function setFlavor(f) { flavor = f; $("#segShapes").setAttribute("aria-pressed", f === "shapes"); $("#segCards").setAttribute("aria-pressed", f === "cards"); if (data) { renderGrid(); show(sel); } }
+          $("#segShapes").addEventListener("click", function () { setFlavor("shapes"); });
+          $("#segCards").addEventListener("click", function () { setFlavor("cards"); });
+        })();
+
+        /* ============ 5. LANDSCAPE COMPARE ============ */
+        (function landscapes() {
+          var SCENES = [["grass", "Grass"], ["water", "Water"], ["stone", "Stone"], ["clouds", "Clouds"], ["golden-sky", "Golden sky"], ["parchment", "Parchment"]];
+          var STICKER_KEY = { classic: "renaissance", pixel: "pixel", "3d": "3d" };
+          var PLACED = [["03-lamb", 14, 60], ["06-dove", 68, 16], ["01-latin-cross", 44, 40], ["11-church", 82, 58], ["07-lion", 26, 22]];
+          var scene = "grass", right = "pixel", stage = $("#landStage"), base = $("#landBase"), top = $("#landTop");
+          var NAMES = { classic: "Classic", pixel: "Pixel", "3d": "3D" };
+          function layer(el, style) {
+            el.innerHTML = '<img class="bg" alt="" src="' + ASSET + "landscapes/" + style + "-" + scene + '.webp">' +
+              PLACED.map(function (p) { return '<img class="placed" alt="" style="left:' + p[1] + "%;top:" + p[2] + '%" src="' + ASSET + "stickers/" + STICKER_KEY[style] + "/" + p[0] + '.webp">'; }).join("");
+          }
+          function render() { layer(base, "classic"); layer(top, right); $("#tagL").textContent = "Classic"; $("#tagR").textContent = NAMES[right]; }
+          $("#landScenes").innerHTML = SCENES.map(function (s, i) { return '<button class="tab" type="button" data-s="' + s[0] + '" aria-pressed="' + (i === 0) + '">' + s[1] + "</button>"; }).join("");
+          $("#landScenes").addEventListener("click", function (e) { var b = e.target.closest(".tab"); if (!b) return; scene = b.dataset.s; $$(".tab", $("#landScenes")).forEach(function (t) { t.setAttribute("aria-pressed", t === b); }); render(); });
+          $$("[data-cmp]").forEach(function (b) { b.addEventListener("click", function () { right = b.dataset.cmp; $$("[data-cmp]").forEach(function (x) { x.setAttribute("aria-pressed", x === b); }); render(); }); });
+          function cut(pct) { stage.style.setProperty("--cut", Math.max(4, Math.min(96, pct)) + "%"); }
+          var down = false;
+          function move(e) { var r = stage.getBoundingClientRect(); cut((e.clientX - r.left) / r.width * 100); }
+          stage.addEventListener("pointerdown", function (e) { down = true; stage.setPointerCapture(e.pointerId); move(e); });
+          stage.addEventListener("pointermove", function (e) { if (down) move(e); });
+          stage.addEventListener("pointerup", function () { down = false; });
+          stage.setAttribute("tabindex", "0"); stage.setAttribute("role", "slider"); stage.setAttribute("aria-label", "Compare landscape styles"); stage.setAttribute("aria-valuemin", "0"); stage.setAttribute("aria-valuemax", "100");
+          stage.addEventListener("keydown", function (e) { var cur = parseFloat(getComputedStyle(stage).getPropertyValue("--cut")) || 50; if (e.key === "ArrowLeft") cut(cur - 5); if (e.key === "ArrowRight") cut(cur + 5); });
+          cut(50); render();
+          if (!reduce && "IntersectionObserver" in window) {   /* a gentle sweep on first view shows it is draggable */
+            var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (!en.isIntersecting) return; io.disconnect(); var t0 = performance.now(); (function s(t) { var k = (t - t0) / 1800; if (k >= 1) { cut(50); return; } cut(50 + Math.sin(k * Math.PI * 2) * 26 * (1 - k)); requestAnimationFrame(s); })(t0); }); }, { threshold: 0.5 });
+            io.observe(stage);
+          }
+        })();
+
+        /* ============ 6. LASSO / DUPLICATE / MOVE ============ */
+        (function move() {
+          var el = $("#move"), stage = 0, timer, running = false;
+          var PLAN = [[0, 1500], [1, 1500], [2, 1000], [3, 1700], [4, 3000]];
+          function set(n) { el.setAttribute("data-stage", n); }
+          function loop(i) {
+            if (!running) return;
+            set(PLAN[i][0]); timer = setTimeout(function () {
+              var nx = (i + 1) % PLAN.length;
+              if (nx === 0) { el.setAttribute("data-snap", "1"); set(0); setTimeout(function () { el.removeAttribute("data-snap"); loop(0); }, 80); } else loop(nx);
+            }, PLAN[i][1]);
+          }
+          if (reduce || !("IntersectionObserver" in window)) { set(4); return; }
+          new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting && !running) { running = true; loop(0); } else if (!e.isIntersecting && running) { running = false; clearTimeout(timer); } });
+          }, { threshold: 0.35 }).observe(el);
+        })();
       })();
     </script>
   </body>
