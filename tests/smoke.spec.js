@@ -606,3 +606,59 @@ test.describe("Scripture Canvas — live showcase", () => {
     expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });
 });
+
+test.describe("Mosaic — live showcase", () => {
+  // 2026-09-21: the old video page was replaced with a live demo driven by the
+  // app's own Mosaic shape outlines (assets/mosaic/shapes.json, exported from
+  // src/lib/mosaicFormats.ts).
+  test("lists every app shape and fills the picked one", async ({ page }) => {
+    await page.goto("/mockups/mosaic-spotlight.html");
+    await waitForPageReady(page);
+
+    await expect(page.locator("video")).toHaveCount(0);
+    await expect(page.locator("#statShapes")).toHaveText("119");
+    await expect(page.locator("#wallGrid .cell")).toHaveCount(119);
+    await expect(page.locator("#stage svg")).toBeVisible();
+    await expect(page.locator("#stage svg image").first()).toBeAttached();
+    await expect(page.locator("#shapeName")).toHaveText("Noah's Ark");
+    await expect(page.locator("body")).not.toContainText(/400\+|vision board/i);
+  });
+
+  test("tapping a shape in the wall loads it into the studio", async ({ page }) => {
+    await page.goto("/mockups/mosaic-spotlight.html");
+    await waitForPageReady(page);
+
+    await page.locator("#wallGrid .cell[data-id='ichthys']").click();
+    await expect(page.locator("#shapeName")).toHaveText("Ichthys");
+    await expect(page.locator("#stage svg image").first()).toBeAttached();
+    await page.locator("#wallTabs .tab", { hasText: "Trinity" }).click();
+    await expect(page.locator("#wallGrid .cell")).toHaveCount(8);
+  });
+
+  test("the cutout slider answers the keyboard", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/mockups/mosaic-spotlight.html");
+    await waitForPageReady(page);
+
+    const range = page.locator("#cutRange");
+    await range.focus();
+    await range.press("ArrowRight");
+    expect(Number(await range.inputValue())).toBeGreaterThan(50);
+  });
+
+  test("loads inside the parent page without console errors", async ({ page }) => {
+    const errors = [];
+    page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
+    await page.goto("/");
+    await waitForPageReady(page);
+
+    await expect(page.locator("iframe[src*='mosaic-spotlight']")).toHaveAttribute(
+      "src",
+      /mosaic-spotlight\.html\?v=7/
+    );
+    await expect(
+      page.frameLocator("iframe[src*='mosaic-spotlight']").locator("#wallGrid")
+    ).toBeAttached();
+    expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
+  });
+});

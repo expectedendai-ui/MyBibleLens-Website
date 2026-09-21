@@ -216,101 +216,11 @@
         background: linear-gradient(145deg, #f0c850, #b6751d);
       }
 
-      /* ---- search ---- */
-      .srch {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 28px;
-        padding: 28px;
-        align-items: center;
-      }
-      @media (max-width: 820px) {
-        .srch {
-          grid-template-columns: 1fr;
-          padding: 18px;
-        }
-      }
-      .sbox {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: #fff8ea;
-        border-radius: 999px;
-        padding: 4px 6px 4px 18px;
-        box-shadow:
-          0 16px 26px -18px #000,
-          inset 0 0 0 1px #dcc39a;
-      }
-      .sbox input {
-        flex: 1;
-        border: 0;
-        background: transparent;
-        font: 600 1rem var(--font-body);
-        color: #3d2b1f;
-        padding: 13px 0;
-        outline: none;
-        min-width: 0;
-      }
-      .sbox input::placeholder {
-        color: rgba(61, 43, 31, 0.5);
-      }
-      .try {
-        display: flex;
-        gap: 7px;
-        flex-wrap: wrap;
-        margin: 14px 0 0;
-      }
-      .rel {
-        display: grid;
-        gap: 10px;
-        min-height: 220px;
-        align-content: start;
-      }
-      .rel .cap {
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--gold-light);
-      }
-      .verse {
-        display: grid;
-        gap: 4px;
-        text-align: left;
-        padding: 14px 16px;
-        border-radius: 18px;
-        background: linear-gradient(165deg, #fff8ea, #efdfc0);
-        color: #3d2b1f;
-        border: 0;
-        box-shadow: 0 18px 26px -18px #000;
-        animation: rise 0.5s var(--ease) both;
-        transition: transform 0.25s var(--spring);
-      }
-      .verse:hover {
-        transform: translateY(-3px) rotate(-0.4deg);
-      }
-      .verse b {
-        font-family: var(--font-display);
-        font-weight: 400;
-        font-size: 1.05rem;
-        color: #7a4f12;
-      }
-      .verse span {
-        font-size: 0.92rem;
-        font-style: italic;
-      }
       @keyframes rise {
         from {
           opacity: 0;
           transform: translateY(10px);
         }
-      }
-      .empty {
-        color: #cdb892;
-        padding: 18px;
-        border-radius: 18px;
-        border: 1.5px dashed rgba(240, 200, 80, 0.3);
-        text-align: center;
       }
 
       /* ---- let go ---- */
@@ -444,37 +354,8 @@
 
     <section class="chapter wrap reveal" aria-labelledby="r2">
       <div class="chapter__head">
-        <div class="eyebrow">Chapter 02 · Find</div>
-        <h2 id="r2" class="display">Type a feeling. <span class="gold">Find a verse.</span></h2>
-        <p>
-          Search your reflections by word, verse or theme. When you type a theme like <strong>peace</strong> or <strong>anxious</strong>,
-          related scriptures appear for you to open.
-        </p>
-      </div>
-      <div class="board srch">
-        <div>
-          <div class="sbox">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7a4f12" stroke-width="2.2" stroke-linecap="round">
-              <circle cx="11" cy="11" r="7" />
-              <path d="M20 20l-3.5-3.5" /></svg
-            ><input
-              id="q"
-              type="search"
-              placeholder="Search by word, verse, or theme…"
-              aria-label="Search reflections"
-              autocomplete="off"
-            />
-          </div>
-          <div class="try" id="try"></div>
-        </div>
-        <div class="rel" id="rel" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section class="chapter wrap reveal" aria-labelledby="r3">
-      <div class="chapter__head">
-        <div class="eyebrow">Chapter 03 · Release</div>
-        <h2 id="r3" class="display">And when it is time <span class="gold">to let go.</span></h2>
+        <div class="eyebrow">Chapter 02 · Release</div>
+        <h2 id="r2" class="display">And when it is time <span class="gold">to let go.</span></h2>
         <p>
           Not every page needs to stay. Letting go moves a reflection aside, and you can bring it back to your notes until you release it
           for good.
@@ -505,9 +386,6 @@
           $$ = S.$$,
           esc = S.esc,
           R = window.MBLReflect;
-        function clean(t) {
-          return String(t).replace(/\s*—\s*/g, ", ");
-        }
         /* ---- 1. editor ---- */
         var KINDS = {
           note: {
@@ -607,56 +485,7 @@
         });
         setKind("note");
 
-        /* ---- 2. search + related scriptures (the app's own logic) ---- */
-        var q = $("#q"),
-          rel = $("#rel");
-        function show() {
-          var themes = R.themesForQuery(q.value),
-            seen = {},
-            list = [];
-          themes.forEach(function (t) {
-            (R.related[t] || []).forEach(function (s) {
-              if (!seen[s.ref]) {
-                seen[s.ref] = 1;
-                list.push(s);
-              }
-            });
-          });
-          list = list.slice(0, 4);
-          rel.innerHTML = list.length
-            ? '<div class="cap">Related scriptures</div>' +
-              list
-                .map(function (s, i) {
-                  return (
-                    '<button class="verse" type="button" style="animation-delay:' +
-                    i * 70 +
-                    'ms"><b>' +
-                    esc(s.ref) +
-                    "</b><span>" +
-                    esc(clean(s.preview)) +
-                    "</span></button>"
-                  );
-                })
-                .join("")
-            : '<div class="empty">Type a theme word, like <b>peace</b>, <b>hope</b> or <b>anxious</b>, and related verses appear here.</div>';
-        }
-        q.addEventListener("input", show);
-        $("#try").innerHTML = ["peace", "hope", "anxious", "joy", "strength", "love"]
-          .map(function (w) {
-            return '<button class="chip" type="button" data-w="' + w + '">' + w + "</button>";
-          })
-          .join("");
-        $("#try").addEventListener("click", function (e) {
-          var b = e.target.closest(".chip");
-          if (b) {
-            q.value = b.dataset.w;
-            show();
-          }
-        });
-        q.value = "peace";
-        show();
-
-        /* ---- 3. let go ---- */
+        /* ---- 2. let go ---- */
         var NOTES = [
           { id: 1, t: "Sunday sermon", b: "Three things I want to remember.", c: "#EEE0C6", s: "notes" },
           { id: 2, t: "A prayer for my mother", b: "Lord, hold her close this season.", c: "#E2BBAB", s: "notes" },
