@@ -29,7 +29,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     );
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
-      "https://mybiblelens.us/assets/denzel-rigaud.jpg"
+      "https://mybiblelens.us/assets/ipad/01-Canvas.jpg"
     );
     const schema = await page
       .locator('script[type="application/ld+json"]')
@@ -83,7 +83,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     );
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
-      "https://mybiblelens.us/assets/denzel-rigaud.jpg"
+      "https://mybiblelens.us/assets/ipad/01-Canvas.jpg"
     );
     expect(legalPerson.jobTitle).toBe("Founder and Full-Stack Developer");
     expect(legalPerson.worksFor["@id"]).toBe("https://expectedend.co/#organization");
