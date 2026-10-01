@@ -159,7 +159,6 @@
       </a>
       <nav class="floating-nav__links" aria-label="Jump to section">
         <a href="index.html#repository" data-target="repository">The Repository</a>
-        <a href="index.html#mosaic-showcase" data-target="mosaic-showcase">Mosaic</a>
         <a href="index.html#pricing" data-target="pricing">Pricing</a>
         <a href="index.html#faq" data-target="faq">FAQ</a>
         <a href="#about" data-target="about">About</a>
@@ -180,7 +179,6 @@
     </div>
     <nav class="floating-nav__mobile" id="floating-nav-mobile" aria-label="Jump to section (mobile)" hidden>
       <a href="index.html#repository">The Repository</a>
-      <a href="index.html#mosaic-showcase">Mosaic</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#faq">FAQ</a>
       <a href="#about" class="floating-nav__mobile-combo" style="text-decoration: none; color: rgba(245, 242, 237, 0.9); font-size: 0.92rem; font-weight: 600; cursor: pointer">
@@ -668,7 +666,6 @@
                   <ul style="margin:0.5rem 0 1rem; padding-left:1.2rem; line-height:1.6;">
                     <li><strong style="color:#f0c850;">Milestone:</strong> The very first thing you open in the morning. You land on the path at the chapter you left. Read it, write what you carry from it, and keep that chapter&rsquo;s Scripture Seal. There are 1,189, one for every chapter of the Bible, so you put God first before the world gets a word in.</li>
                     <li><strong style="color:#f0c850;">Scripture Canvas:</strong> An endless board for everything a chapter stirs up. Connect verses with gold threads, drop in original stickers, start from 46 sacred layouts, and study together with your friends, live.</li>
-                    <li><strong style="color:#f0c850;">Mosaic:</strong> A space to collage the real art of your life, your family, and your true friends.</li>
                     <li><strong style="color:#f0c850;">Gather:</strong> Group games and Bible trivia so your family and friends connect in the room, not just behind a screen.</li>
                     <li><strong style="color:#f0c850;">Your Scripture Book:</strong> Every seal you earn is bound into your Scripture Book, and the more you read, the more of the app opens up.</li>
                   </ul>
@@ -1473,7 +1470,7 @@
             <p>MyBibleLens uses Large Language Models (LLMs) and vision models provided by third-party AI providers to power the Lens features. We may route any given request through one of the following providers depending on availability and feature: <strong>Google (Gemini)</strong>, <strong>OpenAI (GPT &amp; Whisper)</strong>, <strong>OpenRouter</strong> (which itself routes to providers such as Anthropic Claude), <strong>DeepSeek</strong>, and <strong>Fal.ai (Flux Kontext Pro)</strong> for portrait-aware photo editing. You should understand the following:</p>
             <ul class="legal-list">
               <li><strong>Text Processing:</strong> When you submit text to any AI feature (Logos Guide, Reflections, Study Cards, SOAP Workspace, etc.), your input is transmitted via our backend to one of the third-party providers above for processing. The provider generates a response and returns it to the Service, which returns it to you.</li>
-              <li><strong>Image Processing — Scripture Lens &amp; Mosaic Cutout:</strong> When you use camera-based features that recognize or describe images — specifically <em>Scripture Lens</em> (verse scanning) and <em>Mosaic Cutout</em> with a description prompt — the photo you capture is transmitted to Google (Gemini Vision) for processing. The image is processed in-memory and is not persisted on our servers beyond the request.</li>
+              <li><strong>Image Processing — Scripture Lens:</strong> When you use Scripture Lens to recognize or describe a captured image, the photo is transmitted to Google (Gemini Vision) for processing. The image is processed in-memory and is not persisted on our servers beyond the request.</li>
               <li><strong>Image Processing — Halo Vision:</strong> When you use <em>Halo Vision</em> (portrait-aware photo editing — for example, applying a stylistic edit to a self-portrait), the photo you provide is transmitted to <strong>Fal.ai</strong> for processing by the Flux Kontext Pro model, together with your text prompt. The photo is processed in-memory by Fal.ai and is not persisted on our servers beyond the request. Because Halo Vision can edit identifiable faces, please review the EULA for the Right of Publicity restrictions that apply to this feature.</li>
               <li><strong>On-Device Art (Zoom Canvas):</strong> <em>Zoom Canvas</em> is a hand-drawn art tool. All drawing, layering, and export happens locally on your device. <strong>No third-party AI provider receives your Zoom Canvas drawing.</strong></li>
               <li><strong>No Training on Your Data:</strong> Your personal reflections, journal entries, photos, spiritual content, and AI prompts are <strong>not</strong> used to train, fine-tune, or improve any AI model — whether ours or those of third-party providers. We use API configurations that opt out of training data retention where the provider offers that setting.</li>
@@ -1530,7 +1527,7 @@
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Raw audio is never stored; only the resulting text transcript is retained as user content</td>
                 </tr>
                 <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Zoom Canvas drawings, Mosaic boards &amp; other user-created art</strong></td>
+                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Zoom Canvas drawings &amp; other user-created art</strong></td>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">While account is active</td>
                   <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Stored in your Supabase account; deleted on account deletion. Zoom Canvas drawings are generated on-device with no third-party AI call.</td>
                 </tr>
@@ -2670,7 +2667,7 @@
             <p><strong>Licensed Translations:</strong> Where MyBibleLens&trade; displays a copyrighted modern translation (such as NIV, ESV, NLT, CSB, NASB, or others), it is displayed under license from the respective publisher. Unauthorized reproduction or redistribution of these translations is prohibited. The current list of licensed translations is maintained internally and updated as licensing arrangements change. For specific licensing questions, contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a>.</p>
             <ul class="legal-list">
               <li><strong>AI-Generated Content:</strong> AI-generated insights, commentary, etymological breakdowns, and reflections produced by MyBibleLens&trade; are <strong>not Scripture</strong>. They are AI interpretations <em>about</em> Scripture and should not be confused with the inspired biblical text itself. AI-generated paraphrases or summaries of Scripture are not authoritative translations and should never replace direct reading of an authorized translation.</li>
-              <li><strong>User-shared content:</strong> When users share Scripture-based images (e.g., Halo Vision portrait edits, Zoom Canvas drawings, or Mosaic boards), the underlying Scripture text remains subject to its original copyright. Users are responsible for ensuring their use complies with the relevant translation&rsquo;s permissions policy.</li>
+              <li><strong>User-shared content:</strong> When users share Scripture-based images (e.g., Halo Vision portrait edits or Zoom Canvas drawings), the underlying Scripture text remains subject to its original copyright. Users are responsible for ensuring their use complies with the relevant translation&rsquo;s permissions policy.</li>
               <li><strong>Reporting copyright concerns:</strong> If you are a Bible translation publisher and believe your translation is being used in MyBibleLens&trade; without proper licensing, please contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a>. We will respond promptly and remove or properly license any contested content.</li>
             </ul>
           </div>
@@ -4526,7 +4523,7 @@
             "repo.comingSoon": "Ya disponible en iPhone y iPad · Android próximamente",
             "repo.title": "Tu repositorio de estudio",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
+              "Infinite Canvas. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
             "pricing.title": "Paga una vez. Tuyo para siempre.",
             "pricing.subtitle":
               "Sin suscripciones. Sin cargos recurrentes. Sin sorpresas. Una compra, acceso de por vida, para ti y para todos los que traigas contigo.",
@@ -4543,7 +4540,7 @@
             "repo.comingSoon": "Já disponível para iPhone e iPad · Android em breve",
             "repo.title": "Seu repositório de estudo",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
+              "Infinite Canvas. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
             "pricing.title": "Pague uma vez. Seu para sempre.",
             "pricing.subtitle":
               "Sem assinaturas. Sem cobranças recorrentes. Sem surpresas. Uma compra, acesso vitalício, para você e para todos que trouxer com você.",
@@ -4560,7 +4557,7 @@
             "repo.comingSoon": "Disponible dès maintenant sur iPhone et iPad · Android bientôt disponible",
             "repo.title": "Votre répertoire d'étude",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
+              "Infinite Canvas. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
             "pricing.title": "Payez une fois. À vous pour toujours.",
             "pricing.subtitle":
               "Aucun abonnement. Aucun renouvellement. Aucune surprise. Un seul achat, un accès à vie, pour vous et pour tous ceux que vous amenez.",
@@ -4577,7 +4574,7 @@
             "repo.comingSoon": "iPhone과 iPad에서 지금 이용 가능 · Android 곧 출시",
             "repo.title": "나의 학습 저장소",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
+              "Infinite Canvas. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
             "pricing.title": "한 번 결제, 평생 소유.",
             "pricing.subtitle": "구독 없음. 갱신 없음. 깜짝 청구 없음. 한 번의 구매로 평생 이용 — 당신과 함께하는 모든 이들을 위해.",
             "faq.title": "솔직한 답변",
@@ -4593,7 +4590,7 @@
             "repo.comingSoon": "现已登陆 iPhone 和 iPad · Android 即将推出",
             "repo.title": "你的学习资源库",
             "repo.subtitle":
-              "Infinite Canvas. Mosaic. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
+              "Infinite Canvas. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
             "pricing.title": "一次付费，永久拥有。",
             "pricing.subtitle": "无订阅。无续费。无意外收费。一次购买，终身使用——为你，也为你带来的每一个人。",
             "faq.title": "诚实的回答",

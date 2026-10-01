@@ -146,7 +146,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(eyebrow).toContainText("Sanctuary App for Christianity");
   });
 
-  test("spotlight flow renders all 8 feature iframes in order without nested scrolling", async ({
+  test("spotlight flow renders all 7 current feature iframes in order without nested scrolling", async ({
     page,
   }) => {
     await page.goto("/");
@@ -155,10 +155,10 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     // 2026-06-04: the flow was reordered (Reflections + Games above Themes,
     // Focus Timer to the bottom) and the Orb, Parental Lock, and Deep Study
     // sections were added.
-    // 2026-06-21: reordered to lead with the most visual tools — Canvas, Glow,
-    // Mosaic up top; Parental Lock moved to the very bottom.
+    // 2026-06-21: reordered to lead with the most visual tools; Parental Lock
+    // moved to the very bottom.
     // 2026-07-09: added the "Before we get started" homepage-customization band
-    // (customize-flow) after Canvas, and swapped Mosaic ahead of Scripture Glow.
+    // (customize-flow) after Canvas.
     // 2026-09-10: Scripture Glow, Sermon Builder, and The Orb left the app, so
     // their spotlight sections were removed from the site.
     // 2026-09-20: rebuilt for the remodel. Milestone (the Bible study plan) now sits
@@ -167,7 +167,6 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     const order = [
       "canvas-flow",
       "milestone-flow",
-      "mosaic-flow",
       "reflections-flow",
       "fellowship-flow",
       "games-flow",
@@ -236,9 +235,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await page.goto("/");
     await waitForPageReady(page);
 
-    await expect(page.locator(".repo-beta-pill")).toContainText(
-      "Beta Testing Live on the App Store"
-    );
+    await expect(page.locator(".repo-beta-pill, .repo-rebuild-pill")).toHaveCount(0);
     await expect(page.locator(".repo-coming-soon")).toHaveText(
       "Beta testing now on iPhone & iPad · Android coming soon"
     );
@@ -246,9 +243,6 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator("#platforms")).toContainText("One sanctuary. iPhone and iPad.");
     await expect(page.locator("#platforms")).toContainText("Android is coming soon");
     await expect(page.locator("#platforms")).not.toContainText(/Now on Mac|Apple TV/);
-    // The red rebuild notice sits directly under the beta pill (2026-09-20).
-    await expect(page.locator(".repo-rebuild-pill")).toContainText("Rebuilding");
-    await expect(page.locator(".repo-beta-pill + .repo-rebuild-pill")).toHaveCount(1);
   });
 
   test("Expected End LLC is the consistent operating entity", async ({ page }) => {
@@ -404,7 +398,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.getByRole("link", { name: /Google Play/i })).toBeVisible();
   });
 
-  test("retired scanner showcase stays off the page (SEO guard)", async ({ page }) => {
+  test("retired features stay off the homepage and About page", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
     // Pulled 2026-07-11 so search engines index Infinite Canvas + shipped
@@ -413,6 +407,15 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     const body = (await page.locator("body").textContent()) ?? "";
     expect(body).not.toMatch(/S\.O\.A\.P\./);
     expect(body).not.toMatch(/scripture lens/i);
+    expect(body).not.toMatch(/mosaic/i);
+    await expect(
+      page.locator("[data-feature='mosaic'], #mosaic-flow, iframe[src*='mosaic-spotlight']")
+    ).toHaveCount(0);
+
+    await page.goto("/legal.html#about");
+    await waitForPageReady(page);
+    const about = (await page.locator("#about").textContent()) ?? "";
+    expect(about).not.toMatch(/mosaic/i);
   });
 
   test("FAQ section renders all questions and each item expands", async ({ page }) => {
@@ -603,62 +606,6 @@ test.describe("Scripture Canvas — live showcase", () => {
     const frame = page.locator("#canvas-flow iframe");
     await expect(frame).toHaveAttribute("src", /canvas-spotlight\.html\?v=6/);
     await expect(page.frameLocator("#canvas-flow iframe").locator("#threads")).toBeAttached();
-    expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
-  });
-});
-
-test.describe("Mosaic — live showcase", () => {
-  // 2026-09-21: the old video page was replaced with a live demo driven by the
-  // app's own Mosaic shape outlines (assets/mosaic/shapes.json, exported from
-  // src/lib/mosaicFormats.ts).
-  test("lists every app shape and fills the picked one", async ({ page }) => {
-    await page.goto("/mockups/mosaic-spotlight.html");
-    await waitForPageReady(page);
-
-    await expect(page.locator("video")).toHaveCount(0);
-    await expect(page.locator("#statShapes")).toHaveText("119");
-    await expect(page.locator("#wallGrid .cell")).toHaveCount(119);
-    await expect(page.locator("#stage svg")).toBeVisible();
-    await expect(page.locator("#stage svg image").first()).toBeAttached();
-    await expect(page.locator("#shapeName")).toHaveText("Noah's Ark");
-    await expect(page.locator("body")).not.toContainText(/400\+|vision board/i);
-  });
-
-  test("tapping a shape in the wall loads it into the studio", async ({ page }) => {
-    await page.goto("/mockups/mosaic-spotlight.html");
-    await waitForPageReady(page);
-
-    await page.locator("#wallGrid .cell[data-id='ichthys']").click();
-    await expect(page.locator("#shapeName")).toHaveText("Ichthys");
-    await expect(page.locator("#stage svg image").first()).toBeAttached();
-    await page.locator("#wallTabs .tab", { hasText: "Trinity" }).click();
-    await expect(page.locator("#wallGrid .cell")).toHaveCount(8);
-  });
-
-  test("the cutout slider answers the keyboard", async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.goto("/mockups/mosaic-spotlight.html");
-    await waitForPageReady(page);
-
-    const range = page.locator("#cutRange");
-    await range.focus();
-    await range.press("ArrowRight");
-    expect(Number(await range.inputValue())).toBeGreaterThan(50);
-  });
-
-  test("loads inside the parent page without console errors", async ({ page }) => {
-    const errors = [];
-    page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
-    await page.goto("/");
-    await waitForPageReady(page);
-
-    await expect(page.locator("iframe[src*='mosaic-spotlight']")).toHaveAttribute(
-      "src",
-      /mosaic-spotlight\.html\?v=7/
-    );
-    await expect(
-      page.frameLocator("iframe[src*='mosaic-spotlight']").locator("#wallGrid")
-    ).toBeAttached();
     expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });
 });

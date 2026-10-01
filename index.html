@@ -6,12 +6,12 @@
     <title>The World's First Sanctuary App for Christianity — MyBibleLens™</title>
     <meta
       name="description"
-      content="MyBibleLens — the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Mosaic, Gather and 16 themes."
+      content="MyBibleLens — the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Gather and 16 themes."
     />
     <meta property="og:title" content="The World's First Sanctuary App for Christianity — MyBibleLens™" />
     <meta
       property="og:description"
-      content="The World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Mosaic, Gather and 16 themes."
+      content="The World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time and keep a Scripture Seal for each. Scripture Canvas, Gather and 16 themes."
     />
     <meta property="og:url" content="https://mybiblelens.us/" />
     <meta property="og:type" content="website" />
@@ -38,7 +38,7 @@
         "operatingSystem": "iOS, iPadOS",
         "applicationCategory": "LifestyleApplication",
         "applicationSubCategory": "Bible Study",
-        "description": "MyBibleLens is the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time, keep a Scripture Seal for every chapter, and study on Scripture Canvas, Mosaic and Gather.",
+        "description": "MyBibleLens is the World's First Sanctuary App for Christianity. Read the whole Bible one chapter at a time, keep a Scripture Seal for every chapter, and study on Scripture Canvas and Gather.",
         "publisher": {
           "@type": "Organization",
           "@id": "https://expectedend.co/#organization",
@@ -89,7 +89,7 @@
           "https://apps.apple.com/us/app/mybiblelens/id6764069602",
           "https://www.wikidata.org/wiki/Q141251174"
         ],
-        "featureList": "Milestone Bible reading with a Scripture Seal for every chapter, Scripture Book, Scripture Canvas, Mosaic vision boards, Gather games and Bible trivia, Friends & Fellowship, Reflections, 16 themes, Focus Timer, reading reminders, cloud sync across iPhone and iPad"
+        "featureList": "Milestone Bible reading with a Scripture Seal for every chapter, Scripture Book, Scripture Canvas, Gather games and Bible trivia, Friends & Fellowship, Reflections, 16 themes, Focus Timer, reading reminders, cloud sync across iPhone and iPad"
       }
     </script>
 
@@ -2727,157 +2727,6 @@
         margin: 0 auto var(--space-6) auto;
         max-width: none;
       }
-      /* Rebuild notice: sits directly under the beta pill while the app is being rebuilt (Sept 2026) */
-      .repo-rebuild-pill {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.55rem;
-        width: fit-content;
-        max-width: calc(100% - 2rem);
-        margin: 0 auto var(--space-4) auto;
-        padding: 0.55rem 1.3rem;
-        border: 1.5px solid rgba(192, 57, 43, 0.6);
-        border-radius: 999px;
-        background: rgba(192, 57, 43, 0.1);
-        color: #b03325;
-        font-family: "Inter", sans-serif;
-        font-size: clamp(0.8rem, 0.74rem + 0.4vw, 0.98rem);
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1.3;
-        box-shadow: 0 10px 26px -16px rgba(192, 57, 43, 0.7);
-      }
-      .repo-rebuild-pill__dot {
-        flex: none;
-        width: 0.6rem;
-        height: 0.6rem;
-        border-radius: 50%;
-        background: #c0392b;
-        box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55);
-        animation: repo-rebuild-pulse 1.8s ease-out infinite;
-      }
-      @keyframes repo-rebuild-pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55);
-        }
-        70%,
-        100% {
-          box-shadow: 0 0 0 0.6rem rgba(192, 57, 43, 0);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .repo-rebuild-pill__dot {
-          animation: none;
-        }
-      }
-      .repo-beta-pill {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        width: fit-content;
-        margin: 0 auto var(--space-3) auto;
-        padding: 0.6rem 1.4rem;
-        border: 1.5px solid rgba(182, 117, 29, 0.5);
-        border-radius: 999px;
-        background: rgba(240, 200, 80, 0.18);
-        color: #9a6218;
-        font-family: "Inter", sans-serif;
-        font-size: clamp(0.9rem, 0.8rem + 0.5vw, 1.1rem);
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1.3;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(90deg, rgba(240, 200, 80, 0.18) 0%, rgba(240, 200, 80, 0.32) 50%, rgba(240, 200, 80, 0.18) 100%);
-        box-shadow:
-          0 0 0 0 rgba(240, 200, 80, 0),
-          0 10px 28px -14px rgba(182, 117, 29, 0.55);
-        animation: repo-beta-halo 4.5s ease-in-out infinite;
-      }
-      /* Shine sweep — a soft gold highlight glides across every few seconds */
-      .repo-beta-pill::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -60%;
-        width: 45%;
-        height: 100%;
-        background: linear-gradient(105deg, transparent 0%, rgba(255, 248, 224, 0.75) 50%, transparent 100%);
-        filter: blur(3px);
-        pointer-events: none;
-        animation: repo-beta-shine 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-      }
-      @keyframes repo-beta-shine {
-        0% {
-          left: -60%;
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        45%,
-        100% {
-          left: 120%;
-          opacity: 0;
-        }
-      }
-      @keyframes repo-beta-halo {
-        0%,
-        100% {
-          box-shadow:
-            0 0 0 0 rgba(240, 200, 80, 0),
-            0 10px 28px -14px rgba(182, 117, 29, 0.55);
-        }
-        50% {
-          box-shadow:
-            0 0 22px 2px rgba(240, 200, 80, 0.45),
-            0 10px 28px -14px rgba(182, 117, 29, 0.55);
-        }
-      }
-      .repo-beta-pill span:last-child {
-        position: relative;
-        z-index: 1;
-      }
-      .repo-beta-pill__dot {
-        flex: none;
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: #d4921f;
-        box-shadow: 0 0 0 0 rgba(212, 146, 31, 0.5);
-        animation: repo-beta-breathe 2.8s ease-in-out infinite;
-      }
-      @keyframes repo-beta-breathe {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(212, 146, 31, 0.5);
-        }
-        50% {
-          box-shadow: 0 0 0 6px rgba(212, 146, 31, 0);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .repo-beta-pill,
-        .repo-beta-pill::after,
-        .repo-beta-pill__dot {
-          animation: none;
-        }
-      }
-      @media (max-width: 480px) {
-        .repo-beta-pill {
-          font-size: 0.8rem;
-          letter-spacing: 0.08em;
-          padding: 0.5rem 1rem;
-          white-space: nowrap;
-          max-width: 100%;
-        }
-      }
       .repo-eyebrow {
         text-align: center;
         font-family: "Hammersmith One", sans-serif;
@@ -4936,17 +4785,6 @@
           </span>
           <span class="canvas-node__label">Scripture Canvas</span>
         </div>
-        <div class="canvas-node" data-feature="mosaic" style="--nx: 84%; --ny: 76%; --node-delay: -8.4s">
-          <span class="canvas-node__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="8" height="8" rx="1" />
-              <rect x="13" y="3" width="8" height="5" rx="1" />
-              <rect x="13" y="10" width="8" height="11" rx="1" />
-              <rect x="3" y="13" width="8" height="8" rx="1" />
-            </svg>
-          </span>
-          <span class="canvas-node__label">Mosaic</span>
-        </div>
         <div class="canvas-node" data-feature="games" style="--nx: 72%; --ny: 24%; --node-delay: -11.2s">
           <span class="canvas-node__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -5059,18 +4897,6 @@
         <!-- Brand tagline — moved out of the hero canvas, sits above the store badges -->
         <p class="hero-tagline hero-tagline--standalone" data-i18n="repo.tagline">
           Bringing you closer to God in an exciting and easy way!
-        </p>
-
-        <!-- Beta status pill — tells visitors the App Store build is the beta, not the final release -->
-        <p class="repo-beta-pill" role="status">
-          <span class="repo-beta-pill__dot" aria-hidden="true"></span>
-          <span data-i18n="repo.betaPill">Beta Testing Live on the App Store</span>
-        </p>
-
-        <!-- Rebuild notice: red, directly under the beta pill -->
-        <p class="repo-rebuild-pill" role="status">
-          <span class="repo-rebuild-pill__dot" aria-hidden="true"></span>
-          <span data-i18n="repo.rebuildPill">Rebuilding &middot; Some things may not work right now</span>
         </p>
 
         <!-- App Store / Google Play badges — moved ABOVE the section title -->
@@ -5203,37 +5029,7 @@
       <iframe src="mockups/milestone-spotlight.html?v=6" loading="lazy" title="Milestone" scrolling="no"></iframe>
     </div>
 
-    <!-- Gold divider between repository and Mosaic showcase -->
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Mosaic</span>
-      <span class="gold-divider__line"></span>
-
-      <img
-        loading="lazy"
-        decoding="async"
-        class="scatter-sticker"
-        src="assets/stickers/ren-07-lion.png"
-        alt=""
-        aria-hidden="true"
-        style="top: 50%; left: 1.5%; transform: translateY(-50%) rotate(-10deg)"
-      />
-      <span
-        class="scatter-sticker sticker-sparkle"
-        role="button"
-        tabindex="0"
-        aria-label="Tap the sticker for a reward"
-        data-src="assets/stickers/3d-07-lion.png"
-        style="
-          top: 50%;
-          right: 1.5%;
-          transform: translateY(-50%) rotate(9deg);
-          background-image: url(&quot;assets/stickers/3d-07-lion.png&quot;);
-        "
-      ></span>
-    </div>
-
-    <!-- Supabase security badge — sits under the Mosaic divider -->
+    <!-- Supabase security badge -->
     <style>
       .supabase-badge-wrap {
         padding: 1.2rem 1.5rem 2rem;
@@ -5459,15 +5255,6 @@
         }
       }
     </style>
-
-    <div class="gold-divider gold-divider--on-light" aria-hidden="true">
-      <span class="gold-divider__line"></span>
-      <span class="gold-divider__ornament">Mosaic</span>
-      <span class="gold-divider__line"></span>
-    </div>
-    <div class="flow-iframe-wrap" id="mosaic-flow">
-      <iframe src="mockups/mosaic-spotlight.html?v=7" loading="lazy" title="Mosaic shapes and collage" scrolling="no"></iframe>
-    </div>
 
     <div class="gold-divider gold-divider--on-light" aria-hidden="true">
       <span class="gold-divider__line"></span>
@@ -5833,7 +5620,7 @@
       <div class="plat-inner">
         <p class="plat-eyebrow">Available now on iPhone &amp; iPad</p>
         <h2 class="plat-title">One sanctuary. iPhone and iPad.</h2>
-        <p class="plat-sub">Your canvas, Mosaic boards, and reflections stay in sync across iPhone and iPad. Android is coming soon.</p>
+        <p class="plat-sub">Your canvas and reflections stay in sync across iPhone and iPad. Android is coming soon.</p>
         <div class="plat-chips">
           <span class="plat-chip">iPhone</span>
           <span class="plat-chip">iPad</span>
@@ -5863,7 +5650,7 @@
             "name": "What is MyBibleLens?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading."
+              "text": "MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the reading you get Scripture Canvas and Gather, all tied to the same reading."
             }
           },
           {
@@ -5902,7 +5689,7 @@
               <p>
                 MyBibleLens is the World's First Sanctuary App for Christianity, a place to read the whole Bible one chapter at a time and
                 keep what you find. Finish a chapter, write what you carry from it, and you keep that chapter's Scripture Seal. Around the
-                reading you get Scripture Canvas, Mosaic and Gather, all tied to the same reading.
+                reading you get Scripture Canvas and Gather, all tied to the same reading.
               </p>
             </div>
           </details>
@@ -6296,13 +6083,6 @@
                 { x: 0.18, y: 0.58 },
                 { x: 0.1, y: 0.72 },
                 { x: 0.2, y: 0.3 },
-              ],
-              mosaic: [
-                { x: 0.88, y: 0.74 },
-                { x: 0.78, y: 0.62 },
-                { x: 0.9, y: 0.58 },
-                { x: 0.82, y: 0.8 },
-                { x: 0.72, y: 0.7 },
               ],
               games: [
                 { x: 0.78, y: 0.22 },
@@ -7506,10 +7286,9 @@
             "hero.eyebrow": "La primera app santuario para el cristianismo del mundo",
             "repo.tagline": "¡Acercándote a Dios de una forma emocionante y sencilla!",
             "repo.comingSoon": "Beta de prueba ya en iPhone y iPad · Android próximamente",
-            "repo.betaPill": "Beta de prueba disponible en la App Store",
             "repo.title": "Tu repositorio de estudio",
             "repo.subtitle":
-              "Scripture Canvas. Mosaic. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
+              "Scripture Canvas. Reflections. Doce santuarios, un temporizador, comunión integrada. <strong>Cada herramienta que guarda un santuario, en una sola app.</strong>",
             "pricing.title": "Paga una vez. Tuyo para siempre.",
             "pricing.subtitle":
               "Sin suscripción para las funciones de la app. Una compra desbloquea todas las funciones de por vida. El almacenamiento opcional en la nube es la única suscripción mensual o anual.",
@@ -7524,10 +7303,9 @@
             "hero.eyebrow": "O primeiro app santuário para o cristianismo do mundo",
             "repo.tagline": "Aproximando você de Deus de um jeito empolgante e fácil!",
             "repo.comingSoon": "Beta em testes já no iPhone e iPad · Android em breve",
-            "repo.betaPill": "Beta em testes disponível na App Store",
             "repo.title": "Seu repositório de estudo",
             "repo.subtitle":
-              "Scripture Canvas. Mosaic. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
+              "Scripture Canvas. Reflections. Doze santuários, um cronômetro, comunhão integrada. <strong>Cada ferramenta que um santuário guarda, em um só app.</strong>",
             "pricing.title": "Pague uma vez. Seu para sempre.",
             "pricing.subtitle":
               "Sem assinatura para os recursos do app. Uma compra libera todos os recursos para sempre. O armazenamento em nuvem opcional é a única assinatura mensal ou anual.",
@@ -7542,10 +7320,9 @@
             "hero.eyebrow": "La première application sanctuaire au monde pour le christianisme",
             "repo.tagline": "Vous rapprocher de Dieu d'une manière passionnante et simple !",
             "repo.comingSoon": "Bêta en test sur iPhone et iPad · Android bientôt disponible",
-            "repo.betaPill": "Bêta en test disponible sur l'App Store",
             "repo.title": "Votre répertoire d'étude",
             "repo.subtitle":
-              "Scripture Canvas. Mosaic. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
+              "Scripture Canvas. Reflections. Douze sanctuaires, un minuteur, la communion intégrée. <strong>Chaque outil qu'un sanctuaire renferme, dans une seule application.</strong>",
             "pricing.title": "Payez une fois. À vous pour toujours.",
             "pricing.subtitle":
               "Aucun abonnement pour les fonctions de l’app. Un achat débloque toutes les fonctions à vie. Le stockage cloud facultatif est le seul abonnement mensuel ou annuel.",
@@ -7560,10 +7337,9 @@
             "hero.eyebrow": "세계 최초의 기독교 성소 앱",
             "repo.tagline": "흥미롭고 쉬운 방법으로 당신을 하나님께 더 가까이!",
             "repo.comingSoon": "iPhone과 iPad에서 베타 테스트 진행 중 · Android 곧 출시",
-            "repo.betaPill": "App Store에서 베타 테스트 진행 중",
             "repo.title": "나의 학습 저장소",
             "repo.subtitle":
-              "Scripture Canvas. Mosaic. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
+              "Scripture Canvas. Reflections. 열두 개의 성소, 하나의 타이머, 내장된 교제. <strong>성소가 품은 모든 도구를 하나의 앱에.</strong>",
             "pricing.title": "한 번 결제, 평생 소유.",
             "pricing.subtitle":
               "앱 기능은 구독이 아닙니다. 한 번 구매하면 모든 기능을 평생 이용할 수 있습니다. 선택형 클라우드 저장 공간만 월간 또는 연간 구독입니다.",
@@ -7578,10 +7354,9 @@
             "hero.eyebrow": "全球首款基督教圣所应用",
             "repo.tagline": "以令人兴奋而简单的方式，让你更亲近上帝！",
             "repo.comingSoon": "iPhone 和 iPad 正在 Beta 测试中 · Android 即将推出",
-            "repo.betaPill": "App Store Beta 测试现已上线",
             "repo.title": "你的学习资源库",
             "repo.subtitle":
-              "Scripture Canvas. Mosaic. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
+              "Scripture Canvas. Reflections. 十二个圣所，一个计时器，内置团契。<strong>圣所所拥有的每一个工具，尽在一个应用之中。</strong>",
             "pricing.title": "一次付费，永久拥有。",
             "pricing.subtitle": "应用功能无需订阅。一次购买即可终身解锁全部功能。可选云存储是唯一按月或按年续订的服务。",
             "faq.title": "诚实的回答",
