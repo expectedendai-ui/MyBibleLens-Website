@@ -19,9 +19,9 @@
   <link rel="canonical" href="https://mybiblelens.us/legal.html">
 
   <!-- Fonts: Hammersmith One (headlines) + Inter (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
 
   <link rel="stylesheet" href="./style.css?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -144,6 +144,7 @@
     ]
   }
   </script>
+<link rel="stylesheet" href="/fonts/fonts.css">
 </head>
 <body>
 
@@ -292,7 +293,7 @@
       </div>
 
       <!-- Purpose -->
-      
+
     <style>
       /* ── About hero: smaller "Builder's Manifesto" so it clears the top-right photo ── */
       .hero--canvas .hero-title {
@@ -1344,19 +1345,19 @@
             <div class="support-card">
               <p class="support-card-label">Access Control</p>
               <p class="support-card-value">Zero Tolerance</p>
-              <p class="support-card-desc">Access to the production database is strictly limited to authorized personnel only, using role-based access controls and full audit logging. No third party can access your private data without your explicit action.</p>
+              <p class="support-card-desc">Access to the production database is strictly limited to authorized personnel only, using role-based access controls and full audit logging. Infrastructure providers process data as described in the Privacy Policy.</p>
             </div>
           </div>
 
           <div class="legal-callout" style="margin-top: 2rem;">
-            <p><strong>Your data is yours. Period.</strong> MyBibleLens will never sell, rent, or share your personal reflections, spiritual insights, or any content you create within the sanctuary. Not to advertisers. Not to data brokers. Not to anyone. Your innermost thoughts stay locked inside your sanctuary.</p>
+            <p><strong>Your data is yours. Period.</strong> MyBibleLens does not sell your reflections to advertisers or data brokers. Hosting providers process saved content to operate the service, and fellowship members can access content you share with them. See our Privacy Policy for details.</p>
           </div>
 
           <h3 class="subsection-heading" style="margin-top: 2rem;">What We Do to Protect You</h3>
           <ul class="legal-list">
-            <li><strong>No AI Training on Your Data:</strong> Your reflections and journal entries are never used to train, fine-tune, or improve any AI model — ours or anyone else's.</li>
-            <li><strong>Minimal Data Transmission:</strong> When you interact with the Lens AI agents, we transmit only the minimum content necessary to generate your response. Your full account history is never sent to third-party AI providers.</li>
-            <li><strong>Third-Party API Security:</strong> All requests to OpenAI and Google Gemini are made over encrypted, authenticated connections. We use API configurations that opt out of training data retention where available.</li>
+
+
+
             <li><strong>Secure Infrastructure:</strong> Our backend infrastructure provider, Supabase, maintains an independent SOC 2 Type II attestation, meaning Supabase's systems have been independently audited for security, availability, and confidentiality. <strong>MyBibleLens™ itself has not undergone an independent SOC 2 audit and does not represent that it is SOC 2 certified.</strong></li>
             <li><strong>Session Protection:</strong> User sessions are token-based with automatic expiration. We do not store long-lived credentials.</li>
             <li><strong>Vulnerability Response:</strong> If you discover a security vulnerability, report it immediately to <a href="mailto:security@mybiblelens.us">security@mybiblelens.us</a>. We take all security reports seriously and aim to acknowledge them within 24–48 hours, though response times may be extended during high-volume periods or holidays.</li>
@@ -1380,7 +1381,7 @@
     <section class="page-section" id="privacy" data-page="privacy" style="display:none;">
       <div class="page-hero">
         <h1 class="page-hero-title">Privacy Policy</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026</p>
+        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: October 11, 2026</p><div class="legal-callout"><p><strong>App-version notice (October 11, 2026):</strong> References below to the newer build mean the app code updated after the September 22 and October 2 feature retirements. The public App Store listing for version 1.8 still describes earlier AI features and purchases. Your installed version may differ. Earlier services and previously acquired rights remain relevant; see the <a href="legal-archive/policies-before-2026-10-11.txt">archived policy source</a> for those disclosures. Feature retirement does not erase historical data or existing customer rights.</p></div>
       </div>
       <div class="content-block">
         <div class="content-inner legal-content">
@@ -1397,7 +1398,7 @@
               <li><a href="#priv-1">Information We Collect</a></li>
               <li><a href="#priv-2">How We Use Your Information</a></li>
               <li><a href="#priv-2a">Legal Bases for Processing (GDPR)</a></li>
-              <li><a href="#priv-3">AI Data Processing &amp; Disclosure</a></li>
+              <li><a href="#priv-3">AI and Earlier Versions</a></li>
               <li><a href="#priv-4">Data Storage &amp; Security</a></li>
               <li><a href="#priv-5">Data Retention Schedule</a></li>
               <li><a href="#priv-6">Third-Party Services &amp; Subprocessors</a></li>
@@ -1415,243 +1416,51 @@
 
           <!-- 1 -->
           <div class="legal-section" id="priv-1">
-            <h2 class="legal-heading"><span class="legal-num">1.</span> Information We Collect</h2>
-            <h3 class="legal-subheading">a. Information You Provide Directly</h3>
-            <ul class="legal-list">
-              <li><strong>Account Data:</strong> Email address, display name, and authentication credentials managed via Supabase.</li>
-              <li><strong>User Content:</strong> Journal entries, reflections, scripture notes, Infinite Canvas data, Study Repository content, and any text inputs submitted to the Lens AI agents (including The Refiner, Etymology, Neuroscience, Dreams, and Philosopher modes).</li>
-              <li><strong>Apostolic Profile:</strong> User preferences, personalization settings (Personalization Palette), and session history.</li>
-              <li><strong>Communications:</strong> Any messages or inquiries you send to our support email.</li>
-              <li><strong>Voice Input:</strong> When you use the microphone feature, your audio is processed by our AI service to convert speech to text. Voice data is not stored and is discarded immediately after transcription.</li>
-            </ul>
-            <h3 class="legal-subheading">b. Information Collected Automatically</h3>
-            <ul class="legal-list">
-              <li><strong>Usage Data:</strong> Interaction patterns, feature utilization, timestamps, session duration, and device information (browser type, operating system, device identifiers).</li>
-              <li><strong>Log Data:</strong> IP addresses, access times, pages viewed, referring URLs, and error logs.</li>
-              <li><strong>Location Data:</strong> General geographic location derived from your IP address. We do not collect precise GPS-based location data.</li>
-            </ul>
-          </div>
+<h2 class="legal-heading">Information We Collect</h2>
+<p>Expected End LLC operates MyBibleLens. We process account email and authentication information, user and Kingdom IDs, profile details, preferences, study progress, reflections, notes, boards, uploaded photos/files, and fellowship content you choose to save or share. Support messages contain the information you send us.</p><p>Our infrastructure processes request metadata such as IP addresses, timestamps and device/app information for delivery and security. Sentry receives error and performance diagnostics, potentially associated with your account UUID. Optional usage analytics are described below.</p>
+</div>
 
           <!-- 2 -->
           <div class="legal-section" id="priv-2">
-            <h2 class="legal-heading"><span class="legal-num">2.</span> How We Use Your Information</h2>
-            <p>We use the information we collect for the following purposes:</p>
-            <ul class="legal-list">
-              <li><strong>Service Delivery:</strong> To operate, provide, and personalize the MyBibleLens experience, including AI-generated insights from the Lens.</li>
-              <li><strong>Synchronization:</strong> To sync your study progress, reflections, and canvas data across devices.</li>
-              <li><strong>Security:</strong> To protect the integrity and security of our infrastructure and detect unauthorized access.</li>
-              <li><strong>Communication:</strong> To respond to support inquiries and send essential service updates (no marketing emails without explicit opt-in).</li>
-              <li><strong>Improvement:</strong> To analyze aggregated, anonymized usage patterns to improve app functionality and user experience.</li>
-              <li><strong>Compliance:</strong> To fulfill legal obligations and enforce our Terms of Service and EULA.</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>What we will never do:</strong> We will never sell, rent, lease, or trade your personal data, journal entries, reflections, or any content you create within the sanctuary to any third party for any reason, including advertisers, data brokers, or marketing companies.</p>
-            </div>
-          </div>
+<h2 class="legal-heading">How We Use Information</h2>
+<p>We use information to provide authentication, save and sync your content, enable fellowship sharing, apply preferences and progression, answer support requests, diagnose errors and secure the service. Optional analytics help us understand feature use. We do not send marketing emails or use this data for advertising.</p>
+</div>
 
           <!-- 2a -->
           <div class="legal-section" id="priv-2a">
-            <h2 class="legal-heading"><span class="legal-num">2a.</span> Legal Bases for Processing (GDPR)</h2>
-            <p>For users in the European Economic Area (EEA), the United Kingdom, and Switzerland, we process your personal data only where we have a lawful basis to do so under the GDPR and equivalent legislation. The legal bases we rely on are:</p>
-            <ul class="legal-list">
-              <li><strong>Contractual Necessity (Article 6(1)(b)):</strong> Processing your account data, authentication credentials, and In-App Purchase entitlement state is necessary to perform the contract between you and MBL (i.e., to provide the Service you signed up for).</li>
-              <li><strong>Consent (Article 6(1)(a)):</strong> Where we ask for your consent — such as for optional personalization features, marketing communications, or use of the microphone for voice transcription — we process your data on the basis of your freely given, specific, informed consent. You may withdraw consent at any time without affecting the lawfulness of prior processing.</li>
-              <li><strong>Legitimate Interests (Article 6(1)(f)):</strong> We process aggregated, anonymized usage data to improve the Service. We have conducted a legitimate interests assessment (LIA) and determined that this processing does not override your fundamental rights. Specifically: you would reasonably expect service improvement as part of using a software product; the data is aggregated and not linked back to individual identities; and you retain the right to object.</li>
-              <li><strong>Legal Obligation (Article 6(1)(c)):</strong> We may process data where required to comply with applicable law, a court order, or lawful regulatory request.</li>
-            </ul>
-            <p>We do not rely on <em>vital interests</em> or <em>public task</em> as a lawful basis for routine processing. Where we process special categories of personal data (e.g., data revealing religious or spiritual beliefs contained within journal entries), the additional legal basis is your <strong>explicit consent</strong> (Article 9(2)(a)) granted by your voluntary submission of that content to the Service.</p>
-            <h3 class="legal-subheading">Data Processing Agreement (DPA)</h3>
-            <p>Organizations that use MyBibleLens in a business or institutional capacity (e.g., churches, ministries, or schools) may require a Data Processing Agreement (DPA) for GDPR compliance where MBL acts as a data processor on their behalf. To request a DPA, email <a href="mailto:legal@mybiblelens.us">legal@mybiblelens.us</a> with the subject line "DPA Request." We aim to respond within 5 business days, though response times may be extended during high-volume periods or holidays.</p>
-          </div>
+<h2 class="legal-heading">Processing and Your Choices</h2>
+<p>Account and content processing supports the service you request. Optional usage analytics require a separate opt-in; agreeing to the Terms does not enable them. You can withdraw that permission in Legal Vault. Withdrawal stops future optional analytics and does not itself delete previously collected events; account deletion removes account-linked analytics.</p><p>Reflections can reveal religious beliefs and other sensitive information. Choose carefully what you save and whom you share it with. Contact <a href="mailto:legal@mybiblelens.us">legal@mybiblelens.us</a> about privacy rights, organizational processing arrangements, or the basis for processing your information in your jurisdiction.</p>
+</div>
 
           <!-- 3 -->
           <div class="legal-section" id="priv-3">
-            <h2 class="legal-heading"><span class="legal-num">3.</span> AI Data Processing & Disclosure</h2>
-            <p>MyBibleLens uses Large Language Models (LLMs) and vision models provided by third-party AI providers to power the Lens features. We may route any given request through one of the following providers depending on availability and feature: <strong>Google (Gemini)</strong>, <strong>OpenAI (GPT &amp; Whisper)</strong>, <strong>OpenRouter</strong> (which itself routes to providers such as Anthropic Claude), <strong>DeepSeek</strong>, and <strong>Fal.ai (Flux Kontext Pro)</strong> for portrait-aware photo editing. You should understand the following:</p>
-            <ul class="legal-list">
-              <li><strong>Text Processing:</strong> When you submit text to any AI feature (Logos Guide, Reflections, Study Cards, SOAP Workspace, etc.), your input is transmitted via our backend to one of the third-party providers above for processing. The provider generates a response and returns it to the Service, which returns it to you.</li>
-              <li><strong>Image Processing — Scripture Lens:</strong> When you use Scripture Lens to recognize or describe a captured image, the photo is transmitted to Google (Gemini Vision) for processing. The image is processed in-memory and is not persisted on our servers beyond the request.</li>
-              <li><strong>Image Processing — Halo Vision:</strong> When you use <em>Halo Vision</em> (portrait-aware photo editing — for example, applying a stylistic edit to a self-portrait), the photo you provide is transmitted to <strong>Fal.ai</strong> for processing by the Flux Kontext Pro model, together with your text prompt. The photo is processed in-memory by Fal.ai and is not persisted on our servers beyond the request. Because Halo Vision can edit identifiable faces, please review the EULA for the Right of Publicity restrictions that apply to this feature.</li>
-              <li><strong>On-Device Art (Zoom Canvas):</strong> <em>Zoom Canvas</em> is a hand-drawn art tool. All drawing, layering, and export happens locally on your device. <strong>No third-party AI provider receives your Zoom Canvas drawing.</strong></li>
-              <li><strong>No Training on Your Data:</strong> Your personal reflections, journal entries, photos, spiritual content, and AI prompts are <strong>not</strong> used to train, fine-tune, or improve any AI model — whether ours or those of third-party providers. We use API configurations that opt out of training data retention where the provider offers that setting.</li>
-              <li><strong>Encryption in Transit:</strong> All data transmitted between the app, our servers (Supabase), and third-party AI providers is encrypted using industry-standard TLS/SSL protocols.</li>
-              <li><strong>Third-Party AI Provider Policies:</strong> The providers above process your input in accordance with their own data handling policies. We encourage you to review the privacy policies of <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a>, <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener noreferrer">OpenAI</a>, <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">OpenRouter</a>, <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">Anthropic</a>, <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" target="_blank" rel="noopener noreferrer">DeepSeek</a>, and <a href="https://fal.ai/privacy" target="_blank" rel="noopener noreferrer">Fal.ai</a>.</li>
-              <li><strong>Minimization:</strong> We transmit only the minimum content necessary for the AI to generate a response. We do not send your full account data, profile, or historical reflections to AI providers unless explicitly required by the feature you are using.</li>
-            </ul>
-          </div>
+<h2 class="legal-heading">AI and Earlier Versions</h2>
+<p>The newer build no longer offers AI chat, image processing or voice transcription. Some built-in illustrations were created using AI tools; displaying those files does not send your content to an AI provider. Earlier versions used AI providers and different payment/analytics services. Removing those features does not by itself delete historical data held under earlier arrangements; contact us about historical data requests.</p>
+</div>
 
           <!-- 4 -->
           <div class="legal-section" id="priv-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> Data Storage & Security</h2>
-            <ul class="legal-list">
-              <li><strong>Infrastructure:</strong> All user data is stored on Supabase, our cloud infrastructure provider, which maintains its own independent SOC 2 attestation. (MyBibleLens™ itself is not SOC 2 audited.)</li>
-              <li><strong>Encryption at Rest:</strong> All personal reflections, journal entries, and user content stored in our database are encrypted at rest using AES-256 encryption.</li>
-              <li><strong>Encryption in Transit:</strong> All data transmitted between your device and our servers is encrypted using TLS 1.2 or higher.</li>
-              <li><strong>Access Controls:</strong> Access to the production database is strictly limited to authorized personnel. We employ role-based access controls and audit logs.</li>
-              <li><strong>No Guarantee:</strong> While we implement industry-standard security measures, no method of electronic storage or internet transmission is 100% secure. We cannot guarantee absolute security.</li>
-            </ul>
-          </div>
+<h2 class="legal-heading">Storage and Security</h2>
+<p>Supabase provides account, database, file storage and synchronization services. Cloudflare supports website/infrastructure delivery. Sentry supports diagnostics. Service providers process information needed to perform those functions. Access controls and transport encryption help protect data, but no service can guarantee absolute security. Fellowship sharing grants access to the members you choose; infrastructure processing is separate from that sharing.</p>
+</div>
 
           <!-- 5 -->
           <div class="legal-section" id="priv-5">
-            <h2 class="legal-heading"><span class="legal-num">5.</span> Data Retention Schedule &amp; Deletion</h2>
-            <p>You retain full ownership of your data at all times. The following schedule governs how long we retain different categories of data:</p>
-
-            <table style="width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.9rem;">
-              <thead>
-                <tr style="background:#f5ede0;">
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Data Category</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Retention Period</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Account data</strong> (email, display name, profile)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">While account is active + 30 days after deletion request</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Backup purge within additional 60 days</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Journal entries, reflections, canvas data</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">While account is active + 30 days</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Deleted on account deletion request</td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>AI conversation logs</strong> (Lens Guide, Refiner, etc.)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Not retained beyond the session</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Only the current session context is held in memory; no persistent conversation history is stored server-side</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Voice recordings</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Deleted immediately after transcription</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Raw audio is never stored; only the resulting text transcript is retained as user content</td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Zoom Canvas drawings &amp; other user-created art</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">While account is active</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Stored in your Supabase account; deleted on account deletion. Zoom Canvas drawings are generated on-device with no third-party AI call.</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Payment data</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Handled entirely by Apple via In-App Purchase, with receipt validation through RevenueCat; not stored by MBL</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">MBL never sees your card or banking details. We retain only an Apple-issued purchase identifier and a RevenueCat customer token to recognize your entitlements.</td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Usage analytics</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">24 months</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Aggregated and anonymized only; cannot be linked to individual users</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Support communications</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">2 years</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">For quality assurance and dispute resolution</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <h3 class="legal-subheading">How to Request Deletion</h3>
-            <ul class="legal-list">
-              <li><strong>In-App:</strong> Use the "Delete My Account &amp; All Data" feature within app settings for immediate self-service deletion.</li>
-              <li><strong>By Email:</strong> Send a request to <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a> with subject line "Data Deletion Request." We will verify your identity and confirm deletion within 30 calendar days.</li>
-              <li><strong>Inactive Accounts:</strong> Accounts inactive for 24 consecutive months may be flagged for deletion with 30 days prior email notice to the address on file.</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>Exceptions to Deletion:</strong> We may retain limited data where required by applicable law, to resolve active disputes, defend legal claims, or fulfill contractual obligations. Any retained data will be strictly limited to what is legally necessary and will not be used for any other purpose.</p>
-            </div>
-          </div>
+<h2 class="legal-heading">Retention and Deletion</h2>
+<p>Saved account content is retained to provide your account until you remove it or request account deletion, subject to applicable legal and moderation retention requirements. The analytics database defines a 400-day retention limit for raw events. Diagnostics, operational logs and backups have separate retention settings; contact us for details of applicable records. Deleting the app from your device does not delete your server account. Use Delete Account or contact support for help.</p>
+</div>
 
           <!-- 6 -->
           <div class="legal-section" id="priv-6">
-            <h2 class="legal-heading"><span class="legal-num">6.</span> Third-Party Services &amp; Subprocessor List</h2>
-            <p>MyBibleLens™ relies on the following trusted subprocessors to deliver the Service. Each has been selected for their security practices and commitment to data privacy. We maintain written agreements (data processing addenda or equivalent) with each subprocessor.</p>
-
-            <table style="width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.88rem;">
-              <thead>
-                <tr style="background:#f5ede0;">
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Subprocessor</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Purpose</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Data Sent</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Privacy Policy</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Google AI (Gemini)</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Primary AI for Lens Guide, Refiner, Etymology, Neuroscience, Philosopher, Dreams features</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Text prompts only (no identity, no payment data)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://ai.google.dev/terms" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">ai.google.dev/terms</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>OpenAI</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Backup LLM routing for Lens features when primary AI is unavailable, and Whisper for voice-to-text transcription</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Text prompts; audio for transcription (deleted immediately after processing)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openai.com/policies/privacy-policy</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>OpenRouter / Claude (Anthropic)</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Backup AI routing for Lens features when primary AI is unavailable</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Text prompts only</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openrouter.ai/privacy</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Supabase</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Database, authentication, file storage, and real-time sync</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">All user account data, content, and files</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">supabase.com/privacy</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Fal.ai</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Portrait-aware photo editing for the Halo Vision feature (Flux Kontext Pro model)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">The photo you upload to Halo Vision plus your text prompt; processed in-memory, not persisted</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://fal.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">fal.ai/privacy</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>RevenueCat</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Apple In-App Purchase receipt validation, entitlement management, and IAP analytics</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Apple-issued purchase identifiers, anonymized device identifiers, and subscription/entitlement state. No card or banking details — those stay with Apple.</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">revenuecat.com/privacy</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Apple (App Store / In-App Purchase)</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Sole payment processor for paid tiers, Empire consumables, and cloud storage subscriptions</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Payment details, billing address, and tax/locale are handled entirely by Apple. MBL never sees this data.</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">apple.com/legal/privacy</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Cloudflare</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">CDN, DDoS protection, DNS, and web security</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">IP addresses and request metadata for security purposes</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">cloudflare.com/privacypolicy</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Sentry</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Crash and error reporting so we can find and fix bugs quickly</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Error messages, stack traces, and device/OS metadata. Personal information is automatically scrubbed before anything is sent; no prayers, notes, or message content ever reaches Sentry.</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">sentry.io/privacy</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>PostHog</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Privacy-focused product analytics (which features are used, in aggregate)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Anonymized usage events only. Runs cookieless (in-memory persistence) with all on-screen text masked — no prayers, notes, or personal content is ever captured, and no advertising or cross-site tracking is performed.</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">posthog.com/privacy</a></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p>These third-party services operate under their own privacy policies and terms of service. We are not responsible for their independent data practices beyond what is governed by our processing agreements with them. We encourage you to review their policies. MBL will notify users of material changes to its subprocessor list with at least 30 days' advance notice where required.</p>
-          </div>
+<h2 class="legal-heading">Service Providers</h2>
+<ul class="legal-list"><li>Supabase: authentication, database, storage, synchronization and server functions.</li><li>Sentry: error and performance diagnostics, including account UUID when attached. Scrubbing reduces sensitive diagnostic data but is not a guarantee that all personal information is absent.</li><li>Cloudflare: website and infrastructure delivery.</li><li>Apple or Google: sign-in when you choose the corresponding account provider.</li></ul><p>Current optional analytics are first-party and stored with Supabase; the newer build does not use the PostHog SDK. The newer build retires in-app purchases and RevenueCat integration; older supported versions and historical purchase processing may differ. Earlier installed versions and previously collected data may differ.</p><p>Fonts and Material Symbols are hosted with the app/site and do not require Google Fonts requests.</p>
+</div>
 
           <!-- 7 -->
           <div class="legal-section" id="priv-7">
-            <h2 class="legal-heading"><span class="legal-num">7.</span> Cookies & Tracking Technologies</h2>
-            <p>MyBibleLens uses essential cookies and similar technologies solely to:</p>
-            <ul class="legal-list">
-              <li>Maintain your authenticated session.</li>
-              <li>Remember your preferences and personalization settings.</li>
-              <li>Ensure the security and functionality of the Service.</li>
-            </ul>
-            <p>We do <strong>not</strong> use third-party advertising cookies, behavioral tracking pixels, or cross-site tracking technologies. We do not sell or share your data with advertisers.</p>
-          </div>
+<h2 class="legal-heading">Optional Analytics and Local Storage</h2>
+<p>If you opt in, we collect three fixed events: app open, feature view and estimated active time. Feature labels are guide, canvas, plans, study cards, reflections, games and other. Events include your account UUID and server receipt time, so they are account-linked, not anonymous. These events exclude note text, uploaded media, raw URLs and arbitrary content. We do not use them for cross-company advertising tracking.</p><p>Local storage supports login sessions, preferences, drafts and feature state. You can manage optional analytics in Legal Vault. Clearing device storage may remove local drafts and sign you out.</p>
+</div>
 
           <!-- 8 -->
           <div class="legal-section" id="priv-8">
@@ -1693,7 +1502,7 @@
             </ul>
 
             <h3 class="legal-subheading">Business or Commercial Purpose for Collection</h3>
-            <p>To provide, maintain, secure, and improve the Service; to validate Apple In-App Purchase entitlements via RevenueCat; to respond to support inquiries; to fulfill legal obligations; and to prevent fraud and unauthorized access.</p>
+            <p>To provide, maintain, secure, and improve the Service; to respond to support inquiries; to fulfill legal obligations; and to prevent fraud and unauthorized access.</p>
 
             <h3 class="legal-subheading">Your CCPA/CPRA Rights</h3>
             <ul class="legal-list">
@@ -1711,42 +1520,26 @@
             <p>California residents may request, once per calendar year, a list of the categories of personal information disclosed to third parties for those third parties’ direct marketing purposes, and the names and addresses of those third parties. <strong>MyBibleLens™ does not disclose personal information to third parties for direct marketing purposes.</strong> If you have questions, email <a href="mailto:info@mybiblelens.us">info@mybiblelens.us</a> with subject "Shine the Light Request."</p>
 
             <h3 class="legal-subheading">Financial Incentive Programs</h3>
-            <p>MyBibleLens™ offers a Founding Member tier — a one-time In-App Purchase that grants lifetime access and a generous seat count at a single up-front price. Founding Member is not a subscription and there is no recurring charge. Participation requires creating an account and completing the one-time purchase via Apple's App Store. Founding Member pricing is not conditioned on waiving any privacy rights. To stop using the Service at any time, simply uninstall the app and/or request account deletion under the Privacy Policy § 5.</p>
+            <p>The newer build does not offer paid tiers or financial incentives for providing personal information.</p>
           </div>
 
           <!-- 9 -->
           <div class="legal-section" id="priv-9">
-            <h2 class="legal-heading"><span class="legal-num">9.</span> Age Restriction (18+) &amp; Children's Privacy</h2>
-            <p><strong>MyBibleLens™ is intended exclusively for adults aged 18 and over.</strong> We do not knowingly market to, accept registrations from, or collect personal information from any individual under the age of 18 in any jurisdiction. This applies in the United States (including under the Children's Online Privacy Protection Act, COPPA), the European Economic Area (under GDPR Article 8), the United Kingdom (under the Age Appropriate Design Code), and all other jurisdictions where we operate.</p>
-            <p><strong>If you are under 18, you may not create an account, access, or otherwise use the Service.</strong> If you become aware that an individual under the age of 18 has registered for an account or otherwise provided personal information to us, please report it to <a href="mailto:privacy@mybiblelens.us">privacy@mybiblelens.us</a> with the subject line "Underage Account Report." We will promptly investigate and, where confirmed, terminate the account and delete associated personal information within a reasonable timeframe of verifying the report.</p>
-            <p><strong>Account Representations and Verification:</strong> By creating an account, you represent and warrant that you are at least 18 years of age. We reserve the right, at our sole discretion, to request reasonable verification of age (such as a date-of-birth attestation, ID check, or other lawful method) and to suspend, restrict, or terminate any account we have reason to believe was created by a person under 18.</p>
-            <p><strong>Family and Group Tiers:</strong> The Sanctuary and Kingdom tiers permit multiple registered users under one administrative account. Each individual added to a family or group tier must independently meet the 18+ age requirement, must have their own MyBibleLens™ account, and must individually agree to these policies. The administrator of a family or group tier is responsible for ensuring all members are 18 or older. We do not authorize the creation of accounts for, or use of seats by, individuals under 18 under any circumstances.</p>
+            <h2 class="legal-heading">Age Requirement (13+) &amp; Children's Privacy</h2>
+            <p>MyBibleLens is for people aged 13 and older. Children under 13 may not create an account or use the Service. We do not knowingly collect personal information from children under 13.</p><p>If local law requires a higher age or parental permission for a particular use or processing activity, that requirement also applies. Users below the age of legal adulthood should review these policies with a parent or legal guardian.</p><p>If you believe a child under 13 has provided personal information, contact <a href="mailto:privacy@mybiblelens.us">privacy@mybiblelens.us</a> with the subject "Underage Account Report." We will investigate and, when confirmed, close the account and delete the associated personal information as required by applicable law.</p>
           </div>
 
           <!-- 10 -->
           <div class="legal-section" id="priv-10">
-            <h2 class="legal-heading"><span class="legal-num">10.</span> International Data Transfers</h2>
-            <p>MyBibleLens™ is operated from the United States. All user data is stored on Supabase infrastructure, with servers primarily located in the United States. If you access the Service from outside the United States, including from the European Economic Area (EEA), United Kingdom, or Switzerland, your personal data will be transferred to, stored, and processed in the United States.</p>
-            <h3 class="legal-subheading">Transfer Mechanisms</h3>
-            <ul class="legal-list">
-              <li><strong>EU-U.S. Data Privacy Framework:</strong> To the extent our subprocessors (including Supabase, Google, Apple, RevenueCat, Fal.ai, and Cloudflare) participate in the EU-U.S. Data Privacy Framework (DPF), UK Extension, or Swiss-U.S. DPF, we rely on those certifications as a transfer mechanism.</li>
-              <li><strong>Standard Contractual Clauses (SCCs):</strong> For transfers from the EEA that are not covered by an adequacy decision, we rely on the European Commission's Standard Contractual Clauses (2021 version) incorporated into our agreements with each subprocessor.</li>
-              <li><strong>UK International Data Transfer Addendum:</strong> For transfers from the UK, we rely on the UK International Data Transfer Addendum (IDTA) where applicable.</li>
-            </ul>
-            <p>By using the Service from outside the United States, you acknowledge and consent to the transfer of your information to the United States under the safeguards described above. You may withdraw this consent by ceasing use of the Service, but this may affect your ability to access certain features.</p>
-          </div>
+<h2 class="legal-heading">International Processing</h2>
+<p>Our providers may process information outside your country. Applicable transfer arrangements depend on the provider and service. Contact <a href="mailto:legal@mybiblelens.us">legal@mybiblelens.us</a> for information about the safeguards applicable to your data.</p>
+</div>
 
           <!-- 10b -->
           <div class="legal-section" id="priv-10b">
-            <h2 class="legal-heading"><span class="legal-num">10b.</span> Automated Decision-Making</h2>
-            <p>Some features of MyBibleLens™ involve automated processing of your personal data using artificial intelligence. Specifically:</p>
-            <ul class="legal-list">
-              <li><strong>AI Feature Responses:</strong> The Lens AI agents (Lens Guide, Refiner, Etymology, Neuroscience, Philosopher, Dreams) and the Halo Vision photo-editing feature automatically process text, audio, or images you provide to generate personalized outputs. These processes are automated but do not produce legal effects or otherwise significantly affect your rights.</li>
-              <li><strong>Content Personalization:</strong> Your usage patterns and preferences are automatically processed to personalize your in-app experience (e.g., suggested content in the Personalization Palette). This processing does not produce decisions that have legal or similarly significant effects on you.</li>
-              <li><strong>No Profiling for External Decisions:</strong> We do not engage in automated profiling that produces decisions about you for credit, employment, insurance, housing, or any other purpose that would have a legal or similarly significant effect on your life outside the app.</li>
-            </ul>
-            <p>You have the right under GDPR Article 22 not to be subject to solely automated decisions that produce significant effects. If you believe any automated process has produced such a decision affecting your account or access to the Service, contact us at <a href="mailto:privacy@mybiblelens.us">privacy@mybiblelens.us</a>.</p>
-          </div>
+<h2 class="legal-heading">Automated Processing</h2>
+<p>The app uses automatic processing for service functions such as synchronization and progression. The newer build does not offer live AI-generated responses or photo editing. Contact support if you need help with an account or content decision.</p>
+</div>
 
           <!-- 10c -->
           <div class="legal-section" id="priv-10c">
@@ -1789,7 +1582,7 @@
     <section class="page-section" id="terms" data-page="terms" style="display:none;">
       <div class="page-hero">
         <h1 class="page-hero-title">Terms of Service</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026</p>
+        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: October 11, 2026</p><div class="legal-callout"><p><strong>App-version notice (October 11, 2026):</strong> References below to the newer build mean the app code updated after the September 22 and October 2 feature retirements. The public App Store listing for version 1.8 still describes earlier AI features and purchases. Your installed version may differ. Earlier services and previously acquired rights remain relevant; see the <a href="legal-archive/policies-before-2026-10-11.txt">archived policy source</a> for those disclosures. Feature retirement does not erase historical data or existing customer rights.</p></div>
       </div>
       <div class="content-block">
         <div class="content-inner legal-content">
@@ -1805,7 +1598,7 @@
               <li><a href="#tos-1">Acceptance of Terms</a></li>
               <li><a href="#tos-2">Eligibility</a></li>
               <li><a href="#tos-3">Description of Service</a></li>
-              <li><a href="#tos-4">AI Technology Disclosure & Disclaimer</a></li>
+              <li><a href="#tos-4">Study Content</a></li>
               <li><a href="#tos-5">Non-Professional Advice Disclaimer</a></li>
               <li><a href="#tos-6">Mental Health & Crisis Disclaimer</a></li>
               <li><a href="#tos-7">The Pure Existence Exchange — Affiliate Disclosure</a></li>
@@ -1832,37 +1625,21 @@
 
           <!-- 2 -->
           <div class="legal-section" id="tos-2">
-            <h2 class="legal-heading"><span class="legal-num">2.</span> Eligibility</h2>
-            <p><strong>You must be at least 18 years of age to use the Service.</strong> By creating an account, accessing, or otherwise using the Service, you represent and warrant that you are at least 18 years old. The Service is not directed to, intended for, or available to any individual under the age of 18, and we do not knowingly collect personal information from such individuals. We reserve the right to request reasonable proof of age and to suspend, terminate, or delete any account that we have reason to believe was created by, or is being used by, a person under 18.</p>
+            <h2 class="legal-heading">Eligibility (13+)</h2>
+            <p>You must be at least 13 years old to use MyBibleLens. By creating an account, you confirm that you meet this minimum age. If you are below the age of legal adulthood, review these Terms with your parent or legal guardian and obtain their permission where required by applicable law. Any higher minimum age required by local law also applies.</p><p>We may restrict or close accounts that do not meet these requirements. Report an account belonging to a child under 13 to <a href="mailto:privacy@mybiblelens.us">privacy@mybiblelens.us</a>.</p>
           </div>
 
           <!-- 3 -->
           <div class="legal-section" id="tos-3">
-            <h2 class="legal-heading"><span class="legal-num">3.</span> Description of Service</h2>
-            <p>MyBibleLens is an AI-powered spiritual research and personal growth platform. The Service provides:</p>
-            <ul class="legal-list">
-              <li><strong>The Lens:</strong> AI-powered agents (including The Refiner, Etymology, Neuroscience, Philosopher, and Dreams modes) that generate text-based insights in response to user inputs.</li>
-              <li><strong>Study Tools:</strong> Including the Study Repository, Infinite Canvas, Reflections, and the Beloved community features.</li>
-              <li><strong>The Pure Existence Exchange:</strong> A curated affiliate marketplace featuring non-toxic lifestyle products.</li>
-              <li><strong>The Apostolic Profile:</strong> A personalization system that stores your preferences and session data.</li>
-            </ul>
-          </div>
+<h2 class="legal-heading">Description of the Service</h2>
+<p>MyBibleLens offers scripture study, reflections, study cards, drawing canvases, Scripture Seals, personalization, and fellowship features. Availability may vary by app version. The newer build does not offer live AI processing or in-app purchases.</p>
+</div>
 
           <!-- 4 -->
           <div class="legal-section" id="tos-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> AI Technology Disclosure & Disclaimer</h2>
-            <div class="legal-callout legal-callout--warning">
-              <p><strong>IMPORTANT — PLEASE READ CAREFULLY</strong></p>
-            </div>
-            <p>MyBibleLens utilizes third-party Large Language Models (LLMs) provided by OpenAI and Google Gemini. You acknowledge and agree that:</p>
-            <ul class="legal-list">
-              <li><strong>AI-Generated Content:</strong> All output from the Lens — including theological interpretations, scriptural analyses, neuroscience references, etymological breakdowns, dream interpretations, and "Refinement" or "Inversion" logic — is generated by artificial intelligence and may contain inaccuracies, errors, or hallucinations.</li>
-              <li><strong>No Guarantee of Accuracy:</strong> AI-generated content may not accurately reflect established theology, peer-reviewed science, verified historical facts, or any other domain of knowledge. The output is probabilistic, not deterministic.</li>
-              <li><strong>Supplementary Tool Only:</strong> The Lens is intended as a supplementary tool for personal spiritual exploration. It is <strong>not</strong> a replacement for personal Bible study, pastoral counsel, academic research, or consultation with qualified professionals.</li>
-              <li><strong>Your Responsibility:</strong> You are solely responsible for evaluating, verifying, and acting upon any AI-generated content. You must not rely on AI output as a sole source of truth, factual information, or the basis for any material decision.</li>
-              <li><strong>Automated System:</strong> You are interacting with an automated AI system, not a human being. No representation is made that any AI output constitutes human advice, opinion, or endorsement.</li>
-            </ul>
-          </div>
+<h2 class="legal-heading">Study Content</h2>
+<p>Study materials and built-in artwork support personal study and may contain mistakes. Some artwork was created with AI tools. Verify interpretations with scripture and trusted sources. App content is not a divine voice or a substitute for professional advice.</p>
+</div>
 
           <!-- 5 -->
           <div class="legal-section" id="tos-5">
@@ -1876,7 +1653,7 @@
               <li>The Service is <strong>NOT</strong> a substitute for medical advice, diagnosis, or treatment from a qualified healthcare provider.</li>
               <li>The Service is <strong>NOT</strong> a substitute for legal, financial, or any other form of professional advice.</li>
               <li>The Service does <strong>NOT</strong> provide clinical, diagnostic, or therapeutic interventions of any kind.</li>
-              <li>"The Refiner" feature provides AI-generated perspectives on personal struggles and is <strong>NOT</strong> a form of therapy, clinical assessment, or medical intervention. It is a spiritual reflection tool.</li>
+              <li>Earlier AI study features were not therapy, clinical assessment or medical intervention; those features are retired.</li>
             </ul>
             <p>If you are experiencing a mental health crisis, medical emergency, or any situation requiring professional intervention, discontinue use of the Service and contact a qualified professional or emergency service immediately.</p>
           </div>
@@ -1887,7 +1664,7 @@
             <div class="legal-callout legal-callout--crisis">
               <p><strong>If you or someone you know is in immediate danger or experiencing a mental health crisis, call 911 or contact the 988 Suicide & Crisis Lifeline by calling or texting 988.</strong></p>
             </div>
-            <p>MyBibleLens includes a hard-coded link to the 988 Suicide & Crisis Lifeline within the app settings. However, MyBibleLens is <strong>NOT</strong> a crisis intervention tool, emergency service, or substitute for professional crisis counseling. The AI agents are <strong>NOT</strong> trained, equipped, or authorized to handle mental health emergencies. If you are in crisis, please seek help from qualified professionals immediately.</p>
+            <p>MyBibleLens includes a hard-coded link to the 988 Suicide & Crisis Lifeline within the app settings. However, MyBibleLens is <strong>NOT</strong> a crisis intervention tool, emergency service, or substitute for professional crisis counseling. The app is not equipped to handle mental health emergencies. If you are in crisis, please seek help from qualified professionals immediately.</p>
           </div>
 
           <!-- 7 -->
@@ -2034,7 +1811,7 @@
     <section class="page-section" id="eula" data-page="eula" style="display:none;">
       <div class="page-hero">
         <h1 class="page-hero-title">End User License Agreement</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026</p>
+        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: October 11, 2026</p><div class="legal-callout"><p><strong>App-version notice (October 11, 2026):</strong> References below to the newer build mean the app code updated after the September 22 and October 2 feature retirements. The public App Store listing for version 1.8 still describes earlier AI features and purchases. Your installed version may differ. Earlier services and previously acquired rights remain relevant; see the <a href="legal-archive/policies-before-2026-10-11.txt">archived policy source</a> for those disclosures. Feature retirement does not erase historical data or existing customer rights.</p></div>
       </div>
       <div class="content-block">
         <div class="content-inner legal-content">
@@ -2111,20 +1888,9 @@
           </div>
 
           <div class="legal-section" id="eula-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> Third-Party Services &amp; Subprocessors</h2>
-            <p>The Application integrates with the following trusted third-party AI providers and infrastructure services ("Subprocessors"). By using the Application, you acknowledge and consent to the processing of your data by these Subprocessors as described:</p>
-            <ul class="legal-list">
-              <li><strong>Google Gemini 1.5 Flash (Google LLC):</strong> Primary AI for Lens Guide, Refiner, Etymology, Neuroscience, Philosopher, Dreams, and Study Cards. Text prompts transmitted to Google API. Terms: <a href="https://ai.google.dev/terms" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">ai.google.dev/terms</a></li>
-              <li><strong>OpenAI (OpenAI, LLC):</strong> Backup LLM routing for Lens features when primary AI is unavailable, plus Whisper voice-to-text transcription. Audio is transmitted, transcribed, and immediately deleted; only the resulting text is retained. Policy: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openai.com/policies/privacy-policy</a></li>
-              <li><strong>OpenRouter / Claude (Anthropic via OpenRouter):</strong> Backup AI routing layer for uninterrupted service. Text prompts only. Policy: <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openrouter.ai/privacy</a></li>
-              <li><strong>Fal.ai (Fal, Inc.):</strong> Portrait-aware photo editing for the Halo Vision feature, using the Flux Kontext Pro model. The photo you upload to Halo Vision plus your text prompt are transmitted to Fal.ai and processed in-memory; the photo is not persisted on Fal.ai's servers beyond the request. Policy: <a href="https://fal.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">fal.ai/privacy</a></li>
-              <li><strong>Supabase (Supabase Inc.):</strong> Database, authentication, real-time sync, and file storage. Supabase maintains its own independent SOC 2 Type II attestation; MyBibleLens™ itself is not separately SOC 2 audited. Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">supabase.com/privacy</a></li>
-              <li><strong>Apple (Apple Inc.):</strong> Sole payment processor for paid tiers, Empire consumables, and cloud storage subscriptions via the App Store In-App Purchase system. Apple handles all payment details, billing address, and tax/locale data under Apple's own privacy policy. MBL never receives this data. Policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">apple.com/legal/privacy</a></li>
-              <li><strong>RevenueCat (RevenueCat, Inc.):</strong> Validates Apple In-App Purchase receipts and manages your entitlements. Receives Apple-issued purchase identifiers, anonymized device identifiers, and your subscription/entitlement state. Does not receive card or banking details. Policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">revenuecat.com/privacy</a></li>
-              <li><strong>Cloudflare (Cloudflare, Inc.):</strong> CDN, DDoS protection, and DNS security. Processes IP addresses and request metadata. Policy: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">cloudflare.com/privacypolicy</a></li>
-            </ul>
-            <p>We have executed data processing agreements with each applicable Subprocessor. Each Subprocessor is contractually prohibited from using your data for any purpose other than providing services to MBL.</p>
-          </div>
+<h2 class="legal-heading">Data and Service Providers</h2>
+<p>Data collection, service providers, optional analytics and your choices are explained in our <a href="#privacy" onclick="showSection('privacy')">Privacy Policy</a>. The newer build no longer offers live AI processing, voice transcription or in-app purchases. Historical data and previously acquired rights are not erased by feature retirement.</p>
+</div>
 
           <div class="legal-section" id="eula-5">
             <h2 class="legal-heading"><span class="legal-num">5.</span> User Content, AI-Generated Outputs &amp; Copyright</h2>
@@ -2141,7 +1907,7 @@
             <p><strong>Right of Publicity / Likeness Restriction.</strong> You agree not to use Halo Vision, the Lens, or any other AI feature to generate images, audio, or text depicting <strong>identifiable living individuals other than yourself</strong> (including but not limited to the Pope, prominent religious leaders, public figures, or other named individuals) without their express written consent. Halo Vision is intended for use on your own photographs of yourself or photographs you have explicit permission to edit. You are solely responsible for any right-of-publicity, defamation, or privacy claims arising from such generated content, and you agree to indemnify MBL accordingly under Section 15.</p>
 
             <h3 class="legal-subheading">5.4 MBL's Reserved Rights</h3>
-            <p>The following remain the exclusive intellectual property of MyBibleLens™ and its licensors and are not transferred to you: (a) the AI models and APIs used to generate outputs; (b) the proprietary prompt architecture, system instructions, and persona design underlying all MBL AI agents; (c) the Application's code, UI/UX design, branding, marks, and all original editorial content; and (d) aggregated, anonymized derivative insights from general usage patterns.</p>
+            <p>The following remain the exclusive intellectual property of MyBibleLens™ and its licensors and are not transferred to you: the Application's code, UI/UX design, branding and original editorial content, to the extent protected by applicable law. Third-party assets remain subject to their own licenses. AI-generated material may have different copyright protection.</p>
 
             <h3 class="legal-subheading">5.5 License Back to MBL</h3>
             <p>You grant MBL a limited, non-exclusive, royalty-free, worldwide license to host, store, process, transmit, display, and create technical copies of your User Content solely to provide the Service to you and to comply with legal obligations. This license <strong>does not authorize MBL to use your content for advertising, to train its own or any third party's AI models, or to share it with third parties outside the scope of service delivery</strong>, except as expressly disclosed in the Privacy Policy or with your separate consent.</p>
@@ -2182,7 +1948,7 @@
               <li><strong>Data We Collect:</strong> Account data (email, display name), user-generated content (journal entries, reflections, canvas data), usage analytics, and technical log data.</li>
               <li><strong>What Is Sent to AI Providers:</strong> Text prompts and voice audio (for transcription only). We do not transmit your name, email, payment information, or passwords to AI providers.</li>
               <li><strong>What Is NOT Sent to AI Providers:</strong> Your identity, contact information, financial data, account credentials, full account history, or any data not directly necessary to generate your requested AI output.</li>
-              <li><strong>No AI Training on Your Data:</strong> Your personal content is not used to train, fine-tune, or improve any AI model. We configure our AI API integrations to opt out of training data retention wherever technically possible.</li>
+
               <li><strong>Your Rights:</strong> You retain full ownership of your data. See Privacy Policy Sections 8 and 8b for your GDPR and CCPA/CPRA rights respectively.</li>
             </ul>
           </div>
@@ -2194,31 +1960,13 @@
           </div>
 
           <div class="legal-section" id="eula-9">
-            <h2 class="legal-heading"><span class="legal-num">9.</span> Purchase Terms &amp; Payment</h2>
-            <h3 class="legal-subheading">Paid Tiers (One-Time In-App Purchases)</h3>
-            <p>MyBibleLens™ offers: Seeker (Free), Apostle (Individual), Sanctuary (Family), Kingdom (Church), and Founding Member. Apostle, Sanctuary, Kingdom, and Founding are each <strong>one-time In-App Purchases</strong> — no subscription, no auto-renewal, no recurring billing. You pay once and the tier unlocks for the life of your account. Features and seat counts at each tier are described at <a href="https://mybiblelens.us/#pricing" style="color:#b6741d;">mybiblelens.us</a>.</p>
-            <h3 class="legal-subheading">Empire Pack &amp; Empire Plus (Consumables)</h3>
-            <p>The Empire Pack and Empire Plus are <strong>consumable In-App Purchases</strong> that grant additional seats to your account. Each purchase also ratchets your paid tier up to Kingdom-level access if you are not already at or above that level. Consumables are stackable (you may purchase more than one) and are permanent — there is no recurring charge.</p>
-            <h3 class="legal-subheading">Cloud Storage Subscriptions</h3>
-            <p>New accounts include <strong>10 GB</strong> of cloud storage at no charge. Accounts that received the earlier 20 GB allowance keep that included capacity. If you need more room, <strong>Cloud 20</strong> provides a 20 GB total account limit for US$1.99 per month or US$19.99 per year, and <strong>Cloud 50</strong> provides a 50 GB total account limit for US$3.99 per month or US$39.99 per year. These are auto-renewing subscriptions purchased through Apple; the final localized price appears before confirmation. You may cancel through your Apple subscription settings. Paid capacity remains active through the current paid billing period. After it ends, if your account is above its free or grandfathered limit, new uploads are paused until you free space or renew. <strong>Your existing files are never automatically deleted</strong>; you can continue to view, export, and delete them.</p>
-            <h3 class="legal-subheading">Payment Processing</h3>
-            <p>All payments are processed by <strong>Apple via the App Store In-App Purchase system</strong>. Receipt validation and entitlement management are handled by <strong>RevenueCat</strong>. MBL never receives or stores your payment card number, banking details, or billing address — those are handled entirely by Apple under Apple's own privacy policy. By making a purchase, you agree to the <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">Apple Media Services Terms</a> and <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">RevenueCat's Privacy Policy</a>.</p>
-            <h3 class="legal-subheading">Refunds</h3>
-            <p>Because all purchases go through Apple, <strong>all refund requests must be submitted directly to Apple</strong> via <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">reportaproblem.apple.com</a> under Apple's refund policy. MBL is not the merchant of record for your In-App Purchase and cannot process refunds on Apple's behalf. We will, however, support your refund request with Apple where reasonable.</p>
-            <h3 class="legal-subheading">Price Changes</h3>
-            <p>We may modify the price of any tier, consumable, or storage subscription in accordance with App Store rules. One-time price changes apply only to <strong>new</strong> purchases. Anyone who has already purchased a one-time tier keeps that tier permanently at no additional charge. Apple provides any notices or consent flow required for storage-subscription price changes.</p>
-          </div>
+<h2 class="legal-heading">Purchases in Earlier Versions</h2>
+<p>The newer build does not offer purchases or subscriptions. The public App Store version 1.8 and older installed versions may differ; see the app-version notice in the Privacy Policy. Any earlier transaction remains subject to its original terms and applicable law; this update does not waive refund rights or erase prior entitlements. Contact support about an earlier transaction.</p>
+</div>
 
           <div class="legal-section" id="eula-10">
-            <h2 class="legal-heading"><span class="legal-num">10.</span> Age Restriction (18+) &amp; COPPA Compliance</h2>
-            <p>MyBibleLens™ is intended for adult use only. The Sanctuary (Family) and Kingdom (Church) tiers allow multiple verified adult members under one administrative account. Each member must independently be 18 or older.</p>
-            <ul class="legal-list">
-              <li><strong>18+ Only:</strong> The Application is intended exclusively for individuals aged 18 and over. We do not knowingly accept registrations from, market to, or collect personal information from any individual under 18 in any jurisdiction, including under COPPA (United States), GDPR Article 8 (EEA), and the UK Age Appropriate Design Code.</li>
-              <li><strong>Underage Account Reports:</strong> If you have reason to believe a person under 18 has registered for or accessed the Application, contact <a href="mailto:privacy@mybiblelens.us" style="color:#b6741d;">privacy@mybiblelens.us</a> with subject line "Underage Account Report." We will investigate and, where confirmed, terminate the account and delete associated personal information within a reasonable timeframe of verification.</li>
-              <li><strong>Account Representations &amp; Verification:</strong> By creating an account you represent and warrant that you are at least 18 years of age. We reserve the right to request reasonable proof of age and to suspend or terminate any account that we have reason to believe is held by a person under 18.</li>
-              <li><strong>Family &amp; Group Tiers:</strong> Each individual member added to a Sanctuary or Kingdom tier must independently meet the 18+ requirement and must have their own MyBibleLens™ account. Administrators of family or group tiers are responsible for ensuring all members are 18 or older.</li>
-
-            </ul>
+            <h2 class="legal-heading">Age Requirement (13+)</h2>
+            <p>The Application is available to users aged 13 and older, subject to any higher minimum age or parental-permission requirement imposed by applicable law. Each user must independently meet these requirements. Children under 13 may not use an account belonging to another person to bypass the minimum age.</p><p>Users below the age of legal adulthood should review this agreement with a parent or legal guardian. For underage-account concerns, contact <a href="mailto:privacy@mybiblelens.us">privacy@mybiblelens.us</a>. We will investigate and handle confirmed underage accounts as described in the Privacy Policy.</p>
           </div>
 
           <div class="legal-section" id="eula-11">
@@ -2379,456 +2127,14 @@
 
     <!-- ══════════════ AI & DATA DISCLOSURE ══════════════ -->
     <section class="page-section" id="ai-disclosure" data-page="ai-disclosure" style="display:none;">
-      <div class="page-hero">
-        <h1 class="page-hero-title">AI &amp; Data Disclosure</h1>
-        <p class="page-hero-subtitle">Effective Date: May 3, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026 &nbsp;|&nbsp; Version: 2.0</p>
-      </div>
-      <div class="content-block">
-        <div class="content-inner legal-content">
-
-          <div class="legal-intro">
-            <p>Transparency is a cornerstone of our relationship with you. This AI &amp; Data Disclosure explains exactly which artificial intelligence technologies power MyBibleLens™, how each one is used, what data is sent to each AI provider, and your rights regarding AI-powered processing. This document also fulfills our transparency obligations under the EU AI Act and applicable data protection law.</p>
-            <div class="legal-callout legal-callout--warning" style="margin-top:1.25rem;">
-              <p><strong>READ FIRST — What MyBibleLens™ Is and Is Not.</strong></p>
-              <p>MyBibleLens™ is an <strong>interpretive aid</strong> and <strong>subjective exploration tool</strong> for personal scripture study and reflection. It is <strong>not</strong> a substitute for Scripture itself, official church doctrine, ordained pastoral guidance, theological education, mental-health care, medical advice, legal advice, or any professional service. AI outputs are <strong>assistive and exploratory</strong>, not authoritative. They may contain errors, inaccuracies, biases, or hallucinations. <strong>You are responsible for vetting AI responses against official scriptural texts and qualified human sources before sharing or acting upon them.</strong> AI-generated content does not reflect the views or doctrinal positions of MyBibleLens™ or its founder.</p>
-            </div>
-          </div>
-
-          <nav class="legal-toc" aria-label="AI Disclosure table of contents">
-            <h2 class="toc-title">Contents</h2>
-            <ol class="toc-list">
-              <li><a href="#ai-1">AI Technologies We Use</a></li>
-              <li><a href="#ai-2">How Each AI Is Used in the App</a></li>
-              <li><a href="#ai-3">What Data Is Sent to AI Providers</a></li>
-              <li><a href="#ai-4">What Data Is NOT Sent</a></li>
-              <li><a href="#ai-5">Data Retention by AI Providers</a></li>
-              <li><a href="#ai-6">AI Accuracy Disclaimer</a></li>
-              <li><a href="#ai-7">988 Crisis Line &amp; Mental Health Disclaimer</a></li>
-              <li><a href="#ai-8">Subprocessor List with Privacy Policies</a></li>
-              <li><a href="#ai-9">Your Rights Regarding AI Processing</a></li>
-              <li><a href="#ai-10">How to Opt Out of AI Features</a></li>
-              <li><a href="#ai-11">EU AI Act Compliance</a></li>
-              <li><a href="#ai-12">International Crisis &amp; Mental Health Resources</a></li>
-              <li><a href="#ai-13">Children&rsquo;s Use &amp; Age Restrictions</a></li>
-              <li><a href="#ai-14">Scripture Translation Licensing</a></li>
-              <li><a href="#ai-15">AI Hallucination Awareness</a></li>
-              <li><a href="#ai-16">AI Behavioral Guardrails</a></li>
-              <li><a href="#ai-17">AI-Specific Limitation of Liability</a></li>
-              <li><a href="#ai-18">Reporting &amp; Contact</a></li>
-              <li><a href="#ai-changelog">Change Log</a></li>
-            </ol>
-          </nav>
-
-          <div class="legal-section" id="ai-1">
-            <h2 class="legal-heading"><span class="legal-num">1.</span> AI Technologies We Use</h2>
-            <p>MyBibleLens™ uses the following AI technologies to power its core features:</p>
-            <ul class="legal-list">
-              <li><strong>Google Gemini 1.5 Flash (Google LLC):</strong> A large multimodal language model used as our primary AI for text-based Lens features. Gemini powers the majority of conversational and analytical AI experiences within the app.</li>
-              <li><strong>OpenRouter / Claude (Anthropic via OpenRouter):</strong> A routing service that provides access to Anthropic’s Claude language models as a fallback AI layer when Google Gemini is unavailable, ensuring uninterrupted service.</li>
-              <li><strong>Fal Flux Kontext Pro (Fal.ai, Inc.):</strong> A portrait-aware image editing model used exclusively to power the Halo Vision feature, which applies stylistic edits to photographs (typically self-portraits) while preserving facial likeness.</li>
-              <li><strong>OpenAI Whisper (OpenAI, LLC):</strong> An AI-powered automatic speech recognition (ASR) model used to transcribe your voice input when you use the microphone feature within the app. OpenAI's GPT models are also retained as a backup LLM routing layer for Lens features when both Google Gemini and Claude are unavailable.</li>
-              <li><strong>On-Device Hand-Drawn Art (Zoom Canvas):</strong> Zoom Canvas, the hand-drawing tool inside the app, is a fully on-device feature. <strong>No third-party AI provider is involved in its operation.</strong> Your drawing data stays on your device and (if you save it) in your Supabase account.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-2">
-            <h2 class="legal-heading"><span class="legal-num">2.</span> How Each AI Is Used in the App</h2>
-            <table style="width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.88rem;">
-              <thead>
-                <tr style="background:#f5ede0;">
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">AI Technology</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">App Feature(s)</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">What It Does</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Google Gemini 1.5 Flash</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Lens Guide chat, The Refiner, Etymology Mode, Neuroscience Mode, Philosopher Mode, Dreams Mode, Study Cards</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Generates conversational spiritual insights, theological analysis, etymological breakdowns, neuroscientific context, philosophical perspectives, dream interpretations, and study materials in response to your text inputs</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>OpenRouter / Claude</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">All Lens AI features (fallback)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Serves as an automatic backup AI layer — if Google Gemini experiences downtime or capacity limits, OpenRouter routes your request to Claude to ensure you receive an uninterrupted response</td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>Fal Flux Kontext Pro</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Halo Vision</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Applies a portrait-aware stylistic edit to the photograph you provide (typically a self-portrait), preserving facial likeness while transforming the visual style according to your text prompt. The original photo is processed in-memory and is not persisted beyond the request.</td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><strong>OpenAI Whisper</strong></td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Voice Input (microphone icon throughout the app)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Converts your spoken words into text so you can dictate journal entries, prayer requests, or queries to the Lens without typing. The audio is processed and immediately discarded.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="legal-section" id="ai-3">
-            <h2 class="legal-heading"><span class="legal-num">3.</span> What Data Is Sent to AI Providers</h2>
-            <p>When you use an AI-powered feature, only the minimum data necessary to generate a response is transmitted to the relevant AI provider:</p>
-            <ul class="legal-list">
-              <li><strong>Text Lens Features (Gemini, OpenRouter/Claude):</strong> Your text prompt (question, scripture reference, topic, or query) along with the AI’s system-level persona instructions. No other data is transmitted.</li>
-              <li><strong>Halo Vision (Fal Flux Kontext Pro):</strong> The photograph you upload to Halo Vision plus your style/edit prompt. The image and prompt are processed by Fal.ai in-memory and not persisted beyond the request. No other data is transmitted.</li>
-              <li><strong>Voice Transcription (Whisper):</strong> Your audio recording for the duration of the microphone session. The audio is processed and deleted immediately after transcription.</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>Context Note:</strong> For ongoing Lens Guide conversations, the content of the current conversation session (messages within the active session) may be included as context to help the AI provide coherent follow-up responses. This session context is not stored server-side beyond the active session.</p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> What Data Is NOT Sent to AI Providers</h2>
-            <p>The following categories of data are <strong>never</strong> transmitted to any AI provider under any circumstances:</p>
-            <ul class="legal-list">
-              <li><strong>Personal identity information:</strong> Your full name, email address, or account username</li>
-              <li><strong>Authentication data:</strong> Your password, authentication tokens, or session credentials</li>
-              <li><strong>Payment information:</strong> Credit card numbers, bank account details, billing address, or Apple/RevenueCat purchase identifiers — all payment data stays with Apple and never reaches our AI providers</li>
-              <li><strong>Full account history:</strong> Your complete journal entries, past reflections, or historical AI conversation logs outside the current session</li>
-              <li><strong>Device or location data:</strong> Your IP address, precise device identifiers, or GPS location</li>
-              <li><strong>Other users’ data:</strong> Any data belonging to other MyBibleLens™ users</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-5">
-            <h2 class="legal-heading"><span class="legal-num">5.</span> Data Retention by AI Providers</h2>
-            <p>MyBibleLens™ uses API-level access to AI providers. Under our API configurations:</p>
-            <ul class="legal-list">
-              <li><strong>Google Gemini:</strong> Data submitted via the Google AI API is not used to train Google’s models by default for API users. Google’s enterprise API terms apply. Please review <a href="https://ai.google.dev/terms" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">Google’s AI terms</a> for the full retention policy.</li>
-              <li><strong>OpenAI (LLM fallback and Whisper):</strong> Data submitted via the OpenAI API is not used to train OpenAI models by default under their API data usage policy. Please review <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">OpenAI's privacy policy</a> for current retention terms.</li>
-              <li><strong>Fal.ai:</strong> The photo and prompt submitted for Halo Vision are processed in-memory and are not persisted beyond the request. Please review <a href="https://fal.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">Fal.ai's privacy policy</a> for current retention terms.</li>
-              <li><strong>OpenRouter:</strong> OpenRouter routes requests to underlying model providers and does not independently store your prompt content beyond what is necessary for routing. Please review <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">OpenRouter’s privacy policy</a> for details.</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>Our Commitment:</strong> We configure all AI integrations to opt out of training data retention where technically available and will update this disclosure if those terms change.</p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-6">
-            <h2 class="legal-heading"><span class="legal-num">6.</span> AI Accuracy Disclaimer</h2>
-            <div class="legal-callout legal-callout--warning">
-              <p><strong>AI outputs may be inaccurate, biased, incomplete, or inconsistent. MyBibleLens™ AI features are study aids, not authoritative sources.</strong></p>
-            </div>
-            <ul class="legal-list">
-              <li><strong>Theological Accuracy:</strong> AI-generated theological insights, scripture interpretations, and spiritual guidance may not accurately reflect any particular denomination’s doctrine, established theological consensus, or the intended meaning of scripture. Always consult primary biblical sources, trusted commentaries, and qualified pastoral guidance.</li>
-              <li><strong>Scientific Accuracy:</strong> Neuroscience Mode and other science-adjacent features generate information for educational exploration purposes. Outputs should not be treated as peer-reviewed scientific claims.</li>
-              <li><strong>Historical Accuracy:</strong> Etymology Mode and historical context features draw on AI-generated knowledge which may contain errors or outdated information.</li>
-              <li><strong>Dream Interpretations:</strong> Dream Journal AI provides spiritual reflection prompts based on your input. These are exploratory in nature and do not constitute psychological analysis, clinical assessment, or prophecy.</li>
-              <li><strong>Not a Replacement for Scripture:</strong> No AI output should ever supersede, replace, or be treated as equivalent to the Holy Scripture, the teaching authority of your church, or the guidance of the Holy Spirit.</li>
-              <li><strong>Not Pastoral Guidance:</strong> AI agents are not ordained ministers, licensed counselors, or credentialed theologians. Treat all outputs as discussion starters, not definitive spiritual authority.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-7">
-            <h2 class="legal-heading"><span class="legal-num">7.</span> 988 Crisis Line &amp; Mental Health Disclaimer</h2>
-            <div class="legal-callout legal-callout--crisis">
-              <p><strong>If you or someone you know is in immediate danger or experiencing a mental health crisis, please contact local emergency services or a crisis line in your region. <span style="white-space:nowrap;">US:</span> call or text <a href="tel:988" style="color:#b6741d;">988</a>. <span style="white-space:nowrap;">UK:</span> call <a href="tel:116123" style="color:#b6741d;">116 123</a>. <span style="white-space:nowrap;">EU:</span> call <a href="tel:112" style="color:#b6741d;">112</a>. Other regions: see <a href="#ai-12" style="color:#b6741d;">Section 12</a> or visit <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">findahelpline.com</a>.</strong></p>
-            </div>
-            <p>MyBibleLens™ includes a permanent link to the 988 Suicide &amp; Crisis Lifeline within the app. However:</p>
-            <ul class="legal-list">
-              <li><strong>MyBibleLens is NOT a mental health service.</strong> The app is a spiritual growth and personal development platform, not a licensed mental health treatment program.</li>
-              <li><strong>AI agents are not trained for crisis intervention.</strong> The Lens AI agents, including The Refiner, are not equipped or authorized to handle mental health emergencies, suicidal ideation, self-harm, or acute psychological crises.</li>
-              <li><strong>The Refiner is a spiritual reflection tool,</strong> not a substitute for therapy, psychiatric care, or crisis counseling. If you are experiencing emotional distress beyond the scope of spiritual reflection, please seek professional help.</li>
-              <li><strong>988 Lifeline:</strong> The 988 Suicide &amp; Crisis Lifeline provides 24/7, free and confidential support for people in distress in the United States. Call or text 988 anytime. <strong>For users outside the US, see <a href="#ai-12" style="color:#b6741d;">Section 12</a> for crisis resources in your region</strong>, or visit <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">findahelpline.com</a> for an international directory.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-8">
-            <h2 class="legal-heading"><span class="legal-num">8.</span> Subprocessor List with Privacy Policies</h2>
-            <p>The following AI and infrastructure subprocessors process data in connection with your use of MyBibleLens™:</p>
-            <ul class="legal-list">
-              <li><strong>Google AI (Gemini):</strong> <a href="https://ai.google.dev/terms" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">ai.google.dev/terms</a></li>
-              <li><strong>OpenAI (LLM fallback, Whisper):</strong> <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openai.com/policies/privacy-policy</a></li>
-              <li><strong>OpenRouter (Claude / Anthropic):</strong> <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">openrouter.ai/privacy</a></li>
-              <li><strong>Fal.ai (Halo Vision):</strong> <a href="https://fal.ai/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">fal.ai/privacy</a></li>
-              <li><strong>Supabase (Database &amp; Auth):</strong> <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">supabase.com/privacy</a></li>
-              <li><strong>Apple (App Store / In-App Purchase):</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">apple.com/legal/privacy</a></li>
-              <li><strong>RevenueCat (IAP receipt validation &amp; entitlements):</strong> <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">revenuecat.com/privacy</a></li>
-              <li><strong>Cloudflare (CDN &amp; Security):</strong> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">cloudflare.com/privacypolicy</a></li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-9">
-            <h2 class="legal-heading"><span class="legal-num">9.</span> Your Rights Regarding AI Processing</h2>
-            <p>You have the following rights regarding how your data is processed by AI systems within the Application:</p>
-            <ul class="legal-list">
-              <li><strong>Right to Transparency:</strong> This disclosure document fulfills your right to know what AI is being used and how.</li>
-              <li><strong>Right to Object:</strong> You have the right to object to AI-powered processing of your personal data. You can exercise this right by opting out of AI features (see Section 10).</li>
-              <li><strong>Right Not to Be Subject to Automated Decisions:</strong> No AI feature in MyBibleLens™ makes legally significant automated decisions about you. All AI outputs are informational and advisory only.</li>
-              <li><strong>Right to Access:</strong> You may request a summary of what personal data has been processed in connection with AI features by emailing <a href="mailto:privacy@mybiblelens.us" style="color:#b6741d;">privacy@mybiblelens.us</a>.</li>
-              <li><strong>Right to Erasure:</strong> Requesting account deletion (per the Privacy Policy, Section 5) will remove all data we hold, including any session-level AI context associated with your account.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-10">
-            <h2 class="legal-heading"><span class="legal-num">10.</span> How to Opt Out of AI Features</h2>
-            <p>MyBibleLens™ is built with AI as a core feature, but you can use significant portions of the application without engaging AI processing:</p>
-            <ul class="legal-list">
-              <li><strong>Basic Reading Mode:</strong> You can read and navigate scripture within the app without submitting any queries to the Lens AI agents, without triggering any AI processing.</li>
-              <li><strong>Journal Without AI:</strong> The Reflection and Journal features allow you to write entries without submitting them to AI for analysis.</li>
-              <li><strong>Infinite Canvas:</strong> The canvas drawing and diagramming features are fully functional without AI interaction.</li>
-              <li><strong>Skip Halo Vision:</strong> Simply do not use the Halo Vision feature to avoid sending any photo to Fal.ai. Zoom Canvas (hand-drawn) remains available as an entirely on-device alternative.</li>
-              <li><strong>Skip Voice Input:</strong> Type all inputs instead of using the microphone to avoid Whisper transcription.</li>
-              <li><strong>Full Opt-Out:</strong> If you wish to use absolutely no AI features, downgrade to or remain on the free Seeker tier and use only the reading and journaling tools. Contact <a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a> if you need assistance identifying which features involve AI processing.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-11">
-            <h2 class="legal-heading"><span class="legal-num">11.</span> EU AI Act Compliance</h2>
-            <p>MyBibleLens™ acknowledges its obligations under the EU Artificial Intelligence Act (EU AI Act) as it applies to AI systems deployed in the European market. Our AI use is assessed as follows:</p>
-            <ul class="legal-list">
-              <li><strong>Risk Classification:</strong> The AI applications within MyBibleLens™ are assessed as <strong>minimal-risk AI systems</strong> under the EU AI Act framework. We do not deploy AI in high-risk categories such as biometric identification, critical infrastructure, employment screening, credit scoring, law enforcement, or educational/vocational assessment that determines access to important life opportunities.</li>
-              <li><strong>Transparency Obligation (Article 52):</strong> In compliance with EU AI Act Article 52, we clearly disclose to users when they are interacting with an AI system rather than a human. All Lens AI agent interfaces within the Application include labels indicating they are AI-powered features.</li>
-              <li><strong>General Purpose AI (GPAI) Transparency:</strong> We use General Purpose AI models (Google Gemini, Anthropic Claude, OpenAI GPT, OpenAI Whisper, and Fal Flux Kontext Pro) from third-party providers and rely on those providers' own EU AI Act compliance for their models. MyBibleLens™ ensures that all AI features within the Application are used in accordance with the intended purpose and use restrictions specified by each AI provider.</li>
-              <li><strong>Human Oversight:</strong> All AI outputs are presented to users as informational content to be evaluated using their own judgment. No AI output within the Application is designed to replace human decision-making on matters of significant consequence without human review.</li>
-              <li><strong>Updates:</strong> As the EU AI Act’s implementing regulations are phased in, we will update our compliance practices accordingly. Questions about our EU AI Act compliance may be directed to <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a>.</li>
-              <li><strong>EU AI Act Effective Dates:</strong> Key provisions of the EU AI Act take effect in phases:
-                <ul class="legal-list" style="margin-top:0.5rem;">
-                  <li><strong>February 2, 2025:</strong> Prohibited AI practices and AI literacy requirements</li>
-                  <li><strong>August 2, 2025:</strong> General-purpose AI model obligations</li>
-                  <li><strong>August 2, 2026:</strong> Most other obligations, including those applicable to MyBibleLens&trade;&rsquo;s AI use</li>
-                  <li><strong>August 2, 2027:</strong> Remaining obligations for high-risk AI systems</li>
-                </ul>
-                MyBibleLens&trade; is classified as a minimal-risk AI system and complies with applicable transparency obligations as they take effect.
-              </li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-12">
-            <h2 class="legal-heading"><span class="legal-num">12.</span> International Crisis &amp; Mental Health Resources</h2>
-            <div class="legal-callout legal-callout--crisis">
-              <p><strong>If you or someone you know is in immediate danger or experiencing a mental health crisis, please contact local emergency services or a crisis line in your region. MyBibleLens&trade; is not equipped to handle mental health emergencies.</strong></p>
-            </div>
-            <p><strong>United States:</strong></p>
-            <ul class="legal-list">
-              <li><strong><a href="tel:988" style="color:#b6741d;">988</a></strong> &mdash; Suicide &amp; Crisis Lifeline (call or <a href="sms:988" style="color:#b6741d;">text</a>)</li>
-              <li><strong><a href="sms:741741?body=HELLO" style="color:#b6741d;">741741</a></strong> &mdash; Crisis Text Line (text &ldquo;HELLO&rdquo;)</li>
-              <li><strong><a href="tel:911" style="color:#b6741d;">911</a></strong> &mdash; Emergency services</li>
-            </ul>
-            <p><strong>United Kingdom:</strong></p>
-            <ul class="legal-list">
-              <li><strong><a href="tel:116123" style="color:#b6741d;">116 123</a></strong> &mdash; Samaritans (24/7, free)</li>
-              <li><strong><a href="sms:85258?body=SHOUT" style="color:#b6741d;">85258</a></strong> &mdash; SHOUT Crisis Text Line (text &ldquo;SHOUT&rdquo;)</li>
-              <li><strong><a href="tel:999" style="color:#b6741d;">999</a></strong> &mdash; Emergency services</li>
-            </ul>
-            <p><strong>European Union:</strong></p>
-            <ul class="legal-list">
-              <li><strong><a href="tel:112" style="color:#b6741d;">112</a></strong> &mdash; Pan-European emergency number</li>
-              <li><strong><a href="tel:116123" style="color:#b6741d;">116 123</a></strong> &mdash; Emotional support helpline (available in many EU countries)</li>
-            </ul>
-            <p><strong>Canada:</strong></p>
-            <ul class="legal-list">
-              <li><strong><a href="tel:988" style="color:#b6741d;">988</a></strong> &mdash; Suicide Crisis Helpline</li>
-              <li><strong><a href="sms:686868?body=CONNECT" style="color:#b6741d;">686868</a></strong> &mdash; Kids Help Phone (text &ldquo;CONNECT&rdquo;)</li>
-              <li><strong><a href="tel:911" style="color:#b6741d;">911</a></strong> &mdash; Emergency services</li>
-            </ul>
-            <p><strong>Australia:</strong></p>
-            <ul class="legal-list">
-              <li><strong><a href="tel:131114" style="color:#b6741d;">13 11 14</a></strong> &mdash; Lifeline Australia</li>
-              <li><strong><a href="tel:000" style="color:#b6741d;">000</a></strong> &mdash; Emergency services</li>
-            </ul>
-            <p><strong>International:</strong></p>
-            <ul class="legal-list">
-              <li><a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;"><strong>findahelpline.com</strong></a> &mdash; Searchable directory of crisis lines worldwide</li>
-              <li><a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;"><strong>iasp.info/resources/Crisis_Centres</strong></a> &mdash; International Association for Suicide Prevention directory</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>Please reach out to a real human. You are not alone.</strong></p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-13">
-            <h2 class="legal-heading"><span class="legal-num">13.</span> Children&rsquo;s Use &amp; Age Restrictions</h2>
-            <div class="legal-callout legal-callout--warning">
-              <p><strong>MyBibleLens&trade; is intended for users 13 years of age or older.</strong></p>
-            </div>
-            <p>We do not knowingly collect, store, or process personal information from children under 13 years of age. If you are under 13, please do not use this Application or submit any information to us.</p>
-            <ul class="legal-list">
-              <li><strong>For users 13&ndash;17:</strong> We strongly recommend parental or guardian supervision when using AI features within MyBibleLens&trade;. Parents and guardians should review this AI Disclosure together with minor users to ensure they understand the limitations and appropriate use of AI-generated content.</li>
-              <li><strong>AI features and minors:</strong> AI-generated content may not always be appropriate for younger audiences without context. We encourage parents, guardians, pastors, and youth leaders to engage alongside young users &mdash; particularly when using features like Dreams Mode, The Refiner, or other reflective AI tools.</li>
-              <li><strong>For parents and guardians:</strong> If you believe a child under 13 has provided personal information to MyBibleLens&trade;, please contact us immediately at <a href="mailto:privacy@mybiblelens.us" style="color:#b6741d;">privacy@mybiblelens.us</a>. We will promptly delete any such information from our records.</li>
-              <li><strong>Educational and ministry use:</strong> Churches, youth groups, and Christian schools using MyBibleLens&trade; with minors should ensure appropriate consent has been obtained from parents or legal guardians, and that adult supervision is provided during use of AI features.</li>
-              <li><strong>EU users:</strong> Pursuant to GDPR Article 8, the minimum age for consent to data processing in MyBibleLens&trade; is 16, or such lower age as permitted by your member state&rsquo;s national law (no lower than 13). Parental consent is required below this threshold.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-14">
-            <h2 class="legal-heading"><span class="legal-num">14.</span> Scripture Translation Licensing</h2>
-            <p>MyBibleLens&trade; respects the copyright of Bible translation publishers and operates under appropriate licenses or uses public-domain translations.</p>
-            <p><strong>Public Domain Translations Used:</strong></p>
-            <ul class="legal-list">
-              <li><strong>King James Version (KJV)</strong> &mdash; public domain</li>
-              <li><strong>World English Bible (WEB)</strong> &mdash; public domain</li>
-              <li><strong>American Standard Version (ASV)</strong> &mdash; public domain</li>
-              <li><strong>Young&rsquo;s Literal Translation (YLT)</strong> &mdash; public domain</li>
-            </ul>
-            <p><strong>Licensed Translations:</strong> Where MyBibleLens&trade; displays a copyrighted modern translation (such as NIV, ESV, NLT, CSB, NASB, or others), it is displayed under license from the respective publisher. Unauthorized reproduction or redistribution of these translations is prohibited. The current list of licensed translations is maintained internally and updated as licensing arrangements change. For specific licensing questions, contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a>.</p>
-            <ul class="legal-list">
-              <li><strong>AI-Generated Content:</strong> AI-generated insights, commentary, etymological breakdowns, and reflections produced by MyBibleLens&trade; are <strong>not Scripture</strong>. They are AI interpretations <em>about</em> Scripture and should not be confused with the inspired biblical text itself. AI-generated paraphrases or summaries of Scripture are not authoritative translations and should never replace direct reading of an authorized translation.</li>
-              <li><strong>User-shared content:</strong> When users share Scripture-based images (e.g., Halo Vision portrait edits or Zoom Canvas drawings), the underlying Scripture text remains subject to its original copyright. Users are responsible for ensuring their use complies with the relevant translation&rsquo;s permissions policy.</li>
-              <li><strong>Reporting copyright concerns:</strong> If you are a Bible translation publisher and believe your translation is being used in MyBibleLens&trade; without proper licensing, please contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a>. We will respond promptly and remove or properly license any contested content.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="ai-15">
-            <h2 class="legal-heading"><span class="legal-num">15.</span> AI Hallucination Awareness</h2>
-            <div class="legal-callout legal-callout--warning">
-              <p><strong>AI systems can produce content that appears authoritative but is factually wrong. This is known as &ldquo;hallucination.&rdquo; All users of MyBibleLens&trade; AI features should be aware of the following documented risks.</strong></p>
-            </div>
-            <ul class="legal-list">
-              <li><strong>AI may fabricate Scripture.</strong> Large language models have been documented attributing fabricated verses to the Bible &mdash; citing chapter and verse references that do not exist, or quoting text that appears biblical but is not. <strong>Always verify any quoted Scripture against an authoritative Bible translation before sharing or acting on it.</strong></li>
-              <li><strong>AI may misattribute teachings.</strong> AI may confuse canonical biblical content with apocryphal sources, gnostic texts, or non-Christian religious writings. Always confirm theological claims against trusted scholarly sources and your church&rsquo;s teaching tradition.</li>
-              <li><strong>AI may invent historical or etymological &ldquo;facts.&rdquo;</strong> Etymology Mode, historical context features, and Neuroscience Mode may generate plausible-sounding information that is not supported by actual scholarship. Treat all factual claims as starting points for further research, never as final answers.</li>
-              <li><strong>AI may reflect cultural biases.</strong> Training data for general-purpose AI models reflects the biases of internet content. AI outputs may inadvertently favor certain theological perspectives, denominational interpretations, or cultural assumptions. We do not endorse any particular denomination&rsquo;s doctrine through AI outputs.</li>
-              <li><strong>AI may misinterpret prophecy or symbolism.</strong> AI cannot reliably interpret biblical prophecy, dreams, visions, or symbolic language. Outputs in Dreams Mode and similar features are exploratory reflections only &mdash; never prophetic guidance.</li>
-            </ul>
-            <p><strong>Your responsibility as a user:</strong></p>
-            <ul class="legal-list">
-              <li>Cross-check all Scripture references against an authoritative Bible</li>
-              <li>Confirm theological claims with trusted pastors, teachers, or scholarly resources</li>
-              <li>Treat AI insights as conversation starters, not conclusions</li>
-              <li>Apply spiritual discernment and the witness of the Holy Spirit</li>
-              <li>Never share AI-generated biblical &ldquo;quotes&rdquo; without verification</li>
-            </ul>
-            <div class="legal-callout">
-              <p><strong>Reporting hallucinations:</strong> If you encounter an AI hallucination &mdash; particularly fabricated Scripture or misattributed quotes &mdash; please report it to <a href="mailto:feedback@mybiblelens.us" style="color:#b6741d;">feedback@mybiblelens.us</a> so we can refine our AI guardrails.</p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-16">
-            <h2 class="legal-heading"><span class="legal-num">16.</span> AI Behavioral Guardrails</h2>
-            <p>MyBibleLens&trade; implements technical and prompt-level safeguards to reduce AI risk:</p>
-            <p><strong>The AI will <em>not</em>:</strong></p>
-            <ul class="legal-list">
-              <li>Claim divine authority or speak as God (&ldquo;Thus says the Lord&hellip;&rdquo; or similar language)</li>
-              <li>Predict the future or interpret prophecy as personal revelation</li>
-              <li>Provide medical, legal, financial, or psychiatric advice</li>
-              <li>Diagnose mental health conditions</li>
-              <li>Replace pastoral counseling for crisis situations (suicide, abuse, marriage breakdown)</li>
-              <li>Generate content sexualizing minors or any sexually explicit material</li>
-              <li>Generate content promoting violence, hatred, or harm against any group</li>
-              <li>Imitate specific real living persons (pastors, theologians, etc.)</li>
-              <li>Authoritatively settle disputed theological questions across denominations</li>
-            </ul>
-            <p><strong>The AI <em>will</em>:</strong></p>
-            <ul class="legal-list">
-              <li>Encourage users to consult their pastor, priest, or trusted spiritual leaders</li>
-              <li>Direct users in mental-health distress to 988 or appropriate regional crisis resources</li>
-              <li>Cite Scripture references when making biblical claims (with the limitation noted in <a href="#ai-15" style="color:#b6741d;">Section 15</a>)</li>
-              <li>Acknowledge when a question exceeds its capacity to answer</li>
-              <li>Flag content as AI-generated, never as Scripture or revelation</li>
-            </ul>
-            <p><strong>Crisis detection:</strong> When the AI detects language indicating self-harm, suicidal ideation, abuse, or acute crisis, the AI is designed to:</p>
-            <ol class="legal-list">
-              <li>Pause its normal operation</li>
-              <li>Express care without diagnosing or treating</li>
-              <li>Direct the user to 988 (US) or appropriate regional crisis resources (see <a href="#ai-12" style="color:#b6741d;">Section 12</a>)</li>
-              <li>Encourage the user to contact a trusted human</li>
-            </ol>
-            <div class="legal-callout">
-              <p><strong>No system is perfect.</strong> Despite these guardrails, AI may occasionally fail to behave as intended. If you experience AI output that violates these guardrails, please report it immediately to <a href="mailto:feedback@mybiblelens.us" style="color:#b6741d;">feedback@mybiblelens.us</a>.</p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-17">
-            <h2 class="legal-heading"><span class="legal-num">17.</span> AI-Specific Limitation of Liability</h2>
-            <p>By using AI features within MyBibleLens&trade;, you acknowledge and agree:</p>
-            <ol class="legal-list">
-              <li>AI-generated content is provided <strong>&ldquo;AS IS&rdquo;</strong> and <strong>&ldquo;AS AVAILABLE&rdquo;</strong> with no warranties of accuracy, theological correctness, completeness, or fitness for any particular purpose.</li>
-              <li>MyBibleLens&trade;, its founder, employees, contractors, and affiliates shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from:
-                <ul class="legal-list" style="margin-top:0.5rem;">
-                  <li>Reliance on AI-generated content</li>
-                  <li>Theological, doctrinal, or interpretive errors in AI outputs</li>
-                  <li>Decisions made based on AI insights, including spiritual, financial, relational, medical, or life decisions</li>
-                  <li>Sharing AI-generated content with third parties</li>
-                  <li>Any harm caused by the misuse of AI features</li>
-                </ul>
-              </li>
-              <li>You agree to <strong>indemnify and hold harmless</strong> MyBibleLens&trade; and its founder from any claims arising from your use, misuse, or distribution of AI-generated content from this Application.</li>
-              <li>This limitation applies to the maximum extent permitted by applicable law, including consumer protection statutes in your jurisdiction.</li>
-              <li>Some jurisdictions do not allow the exclusion of certain warranties or liabilities. In those jurisdictions, our liability is limited to the maximum extent permitted by law.</li>
-            </ol>
-            <div class="legal-callout legal-callout--warning">
-              <p><strong>Your remedies are limited.</strong> If you are dissatisfied with the AI features of this Application, your sole remedy is to discontinue use of those features (see <a href="#ai-10" style="color:#b6741d;">Section 10: How to Opt Out of AI Features</a>) or discontinue use of the Application entirely.</p>
-            </div>
-          </div>
-
-          <div class="legal-section" id="ai-18">
-            <h2 class="legal-heading"><span class="legal-num">18.</span> Reporting &amp; Contact</h2>
-            <p>We take AI safety, accuracy, and ethical concerns seriously. If you encounter an issue with our AI features, please contact us through the appropriate channel:</p>
-            <table style="width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.88rem;">
-              <thead>
-                <tr style="background:#f5ede0;">
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Concern</th>
-                  <th style="padding:0.6rem 0.8rem;text-align:left;border:1px solid #e5d5c0;font-weight:600;">Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">AI hallucination or factual error</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:feedback@mybiblelens.us" style="color:#b6741d;">feedback@mybiblelens.us</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">AI guardrail failure (inappropriate output)</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:safety@mybiblelens.us" style="color:#b6741d;">safety@mybiblelens.us</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Privacy or data concerns</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:privacy@mybiblelens.us" style="color:#b6741d;">privacy@mybiblelens.us</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Trademark or copyright concerns</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">EU AI Act compliance questions</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a></td>
-                </tr>
-                <tr style="background:#fdf8f3;">
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">Security vulnerability disclosure</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:security@mybiblelens.us" style="color:#b6741d;">security@mybiblelens.us</a></td>
-                </tr>
-                <tr>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;">General support</td>
-                  <td style="padding:0.6rem 0.8rem;border:1px solid #e5d5c0;"><a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a></td>
-                </tr>
-              </tbody>
-            </table>
-            <p><strong>Business correspondence:</strong> Contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a> for current mailing instructions.</p>
-            <p><strong>Response time:</strong> We aim to respond to all reports within 5 business days. Safety-related reports are prioritized and typically receive a response within 24&ndash;48 hours.</p>
-          </div>
-
-          <div class="legal-section" id="ai-changelog">
-            <h2 class="legal-heading"><span class="legal-num">&sect;</span> Change Log</h2>
-            <p><strong>Version 2.0 &mdash; May 3, 2026</strong></p>
-            <ul class="legal-list">
-              <li>Added international crisis resources (Section 12)</li>
-              <li>Added children&rsquo;s use and age restrictions (Section 13)</li>
-              <li>Added Scripture translation licensing (Section 14)</li>
-              <li>Added AI hallucination awareness (Section 15)</li>
-              <li>Added AI behavioral guardrails (Section 16)</li>
-              <li>Added AI-specific limitation of liability (Section 17)</li>
-              <li>Added reporting &amp; contact channels (Section 18)</li>
-              <li>Updated Section 7 to reference international crisis resources</li>
-              <li>Updated EU AI Act compliance dates (Section 11)</li>
-            </ul>
-            <p><strong>Version 1.0 &mdash; April 10, 2026</strong></p>
-            <ul class="legal-list">
-              <li>Initial publication</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
+<div class="page-hero"><h1 class="page-hero-title">AI &amp; Content Disclosure</h1><p class="page-hero-subtitle">Updated October 11, 2026</p></div><div class="content-block"><div class="content-inner legal-content"><p>Current app features do not send your text, images or audio to an AI model. Live AI study, image-processing and voice-transcription features have been retired.</p><p>Some built-in stickers were created with Claude, Gemini and Codex. The creator reports using text prompts and their own images. AI-assisted artwork may contain inaccuracies and should not be treated as historical evidence or divine communication.</p><p>Separately licensed companion illustrations retain their artist credits. Font licenses are available in <a href="fonts/README.md">bundled font notices</a>. AI generation does not establish exclusive copyright or clear third-party rights automatically.</p><p>Earlier app versions used AI services. Contact <a href="mailto:legal@mybiblelens.us">legal@mybiblelens.us</a> for questions about historical processing or copyright concerns.</p></div></div>
+</section>
 
     <!-- ══════════════ COOKIE POLICY ══════════════ -->
     <section class="page-section" id="cookies" data-page="cookies" style="display:none;">
       <div class="page-hero">
         <h1 class="page-hero-title">Cookie Policy</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026</p>
+        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: October 11, 2026</p><div class="legal-callout"><p><strong>App-version notice (October 11, 2026):</strong> References below to the newer build mean the app code updated after the September 22 and October 2 feature retirements. The public App Store listing for version 1.8 still describes earlier AI features and purchases. Your installed version may differ. Earlier services and previously acquired rights remain relevant; see the <a href="legal-archive/policies-before-2026-10-11.txt">archived policy source</a> for those disclosures. Feature retirement does not erase historical data or existing customer rights.</p></div>
       </div>
       <div class="content-block">
         <div class="content-inner legal-content">
@@ -2981,7 +2287,7 @@
     <section class="page-section" id="acceptable-use" data-page="acceptable-use" style="display:none;">
       <div class="page-hero">
         <h1 class="page-hero-title">Acceptable Use Policy</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: May 3, 2026</p>
+        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: October 11, 2026</p><div class="legal-callout"><p><strong>App-version notice (October 11, 2026):</strong> References below to the newer build mean the app code updated after the September 22 and October 2 feature retirements. The public App Store listing for version 1.8 still describes earlier AI features and purchases. Your installed version may differ. Earlier services and previously acquired rights remain relevant; see the <a href="legal-archive/policies-before-2026-10-11.txt">archived policy source</a> for those disclosures. Feature retirement does not erase historical data or existing customer rights.</p></div>
       </div>
       <div class="content-block">
         <div class="content-inner legal-content">
@@ -3129,103 +2435,12 @@
     </section>
 
     <!-- ══════════════ REFUND POLICY ══════════════ -->
-    <section class="page-section" id="refund" data-page="refund" style="display:none;">
-      <div class="page-hero">
-        <h1 class="page-hero-title">Billing &amp; Refund Policy</h1>
-        <p class="page-hero-subtitle">Effective Date: April 10, 2026 &nbsp;|&nbsp; Last Updated: August 25, 2026</p>
-      </div>
-      <div class="content-block">
-        <div class="content-inner legal-content">
-          <div class="legal-intro">
-            <p>This Billing &amp; Refund Policy explains how MyBibleLens™ charges for one-time In-App Purchases and optional auto-renewing cloud storage subscriptions. Core feature tiers and seat packs remain one-time purchases. This policy supplements and is incorporated into the <a href="#eula" onclick="showSection('eula')" style="color:#b6741d;">EULA</a> and <a href="#terms" onclick="showSection('terms')" style="color:#b6741d;">Terms of Service</a>.</p>
-          </div>
-
-          <div class="legal-section" id="refund-1">
-            <h2 class="legal-heading"><span class="legal-num">1.</span> Paid Offerings</h2>
-            <p>MyBibleLens™ offers one-time feature purchases and optional auto-renewing cloud storage subscriptions through the Apple App Store.</p>
-            <ul class="legal-list">
-              <li><strong>Apostle</strong> — one-time payment of <strong>US$14.99</strong> (1 seat).</li>
-              <li><strong>Sanctuary (Family)</strong> — one-time payment of <strong>US$29.99</strong> (3 seats).</li>
-              <li><strong>Kingdom (Church/Group)</strong> — one-time payment of <strong>US$59.99</strong> (7 seats).</li>
-              <li><strong>Founding Member</strong> — one-time payment of <strong>US$99.99</strong> (14 seats, lifetime access).</li>
-              <li><strong>Empire Pack</strong> — one-time consumable of <strong>US$249.99</strong> (30 additional seats; also ratchets your paid tier up to Kingdom-level access if you are not already at or above it).</li>
-              <li><strong>Empire Plus</strong> — one-time consumable of <strong>US$999.99</strong> (200 additional seats; also ratchets your paid tier up to Kingdom-level access if you are not already at or above it).</li>
-              <li><strong>Cloud 20</strong> — auto-renewing subscription of <strong>US$1.99 per month</strong> or <strong>US$19.99 per year</strong> (20 GB total account limit).</li>
-              <li><strong>Cloud 50</strong> — auto-renewing subscription of <strong>US$3.99 per month</strong> or <strong>US$39.99 per year</strong> (50 GB total account limit).</li>
-            </ul>
-            <p>All amounts are in U.S. Dollars (USD) unless otherwise stated. Applicable sales tax, VAT, or GST is added by Apple at checkout based on your App Store billing location. Apple is the merchant of record for every purchase.</p>
-          </div>
-
-          <div class="legal-section" id="refund-2">
-            <h2 class="legal-heading"><span class="legal-num">2.</span> Canceling Cloud Storage</h2>
-            <p>One-time feature tiers and consumable seats do not renew. Cloud storage subscriptions renew automatically unless canceled through your Apple subscription settings. Cancellation takes effect after the <strong>current paid billing period</strong>. If your account then exceeds its free or grandfathered storage allowance, <strong>new uploads are paused</strong> until you free space or renew. Your existing files are <strong>never automatically deleted</strong>, and you may continue to view, export, and delete them. Account deletion does not by itself request an Apple refund.</p>
-          </div>
-
-          <div class="legal-section" id="refund-3">
-            <h2 class="legal-heading"><span class="legal-num">3.</span> Refunds — Submit to Apple</h2>
-            <p>Because Apple is the merchant of record for every In-App Purchase, <strong>all refund requests must be submitted directly to Apple</strong> under Apple's refund policy. MBL is not authorized to issue refunds on Apple's behalf.</p>
-            <ul class="legal-list">
-              <li><strong>How to request an Apple refund:</strong> Go to <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">reportaproblem.apple.com</a>, sign in with the Apple ID used for the purchase, find MyBibleLens™ in your purchase history, and select the appropriate refund reason. Apple typically responds within 24–48 hours.</li>
-              <li><strong>Apple's discretion:</strong> Whether to grant a refund is at Apple's sole discretion under Apple Media Services Terms.</li>
-              <li><strong>Statutory Refund Rights:</strong> Nothing in this policy limits any non-waivable statutory refund or cancellation rights you may have under your local consumer protection laws (including the EU/UK 14-day right of withdrawal under Directive 2011/83/EU). Where you have a statutory right, exercise it through Apple, as Apple holds your payment.</li>
-              <li><strong>Goodwill support from MBL:</strong> If Apple denies a refund and you believe the denial is unreasonable, email <a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a> with subject "Refund Support Request" and we will, where reasonable, advocate on your behalf with Apple. We cannot guarantee an outcome.</li>
-            </ul>
-          </div>
-
-          <div class="legal-section" id="refund-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> Disputes &amp; Chargebacks</h2>
-            <p>Before initiating a credit-card chargeback through your bank, please first try the Apple refund flow described in Section 3, and contact us at <a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a> so we can help. Chargebacks initiated for charges that were properly authorized may result in account suspension and forfeiture of any pending refund. Disputes that cannot be resolved informally are subject to the dispute-resolution and arbitration provisions of EULA § 16.</p>
-          </div>
-
-          <div class="legal-section" id="refund-5">
-            <h2 class="legal-heading"><span class="legal-num">5.</span> Contact</h2>
-            <p>Questions about billing or refund support: <a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a> with subject line "Billing Question."</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="page-section" id="refund" data-page="refund" style="display:none;"><div class="page-hero"><h1 class="page-hero-title">Earlier Purchases and Refunds</h1></div><div class="content-block"><div class="content-inner legal-content"><p>The newer build does not offer purchases or subscriptions. The public App Store version 1.8 and older installed versions may differ; see the app-version notice in the Privacy Policy. Previously purchased Cloud 20 and Cloud 50 plans remain subject to their original terms: cancellation takes effect after the current paid billing period; when above the applicable allowance, new uploads are paused, and existing files are never automatically deleted for exceeding that allowance. For an earlier Apple purchase, request help through <a href="https://reportaproblem.apple.com/">Apple's purchase support</a> or contact support@mybiblelens.us. Applicable transaction terms and statutory rights remain in effect. Deleting an account does not itself cancel an Apple subscription or request a refund.</p></div></div></section>
 
     <!-- ══════════════ PURCHASE MODEL / IAP DISCLOSURE ══════════════ -->
     <section class="page-section" id="subscription-disclosure" data-page="subscription-disclosure" style="display:none;">
-      <div class="page-hero">
-        <h1 class="page-hero-title">Purchase Model Disclosure</h1>
-        <p class="page-hero-subtitle">Effective Date: June 1, 2026 &nbsp;|&nbsp; Last Updated: August 25, 2026</p>
-      </div>
-      <div class="content-block">
-        <div class="content-inner legal-content">
-
-          <div class="legal-callout" style="margin-bottom:1.5rem;">
-            <p><strong>MyBibleLens™ feature tiers remain one-time purchases.</strong> Optional cloud storage is the only auto-renewing product. Its price, billing period, renewal terms, and cancellation path are shown before purchase in Apple's checkout.</p>
-          </div>
-
-          <div class="legal-section" id="sub-1">
-            <h2 class="legal-heading"><span class="legal-num">1.</span> What You Are Buying</h2>
-            <p>Paid offerings inside MyBibleLens™ use two clear purchase types through the Apple App Store:</p>
-            <ul class="legal-list">
-              <li><strong>Apostle, Sanctuary, Kingdom, Founding Member</strong> — one-time tier purchases. You pay once and the tier unlocks for the life of your account. No renewal, ever.</li>
-              <li><strong>Empire Pack &amp; Empire Plus</strong> — one-time consumable purchases that grant additional seats permanently. Stackable; no recurring charge.</li>
-              <li><strong>Cloud 20 &amp; Cloud 50</strong> — optional auto-renewing monthly or annual subscriptions that set your total cloud storage limit to 20 GB or 50 GB. Cancel anytime through Apple. Paid capacity continues through the current paid billing period; files are never automatically deleted after cancellation.</li>
-            </ul>
-            <p>See the <a href="#refund" onclick="showSection('refund')" style="color:#b6741d;">Billing &amp; Refund Policy</a> for current prices and seat counts.</p>
-          </div>
-
-          <div class="legal-section" id="sub-2">
-            <h2 class="legal-heading"><span class="legal-num">2.</span> Apple Is the Merchant of Record</h2>
-            <p>All payments are processed by Apple via the App Store In-App Purchase system. Receipt validation and entitlement state are managed by RevenueCat. <strong>MBL never receives or stores your payment card number, banking details, or billing address</strong> — Apple holds that data under its own privacy policy. By making a purchase, you also agree to the <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">Apple Media Services Terms</a>.</p>
-          </div>
-
-          <div class="legal-section" id="sub-3">
-            <h2 class="legal-heading"><span class="legal-num">3.</span> Refunds</h2>
-            <p>Because Apple is the merchant of record, all refund requests must be submitted directly to Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer" style="color:#b6741d;">reportaproblem.apple.com</a> under Apple's refund policy. See the <a href="#refund" onclick="showSection('refund')" style="color:#b6741d;">Billing &amp; Refund Policy § 3</a> for the full refund flow, including statutory rights and MBL's goodwill support process.</p>
-          </div>
-
-          <div class="legal-section" id="sub-4">
-            <h2 class="legal-heading"><span class="legal-num">4.</span> Contact</h2>
-            <p>Questions about the purchase model: <a href="mailto:info@mybiblelens.us" style="color:#b6741d;">info@mybiblelens.us</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="page-hero"><h1 class="page-hero-title">Purchase Availability</h1><p class="page-hero-subtitle">Updated October 11, 2026</p></div><div class="content-block"><div class="content-inner legal-content"><p>The newer build does not offer purchases or subscriptions. The public App Store version 1.8 and older installed versions may differ; see the app-version notice in the Privacy Policy. Earlier purchases remain governed by their original transaction terms and applicable law. Contact support for help with an earlier purchase; this notice does not cancel existing rights.</p></div></div>
+</section>
 
     <!-- ══════════════ ACCESSIBILITY STATEMENT ══════════════ -->
     <section class="page-section" id="accessibility" data-page="accessibility" style="display:none;">
@@ -3310,19 +2525,19 @@
           </div>
 
           <div class="legal-section" id="dmca-1">
-            <h2 class="legal-heading"><span class="legal-num">1.</span> Copyright Contact (Agent Registration Pending)</h2>
+            <h2 class="legal-heading"><span class="legal-num">1.</span> Copyright Contact</h2>
             <div class="address-block">
               <p><strong>Expected End LLC — MyBibleLens™ Copyright Contact</strong></p>
               <p>Attn: Copyright Contact</p>
               <p>Email: <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a> (subject line: "DMCA Notice")</p>
               <p>Mailing correspondence: Contact <a href="mailto:legal@mybiblelens.us" style="color:#b6741d;">legal@mybiblelens.us</a> for current mailing instructions.</p>
             </div>
-            <p><strong>U.S. Copyright Office Registration:</strong> MBL is in the process of registering a designated DMCA agent with the United States Copyright Office (Title 17 § 512(c)(2)). Confirmation of registration will be posted to this page upon completion. Until registration is finalized, the contact information above is the operative point of contact for DMCA matters.</p>
+            <p>Designated-agent records can be checked in the <a href="https://www.copyright.gov/dmca-directory/">U.S. Copyright Office directory</a>. This page does not certify registration status.</p>
           </div>
 
           <div class="legal-section" id="dmca-2">
             <h2 class="legal-heading"><span class="legal-num">2.</span> Filing a DMCA Takedown Notice</h2>
-            <p>If you believe that material accessible on or through the MyBibleLens™ Service infringes a copyright you own or are authorized to enforce, you may submit a written notice to our Designated Agent containing all of the following (per 17 U.S.C. § 512(c)(3)):</p>
+            <p>If you believe that material accessible on or through the MyBibleLens™ Service infringes a copyright you own or are authorized to enforce, you may submit a written notice to our Copyright Contact containing all of the following (per 17 U.S.C. § 512(c)(3)):</p>
             <ol class="legal-list">
               <li>A physical or electronic signature of the copyright owner or a person authorized to act on the owner's behalf.</li>
               <li>Identification of the copyrighted work claimed to have been infringed (or, for multiple works at one online site, a representative list).</li>
@@ -3417,7 +2632,7 @@
               <li>Self-XSS that requires the victim to paste payloads into their own console.</li>
               <li>Findings that rely on social engineering of MBL personnel.</li>
               <li>Theoretical vulnerabilities without demonstrable impact.</li>
-              <li>Issues in third-party services (Apple, RevenueCat, Supabase, OpenAI, Google, Anthropic, Fal.ai, Cloudflare) which should be reported directly to those providers.</li>
+              <li>Issues in third-party services (Apple, Google, Supabase, Sentry, Cloudflare) which should be reported directly to those providers.</li>
             </ul>
           </div>
         </div>

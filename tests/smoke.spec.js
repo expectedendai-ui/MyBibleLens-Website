@@ -102,9 +102,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator("#privacy")).toContainText(
       "Expected End LLC, as the operator of MyBibleLens™, is the data controller"
     );
-    await expect(page.locator("#dmca")).toContainText(
-      "Copyright Contact (Agent Registration Pending)"
-    );
+    await expect(page.locator("#dmca")).toContainText("Copyright Contact");
     await expect(page.locator(".company-attribution")).toContainText(
       "Denzel owns the MyBibleLens copyright and licenses it to Expected End LLC"
     );
@@ -288,7 +286,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     }
   });
 
-  test("billing disclosure explains storage renewal, cancellation, and safe over-cap behavior", async ({
+  test("billing disclosure retires sales while preserving earlier storage commitments", async ({
     page,
   }) => {
     await page.goto("/legal.html#refund");
@@ -297,7 +295,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
 
     expect(body).toContain("Cloud 20");
     expect(body).toContain("Cloud 50");
-    expect(body).toContain("auto-renewing subscription");
+    expect(body).toContain("The newer build does not offer purchases or subscriptions.");
     expect(body).toContain("current paid billing period");
     expect(body).toContain("new uploads are paused");
     expect(body).toContain("never automatically deleted");

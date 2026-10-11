@@ -1,0 +1,50 @@
+[
+  {
+    "file": "HammersmithOne-Regular.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/hammersmithone/HammersmithOne-Regular.ttf",
+    "sha256": "6faf4e9a59a2b25e1016c4e47cf4da4a494d07aee15dc2f708a88caae015ff8a",
+    "license": "hammersmithone-OFL.txt"
+  },
+  {
+    "file": "Inter.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+    "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "license": "inter-OFL.txt"
+  },
+  {
+    "file": "Montserrat.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+    "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+    "license": "montserrat-OFL.txt"
+  },
+  {
+    "file": "Alegreya.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/alegreya/Alegreya%5Bwght%5D.ttf",
+    "sha256": "ba5564634b93a8f8ba57b48cd4f1ae7417d2b4656fbac779028679b00de3cf12",
+    "license": "alegreya-OFL.txt"
+  },
+  {
+    "file": "Alegreya-Italic.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/alegreya/Alegreya-Italic%5Bwght%5D.ttf",
+    "sha256": "fa915eec76227935dc5fb678953c94b71287c360928013cfdb441dfe52f5a391",
+    "license": "alegreya-OFL.txt"
+  },
+  {
+    "file": "Caveat.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/caveat/Caveat%5Bwght%5D.ttf",
+    "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+    "license": "caveat-OFL.txt"
+  },
+  {
+    "file": "CormorantGaramond.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+    "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+    "license": "cormorantgaramond-OFL.txt"
+  },
+  {
+    "file": "MaterialSymbolsOutlined.woff2",
+    "source": "https://raw.githubusercontent.com/google/material-design-icons/49d4db35df873165d6bd6ba09b063c7dafbac2f4/variablefont/MaterialSymbolsOutlined%5BFILL%2CGRAD%2Copsz%2Cwght%5D.woff2",
+    "sha256": "66187cd42fe1d24d3ea6be77da7466c4fc6c1cd1d0870b685e041d8402680063",
+    "license": "MaterialSymbols-LICENSE.txt"
+  }
+]
