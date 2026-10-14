@@ -302,6 +302,17 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(body).not.toMatch(/Storage Pack \+10 GB|Storage Pack \+50 GB|\$12\.99|\$49\.99/i);
   });
 
+  test("delete account page shows the Google Play deletion steps", async ({ page }) => {
+    await page.goto("/legal.html#delete-account");
+    await waitForPageReady(page);
+    const section = page.locator("#delete-account");
+    await expect(section).toBeVisible();
+    await expect(section).toContainText("Delete my account");
+    await expect(section).toContainText("privacy@mybiblelens.us");
+    await expect(section).toContainText("Expected End LLC");
+    await expect(page.locator("#privacy")).toBeHidden();
+  });
+
   test("footer legal links are readable (contrast guard)", async ({ page }) => {
     await page.goto("/#download");
     await waitForPageReady(page);

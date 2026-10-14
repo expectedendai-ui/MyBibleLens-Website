@@ -31,6 +31,7 @@
       "accessibility",
       "dmca",
       "security",
+      "delete-account",
     ];
     if (!validSections.includes(sectionId)) sectionId = "about";
 
