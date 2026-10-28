@@ -286,7 +286,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     }
   });
 
-  test("billing disclosure retires sales while preserving earlier storage commitments", async ({
+  test("billing disclosure covers purchases where offered and keeps earlier storage commitments", async ({
     page,
   }) => {
     await page.goto("/legal.html#refund");
@@ -295,11 +295,18 @@ test.describe("MyBibleLens marketing site — smoke", () => {
 
     expect(body).toContain("Cloud 20");
     expect(body).toContain("Cloud 50");
-    expect(body).toContain("The newer build does not offer purchases or subscriptions.");
-    expect(body).toContain("current paid billing period");
-    expect(body).toContain("new uploads are paused");
+    expect(body).toContain("Where your version of the app offers them");
+    expect(body).toContain("end of the current paid period");
+    expect(body).toContain("new uploads pause");
     expect(body).toContain("never automatically deleted");
+    expect(body).toContain("Deleting an account does not cancel a subscription");
     expect(body).not.toMatch(/Storage Pack \+10 GB|Storage Pack \+50 GB|\$12\.99|\$49\.99/i);
+
+    // Apple's auto-renewal facts are on the Subscription Terms page; prices stay in the app.
+    const terms = (await page.locator("#subscription-disclosure").textContent()) ?? "";
+    expect(terms).toContain("cancelled at least 24 hours before the end of the current period");
+    expect(terms).toContain("Church Pool");
+    expect(terms).not.toMatch(/\$\d/);
   });
 
   test("delete account page shows the Google Play deletion steps", async ({ page }) => {
