@@ -1159,6 +1159,19 @@ a:hover {
   color: var(--deep-brown);
 }
 
+/* The app-version notice sits in the dark page hero, so its text is light there. */
+.page-hero .legal-callout {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: left;
+}
+.page-hero .legal-callout p {
+  color: rgba(245, 242, 237, 0.88);
+}
+.page-hero .legal-callout a {
+  color: var(--halo-gold);
+}
+
 .legal-callout--warning {
   background: rgba(212, 146, 31, 0.06);
   border-left-color: var(--ember-gold);
