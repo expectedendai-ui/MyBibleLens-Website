@@ -50,25 +50,34 @@ in Docker if we ever need cross-platform visual coverage.)
 - **Fonts:** Hammersmith One (display) · Inter (body) — loaded via Google Fonts
 - **No cool blue / no neon / no electric.** Sanctuary palette only.
 
-## Pricing model (matches iOS — keep in sync)
+## Pricing model (matches iOS, keep in sync)
 
-| Tier      | Price (one-time) | Seats  |
-| --------- | ---------------- | ------ |
-| Seeker    | Free             | 1      |
-| Apostle   | $14.99           | 1      |
-| Sanctuary | $29.99           | 3      |
-| Kingdom   | $59.99           | 7      |
-| Founding  | **$99.99**       | **14** |
+**The app is free today.** In-app purchases are built into the app but switched off until a launch Denzel will choose (about two months out as of 2026-10-28). Nothing below is on sale yet.
 
-All paid tiers get **identical features** — only seat count differs. Core feature tiers and Empire seat packs are one-time purchases with lifetime ownership. Cloud storage is the only subscription exception:
+**At launch:**
 
-| Cloud plan  | Capacity               | Monthly | Annual |
-| ----------- | ---------------------- | ------- | ------ |
-| Seeker Free | 10 GB for new accounts | Free    | Free   |
-| Cloud 20    | 20 GB total            | $1.99   | $19.99 |
-| Cloud 50    | 50 GB total            | $3.99   | $39.99 |
+| Plan            | Price                                                                   | What it is                                                                                                                           |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Free            | Free                                                                    | Reading, reflecting, Scripture Seals, Prestige, the Scripture Book, Journey plans, Reflections and Fellowship. Never locked.         |
+| Lifetime Unlock | One-time: **$29.99** founding price for the first year, then **$59.99** | Every tool, look, game and room, plus features added later. Founding-year buyers get a Founder number (assigned once, never reused). |
 
-Existing accounts keep their previously included 20 GB. Cloud plans are total caps, not stackable add-ons. After cancellation, paid capacity remains through the current paid period; if the account is then over its free/grandfathered cap, uploads pause while existing files remain viewable, exportable, and deletable. Files are never deleted automatically. Purchases are processed by Apple IAP / Google Play Billing — never Stripe in 2026-05+.
+Storage is the only subscription, and it is monthly only:
+
+| Plan        | Capacity | People   | Monthly |
+| ----------- | -------- | -------- | ------- |
+| Cloud 5 GB  | 5 GB     | 1        | $0.99   |
+| Cloud 10 GB | 10 GB    | 1        | $1.99   |
+| Family Pool | 20 GB    | up to 12 | $3.99   |
+| Group Pool  | 40 GB    | up to 24 | $7.99   |
+| Church Pool | 100 GB   | up to 60 | $24.99  |
+
+Storage once purchases are on: Free 1 GB (accounts made before launch keep 5 GB), Lifetime 2 GB. Files are never deleted for being over a limit; new uploads pause, and existing files stay viewable, exportable and removable.
+
+**RULE: the website shows NO prices and does not promote purchases before launch.** Legal pages use wording that is true both before and after launch ("where your version of the app offers them"). Earlier Cloud 20 / Cloud 50 purchases stay on their original terms.
+
+Purchases go through Apple IAP / Google Play Billing via RevenueCat, never Stripe.
+
+Source of truth: `~/Desktop/Mybiblelens/MyBibleLens-Payment-System-Build-Plan.md` and the EULA "Purchases and Subscriptions" section in `legal.html`.
 
 ## UX rules (the sanctuary feel)
 
