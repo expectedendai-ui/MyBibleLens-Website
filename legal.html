@@ -4008,14 +4008,18 @@
         }
 
         /* ---- Boot ---- */
-        // Always load the auto-translate layer so a previously-set googtrans
-        // cookie can fill untagged copy in any language (curated or long-tail).
-        loadGoogle();
-
         var stored = null;
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch (e) {}
+
+        // Google Translate only loads once a visitor has picked a language other
+        // than English (the pick reloads the page). English visitors load nothing
+        // from Google. A leftover googtrans cookie also counts as a pick.
+        var googtrans = /(?:^|;\s*)googtrans=\/en\/([^;]+)/.exec(document.cookie);
+        if ((stored && stored !== "en") || (googtrans && googtrans[1] !== "en")) {
+          loadGoogle();
+        }
 
         if (stored) {
           markSelected(stored);

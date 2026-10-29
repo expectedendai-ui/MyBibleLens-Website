@@ -96,8 +96,8 @@
     <!-- Fonts -->
 
     <!-- GSAP -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="/assets/vendor/gsap-3.15.0.min.js" defer></script>
+    <script src="/assets/vendor/ScrollTrigger-3.15.0.min.js" defer></script>
 
     <style>
       /* ========== RESET & BASE ========== */
@@ -7542,14 +7542,18 @@
         }
 
         /* ---- Boot ---- */
-        // Always load the auto-translate layer so a previously-set googtrans
-        // cookie can fill untagged copy in any language (curated or long-tail).
-        loadGoogle();
-
         var stored = null;
         try {
           stored = localStorage.getItem(STORAGE_KEY);
         } catch (e) {}
+
+        // Google Translate only loads once a visitor has picked a language other
+        // than English (the pick reloads the page). English visitors load nothing
+        // from Google. A leftover googtrans cookie also counts as a pick.
+        var googtrans = /(?:^|;\s*)googtrans=\/en\/([^;]+)/.exec(document.cookie);
+        if ((stored && stored !== "en") || (googtrans && googtrans[1] !== "en")) {
+          loadGoogle();
+        }
 
         if (stored) {
           markSelected(stored);
