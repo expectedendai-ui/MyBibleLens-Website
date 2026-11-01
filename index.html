@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- GitHub Pages cannot send response headers, so what a page can set for itself is set here. -->
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The World's First Sanctuary App for Christianity — MyBibleLens™</title>
     <meta
@@ -5127,9 +5130,9 @@
             />
           </svg>
         </span>
-        <span>Security provided by <span class="supabase-badge__brand">Supabase</span></span>
+        <span>Built on <span class="supabase-badge__brand">Supabase</span></span>
         <span class="supabase-badge__divider"></span>
-        <span class="supabase-badge__pills"> <span>RLS</span><span>Encrypted</span><span>Supabase SOC&nbsp;2 Type&nbsp;2</span> </span>
+        <span class="supabase-badge__pills"> <span>Row-level access</span><span>Encrypted</span> </span>
       </a>
       <p class="supabase-badge-tag">Row-level access controls &middot; Data encrypted at rest and in transit</p>
     </div>
