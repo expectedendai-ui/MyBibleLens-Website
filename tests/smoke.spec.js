@@ -222,8 +222,9 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     const badge = page.locator(".supabase-badge");
     await expect(badge).toBeAttached();
     await expect(badge).toHaveAttribute("href", "https://supabase.com/security");
-    await expect(badge).toContainText("Security provided by Supabase");
-    await expect(badge).toContainText("Supabase SOC 2 Type 2");
+    await expect(badge).toContainText("Built on Supabase");
+    // Supabase's SOC 2 report covers Supabase, not this app, so the badge must never imply otherwise.
+    await expect(badge).not.toContainText("SOC 2");
     await expect(page.locator(".supabase-badge-tag")).toHaveText(
       "Row-level access controls · Data encrypted at rest and in transit"
     );
