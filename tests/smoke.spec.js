@@ -52,7 +52,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
       "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens — the World's First Sanctuary App for Christianity — and The Water Check."
     );
     expect(schema.publisher["@id"]).toBe("https://expectedend.co/#organization");
-    expect(schema.publisher.legalName).toBe("Expected End LLC");
+    expect(schema.publisher.legalName).toBe("EXPECTEDEND LLC");
     expect(schema.copyrightHolder["@id"]).toBe("https://expectedend.co/denzel-rigaud#person");
     expect(schema.copyrightYear).toBe(2026);
     expect(schema.author.sameAs).toContain("https://www.wikidata.org/wiki/Q140198525");
@@ -87,7 +87,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     );
     expect(legalPerson.jobTitle).toBe("Founder and Full-Stack Developer");
     expect(legalPerson.worksFor["@id"]).toBe("https://expectedend.co/#organization");
-    expect(expectedEnd.legalName).toBe("Expected End LLC");
+    expect(expectedEnd.legalName).toBe("EXPECTEDEND LLC");
     expect(expectedEnd.founder["@id"]).toBe("https://expectedend.co/denzel-rigaud#person");
     expect(expectedEnd.owns).toBeUndefined();
     expect(legalApplication.publisher["@id"]).toBe("https://expectedend.co/#organization");
@@ -97,14 +97,14 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(legalApplication.copyrightYear).toBe(2026);
     await expect(page.locator("body")).not.toContainText("MyBibleLens LLC");
     await expect(page.locator("#terms")).toContainText(
-      "Expected End LLC, the operator of MyBibleLens™"
+      "EXPECTEDEND LLC, the operator of MyBibleLens™"
     );
     await expect(page.locator("#privacy")).toContainText(
-      "Expected End LLC, as the operator of MyBibleLens™, is the data controller"
+      "EXPECTEDEND LLC, as the operator of MyBibleLens™, is the data controller"
     );
     await expect(page.locator("#dmca")).toContainText("Copyright Contact");
     await expect(page.locator(".company-attribution")).toContainText(
-      "Denzel owns the MyBibleLens copyright and licenses it to Expected End LLC"
+      "Denzel owns the MyBibleLens copyright and licenses it to EXPECTEDEND LLC"
     );
     await page.setViewportSize({ width: 375, height: 812 });
     const ownershipBounds = await page.locator(".company-attribution").evaluate((element) => {
@@ -114,13 +114,13 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(ownershipBounds.left).toBeGreaterThanOrEqual(0);
     expect(ownershipBounds.right).toBeLessThanOrEqual(ownershipBounds.viewportWidth);
     await expect(page.locator("#terms")).toContainText(
-      "Denzel Rigaud owns those copyrights and licenses them to Expected End LLC"
+      "Denzel Rigaud owns those copyrights and licenses them to EXPECTEDEND LLC"
     );
     await expect(page.locator("#eula")).toContainText(
-      "Copyright in the MBL IP is owned by Denzel Rigaud and licensed to Expected End LLC"
+      "Copyright in the MBL IP is owned by Denzel Rigaud and licensed to EXPECTEDEND LLC"
     );
     await expect(page.locator(".footer-bottom")).toContainText(
-      "© 2026 Denzel Rigaud. MyBibleLens is published by Expected End LLC under license."
+      "© 2026 Denzel Rigaud. MyBibleLens is published by EXPECTEDEND LLC under license."
     );
   });
 
@@ -244,11 +244,11 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(page.locator("#platforms")).not.toContainText(/Now on Mac|Apple TV/);
   });
 
-  test("Expected End LLC is the consistent operating entity", async ({ page }) => {
+  test("EXPECTEDEND LLC is the consistent operating entity", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
 
-    await expect(page.locator("footer")).toContainText("© 2026 Expected End LLC · MyBibleLens™");
+    await expect(page.locator("footer")).toContainText("© 2026 EXPECTEDEND LLC · MyBibleLens™");
     await expect(page.locator("body")).not.toContainText("MyBibleLens LLC");
   });
 
@@ -317,7 +317,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(section).toBeVisible();
     await expect(section).toContainText("Delete my account");
     await expect(section).toContainText("privacy@mybiblelens.us");
-    await expect(section).toContainText("Expected End LLC");
+    await expect(section).toContainText("EXPECTEDEND LLC");
     await expect(page.locator("#privacy")).toBeHidden();
   });
 
