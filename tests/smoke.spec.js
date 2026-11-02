@@ -49,7 +49,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(schema.operatingSystem).toBe("iOS, iPadOS");
     expect(schema.author.jobTitle).toBe("Founder and Full-Stack Developer");
     expect(schema.author.description).toBe(
-      "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens — the World's First Sanctuary App for Christianity — and The Water Check."
+      "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens — the Sanctuary App for Christianity — and The Water Check."
     );
     expect(schema.publisher["@id"]).toBe("https://expectedend.co/#organization");
     expect(schema.publisher.legalName).toBe("EXPECTEDEND LLC");
@@ -134,13 +134,11 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     );
   });
 
-  test("hero eyebrow announces the World's First Sanctuary App for Christianity", async ({
-    page,
-  }) => {
+  test("hero eyebrow announces the Sanctuary App for Christianity", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
     const eyebrow = page.locator(".hero-eyebrow");
-    await expect(eyebrow).toContainText(/world.s first/i);
+    await expect(eyebrow).toContainText(/sanctuary app for christianity/i);
     await expect(eyebrow).toContainText("Sanctuary App for Christianity");
   });
 
