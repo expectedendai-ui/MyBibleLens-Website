@@ -1,3 +1,10 @@
+# Legal source update: November 1, 2026
+
+Name only: the company is registered in Florida as EXPECTEDEND LLC, so legal.html and index.html now say exactly that,
+including schema legalName. No terms changed. Prior source archived at `legal-archive/policies-before-2026-11-01.txt`.
+
+This is plain-language drafting, not legal advice.
+
 # Legal source update: October 28, 2026
 
 Prepared for the payment plan (purchases built in the app, switched off until launch) and App Store version 2.2. Source
