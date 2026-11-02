@@ -20,6 +20,25 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });
 
+  test("legal copy keeps the fixed promises and drops retired features", async ({ page }) => {
+    await page.goto("/legal.html#eula");
+    const legal = await page.evaluate(() => document.body.textContent || "");
+    expect(legal).not.toMatch(
+      /Halo Vision|DREAM INTERPRETATIONS|crisis filtering|acknowledge all reports/
+    );
+    expect(legal).toContain("We review reports within 72 hours");
+    expect(legal).toContain("Backups are kept for up to 6 months");
+    await expect(page.locator("#eula-24")).toContainText(
+      "3601 N Military Trail, Boca Raton, FL 33431"
+    );
+    await expect(page.locator("#eula-24")).toContainText("Third-Party Beneficiary");
+
+    await page.goto("/");
+    const home = await page.evaluate(() => document.body.textContent || "");
+    expect(home).not.toMatch(/AI is tuned|AI Study Aid/);
+    expect(home).toContain("You read in your own Bible");
+  });
+
   test("publishes one canonical application identity", async ({ page }) => {
     await page.goto("/");
 

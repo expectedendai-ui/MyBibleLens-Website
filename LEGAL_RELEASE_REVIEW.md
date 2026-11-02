@@ -1,3 +1,28 @@
+# Legal source update: November 2, 2026
+
+From the legal review of November 2, 2026. Plain-language drafting, not legal advice. Prior page source archived at
+`legal-archive/policies-before-2026-11-02.txt`. Older archives are unchanged.
+
+- Reports: one promise, "We review reports within 72 hours", and "A person reviews reported content" for the staff line.
+- Retention: backups up to 6 months and reports 2 years. **Denzel to confirm both periods.** The report purge job is in
+  the app repo's `20261102120000_report_alerts.sql`; the 6 months must match the real backup settings.
+- AI: removed the AI study claims on the home page, and the voice, AI interaction, Halo Vision, dream interpretation and
+  crisis filtering lines from legal.html. Kept the AI Disclosure about artwork, the disclaimers about outputs from
+  earlier versions, and the Acceptable Use restrictions on AI features "offered in earlier versions or may offer in the
+  future". Voice input left the app on September 23, 2026, so the CCPA 12-month list was accurate until then.
+- Store wording: the home page now says you read in your own Bible, and the app tracks your reading and holds your
+  reflections.
+- Providers and cookies: Resend, Formspree, Google Translate. The cookie table is rewritten from the storage keys the
+  app and site really use.
+- EULA: section 24 holds Apple's required clauses and the developer name and address. Church and group use is carved
+  into section 1. Section 5.2 no longer describes reading text. The contracting party did not change.
+- Data export: described as the manual process it is. Section references fixed. `security.txt` publishes with
+  `.nojekyll`. Unverifiable absolutes softened (audit logging, subprocessor contracts, incident response plan).
+- Support address: info@mybiblelens.us everywhere. Mailboxes are not tested.
+- **For the lawyer to confirm:** the governing-language clause in Terms section 14 and EULA section 22 (review L11).
+- Not changed, waiting on a lawyer or Denzel: H1, H2 (including "Operated by Denzel Rigaud" and the footers), H4, H5, M3,
+  M4, M5, M10, M11, M14, L6 to L10, L12, L13.
+
 # Legal source update: November 1, 2026
 
 Name only: the company is registered in Florida as EXPECTEDEND LLC, so legal.html and index.html now say exactly that,
