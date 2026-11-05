@@ -20,6 +20,20 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });
 
+  test("closing the language box without a pick keeps English and does not ask again", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("#lang-modal")).toBeVisible();
+    await page.locator("#lang-modal-close").click();
+    await expect(page.locator("#lang-modal")).toBeHidden();
+    expect(await page.evaluate(() => localStorage.getItem("mbl_lang"))).toBe("en");
+
+    await page.reload();
+    await page.waitForTimeout(400);
+    await expect(page.locator("#lang-modal")).toBeHidden();
+  });
+
   test("legal copy keeps the fixed promises and drops retired features", async ({ page }) => {
     await page.goto("/legal.html#eula");
     const legal = await page.evaluate(() => document.body.textContent || "");
