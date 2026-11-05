@@ -7516,6 +7516,11 @@
           });
         }
         function closeModal() {
+          // Closing without a pick keeps the page in English and counts as the
+          // choice, so the box does not come back on every visit.
+          try {
+            if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, "en");
+          } catch (e) {}
           modal.classList.remove("is-open");
           setTimeout(function () {
             modal.hidden = true;
