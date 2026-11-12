@@ -35,10 +35,12 @@ test.describe("Visual regression — index.html", () => {
     await page.goto("/#stops");
     await waitForPageReady(page);
     await page.addStyleTag({
-      content: ".reveal { opacity: 1 !important; transform: none !important; }",
+      content:
+        "html { scroll-behavior: auto !important; } .reveal { opacity: 1 !important; transform: none !important; }",
     });
-    await page.waitForTimeout(100);
-    await expect(page.locator("#stops")).toHaveScreenshot("stops.png");
+    const section = page.locator("#stops");
+    await waitForStableBox(page, section);
+    await expect(section).toHaveScreenshot("stops.png");
   });
 
   test("faq", async ({ page }) => {
