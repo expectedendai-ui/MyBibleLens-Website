@@ -1,3 +1,29 @@
+# Legal source update: November 12, 2026
+
+For the Scripture Canvas app (app main 9c51f925). Goes live only with the Scripture Canvas App Store build, together
+with the new home page; the store build before it still has Milestone. Plain-language drafting, not legal advice.
+Prior page source archived unmodified at `legal-archive/policies-before-2026-11-12.txt`. Older archives are unchanged,
+except that `policies-2026-10-28.html` now climbs one folder for its stylesheet, script, images and links.
+
+- Removed features: Milestone, Scripture Seals, Prestige, the Scripture Book, Gather and Reflections left the app on
+  November 10, 2026. The About list, Terms 3 (Description of the Service), the deletion list, the analytics labels, the
+  CPRA notice at collection and the cookie table no longer describe them. Journey takes Milestone's place in the About
+  list, in the app's own words.
+- EULA 9: "Earned rewards. Anything earned with Scripture Seals stays yours" is removed because Seal rewards no longer
+  exist and their grants were deleted. **Denzel to decide** what earlier earners keep once payments are switched on.
+- Lifetime "unlocks every tool, look and room" (no games). Journey plans and Fellowship are still listed as free.
+- Analytics labels are the ones the app sends today (canvas, plans for Journey, other); earlier labels are named as
+  coming from earlier versions.
+- Cookie table: key names checked in app code. `logos_reflections`, `mbl_milestone_plan_v1` and
+  `mbl_welcome_tour_seen_v1` are no longer written (the app only removes them at account deletion);
+  `mbl_tutorial_presented_v1:*` holds the tours you have seen. `mbl_milestone_sounds_v1` is still the real name of the
+  sound setting.
+- Delete Your Account: Apostle opens the Apostle card and Settings is a row on it (the profile dial is gone).
+- Not legal prose, same page: nav links to the old Repository and Pricing sections become Scripture Canvas; the Support
+  page's "Choose Your Sanctuary" button (to a pricing section that no longer exists) is gone; the About page no longer
+  links to the private company site (founder story button, company link, press link).
+- Last Updated is November 12, 2026 on Privacy, Terms, EULA, Cookies and Acceptable Use.
+
 # Legal source update: November 2, 2026
 
 From the legal review of November 2, 2026. Plain-language drafting, not legal advice. Prior page source archived at
