@@ -6,15 +6,16 @@ This file guides Claude Code when working in the **MyBibleLens website repo** (`
 
 A single-page marketing site served from GitHub Pages at **mybiblelens.us**. Plain HTML + CSS + vanilla JS, no build step. Tooling exists only for **automated testing + formatting** — do not introduce a bundler, framework, or SSR layer without an explicit user ask.
 
-| Path                                                  | Purpose                                                                                                     |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `index.html`                                          | Landing page (sections: hero · repository · orb · pricing · about · footer). Single ~100 KB file by design. |
-| `legal.html`                                          | Privacy / Terms / EULA / About / Mission. All legal copy lives here.                                        |
-| `style.css`                                           | Legacy/external styles. **Most active styles live inline in `index.html` `<style>` block.**                 |
-| `app.js`                                              | Legacy/external JS. Most active JS lives inline at the bottom of `index.html`.                              |
-| `success.html`, `cancel.html`, `update-password.html` | Stripe redirect + auth pages. Stripe is currently dormant — don't extend these without user direction.      |
-| `assets/`                                             | Static images.                                                                                              |
-| `tests/`                                              | Playwright smoke + visual regression suite.                                                                 |
+| Path                                                  | Purpose                                                                                                                                                   |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html`                                          | Landing page (hero · four rooms · Scripture Canvas · Home · Journey · Today's Illumination · themes · privacy · FAQ · footer). One file, inline CSS + JS. |
+| `legal.html`                                          | Privacy / Terms / EULA / About / Mission. All legal copy lives here.                                                                                      |
+| `style.css`                                           | Styles for legal.html, cancel.html, success.html. The landing page carries its own inline `<style>`.                                                      |
+| `app.js`                                              | JS for legal.html. The landing page carries its own inline scripts.                                                                                       |
+| `success.html`, `cancel.html`, `update-password.html` | Stripe redirect + auth pages. Stripe is currently dormant — don't extend these without user direction.                                                    |
+| `assets/`                                             | Static images. `assets/app/` = real app screens (local test account); `assets/live/` = app modules bundled with esbuild.                                  |
+| `mockups/`                                            | Live demos shown in iframes (Canvas, Friends & Fellowship, Today's Illumination), built from the app's own code.                                          |
+| `tests/`                                              | Playwright smoke + visual regression suite.                                                                                                               |
 
 ## Commands
 
@@ -47,28 +48,14 @@ in Docker if we ever need cross-platform visual coverage.)
   - Parchment `#F5F2ED` · Deep Brown `#3D2B1F` · Dark BG `#1A1008`
   - Gold `#b6751d` · Gold Pressed `#9a6218` · Gold Light `#D4921F`
   - Ember Gold `#D4921F` · Halo Gold `#F0C850`
-- **Fonts:** Hammersmith One (display) · Inter (body) — loaded via Google Fonts
+- **Fonts:** Hammersmith One (display) · Inter (body), self-hosted in `fonts/` (English visitors load nothing third-party; Google Translate only after a non-English pick)
 - **No cool blue / no neon / no electric.** Sanctuary palette only.
 
-## Pricing model (matches iOS — keep in sync)
+## No prices on the site
 
-| Tier      | Price (one-time) | Seats  |
-| --------- | ---------------- | ------ |
-| Seeker    | Free             | 1      |
-| Apostle   | $14.99           | 1      |
-| Sanctuary | $29.99           | 3      |
-| Kingdom   | $59.99           | 7      |
-| Founding  | **$99.99**       | **14** |
-
-All paid tiers get **identical features** — only seat count differs. Core feature tiers and Empire seat packs are one-time purchases with lifetime ownership. Cloud storage is the only subscription exception:
-
-| Cloud plan  | Capacity               | Monthly | Annual |
-| ----------- | ---------------------- | ------- | ------ |
-| Seeker Free | 10 GB for new accounts | Free    | Free   |
-| Cloud 20    | 20 GB total            | $1.99   | $19.99 |
-| Cloud 50    | 50 GB total            | $3.99   | $39.99 |
-
-Existing accounts keep their previously included 20 GB. Cloud plans are total caps, not stackable add-ons. After cancellation, paid capacity remains through the current paid period; if the account is then over its free/grandfathered cap, uploads pause while existing files remain viewable, exportable, and deletable. Files are never deleted automatically. Purchases are processed by Apple IAP / Google Play Billing — never Stripe in 2026-05+.
+Payments are switched off in the app, so the site shows **no prices, plans, Free/Lifetime or "upgrade"** anywhere
+(smoke-tested). Purchase terms live only in legal.html, which is edited separately. Shared canvases are switched off on
+the production server: describe them as coming in an update, never as live. The app uses no AI; never claim AI features.
 
 ## UX rules (the sanctuary feel)
 
