@@ -251,7 +251,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
 
     await expect(page.locator(".repo-beta-pill, .repo-rebuild-pill")).toHaveCount(0);
     await expect(page.locator(".repo-coming-soon")).toHaveText(
-      "Beta testing now on iPhone & iPad · Android coming soon"
+      "Available now on iPhone & iPad · Android coming soon"
     );
     await expect(page.locator("#platforms")).toContainText("Available now on iPhone & iPad");
     await expect(page.locator("#platforms")).toContainText("One sanctuary. iPhone and iPad.");
@@ -582,6 +582,12 @@ test.describe("MyBibleLens marketing site — the app as it is today", () => {
       expect(text, demo).not.toMatch(/\$\s?\d|lifetime|upgrade|real time|Live Sanctuary/i);
       expect(text, demo).not.toContain("\u2014");
     }
+  });
+
+  test("the home page never names the private site", async ({ page }) => {
+    const response = await page.goto("/");
+    const html = (await response?.text()) ?? "";
+    expect(html).not.toContain("expectedend.co");
   });
 
   test("the normal mouse pointer shows on desktop", async ({ page }) => {
