@@ -584,6 +584,14 @@ test.describe("MyBibleLens marketing site — the app as it is today", () => {
     }
   });
 
+  test("the normal mouse pointer shows on desktop", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const cursor = await page.evaluate(() => getComputedStyle(document.body).cursor);
+    expect(cursor).not.toBe("none");
+    await expect(page.locator(".mbl-cursor")).toHaveCount(0);
+  });
+
   test("shared canvases read as coming in an update, never as live today", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);

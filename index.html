@@ -1583,57 +1583,6 @@
         transform: none;
       }
 
-      /* ========== MAGNIFIER CURSOR (desktop only) ========== */
-      @media (pointer: fine) and (hover: hover) {
-        html.has-lens-cursor,
-        html.has-lens-cursor * {
-          cursor: none !important;
-        }
-      }
-      .mbl-cursor,
-      .mbl-cursor-trail {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 38px;
-        height: 38px;
-        pointer-events: none;
-        z-index: 99999;
-        background: url("assets/cursor-magnifier.png") center / contain no-repeat;
-        transform: translate3d(-100px, -100px, 0);
-        filter: drop-shadow(0 2px 6px rgba(182, 116, 29, 0.35));
-        transition:
-          width 0.18s ease-out,
-          height 0.18s ease-out,
-          opacity 0.25s ease;
-      }
-      .mbl-cursor-trail {
-        width: 24px;
-        height: 24px;
-        opacity: 0.5;
-      }
-      .mbl-cursor-trail--2 {
-        width: 18px;
-        height: 18px;
-        opacity: 0.32;
-      }
-      .mbl-cursor-trail--3 {
-        width: 14px;
-        height: 14px;
-        opacity: 0.16;
-      }
-      .mbl-cursor.is-interactive {
-        width: 48px;
-        height: 48px;
-        filter: drop-shadow(0 0 12px rgba(240, 200, 80, 0.65));
-      }
-      @media (pointer: coarse), (hover: none) {
-        .mbl-cursor,
-        .mbl-cursor-trail {
-          display: none !important;
-        }
-      }
-
       /* ========== LANGUAGE PICKER (behaviour from #17 and #22) ========== */
       .goog-te-banner-frame.skiptranslate,
       .goog-te-gadget,
@@ -1827,9 +1776,6 @@
         .reveal {
           opacity: 1;
           transform: none;
-        }
-        .mbl-cursor-trail {
-          display: none !important;
         }
       }
     </style>
@@ -2584,12 +2530,6 @@
       <button class="cs-close" type="button" aria-label="Dismiss" id="coming-soon-close">×</button>
     </div>
 
-    <!-- ===== Magnifier cursor (desktop only) ===== -->
-    <div class="mbl-cursor" id="mbl-cursor" aria-hidden="true"></div>
-    <div class="mbl-cursor-trail mbl-cursor-trail--1" id="mbl-cursor-trail-1" aria-hidden="true"></div>
-    <div class="mbl-cursor-trail mbl-cursor-trail--2" id="mbl-cursor-trail-2" aria-hidden="true"></div>
-    <div class="mbl-cursor-trail mbl-cursor-trail--3" id="mbl-cursor-trail-3" aria-hidden="true"></div>
-
     <!-- ===== Language picker ===== -->
     <button class="lang-globe" id="lang-globe" type="button" aria-label="Change language" title="Change language">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -2928,54 +2868,6 @@
           });
         });
         document.getElementById("coming-soon-close").addEventListener("click", hide);
-      })();
-
-      /* ========== MAGNIFIER CURSOR (mouse only) ========== */
-      (function () {
-        if (!window.matchMedia("(pointer: fine) and (hover: hover)").matches) return;
-        var sprite = document.getElementById("mbl-cursor");
-        var trails = [1, 2, 3].map(function (n) {
-          return document.getElementById("mbl-cursor-trail-" + n);
-        });
-        document.documentElement.classList.add("has-lens-cursor");
-        var HALF = [19, 12, 9, 7];
-        var LERP = [0.32, 0.22, 0.14, 0.09];
-        var target = { x: -100, y: -100 };
-        var pos = [0, 1, 2, 3].map(function () {
-          return { x: -100, y: -100 };
-        });
-        window.addEventListener(
-          "mousemove",
-          function (e) {
-            target.x = e.clientX;
-            target.y = e.clientY;
-          },
-          { passive: true }
-        );
-        document.addEventListener("mouseleave", function () {
-          sprite.style.opacity = "0";
-        });
-        document.addEventListener("mouseenter", function () {
-          sprite.style.opacity = "1";
-        });
-        window.addEventListener(
-          "mouseover",
-          function (e) {
-            var hit = e.target.closest && e.target.closest('a, button, [role="button"], input, select, textarea, label, summary');
-            sprite.classList.toggle("is-interactive", !!hit);
-          },
-          { passive: true }
-        );
-        var layers = [sprite].concat(trails);
-        (function tick() {
-          for (var i = 0; i < layers.length; i++) {
-            var leader = i === 0 ? target : pos[i - 1];
-            pos[i].x += (leader.x - pos[i].x) * LERP[i];
-            pos[i].y += (leader.y - pos[i].y) * LERP[i];
-            if (layers[i]) layers[i].style.transform = "translate3d(" + (pos[i].x - HALF[i]) + "px," + (pos[i].y - HALF[i]) + "px,0)";
-          }
-          requestAnimationFrame(tick);
-        })();
       })();
     </script>
 
