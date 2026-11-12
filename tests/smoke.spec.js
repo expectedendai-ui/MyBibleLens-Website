@@ -82,7 +82,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(schema.operatingSystem).toBe("iOS, iPadOS");
     expect(schema.author.jobTitle).toBe("Founder and Full-Stack Developer");
     expect(schema.author.description).toBe(
-      "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens — the Sanctuary App for Christianity — and The Water Check."
+      "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens (the Sanctuary App for Christianity) and The Water Check."
     );
     expect(schema.publisher["@id"]).toBe("https://expectedend.co/#organization");
     expect(schema.publisher.legalName).toBe("EXPECTEDEND LLC");
@@ -175,33 +175,12 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await expect(eyebrow).toContainText("Sanctuary App for Christianity");
   });
 
-  test("spotlight flow renders all 7 current feature iframes in order without nested scrolling", async ({
-    page,
-  }) => {
+  test("live demo iframes render in order without nested scrolling", async ({ page }) => {
     await page.goto("/");
-    // The old iPad carousel was retired on 2026-06-02 in favor of in-context
-    // spotlight sections embedded as auto-sized iframes.
-    // 2026-06-04: the flow was reordered (Reflections + Games above Themes,
-    // Focus Timer to the bottom) and the Orb, Parental Lock, and Deep Study
-    // sections were added.
-    // 2026-06-21: reordered to lead with the most visual tools; Parental Lock
-    // moved to the very bottom.
-    // 2026-07-09: added the "Before we get started" homepage-customization band
-    // (customize-flow) after Canvas.
-    // 2026-09-10: Scripture Glow, Sermon Builder, and The Orb left the app, so
-    // their spotlight sections were removed from the site.
-    // 2026-09-20: rebuilt for the remodel. Milestone (the Bible study plan) now sits
-    // directly under Scripture Canvas; the Before-we-get-started band and Parental
-    // Lock are gone; Games became Gather.
-    const order = [
-      "canvas-flow",
-      "milestone-flow",
-      "reflections-flow",
-      "fellowship-flow",
-      "games-flow",
-      "themes-flow",
-      "timer-flow",
-    ];
+    // 2026-09-20: the flow became live demos built from the app's own code.
+    // 2026-11-11: the app is Scripture Canvas again (Milestone, Reflections and Gather left the app on
+    // November 10), so the flow is the Canvas demos, Friends & Fellowship and Today's Illumination.
+    const order = ["canvas-flow", "fellowship-flow", "timer-flow"];
     const wraps = page.locator(".flow-iframe-wrap");
     await expect(wraps).toHaveCount(order.length);
     for (let i = 0; i < order.length; i++) {
@@ -442,8 +421,8 @@ test.describe("MyBibleLens marketing site — smoke", () => {
   test("App Store + Google Play badges are present", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
-    await expect(page.getByRole("link", { name: /App Store/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Google Play/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /App Store/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Google Play/i }).first()).toBeVisible();
   });
 
   test("retired features stay off the homepage and About page", async ({ page }) => {
@@ -554,6 +533,97 @@ test.describe("MyBibleLens marketing site — smoke", () => {
   });
 });
 
+test.describe("MyBibleLens marketing site — the app as it is today", () => {
+  // November 10, 2026: Milestone (chapter reading, Scripture Seals, Prestige, the Seal Handbook, the Reflect pen),
+  // the Scripture Book, Book Covers, Gather (games and trivia) and Reflections left the app.
+  const REMOVED =
+    /Milestone|Scripture Seal|\bSeals?\b|Prestige|Scripture Book|Book Covers?|\bGather\b|trivia|Reflections?\b|Reflect pen|Repository/i;
+
+  test("the page, its share text and its structured data name no removed feature", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const body = (await page.locator("body").textContent()) ?? "";
+    expect(body).not.toMatch(REMOVED);
+    const meta = await page.evaluate(() => ({
+      title: document.title,
+      description: document.querySelector('meta[name="description"]')?.content ?? "",
+      og: document.querySelector('meta[property="og:description"]')?.content ?? "",
+      ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(
+        (n) => n.textContent
+      ),
+    }));
+    for (const text of [meta.title, meta.description, meta.og, ...meta.ld]) {
+      expect(text).not.toMatch(REMOVED);
+      expect(text, "no em dashes in copy").not.toContain("\u2014");
+    }
+    expect(body, "no em dashes in copy").not.toContain("\u2014");
+  });
+
+  test("every live demo names no removed feature and sells nothing", async ({ page }) => {
+    for (const demo of ["canvas", "fellowship", "timer"]) {
+      await page.goto(`/mockups/${demo}-spotlight.html`);
+      // Visible copy only. The Sacred Layout gallery draws the app's own layout text (one layout has a
+      // "Reflection" slot), which is app content rather than the retired Reflections feature.
+      const text = await page.evaluate(() => {
+        const copy = document.body.cloneNode(true);
+        copy
+          .querySelectorAll("script, style, #layStage, .lay-card")
+          .forEach((node) => node.remove());
+        return copy.textContent || "";
+      });
+      expect(text, demo).not.toMatch(REMOVED);
+      expect(text, demo).not.toMatch(/\$\s?\d|lifetime|upgrade|real time|Live Sanctuary/i);
+      expect(text, demo).not.toContain("\u2014");
+    }
+  });
+
+  test("shared canvases read as coming in an update, never as live today", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    await expect(page.locator("#together")).toContainText("Shared canvases open in an update.");
+    await expect(page.locator(".collab-cursor")).toHaveCount(0);
+    const body = (await page.locator("body").textContent()) ?? "";
+    expect(body).not.toMatch(/in real time|study live|Live Sanctuary/i);
+  });
+
+  test("English visitors load nothing from anywhere but this site", async ({ page }) => {
+    const outside = [];
+    page.on("request", (request) => {
+      const url = new URL(request.url());
+      if (url.protocol.startsWith("http") && url.hostname !== "localhost")
+        outside.push(request.url());
+    });
+    await page.addInitScript(() => localStorage.setItem("mbl_lang", "en"));
+    await page.goto("/");
+    await waitForPageReady(page);
+    await settleLazyFlows(page);
+    expect(outside, `Third-party requests:\n${outside.join("\n")}`).toHaveLength(0);
+  });
+
+  test("the Journey demo runs on the app's own plan list", async ({ page }) => {
+    await page.goto("/#journey");
+    await waitForPageReady(page);
+    await expect(page.locator("#jPlans .chip")).toHaveCount(5);
+    await page.locator("#jPlans .chip", { hasText: "A Calm Start" }).click();
+    await expect(page.locator("#jToday")).toHaveText("John 1");
+    await expect(page.locator("#jMeta")).toContainText("0 of 21 days read");
+    await page.locator("#jRead").click();
+    await expect(page.locator("#jToday")).toHaveText("John 2");
+    await expect(page.locator("#jMeta")).toContainText("1 of 21 days read");
+  });
+
+  test("the island bar marks the stop you tap", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const journey = page.locator('.island__tab[data-stop="journey"]');
+    await journey.click();
+    await expect(journey).toHaveAttribute("aria-current", "true");
+    await expect(page.locator('.island__tab[aria-current="true"]')).toHaveCount(1);
+  });
+});
+
 test.describe("Scripture Canvas — live showcase", () => {
   // 2026-09-20: the twelve screen recordings were replaced with live demos built
   // from the app's own note engine, sticker art, layout data and landscapes.
@@ -652,7 +722,8 @@ test.describe("Scripture Canvas — live showcase", () => {
     await waitForPageReady(page);
 
     const frame = page.locator("#canvas-flow iframe");
-    await expect(frame).toHaveAttribute("src", /canvas-spotlight\.html\?v=6/);
+    await expect(frame).toHaveAttribute("src", /canvas-spotlight\.html\?v=7/);
+    await frame.scrollIntoViewIfNeeded();
     await expect(page.frameLocator("#canvas-flow iframe").locator("#threads")).toBeAttached();
     expect(errors, `Console errors detected:\n${errors.join("\n")}`).toHaveLength(0);
   });

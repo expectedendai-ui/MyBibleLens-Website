@@ -31,11 +31,14 @@ test.describe("Visual regression — index.html", () => {
     await expect(page.locator(".hero")).toHaveScreenshot("hero.png");
   });
 
-  test("repository", async ({ page }) => {
-    await page.goto("/#repository");
+  test("four rooms", async ({ page }) => {
+    await page.goto("/#stops");
     await waitForPageReady(page);
+    await page.addStyleTag({
+      content: ".reveal { opacity: 1 !important; transform: none !important; }",
+    });
     await page.waitForTimeout(100);
-    await expect(page.locator(".repo-section")).toHaveScreenshot("repository.png");
+    await expect(page.locator("#stops")).toHaveScreenshot("stops.png");
   });
 
   test("faq", async ({ page }) => {
