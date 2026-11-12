@@ -86,7 +86,8 @@ test.describe("Visual regression — Infinite Canvas", () => {
   });
 
   test("gold thread chapter", async ({ page }) => {
-    const chapter = page.locator(".feature-chapter").first();
+    // The first chapter of the live showcase: "Connect anything with gold threads."
+    const chapter = page.locator("section.chapter").first();
     await chapter.scrollIntoViewIfNeeded();
     await waitForStableBox(page, chapter);
     await expect(chapter).toHaveScreenshot("canvas-gold-thread-chapter.png", {
