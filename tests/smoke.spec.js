@@ -77,16 +77,18 @@ test.describe("MyBibleLens marketing site — smoke", () => {
         "https://www.instagram.com/mybiblelens/",
       ])
     );
-    expect(schema.author["@id"]).toBe("https://expectedend.co/denzel-rigaud#person");
-    expect(schema.author.url).toBe("https://expectedend.co/denzel-rigaud");
+    // November 2026: the identity points only at pages and anchors on mybiblelens.us (expectedend.co is private).
+    expect(schema.author["@id"]).toBe("https://mybiblelens.us/legal.html#about");
+    expect(schema.author.url).toBe("https://mybiblelens.us/legal.html#about");
     expect(schema.operatingSystem).toBe("iOS, iPadOS");
     expect(schema.author.jobTitle).toBe("Founder and Full-Stack Developer");
     expect(schema.author.description).toBe(
       "Denzel Rigaud is the founder and solo full-stack developer behind Expected End, MyBibleLens (the Sanctuary App for Christianity) and The Water Check."
     );
-    expect(schema.publisher["@id"]).toBe("https://expectedend.co/#organization");
+    expect(schema.publisher["@id"]).toBe("https://mybiblelens.us/legal.html#terms");
+    expect(schema.publisher.url).toBe("https://mybiblelens.us/");
     expect(schema.publisher.legalName).toBe("EXPECTEDEND LLC");
-    expect(schema.copyrightHolder["@id"]).toBe("https://expectedend.co/denzel-rigaud#person");
+    expect(schema.copyrightHolder["@id"]).toBe("https://mybiblelens.us/legal.html#about");
     expect(schema.copyrightYear).toBe(2026);
     expect(schema.author.sameAs).toContain("https://www.wikidata.org/wiki/Q140198525");
     expect(schema.author.sameAs).not.toContain("https://www.instagram.com/thewatercheck/");
@@ -98,10 +100,10 @@ test.describe("MyBibleLens marketing site — smoke", () => {
       .first()
       .evaluate((element) => JSON.parse(element.textContent || "{}")["@graph"]);
     const legalPerson = legalGraph.find(
-      (entity) => entity["@id"] === "https://expectedend.co/denzel-rigaud#person"
+      (entity) => entity["@id"] === "https://mybiblelens.us/legal.html#about"
     );
     const expectedEnd = legalGraph.find(
-      (entity) => entity["@id"] === "https://expectedend.co/#organization"
+      (entity) => entity["@id"] === "https://mybiblelens.us/legal.html#terms"
     );
     const legalApplication = legalGraph.find(
       (entity) => entity["@id"] === "https://mybiblelens.us/#application"
@@ -119,14 +121,17 @@ test.describe("MyBibleLens marketing site — smoke", () => {
       "https://mybiblelens.us/assets/ipad/01-Canvas.jpg"
     );
     expect(legalPerson.jobTitle).toBe("Founder and Full-Stack Developer");
-    expect(legalPerson.worksFor["@id"]).toBe("https://expectedend.co/#organization");
+    expect(legalPerson.worksFor["@id"]).toBe("https://mybiblelens.us/legal.html#terms");
     expect(expectedEnd.legalName).toBe("EXPECTEDEND LLC");
-    expect(expectedEnd.founder["@id"]).toBe("https://expectedend.co/denzel-rigaud#person");
+    expect(expectedEnd.founder["@id"]).toBe("https://mybiblelens.us/legal.html#about");
     expect(expectedEnd.owns).toBeUndefined();
-    expect(legalApplication.publisher["@id"]).toBe("https://expectedend.co/#organization");
-    expect(legalApplication.copyrightHolder["@id"]).toBe(
-      "https://expectedend.co/denzel-rigaud#person"
-    );
+    expect(legalApplication.publisher["@id"]).toBe("https://mybiblelens.us/legal.html#terms");
+    expect(legalApplication.copyrightHolder["@id"]).toBe("https://mybiblelens.us/legal.html#about");
+    for (const block of await page
+      .locator('script[type="application/ld+json"]')
+      .allTextContents()) {
+      expect(block, "structured data never names the private site").not.toContain("expectedend.co");
+    }
     expect(legalApplication.copyrightYear).toBe(2026);
     await expect(page.locator("body")).not.toContainText("MyBibleLens LLC");
     await expect(page.locator("#terms")).toContainText(
