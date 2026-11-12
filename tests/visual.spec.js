@@ -31,11 +31,16 @@ test.describe("Visual regression — index.html", () => {
     await expect(page.locator(".hero")).toHaveScreenshot("hero.png");
   });
 
-  test("repository", async ({ page }) => {
-    await page.goto("/#repository");
+  test("four rooms", async ({ page }) => {
+    await page.goto("/#stops");
     await waitForPageReady(page);
-    await page.waitForTimeout(100);
-    await expect(page.locator(".repo-section")).toHaveScreenshot("repository.png");
+    await page.addStyleTag({
+      content:
+        "html { scroll-behavior: auto !important; } .reveal { opacity: 1 !important; transform: none !important; }",
+    });
+    const section = page.locator("#stops");
+    await waitForStableBox(page, section);
+    await expect(section).toHaveScreenshot("stops.png");
   });
 
   test("faq", async ({ page }) => {
@@ -83,7 +88,8 @@ test.describe("Visual regression — Infinite Canvas", () => {
   });
 
   test("gold thread chapter", async ({ page }) => {
-    const chapter = page.locator(".feature-chapter").first();
+    // The first chapter of the live showcase: "Connect anything with gold threads."
+    const chapter = page.locator("section.chapter").first();
     await chapter.scrollIntoViewIfNeeded();
     await waitForStableBox(page, chapter);
     await expect(chapter).toHaveScreenshot("canvas-gold-thread-chapter.png", {
