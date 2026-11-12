@@ -306,7 +306,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     }
   });
 
-  test("billing disclosure covers purchases where offered and keeps earlier storage commitments", async ({
+  test("billing disclosure covers Lifetime where offered, no Cloud plans or pools, and keeps earlier storage commitments", async ({
     page,
   }) => {
     await page.goto("/legal.html#refund");
@@ -315,7 +315,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
 
     expect(body).toContain("Cloud 20");
     expect(body).toContain("Cloud 50");
-    expect(body).toContain("Where your version of the app offers them");
+    expect(body).toContain("Where your version of the app offers it");
     expect(body).toContain("end of the current paid period");
     expect(body).toContain("new uploads pause");
     expect(body).toContain("never automatically deleted");
@@ -325,8 +325,14 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     // Apple's auto-renewal facts are on the Subscription Terms page; prices stay in the app.
     const terms = (await page.locator("#subscription-disclosure").textContent()) ?? "";
     expect(terms).toContain("cancelled at least 24 hours before the end of the current period");
-    expect(terms).toContain("Church Pool");
+    expect(terms).toContain("The current app offers no subscriptions");
     expect(terms).not.toMatch(/\$\d/);
+
+    // Monthly Cloud plans and pools are shelved (November 12, 2026): legal copy offers Free and Lifetime only.
+    const all = await page.evaluate(() => document.documentElement.textContent ?? "");
+    expect(all).not.toMatch(
+      /Cloud plan|Cloud 5 GB|Cloud 10 GB|Family Pool|Group Pool|Church Pool|storage pool/i
+    );
   });
 
   test("delete account page shows the Google Play deletion steps", async ({ page }) => {
