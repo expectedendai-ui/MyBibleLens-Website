@@ -852,71 +852,6 @@
         transition: none;
       }
 
-      /* ---------- live ---------- */
-      .live {
-        padding: 40px 0 8px;
-      }
-      .live-card {
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 26px;
-        padding: 30px;
-        align-items: center;
-      }
-      @media (max-width: 820px) {
-        .live-card {
-          grid-template-columns: 1fr;
-          padding: 22px;
-        }
-      }
-      .live-card h2 {
-        font-family: var(--font-display);
-        font-weight: 400;
-        font-size: clamp(1.7rem, 4vw, 2.6rem);
-        margin: 8px 0 12px;
-      }
-      .live-card p {
-        color: #dcc8a3;
-      }
-      .live-stage {
-        position: relative;
-        height: 240px;
-        border-radius: 20px;
-        background: rgba(0, 0, 0, 0.25);
-        box-shadow: inset 0 0 0 1px rgba(240, 200, 80, 0.14);
-        overflow: hidden;
-      }
-      .cursor {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.74rem;
-        font-weight: 800;
-        color: #33210f;
-        animation: roam var(--t, 9s) ease-in-out infinite alternate;
-      }
-      .cursor svg {
-        width: 18px;
-        height: 18px;
-        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
-      }
-      .cursor span {
-        background: var(--c);
-        padding: 3px 9px;
-        border-radius: 999px;
-      }
-      @keyframes roam {
-        0% {
-          transform: translate(var(--ax), var(--ay));
-        }
-        50% {
-          transform: translate(var(--bx), var(--by));
-        }
-        100% {
-          transform: translate(var(--cx), var(--cy));
-        }
-      }
       .foot {
         padding: 34px 0 44px;
         text-align: center;
@@ -940,16 +875,15 @@
   <body>
     <header class="hero wrap">
       <div class="eyebrow">MyBibleLens · Scripture Canvas</div>
-      <h1 class="display">An endless board<br /><span class="gold">for your faith.</span></h1>
+      <h1 class="display">Try the real thing,<br /><span class="gold">right here.</span></h1>
       <p class="lead">
-        Bible study is not a straight line. Verses connect, notes pile up and photos bring a moment back. Scripture Canvas gives every
-        thought one place to live.
+        These demos run the app's own note engine, sticker art, Sacred Layouts and landscapes. Type a note, pin a sticker, place a layout.
       </p>
       <div class="stats" aria-label="Scripture Canvas at a glance">
         <span class="stat"><b>1,119</b>stickers</span>
         <span class="stat"><b>46</b>sacred layouts</span>
         <span class="stat"><b>68</b>landscapes</span>
-        <span class="stat"><b>Live</b>with your friends</span>
+        <span class="stat"><b>7</b>note themes</span>
       </div>
     </header>
 
@@ -959,8 +893,8 @@
         <div class="eyebrow">Chapter 01 · Connect</div>
         <h2 id="c1" class="display">Connect anything with <span class="gold">gold threads.</span></h2>
         <p>
-          Link verse to verse and story to testimony with living gold threads. Build mind maps, timelines and flowcharts where
-          cross-references run for miles, <strong>a web of understanding only you could map.</strong>
+          Link verse to verse and story to testimony with gold threads that stay attached as you move things around. Build mind maps,
+          timelines and flowcharts where cross-references run for miles, <strong>a web of understanding only you could map.</strong>
         </p>
       </div>
       <div class="board threads" id="threads">
@@ -1193,15 +1127,15 @@ Grace</textarea
         <div class="eyebrow">Chapter 06 · Move</div>
         <h2 id="c6" class="display">Lasso, duplicate and <span class="gold">move anywhere.</span></h2>
         <p>
-          Circle anything to lift it, copy it in a tap, and send it to another board. Keep one in your private study and drop a copy onto
-          your group's shared board. <strong>Your work moves as freely as your thoughts do.</strong>
+          Circle anything to lift it and move it as one. Save it to your private Lasso Vault, then paste it onto any of your other canvases.
+          <strong>Your work moves as freely as your thoughts do.</strong>
         </p>
       </div>
       <div class="board move" id="move" data-stage="0">
         <svg
           viewBox="0 0 1000 400"
           role="img"
-          aria-label="A lasso circles three notes on a private board, and copies of them travel to a shared board"
+          aria-label="A lasso circles three notes on one canvas, and copies of them are pasted onto another canvas"
         >
           <defs>
             <linearGradient id="mvGold" x1="0" y1="0" x2="1" y2="1">
@@ -1232,10 +1166,8 @@ Grace</textarea
             stroke-dasharray="2 8"
             stroke-linecap="round"
           />
-          <text x="44" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#dcc8a3">MY PRIVATE STUDY</text>
-          <text x="574" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#f0c850">
-            GROUP'S SHARED BOARD
-          </text>
+          <text x="44" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#dcc8a3">SERMON NOTES</text>
+          <text x="574" y="62" font-family="Inter" font-weight="800" font-size="13" letter-spacing="2" fill="#f0c850">MY NEXT STUDY</text>
           <g class="mv-note orig" filter="url(#mvSh)">
             <rect x="60" y="100" width="170" height="80" rx="14" fill="url(#mvGold)" />
             <text x="145" y="132" text-anchor="middle" font-family="Hammersmith One" font-size="16" fill="#4a3210">John 15:5</text>
@@ -1280,44 +1212,13 @@ Grace</textarea
             </text>
           </g>
           <g class="mv-badge">
-            <rect x="700" y="322" width="150" height="34" rx="17" fill="#f0c850" />
+            <rect x="680" y="322" width="190" height="34" rx="17" fill="#f0c850" />
             <text x="775" y="344" text-anchor="middle" font-family="Inter" font-weight="800" font-size="13" fill="#33210f">
-              Copied to shared
+              From your Lasso Vault
             </text>
           </g>
         </svg>
-        <p class="hint th-cap">The originals stay in your private study. The copies land on the shared board.</p>
-      </div>
-    </section>
-
-    <!-- LIVE -->
-    <section class="live wrap" aria-labelledby="c7">
-      <div class="board live-card">
-        <div>
-          <div class="eyebrow" style="color: #f0c850">Live Sanctuary</div>
-          <h2 id="c7">Study together, <span class="gold">in real time.</span></h2>
-          <p>
-            Invite your small group, your church or your friends and build on the same endless board at once, cursors and all. Faith was
-            never meant to be walked alone.
-          </p>
-        </div>
-        <div class="live-stage" aria-hidden="true">
-          <div class="cursor" style="--c: #f0c850; --ax: 30px; --ay: 40px; --bx: 190px; --by: 120px; --cx: 60px; --cy: 170px; --t: 8s">
-            <svg viewBox="0 0 20 20">
-              <path d="M2 2l6 16 2.4-6.6L17 9z" fill="#f0c850" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round" /></svg
-            ><span>Pastor James</span>
-          </div>
-          <div class="cursor" style="--c: #f4a9c4; --ax: 220px; --ay: 30px; --bx: 80px; --by: 150px; --cx: 250px; --cy: 170px; --t: 10s">
-            <svg viewBox="0 0 20 20">
-              <path d="M2 2l6 16 2.4-6.6L17 9z" fill="#f4a9c4" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round" /></svg
-            ><span>Ashley</span>
-          </div>
-          <div class="cursor" style="--c: #a9cf83; --ax: 120px; --ay: 190px; --bx: 260px; --by: 60px; --cx: 130px; --cy: 60px; --t: 9s">
-            <svg viewBox="0 0 20 20">
-              <path d="M2 2l6 16 2.4-6.6L17 9z" fill="#a9cf83" stroke="#33210f" stroke-width="1.4" stroke-linejoin="round" /></svg
-            ><span>Kevin</span>
-          </div>
-        </div>
+        <p class="hint th-cap">The originals stay where they were. The copies land on your other canvas.</p>
       </div>
     </section>
 

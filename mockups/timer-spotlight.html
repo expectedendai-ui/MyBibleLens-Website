@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Focus Timer · MyBibleLens</title>
+    <title>Today's Illumination · MyBibleLens</title>
     <meta
       name="description"
-      content="The MyBibleLens Focus Timer: eight looks, twelve colours, and a screen that becomes a quiet room until the bell rings."
+      content="Today's Illumination in MyBibleLens: a focus timer with ten looks, twelve colours, soft music and an Amen at the end."
     />
 
     <link rel="stylesheet" href="assets/spot.css" />
@@ -174,11 +174,11 @@
   </head>
   <body>
     <header class="hero wrap">
-      <div class="eyebrow">MyBibleLens · Focus Timer</div>
+      <div class="eyebrow">MyBibleLens · Today's Illumination</div>
       <h1 class="display">Sit with <span class="gold">the verse.</span></h1>
       <p class="lead">
-        Set the timer and the whole screen becomes a quiet room, with no notifications until the bell rings. Pick a look, pick a colour, and
-        stay with the Word.
+        Tap the clock on your Scripture Canvas and choose a quiet rhythm. Set the time, pick a look, add soft music if you like, and stay
+        with the Word until the Amen.
       </p>
     </header>
 
@@ -186,7 +186,7 @@
       <div class="board stage">
         <div class="tphone"><div class="scr" id="scene" aria-label="A live preview of the timer"></div></div>
         <div>
-          <h3>Eight looks. Twelve colours.</h3>
+          <h3>Ten looks. Twelve colours.</h3>
           <p>This is the app's own timer, running live. Tap a look to change the room.</p>
           <div class="looks" id="looks" role="group" aria-label="Timer looks"></div>
           <div class="lab">Colour</div>
@@ -197,12 +197,14 @@
             ><input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Timer progress" />
           </div>
           <p class="blurb" id="blurb" style="margin-top: 14px"></p>
-          <p class="note2">A gentle chime, works offline. No streaks. No leaderboard. Just time with God.</p>
+          <p class="note2">
+            An Amen chime at the end. Show the time or hide it and rest in the scene. No streaks. No leaderboard. Just time with God.
+          </p>
         </div>
       </div>
     </section>
 
-    <div class="foot">MyBibleLens · Focus Timer, a quiet room on demand.</div>
+    <div class="foot">MyBibleLens · Today's Illumination, a quiet room on demand.</div>
 
     <script src="assets/spot.js"></script>
     <script src="assets/timer/mbl-timer.js"></script>
@@ -214,15 +216,18 @@
           $$ = S.$$,
           esc = S.esc,
           reduce = S.reduce;
+        // Names and lines from the app's own timer style picker (illumination.styles in en.json).
         var LOOKS = [
-          ["classic-ring", "Classic Ring", "A calm ring that empties as the minutes pass."],
-          ["cross-fill", "Cross Fill", "A cross that fills with light from the bottom up."],
-          ["heavenly", "Heavenly", "Clouds part and an angel keeps watch until the bell."],
-          ["tree-growth", "Tree Growth", "A tree grows branch by branch while you stay still."],
-          ["water-rise", "Water Rise", "Quiet water rises around you, minute by minute."],
-          ["candle-glow", "Candle Glow", "A candle burns down in the dark, warm and steady."],
-          ["analog", "Analog", "A single hand sweeps the face, slow and unhurried."],
-          ["word-clock", "Word Clock", "Time told in words, over a night sky."],
+          ["cross-fill", "Cross Fill", "A golden cross fills with shimmering light."],
+          ["heavenly", "Heavenly", "Angels drift through clouds and golden light."],
+          ["tree-growth", "Mustard Seed", "A seed grows into a tree as the sun rises."],
+          ["tree-of-life", "Tree of Life", "Twelve fruits ripen on a tree of gold."],
+          ["water-rise", "Water Rise", "Light rays, drifting whales, and rising water."],
+          ["candle-glow", "Chapel Candle", "An ivory candle burns down in a stone niche."],
+          ["rose-window", "Rose Window", "Stained glass petals light up like a clock."],
+          ["classic-ring", "Classic Ring", "Orbiting golden lights around your progress."],
+          ["analog", "Analog", "A brass dial, sweeping hand, and swaying pendulum."],
+          ["word-clock", "Heavenly Night", "Sunset clouds, moonlight, and a sky full of stars."],
         ];
         var DURATION = 10 * 60,
           LOOP_MS = 24000;
@@ -244,7 +249,7 @@
             numberStyle: { color: preset.text, fontFamily: '"Hammersmith One", sans-serif' },
             timeLabel: mmss(progress),
             progress: progress,
-            wordClockLabel: "Be still",
+            wordClockLabel: "Be Still",
             elapsedSeconds: DURATION * progress,
           });
         }
@@ -346,7 +351,7 @@
               styleId: LOOKS[i][0],
               visual: { surface: preset.surface, accent: preset.accent, track: preset.track, text: preset.text, ringGlow: preset.ringGlow },
               progress: 0.6,
-              wordClockLabel: "Be still",
+              wordClockLabel: "Be Still",
             });
           });
         }
