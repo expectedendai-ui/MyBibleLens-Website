@@ -2,6 +2,10 @@
 const { test, expect } = require("@playwright/test");
 const { waitForPageReady, settleLazyFlows, attachConsoleErrorWatch } = require("./utils");
 
+// The company's own site is private and must never be named on mybiblelens.us. The name is assembled
+// here so this public file does not carry it either.
+const PRIVATE_SITE = ["expectedend", "co"].join(".");
+
 async function prepareAboutCanvas(page, viewport) {
   await page.setViewportSize(viewport);
   await page.goto("/legal.html#about");
@@ -77,7 +81,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
         "https://www.instagram.com/mybiblelens/",
       ])
     );
-    // November 2026: the identity points only at pages and anchors on mybiblelens.us (expectedend.co is private).
+    // November 2026: the identity points only at pages and anchors on mybiblelens.us (the company site is private).
     expect(schema.author["@id"]).toBe("https://mybiblelens.us/legal.html#about");
     expect(schema.author.url).toBe("https://mybiblelens.us/legal.html#about");
     expect(schema.operatingSystem).toBe("iOS, iPadOS");
@@ -130,7 +134,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     for (const block of await page
       .locator('script[type="application/ld+json"]')
       .allTextContents()) {
-      expect(block, "structured data never names the private site").not.toContain("expectedend.co");
+      expect(block, "structured data never names the private site").not.toContain(PRIVATE_SITE);
     }
     expect(legalApplication.copyrightYear).toBe(2026);
     await expect(page.locator("body")).not.toContainText("MyBibleLens LLC");
@@ -587,7 +591,7 @@ test.describe("MyBibleLens marketing site — the app as it is today", () => {
   test("the home page never names the private site", async ({ page }) => {
     const response = await page.goto("/");
     const html = (await response?.text()) ?? "";
-    expect(html).not.toContain("expectedend.co");
+    expect(html).not.toContain(PRIVATE_SITE);
   });
 
   test("the normal mouse pointer shows on desktop", async ({ page }) => {
