@@ -86,7 +86,7 @@
           "https://apps.apple.com/us/app/mybiblelens/id6764069602",
           "https://www.wikidata.org/wiki/Q141251174"
         ],
-        "featureList": "Scripture Canvas, an endless canvas for verses, notes, connectors, stickers, landscapes and Sacred Layouts; the Bible built in, with KJV, WEB and BSB offline and 18 more Bibles to download; Scripture notes and Bubbles; turning cards; the LED pen; the Lasso and Lasso Vault; bringing in PowerPoint slides; a Path of frames you present as a flight; the Canvas guide; shared canvases with your fellowship; Sermon Deck slides with presenter view, notes, a talk timer, music and live following; Journey reading plans with reading reminders and Home Screen widgets; Home with friends, groups and invitations; Friends & Fellowship by Kingdom ID; Today's Illumination focus timer with a Lock Screen Live Activity on iPhone; 16 themes; 44 languages; sync across iPhone and iPad"
+        "featureList": "Scripture Canvas, an endless canvas for verses, notes, connectors, stickers, landscapes and Sacred Layouts; the Bible built in, with KJV, WEB and BSB offline and 18 more Bibles that come in book by book; Scripture notes and Bubbles; turning cards; the LED pen; the Lasso and Lasso Vault; bringing in PowerPoint slides; a Path of frames you present as a flight; the Canvas guide; shared canvases with your fellowship; Sermon Deck slides with presenter view, notes, a talk timer, music and live following; Journey reading plans with reading reminders and Home Screen widgets; Home with friends, groups and invitations; Friends & Fellowship by Kingdom ID; Today's Illumination focus timer with a Lock Screen Live Activity on iPhone; 16 themes; 44 languages; sync across iPhone and iPad"
       }
     </script>
 
@@ -827,6 +827,15 @@
         font-size: 0.9rem;
         line-height: 1.55;
         color: var(--ink-soft);
+      }
+      /* Sermon Deck carries six tool cards: tighter padding keeps the whole section on one desktop screen. */
+      @media (min-width: 961px) {
+        #sermon.section-padding {
+          padding-block: clamp(2rem, 3vw, 2.5rem);
+        }
+        #sermon .tools {
+          margin-top: 1.3rem;
+        }
       }
       @media (max-width: 560px) {
         .tools {
@@ -2070,7 +2079,7 @@
               </p>
               <p>
                 Step in and out with <span class="key">−</span> and <span class="key">+</span>, or tap the percentage for
-                <span class="key">100%</span>, <span class="key">Fit everything</span> and <span class="key">Zoom to selection</span>.
+                <span class="key">100%</span> or <span class="key">Fit everything</span>.
               </p>
               <figure class="card__shot">
                 <img
@@ -2078,7 +2087,7 @@
                   width="720"
                   height="394"
                   loading="lazy"
-                  alt="The zoom menu on a canvas: 100%, Fit everything and Zoom to selection under the zoom percentage"
+                  alt="The percentage menu on a canvas, with 100% and Fit everything"
                 />
               </figure>
             </div>
@@ -2102,6 +2111,17 @@
           </div>
         </div>
       </section>
+
+      <div class="demo-band">
+        <div class="gold-divider" aria-hidden="true">
+          <span class="gold-divider__line"></span>
+          <span class="gold-divider__ornament">Try it here</span>
+          <span class="gold-divider__line"></span>
+        </div>
+      </div>
+      <div class="flow-iframe-wrap" id="canvas-flow">
+        <iframe src="mockups/canvas-spotlight.html?v=7" loading="lazy" title="Scripture Canvas, live demos" scrolling="no"></iframe>
+      </div>
 
       <!-- ===== THE BIBLE, BUILT IN ===== -->
       <section class="feature section-padding" id="bible" aria-labelledby="bible-title">
@@ -2132,7 +2152,7 @@
               <ul class="ticks">
                 <li>
                   <b>18 more Bibles.</b> Older English classics and Bibles in Spanish, French, German, Portuguese, Korean, Chinese and more
-                  download the first time you open them, then stay on your phone.
+                  come in book by book the first time you read them, then stay on your phone.
                 </li>
                 <li><b>Your choice, card by card.</b> Pick the Bible for each Scripture card and each verse slide.</li>
                 <li><b>The Bible in your hands still counts.</b> Tap Type it yourself to stamp the words you read on paper.</li>
@@ -2153,17 +2173,6 @@
         </div>
       </section>
 
-      <div class="demo-band">
-        <div class="gold-divider" aria-hidden="true">
-          <span class="gold-divider__line"></span>
-          <span class="gold-divider__ornament">Try it here</span>
-          <span class="gold-divider__line"></span>
-        </div>
-      </div>
-      <div class="flow-iframe-wrap" id="canvas-flow">
-        <iframe src="mockups/canvas-spotlight.html?v=7" loading="lazy" title="Scripture Canvas, live demos" scrolling="no"></iframe>
-      </div>
-
       <!-- ===== SERMON DECK ===== -->
       <section class="feature feature--cream section-padding" id="sermon" aria-labelledby="sermon-title">
         <div class="container">
@@ -2174,12 +2183,12 @@
                 Turn your study <span class="gold">into slides.</span>
               </h2>
               <p class="lead">
-                Sermon Deck is the fifth stop on the bar. Build slides for a sermon, a lesson or a small group, then present them with your
-                notes in front of you.
+                Sermon Deck is the third stop on the bar, right after Scripture Canvas. Build slides for a sermon, a lesson or a small
+                group, then present them with your notes in front of you.
               </p>
               <ul class="tools">
                 <li class="tool">
-                  <b>Write it</b><span>Type an outline and tap Make slides. A verse alone on a line becomes a verse slide.</span>
+                  <b>Write it</b><span>Type an outline and tap Make slides. A verse alone on a line shows its words.</span>
                 </li>
                 <li class="tool">
                   <b>Verse and Selah</b><span>Pick the passage and the Bible for a verse slide, or add a Selah for a quiet moment.</span>
@@ -2227,7 +2236,8 @@
                 Home is for <span class="gold">your people.</span>
               </h2>
               <p class="lead">
-                Scripture Canvas is just you. Home is together: everything that involves the people you study with lives in one place.
+                Scripture Canvas is where you study. Home is where your people are: friend requests, groups and shared canvases live in one
+                place.
               </p>
               <ul class="ticks">
                 <li><b>Waiting for you.</b> Friend requests and canvas invitations, ready to accept.</li>
@@ -2347,7 +2357,7 @@
           <p class="eyebrow">Themes and looks</p>
           <h2 class="section-title" id="yours-title" data-i18n="yours.title">Make it <span class="gold">yours.</span></h2>
           <p class="lead">
-            Sixteen themes recolour the whole app, from deep browns to bright linen. Pick an avatar for your Apostle card, add a reading
+            Sixteen themes recolour the whole app, from deep browns to bright linen. Pick an avatar for your Apostle Profile, add a reading
             widget, and use the app in 44 languages.
           </p>
           <div class="swatches" aria-label="The app's sixteen theme colours">
@@ -2468,7 +2478,7 @@
               "name": "Does the app have the Bible in it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. The King James Version, the World English Bible and the Berean Standard Bible are built in and work offline, and 18 more Bibles download the first time you open them. On a canvas or a slide you pick the passage and the Bible, and the words come in for you. Journey still works with the Bible in your hands: read the day's chapter, then tap I read it."
+                "text": "Yes. The King James Version, the World English Bible and the Berean Standard Bible are built in and work offline, and 18 more Bibles come in book by book the first time you read them, then stay on your phone. On a canvas or a slide you pick the passage and the Bible, and the words come in for you. Journey still works with the Bible in your hands: read the day's chapter, then tap I read it."
               }
             },
             {
@@ -2520,8 +2530,9 @@
               <div class="faq-item__a">
                 <p>
                   Yes. The King James Version, the World English Bible and the Berean Standard Bible are built in and work offline, and 18
-                  more Bibles download the first time you open them. On a canvas or a slide you pick the passage and the Bible, and the
-                  words come in for you. Journey still works with the Bible in your hands: read the day's chapter, then tap I read it.
+                  more Bibles come in book by book the first time you read them, then stay on your phone. On a canvas or a slide you pick
+                  the passage and the Bible, and the words come in for you. Journey still works with the Bible in your hands: read the day's
+                  chapter, then tap I read it.
                 </p>
               </div>
             </details>

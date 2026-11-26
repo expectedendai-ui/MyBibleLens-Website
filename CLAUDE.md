@@ -62,7 +62,7 @@ should name Free and Lifetime, without prices, is an open owner decision.)
 - Shared canvases are on in production since 2026-11-13: fellowship only (Kingdom ID friends), editors plus up to 50
   viewers, no public links. Sermon decks (added 2026-11-21) share with the fellowship the same way.
 - The island bar has five stops: Home, Scripture Canvas, Sermon, Journey, Apostle Profile. Zoom Canvas and Flow are gone.
-- The Bible is built in: KJV, WEB and BSB offline, 18 more Bibles downloaded on first use (eBible.org).
+- The Bible is built in: KJV, WEB and BSB offline, 18 more Bibles fetched book by book on first read and kept on the device (eBible.org).
 - AI study aids exist in the app code but the server switch is off: never mention AI on the landing page.
 - Android is in a Google Play closed test: leave it off the page until it is public. Never write "coming soon".
 - The app has 44 languages.
