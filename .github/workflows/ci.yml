@@ -25,7 +25,7 @@ jobs:
 
   test:
     name: Playwright (${{ matrix.project }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Playwright cannot install Chromium on ubuntu-latest (26.04) yet
     strategy:
       fail-fast: false
       matrix:
