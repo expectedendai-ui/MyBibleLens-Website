@@ -287,6 +287,21 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(body, "Infinite Canvas is now Scripture Canvas").not.toMatch(/Infinite Canvas/i);
   });
 
+  test("Free and Lifetime are named without a price", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const answer = page.locator("#free .faq-item__a");
+    await expect(page.locator("#free .faq-item__q")).toHaveText("Is MyBibleLens free?");
+    await expect(answer).toContainText("Free includes");
+    await expect(answer).toContainText("Lifetime is a one-time purchase");
+    const text = (await answer.textContent()) ?? "";
+    expect(text, "no price in the plan answer").not.toMatch(
+      /\$|\d+\s?(USD|dollars?)|per (month|year)/i
+    );
+    await expect(page.locator("#sermon .eyebrow .plan-tag")).toHaveText("Part of Lifetime");
+    await expect(page.locator("body")).not.toContainText(/upgrade/i);
+  });
+
   test("structured data and share text carry no prices", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
@@ -458,7 +473,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await page.goto("/#faq");
     await waitForPageReady(page);
     const items = page.locator(".faq-item");
-    await expect(items).toHaveCount(8);
+    await expect(items).toHaveCount(9);
     // Click the first one open and confirm the answer becomes visible
     const first = items.first();
     await first.locator("summary").click();

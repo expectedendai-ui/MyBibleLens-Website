@@ -190,6 +190,16 @@
         color: var(--gold-pressed);
         margin-bottom: 0.9rem;
       }
+      .plan-tag {
+        display: inline-block;
+        margin-left: 0.6em;
+        padding: 0.18em 0.65em;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-size: 0.9em;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+      }
       .section-title {
         font-size: clamp(2rem, 1.35rem + 2.8vw, 3.35rem);
         color: var(--deep-brown);
@@ -821,6 +831,12 @@
         font-weight: 400;
         font-size: 1.05rem;
         margin-bottom: 0.2rem;
+      }
+      .plan-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--ink-soft);
       }
       .tool span {
         display: block;
@@ -1998,7 +2014,7 @@
               <p>Your own canvases, with the one you opened last waiting at the top.</p>
             </a>
             <a class="room reveal" href="#sermon">
-              <span class="room__tag">Sermon Deck</span>
+              <span class="room__tag">Sermon Deck <span class="plan-tag">Lifetime</span></span>
               <h3>Teach it</h3>
               <p>Slides for a sermon, a lesson or a small group, with your notes and a timer when you present.</p>
             </a>
@@ -2056,6 +2072,10 @@
                   ><span>A PowerPoint file becomes notes and verse cards. It is read on your phone, never uploaded.</span>
                 </li>
               </ul>
+              <p class="plan-note">
+                Stickers, the Lasso and Lasso Vault, the LED pen and Scripture notes come with Lifetime, along with the full shelf of
+                landscapes and Sacred Layouts.
+              </p>
             </div>
             <div class="feature__media reveal">
               <figure class="phone phone--light">
@@ -2178,7 +2198,7 @@
         <div class="container">
           <div class="feature__grid">
             <div class="feature__copy">
-              <p class="eyebrow">Sermon Deck</p>
+              <p class="eyebrow">Sermon Deck <span class="plan-tag">Part of Lifetime</span></p>
               <h2 class="section-title" id="sermon-title" data-i18n="sermon.title">
                 Turn your study <span class="gold">into slides.</span>
               </h2>
@@ -2357,8 +2377,8 @@
           <p class="eyebrow">Themes and looks</p>
           <h2 class="section-title" id="yours-title" data-i18n="yours.title">Make it <span class="gold">yours.</span></h2>
           <p class="lead">
-            Sixteen themes recolour the whole app, from deep browns to bright linen. Pick an avatar for your Apostle Profile, add a reading
-            widget, and use the app in 44 languages.
+            Sixteen themes recolour the whole app, from deep browns to bright linen. Free starts you with four, and Lifetime opens every
+            theme and avatar. Pick an avatar for your Apostle Profile, add a reading widget, and use the app in 44 languages.
           </p>
           <div class="swatches" aria-label="The app's sixteen theme colours">
             <span class="swatch" style="--bg: #2a170a; --ac: #d7ab63"></span>
@@ -2494,7 +2514,15 @@
               "name": "What is Sermon Deck?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sermon Deck turns your study into slides for a sermon, a lesson or a small group. Type an outline and tap Make slides, or bring in a PowerPoint file. Present with your notes, the next slide and a talk timer in front of you, and share the deck so your fellowship can follow along live."
+                "text": "Sermon Deck turns your study into slides for a sermon, a lesson or a small group. Type an outline and tap Make slides, or bring in a PowerPoint file. Present with your notes, the next slide and a talk timer in front of you, and share the deck so your fellowship can follow along live. Making decks is part of Lifetime."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is MyBibleLens free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Free includes Scripture Canvas, the built-in Bibles, Journey, Home and shared canvases with your fellowship. Lifetime is a one-time purchase that adds Sermon Deck, every sticker, theme and landscape, the Lasso and the LED pen. Following a deck a friend shares with you never needs Lifetime."
               }
             }
           ]
@@ -2558,7 +2586,20 @@
                 <p>
                   Sermon Deck turns your study into slides for a sermon, a lesson or a small group. Type an outline and tap Make slides, or
                   bring in a PowerPoint file. Present with your notes, the next slide and a talk timer in front of you, and share the deck
-                  so your fellowship can follow along live.
+                  so your fellowship can follow along live. Making decks is part of Lifetime.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item" id="free">
+              <summary>
+                <span class="faq-item__q">Is MyBibleLens free?</span>
+                <span class="faq-item__chevron" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a">
+                <p>
+                  Yes. Free includes Scripture Canvas, the built-in Bibles, Journey, Home and shared canvases with your fellowship. Lifetime
+                  is a one-time purchase that adds Sermon Deck, every sticker, theme and landscape, the Lasso and the LED pen. Following a
+                  deck a friend shares with you never needs Lifetime.
                 </p>
               </div>
             </details>

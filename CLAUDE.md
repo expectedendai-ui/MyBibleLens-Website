@@ -53,9 +53,10 @@ in Docker if we ever need cross-platform visual coverage.)
 
 ## No prices on the site
 
-The site shows **no prices, plans, Free/Lifetime or "upgrade"** anywhere (smoke-tested). Purchase terms live only in
-legal.html, which is edited separately. (Lifetime purchases have been on in the app since 2026-11-13; whether the page
-should name Free and Lifetime, without prices, is an open owner decision.)
+The site shows **no prices, seats, cloud-storage plans or "upgrade"** anywhere (smoke-tested). Free and Lifetime may be
+named, never with a price: the FAQ "Is MyBibleLens free?" says what Free includes and that Lifetime is a one-time purchase,
+and Lifetime-only features (Sermon Deck, stickers, Lasso, LED pen, Scripture notes, most themes and looks) are marked as
+part of Lifetime. Purchase terms live only in legal.html, which is edited separately.
 
 ## What is live in the app (updated 2026-11-26)
 
