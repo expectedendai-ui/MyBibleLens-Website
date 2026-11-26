@@ -1,3 +1,21 @@
+# Legal source update: November 12, 2026 (Free and Lifetime only)
+
+The app's monthly Cloud plans and Family, Group and Church pools are shelved (app #417, main 70338261), so the legal
+page now describes Free plus one optional one-time Lifetime purchase. Plain-language drafting, not legal advice. Prior
+page source archived unmodified at `legal-archive/policies-before-2026-11-12-lifetime-only.txt`.
+
+- Privacy: the Purchases paragraph keeps Lifetime records only (pool membership and space-limit data removed); renewal
+  dates are kept only for subscriptions bought in earlier versions. The delete-account note matches the app's wording.
+  RevenueCat records in-app purchases (no "and subscriptions").
+- Terms 3, the App-version notice (all five pages) and the EULA license grant mention Lifetime only; "Churches and
+  groups" no longer mentions pools.
+- EULA 9 is now "Purchases": Lifetime is a one-time purchase, not a subscription, with Restore purchases (matches the
+  app's EULA clause 12). Storage limits, refunds and the earlier-purchases protection are unchanged; the Cloud plan and
+  Pools paragraphs are removed. EULA termination mentions subscriptions from earlier versions only.
+- Purchases and Refunds and Subscription Terms (anchors unchanged): no current subscriptions; earlier Cloud 20 and
+  Cloud 50 subscriptions keep their original terms and the 24-hour cancellation rule. Both say Updated November 12, 2026.
+- Smoke test: legal text must not mention Cloud plans, Cloud 5 GB or 10 GB, or any pool.
+
 # Legal source update: November 12, 2026
 
 For the Scripture Canvas app (app main 9c51f925). Goes live only with the Scripture Canvas App Store build, together
