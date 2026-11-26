@@ -9,12 +9,12 @@
     <title>MyBibleLens™ · The Sanctuary App for Christianity</title>
     <meta
       name="description"
-      content="MyBibleLens is the Sanctuary App for Christianity, built around Scripture Canvas: an endless canvas where you stamp verses, write notes, connect ideas and make your study beautiful. Calm Journey reading plans, Home for your friends and groups, 16 themes."
+      content="MyBibleLens is the Sanctuary App for Christianity, built around Scripture Canvas: an endless canvas where you stamp verses, write notes, connect ideas and make your study beautiful. The Bible is built in, Sermon Deck turns your study into slides, and Journey gives you calm reading plans."
     />
     <meta property="og:title" content="MyBibleLens™ · The Sanctuary App for Christianity" />
     <meta
       property="og:description"
-      content="Scripture Canvas: an endless canvas for the Word. Stamp verses, write notes, connect ideas and make your study beautiful. Calm Journey reading plans in your own Bible."
+      content="Scripture Canvas: an endless canvas for the Word, with the Bible built in. Stamp verses, connect ideas, then present your study or turn it into a Sermon Deck. Calm Journey reading plans too."
     />
     <meta property="og:url" content="https://mybiblelens.us/" />
     <meta property="og:type" content="website" />
@@ -35,13 +35,13 @@
         "name": "MyBibleLens",
         "alternateName": "MyBibleLens™",
         "slogan": "The Sanctuary App for Christianity",
-        "disambiguatingDescription": "What this app will never have: No AI Voice, God already speaks, you don't need a robot to. No Algorithm, nothing deciding what you see or when you see it. No Explore Feed, no rabbit holes, no comparison traps. No Scripture in-app, because it's for your journal and your physical Bible; the Word belongs in your hands, not behind a screen. No Companion, 'Companion' is a sugarcoat; this app isn't your friend, God is. Go to your church, your pastor, your friends and family, the people who actually love you. No Selling Your Data, your prayers aren't a product. Just an efficient tool to grow your faith with God.",
+        "disambiguatingDescription": "What this app will never have: No Algorithm, nothing deciding what you see or when you see it. No Explore Feed, no rabbit holes, no comparison traps. No Companion, 'Companion' is a sugarcoat; this app isn't your friend, God is. Go to your church, your pastor, your friends and family, the people who actually love you. No Selling Your Data, your prayers aren't a product. Just an efficient tool to grow your faith with God.",
         "url": "https://mybiblelens.us/",
         "installUrl": "https://apps.apple.com/us/app/mybiblelens/id6764069602",
         "operatingSystem": "iOS, iPadOS",
         "applicationCategory": "LifestyleApplication",
         "applicationSubCategory": "Bible Study",
-        "description": "MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. Stamp verses you type from your own Bible, write notes, connect ideas, and add stickers, landscapes and Sacred Layouts. Journey gives you calm reading plans, and Home keeps your friends and groups close.",
+        "description": "MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. The Bible is built in: stamp a verse from the KJV, WEB or BSB, or one of 18 more Bibles, then write notes, connect ideas, and add stickers, landscapes and Sacred Layouts. Present a board frame by frame, or turn your study into slides with Sermon Deck. Journey gives you calm reading plans, and Home keeps your friends, groups and shared canvases close.",
         "publisher": {
           "@type": "Organization",
           "@id": "https://mybiblelens.us/legal.html#terms",
@@ -86,7 +86,7 @@
           "https://apps.apple.com/us/app/mybiblelens/id6764069602",
           "https://www.wikidata.org/wiki/Q141251174"
         ],
-        "featureList": "Scripture Canvas, an endless canvas for verses, notes, connectors, stickers, landscapes and Sacred Layouts; note themes; the LED pen; the Lasso and Lasso Vault; Zoom Canvas; Journey reading plans with reading reminders and Home Screen widgets; Home with friends, groups and invitations; Friends & Fellowship by Kingdom ID; Today's Illumination focus timer; 16 themes; 43 languages; sync across iPhone and iPad"
+        "featureList": "Scripture Canvas, an endless canvas for verses, notes, connectors, stickers, landscapes and Sacred Layouts; the Bible built in, with KJV, WEB and BSB offline and 18 more Bibles that come in book by book; Scripture notes and Bubbles; turning cards; the LED pen; the Lasso and Lasso Vault; bringing in PowerPoint slides; a Path of frames you present as a flight; the Canvas guide; shared canvases with your fellowship; Sermon Deck slides with presenter view, notes, a talk timer, music and live following; Journey reading plans with reading reminders and Home Screen widgets; Home with friends, groups and invitations; Friends & Fellowship by Kingdom ID; Today's Illumination focus timer with a Lock Screen Live Activity on iPhone; 16 themes; 44 languages; sync across iPhone and iPad"
       }
     </script>
 
@@ -189,6 +189,16 @@
         text-transform: uppercase;
         color: var(--gold-pressed);
         margin-bottom: 0.9rem;
+      }
+      .plan-tag {
+        display: inline-block;
+        margin-left: 0.6em;
+        padding: 0.18em 0.65em;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-size: 0.9em;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
       }
       .section-title {
         font-size: clamp(2rem, 1.35rem + 2.8vw, 3.35rem);
@@ -540,6 +550,12 @@
         border: 1px solid rgba(240, 200, 80, 0.35);
         box-shadow: none;
       }
+      .app-badge--instagram {
+        background: linear-gradient(45deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 10px 26px -12px rgba(238, 42, 123, 0.7);
+      }
       .repo-coming-soon {
         font-size: 0.72rem;
         font-weight: 700;
@@ -650,10 +666,10 @@
       }
       .island {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 4px;
         width: 100%;
-        max-width: 440px;
+        max-width: 520px;
         height: 64px;
         margin: 2.2rem auto 0;
         padding: 6px;
@@ -709,7 +725,7 @@
       }
       .rooms {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 1rem;
         margin-top: 2.6rem;
       }
@@ -747,6 +763,11 @@
         text-transform: uppercase;
         color: var(--gold-pressed);
         margin-bottom: 0.5rem;
+      }
+      @media (max-width: 1100px) {
+        .rooms {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
       }
       @media (max-width: 900px) {
         .rooms {
@@ -817,11 +838,26 @@
         font-size: 1.05rem;
         margin-bottom: 0.2rem;
       }
+      .plan-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
       .tool span {
         display: block;
         font-size: 0.9rem;
         line-height: 1.55;
         color: var(--ink-soft);
+      }
+      /* Sermon Deck carries six tool cards: tighter padding keeps the whole section on one desktop screen. */
+      @media (min-width: 961px) {
+        #sermon.section-padding {
+          padding-block: clamp(2rem, 3vw, 2.5rem);
+        }
+        #sermon .tools {
+          margin-top: 1.3rem;
+        }
       }
       @media (max-width: 560px) {
         .tools {
@@ -909,6 +945,26 @@
         font-size: 0.93rem;
         line-height: 1.55;
         color: var(--deep-brown);
+      }
+      .bibles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 1.2rem;
+      }
+      .bibles span {
+        padding: 0.32rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.6);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--deep-brown);
+      }
+      .bibles span.is-built-in {
+        background: linear-gradient(145deg, #f0d592, #d4a650 55%, #b6751d);
+        border-color: transparent;
+        color: #3d2b1f;
       }
       .soon-note b {
         color: var(--gold-pressed);
@@ -1496,80 +1552,6 @@
         align-items: center;
       }
 
-      /* ========== COMING-SOON TOAST ========== */
-      .coming-soon-toast {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%) translateY(2rem);
-        width: min(420px, 92vw);
-        padding: 1.1rem 1.4rem 1.1rem 1.2rem;
-        border-radius: 16px;
-        background: linear-gradient(180deg, #3d2b1f 0%, #2b1e16 100%);
-        border: 1px solid rgba(212, 146, 31, 0.5);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        color: #f1e0ba;
-        z-index: 10000;
-        opacity: 0;
-        pointer-events: none;
-        transition:
-          opacity 0.3s ease,
-          transform 0.35s var(--ease);
-        display: flex;
-        align-items: flex-start;
-        gap: 0.85rem;
-      }
-      .coming-soon-toast.is-visible {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateX(-50%) translateY(0);
-      }
-      .cs-icon {
-        flex: 0 0 36px;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #b6741d 0%, #d4921f 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .cs-icon svg {
-        width: 18px;
-        height: 18px;
-        stroke: #f7e1a8;
-        stroke-width: 2.5;
-        fill: none;
-        stroke-linecap: round;
-      }
-      .cs-content {
-        flex: 1;
-        min-width: 0;
-      }
-      .cs-title {
-        font-family: var(--font-display);
-        color: var(--halo-gold);
-        margin-bottom: 0.2rem;
-      }
-      .cs-body {
-        font-size: 0.88rem;
-        line-height: 1.45;
-        color: rgba(241, 224, 186, 0.85);
-      }
-      .cs-body a {
-        color: var(--halo-gold);
-        font-weight: 600;
-        border-bottom: 1px solid rgba(240, 200, 80, 0.4);
-      }
-      .cs-close {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        color: rgba(241, 224, 186, 0.6);
-        font-size: 1.4rem;
-        line-height: 1;
-      }
-
       /* ========== REVEAL ON SCROLL ========== */
       .reveal {
         opacity: 0;
@@ -1842,6 +1824,8 @@
         </a>
         <nav class="floating-nav__links" aria-label="Jump to section">
           <a href="#canvas" data-target="canvas" data-i18n="nav.canvas">Canvas</a>
+          <a href="#bible" data-target="bible" data-i18n="nav.bible">Bible</a>
+          <a href="#sermon" data-target="sermon" data-i18n="nav.sermon">Sermon</a>
           <a href="#together" data-target="together" data-i18n="nav.together">Together</a>
           <a href="#journey" data-target="journey" data-i18n="nav.journey">Journey</a>
           <a href="#faq" data-target="faq" data-i18n="nav.faq">FAQ</a>
@@ -1863,6 +1847,8 @@
       </div>
       <nav class="floating-nav__mobile" id="floating-nav-mobile" aria-label="Jump to section (mobile)" hidden>
         <a href="#canvas">Scripture Canvas</a>
+        <a href="#bible">The Bible, built in</a>
+        <a href="#sermon">Sermon Deck</a>
         <a href="#together">Home, together</a>
         <a href="#journey">Journey</a>
         <a href="#illumination">Today's Illumination</a>
@@ -1910,8 +1896,8 @@
             <p class="hero-eyebrow" data-i18n="hero.eyebrow">The Sanctuary App for Christianity</p>
             <p class="hero-tagline" data-i18n="hero.tagline">Bringing you closer to God in an exciting and easy way!</p>
             <p class="hero-lead">
-              Scripture Canvas is an endless canvas for the Word. Stamp a verse, write around it, connect it to the next one and make it
-              beautiful. Then come back tomorrow and pick up right where you left off.
+              Scripture Canvas is an endless canvas for the Word. Stamp a verse from the Bible built into the app, write around it, connect
+              it to the next one and make it beautiful. Then present it, or turn it into slides with Sermon Deck.
             </p>
             <div class="badges" aria-label="Download MyBibleLens">
               <a
@@ -1928,19 +1914,11 @@
                 </svg>
                 App Store
               </a>
-              <a href="#" class="app-badge app-badge--ghost" data-coming-soon aria-label="Coming soon to Google Play">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-2.29 1.32-2.5-2.5 2.5-2.5 2.29 1.3M6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"
-                  />
-                </svg>
-                Google Play
-              </a>
               <a
                 href="https://www.instagram.com/mybiblelens/"
                 target="_blank"
                 rel="noopener"
-                class="app-badge app-badge--ghost"
+                class="app-badge app-badge--instagram"
                 aria-label="Follow MyBibleLens on Instagram"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1951,7 +1929,7 @@
                 Instagram
               </a>
             </div>
-            <p class="repo-coming-soon" data-i18n="hero.availability">Available now on iPhone &amp; iPad · Android coming soon</p>
+            <p class="repo-coming-soon" data-i18n="hero.availability">Available now on iPhone &amp; iPad</p>
           </div>
 
           <div class="hero-devices">
@@ -1966,10 +1944,10 @@
             </figure>
             <figure class="phone">
               <img
-                src="assets/app/library-phone.webp"
+                src="assets/app/library-phone-2026-11.webp"
                 width="720"
                 height="1558"
-                alt="The Scripture Canvas library on iPhone, with the Continue card for Sermon on the Mount above your other canvases and the island bar below"
+                alt="The Scripture Canvas library on iPhone, with the Continue card for Follow the Light and the five-stop island bar below"
               />
             </figure>
             <p class="shot-note">Screens from the app, with a sample account.</p>
@@ -1977,11 +1955,11 @@
         </div>
       </section>
 
-      <!-- ===== FOUR ROOMS (the island bar) ===== -->
+      <!-- ===== FIVE ROOMS (the island bar) ===== -->
       <section class="stops section-padding" id="stops" aria-labelledby="stops-title">
         <div class="container center">
           <p class="eyebrow">The island bar</p>
-          <h2 class="section-title" id="stops-title" data-i18n="stops.title">Four rooms. <span class="gold">One sanctuary.</span></h2>
+          <h2 class="section-title" id="stops-title" data-i18n="stops.title">Five rooms. <span class="gold">One sanctuary.</span></h2>
           <p class="lead">Everything in MyBibleLens sits on one floating bar at the bottom of your screen. Tap a stop to see that room.</p>
 
           <nav class="island" aria-label="The app's island bar">
@@ -2002,6 +1980,14 @@
                 <path d="M9 15l1-3.2 5.6-5.6a1.5 1.5 0 0 1 2.1 2.1L12.1 13.9z" />
               </svg>
               Canvas
+            </a>
+            <a class="island__tab" href="#sermon" data-stop="sermon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="4" width="17" height="11.5" rx="1.6" />
+                <path d="M12 7v5.5M9.8 8.9h4.4" />
+                <path d="M12 15.5V19M8.5 20h7" />
+              </svg>
+              Sermon
             </a>
             <a class="island__tab" href="#journey" data-stop="journey">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2033,10 +2019,15 @@
               <h3>Just you</h3>
               <p>Your own canvases, with the one you opened last waiting at the top.</p>
             </a>
+            <a class="room reveal" href="#sermon">
+              <span class="room__tag">Sermon Deck <span class="plan-tag">Lifetime</span></span>
+              <h3>Teach it</h3>
+              <p>Slides for a sermon, a lesson or a small group, with your notes and a timer when you present.</p>
+            </a>
             <a class="room reveal" href="#journey">
               <span class="room__tag">Journey</span>
               <h3>Read calmly</h3>
-              <p>A gentle reading plan in your own Bible, with reminders on the days you choose.</p>
+              <p>A gentle reading plan, with reminders on the days you choose.</p>
             </a>
             <a class="room reveal" href="#apostle" id="apostle">
               <span class="room__tag">Apostle Profile</span>
@@ -2057,13 +2048,15 @@
                 An endless canvas <span class="gold">for the Word.</span>
               </h2>
               <p class="lead">
-                Bible study is not a straight line. On Scripture Canvas a verse sits next to a note, a photo, a sticker and the verse it
-                reminds you of, with room to keep going in every direction.
+                Bible study is not a straight line. On Scripture Canvas a verse sits next to a note, a photo, a pin, a sticker and the verse
+                it reminds you of, with room to keep going in every direction.
               </p>
               <ul class="tools">
-                <li class="tool"><b>Verse</b><span>Type the reference and the words from your Bible, and stamp a Scripture card.</span></li>
                 <li class="tool">
-                  <b>Note</b><span>Tap Note, or double-tap empty space, and write. Some words come alive with their own art.</span>
+                  <b>Verse</b><span>Pick the passage and the Bible, and a live Scripture card lands on your board.</span>
+                </li>
+                <li class="tool">
+                  <b>Note</b><span>Plain notes, Scripture notes or speech Bubbles. Some words come alive with their own art.</span>
                 </li>
                 <li class="tool">
                   <b>Connect</b><span>Join cards with connectors that stay attached as you move your ideas around.</span>
@@ -2074,23 +2067,30 @@
                 <li class="tool">
                   <b>Lasso</b><span>Circle a whole idea and move it as one, or keep it in your private Lasso Vault.</span>
                 </li>
-                <li class="tool"><b>Sacred Layouts</b><span>46 ready-made studies: verse ladders, timelines, maps and more.</span></li>
                 <li class="tool">
-                  <b>Stickers and landscapes</b><span>1,119 original stickers in seven art styles and 68 landscapes to set the scene.</span>
+                  <b>Turn and arrange</b><span>Twist a card to any angle, align and tidy, or wrap a study in a frame.</span>
                 </li>
                 <li class="tool">
-                  <b>Pin, Media, Present</b><span>Drop lettered markers, add your photos and present your study without the toolbars.</span>
+                  <b>Art</b><span>46 Sacred Layouts, 1,119 original stickers in seven art styles and 68 landscapes.</span>
+                </li>
+                <li class="tool">
+                  <b>Bring in slides</b
+                  ><span>A PowerPoint file becomes notes and verse cards. It is read on your phone, never uploaded.</span>
                 </li>
               </ul>
+              <p class="plan-note">
+                Stickers, the Lasso and Lasso Vault, the LED pen and Scripture notes come with Lifetime, along with the full shelf of
+                landscapes and Sacred Layouts.
+              </p>
             </div>
             <div class="feature__media reveal">
               <figure class="phone phone--light">
                 <img
-                  src="assets/app/canvas-phone.webp"
+                  src="assets/app/canvas-path-phone.webp"
                   width="720"
                   height="1558"
                   loading="lazy"
-                  alt="Scripture Canvas on iPhone at 48 percent: Matthew 5:14 joined to a Blessing note and a Mercy note, a dove sticker, Matthew 6:33, and the tool dock below"
+                  alt="A Scripture Canvas on iPhone called Follow the Light: numbered frames of verses and notes joined by gold threads, with the five-stop island bar below"
                 />
               </figure>
             </div>
@@ -2105,7 +2105,7 @@
               </p>
               <p>
                 Step in and out with <span class="key">−</span> and <span class="key">+</span>, or tap the percentage for
-                <span class="key">100%</span>, <span class="key">Fit everything</span> and <span class="key">Zoom to selection</span>.
+                <span class="key">100%</span> or <span class="key">Fit everything</span>.
               </p>
               <figure class="card__shot">
                 <img
@@ -2113,17 +2113,26 @@
                   width="720"
                   height="394"
                   loading="lazy"
-                  alt="The zoom menu on a canvas: 100%, Fit everything and Zoom to selection under the zoom percentage"
+                  alt="The percentage menu on a canvas, with 100% and Fit everything"
                 />
               </figure>
             </div>
-            <div class="card card--light reveal">
-              <h3>Zoom Canvas, for drawing.</h3>
+            <div class="card card--light reveal" id="path">
+              <h3>Walk the Path.</h3>
               <p>
-                A second kind of canvas for sketching. Divide the paper into regions, drop markers you can present one by one, find your way
-                with the minimap, and save the view as a picture.
+                Wrap a study in frames and tap <span class="key">Add to Path</span>. Then <span class="key">Slides</span> plays them in
+                order: the camera pulls back over your board and dives into each frame, even the ones you turned.
               </p>
-              <p>Make one from the same Add button as a Scripture Canvas.</p>
+              <p>New here? The Canvas guide explains every button, and <span class="key">Take the tour</span> walks you through it.</p>
+              <figure class="card__shot">
+                <img
+                  src="assets/app/canvas-guide.webp"
+                  width="720"
+                  height="412"
+                  loading="lazy"
+                  alt="The Canvas guide with Take the tour and its sections: Top bar, Share, View, Draw, Add, Art, Cards and Path"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -2140,6 +2149,109 @@
         <iframe src="mockups/canvas-spotlight.html?v=7" loading="lazy" title="Scripture Canvas, live demos" scrolling="no"></iframe>
       </div>
 
+      <!-- ===== THE BIBLE, BUILT IN ===== -->
+      <section class="feature section-padding" id="bible" aria-labelledby="bible-title">
+        <div class="container">
+          <div class="feature__grid feature__grid--flip">
+            <div class="feature__copy">
+              <p class="eyebrow">The Bible, built in</p>
+              <h2 class="section-title" id="bible-title" data-i18n="bible.title">
+                The Word, <span class="gold">right on your canvas.</span>
+              </h2>
+              <p class="lead">
+                Three public-domain Bibles live inside the app and work offline: the King James Version, the World English Bible and the
+                Berean Standard Bible. Pick a passage and the words come in for you.
+              </p>
+              <div class="bibles" aria-label="Bibles in the app">
+                <span class="is-built-in">KJV</span>
+                <span class="is-built-in">WEB</span>
+                <span class="is-built-in">BSB</span>
+                <span>ASV</span>
+                <span>Young's Literal</span>
+                <span>Darby</span>
+                <span>Douay-Rheims</span>
+                <span>Reina Valera 1909</span>
+                <span>Louis Segond 1910</span>
+                <span>Lutherbibel 1912</span>
+                <span>and more</span>
+              </div>
+              <ul class="ticks">
+                <li>
+                  <b>18 more Bibles.</b> Older English classics and Bibles in Spanish, French, German, Portuguese, Korean, Chinese and more
+                  come in book by book the first time you read them, then stay on your phone.
+                </li>
+                <li><b>Your choice, card by card.</b> Pick the Bible for each Scripture card and each verse slide.</li>
+                <li><b>The Bible in your hands still counts.</b> Tap Type it yourself to stamp the words you read on paper.</li>
+              </ul>
+            </div>
+            <div class="feature__media reveal">
+              <figure class="phone phone--light">
+                <img
+                  src="assets/app/bible-phone.webp"
+                  width="720"
+                  height="1558"
+                  loading="lazy"
+                  alt="The Scripture Stamp sheet on iPhone: KJV, WEB and BSB to choose from, Psalm 119:105 typed in, and the verse ready to place on the canvas"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERMON DECK ===== -->
+      <section class="feature feature--cream section-padding" id="sermon" aria-labelledby="sermon-title">
+        <div class="container">
+          <div class="feature__grid">
+            <div class="feature__copy">
+              <p class="eyebrow">Sermon Deck <span class="plan-tag">Part of Lifetime</span></p>
+              <h2 class="section-title" id="sermon-title" data-i18n="sermon.title">
+                Turn your study <span class="gold">into slides.</span>
+              </h2>
+              <p class="lead">
+                Sermon Deck is the third stop on the bar, right after Scripture Canvas. Build slides for a sermon, a lesson or a small
+                group, then present them with your notes in front of you.
+              </p>
+              <ul class="tools">
+                <li class="tool">
+                  <b>Write it</b><span>Type an outline and tap Make slides. A verse alone on a line shows its words.</span>
+                </li>
+                <li class="tool">
+                  <b>Verse and Selah</b><span>Pick the passage and the Bible for a verse slide, or add a Selah for a quiet moment.</span>
+                </li>
+                <li class="tool">
+                  <b>Looks</b><span>16 themes, Sanctuary Landscapes behind your slides, and Light: Candle, Gold Leaf or Dawn.</span>
+                </li>
+                <li class="tool">
+                  <b>Bring in a PowerPoint</b><span>Light it in the Sanctuary look, or keep the look it came with.</span>
+                </li>
+                <li class="tool">
+                  <b>Present</b
+                  ><span>Presenter view shows your notes, the next slide and a talk timer that turns gold at five minutes left.</span>
+                </li>
+                <li class="tool">
+                  <b>Follow along live</b
+                  ><span
+                    >Share a deck with your fellowship. Followers read every verse in their own Bible and keep the ones they love.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="feature__media reveal">
+              <figure class="phone phone--light">
+                <img
+                  src="assets/app/sermon-present-phone.webp"
+                  width="720"
+                  height="1558"
+                  loading="lazy"
+                  alt="Presenter view on iPhone: John 8:12 on the stage, the next slide, a talk timer at 0:05, speaker notes and music controls"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== HOME, TOGETHER ===== -->
       <section class="feature section-padding" id="together" aria-labelledby="together-title">
         <div class="container">
@@ -2150,33 +2262,33 @@
                 Home is for <span class="gold">your people.</span>
               </h2>
               <p class="lead">
-                Scripture Canvas is just you. Home is together: everything that involves the people you study with lives in one place.
+                Scripture Canvas is where you study. Home is where your people are: friend requests, groups and shared canvases live in one
+                place.
               </p>
               <ul class="ticks">
                 <li><b>Waiting for you.</b> Friend requests and canvas invitations, ready to accept.</li>
-                <li><b>Start a shared canvas.</b> Name it and pick friends or a group.</li>
+                <li><b>Shared canvases.</b> Name one, pick friends or a group, and study on the same board together.</li>
                 <li><b>Your fellowship.</b> The friends you added with their Kingdom ID. No directory, no public profile.</li>
-                <li><b>Groups.</b> Family, Bible Study or Church. Church groups with a pastor are coming soon.</li>
+                <li><b>Groups.</b> Family, Bible Study or Church, so the right people are one tap away.</li>
               </ul>
               <p class="soon-note">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
+                  <path d="M12 3 4.5 6v5.5c0 4.4 3.1 8 7.5 9.5 4.4-1.5 7.5-5.1 7.5-9.5V6z" />
                 </svg>
                 <span
-                  ><b>Shared canvases open in an update.</b> Until then, a canvas you start from Home stays yours, and your friends and
-                  groups are ready for the day sharing opens.</span
+                  ><b>Only your fellowship.</b> You can invite only friends you added by Kingdom ID. Editors work on the board with you, up
+                  to 50 viewers can watch, and there are no public links.</span
                 >
               </p>
             </div>
             <div class="feature__media reveal">
               <figure class="phone phone--light">
                 <img
-                  src="assets/app/home-phone.webp"
+                  src="assets/app/home-shared-phone.webp"
                   width="720"
                   height="1558"
                   loading="lazy"
-                  alt="Home on iPhone: one friend request waiting, no shared canvases yet, Start a shared canvas, your fellowship, and a Small group"
+                  alt="Home on iPhone: one friend request waiting, three shared canvases, Start a shared canvas and your fellowship"
                 />
               </figure>
             </div>
@@ -2192,7 +2304,7 @@
         </div>
       </div>
       <div class="flow-iframe-wrap" id="fellowship-flow">
-        <iframe src="mockups/fellowship-spotlight.html?v=7" loading="lazy" title="Friends and Fellowship" scrolling="no"></iframe>
+        <iframe src="mockups/fellowship-spotlight.html?v=8" loading="lazy" title="Friends and Fellowship" scrolling="no"></iframe>
       </div>
 
       <!-- ===== JOURNEY ===== -->
@@ -2239,11 +2351,11 @@
             <div class="feature__media reveal">
               <figure class="phone phone--light">
                 <img
-                  src="assets/app/journey-phone.webp"
+                  src="assets/app/journey-day-phone.webp"
                   width="720"
                   height="1558"
                   loading="lazy"
-                  alt="Journey on iPhone: day 9 of 30 in Psalms of Peace, today's reading Psalms 32 with an I read it button, and the path ahead"
+                  alt="Journey on iPhone: day 9 of 21 in A Calm Start, today's reading John 9 with an I read it button, and the path ahead"
                 />
               </figure>
             </div>
@@ -2261,7 +2373,7 @@
           </div>
         </div>
         <div class="flow-iframe-wrap" id="timer-flow">
-          <iframe src="mockups/timer-spotlight.html?v=7" loading="lazy" title="Today's Illumination timer" scrolling="no"></iframe>
+          <iframe src="mockups/timer-spotlight.html?v=8" loading="lazy" title="Today's Illumination timer" scrolling="no"></iframe>
         </div>
       </section>
 
@@ -2271,8 +2383,8 @@
           <p class="eyebrow">Themes and looks</p>
           <h2 class="section-title" id="yours-title" data-i18n="yours.title">Make it <span class="gold">yours.</span></h2>
           <p class="lead">
-            Sixteen themes recolour the whole app, from deep browns to bright linen. Turn on Flow for a slow drift of light across your
-            theme.
+            Sixteen themes recolour the whole app, from deep browns to bright linen. Free starts you with four, and Lifetime opens every
+            theme and avatar. Pick an avatar for your Apostle Profile, add a reading widget, and use the app in 44 languages.
           </p>
           <div class="swatches" aria-label="The app's sixteen theme colours">
             <span class="swatch" style="--bg: #2a170a; --ac: #d7ab63"></span>
@@ -2299,7 +2411,7 @@
             <span class="count"><b>1,119</b>stickers</span>
             <span class="count"><b>68</b>landscapes</span>
             <span class="count"><b>46</b>Sacred Layouts</span>
-            <span class="count"><b>43</b>languages</span>
+            <span class="count"><b>44</b>languages</span>
           </div>
         </div>
       </section>
@@ -2312,8 +2424,8 @@
           <p class="lead">MyBibleLens is a place to meet God, not a place to scroll. These are promises we build around.</p>
           <div class="pillars">
             <div class="pillar reveal">
-              <h3>No AI voice</h3>
-              <p>God already speaks. The app does not send your words or photos to an AI model.</p>
+              <h3>No pressure</h3>
+              <p>No streaks, no leaderboards and no falling behind. Come back when you can and pick up where you were.</p>
             </div>
             <div class="pillar reveal">
               <h3>No feed</h3>
@@ -2325,7 +2437,7 @@
             </div>
             <div class="pillar reveal">
               <h3>Yours alone</h3>
-              <p>Your canvases are private by default, and there are no public links to them.</p>
+              <p>Your canvases and decks are private until you invite someone from your fellowship. There are no public links.</p>
             </div>
           </div>
           <div class="supabase-badge-wrap">
@@ -2348,11 +2460,10 @@
         <div class="container">
           <p class="plat-eyebrow">Available now on iPhone &amp; iPad</p>
           <h2 class="plat-title">One sanctuary. iPhone and iPad.</h2>
-          <p class="plat-sub">Your canvases and your Journey stay in sync across iPhone and iPad. Android is coming soon.</p>
+          <p class="plat-sub">Your canvases, your decks and your Journey stay in sync across iPhone and iPad.</p>
           <div class="plat-chips">
             <span class="plat-chip">iPhone</span>
             <span class="plat-chip">iPad</span>
-            <span class="plat-chip">Android &middot; Coming soon</span>
           </div>
           <div class="badges">
             <a
@@ -2385,7 +2496,7 @@
               "name": "What is MyBibleLens?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. You stamp verses, write notes, connect ideas and decorate a study with stickers and landscapes. Journey gives you a calm reading plan, and Home keeps your friends and groups close."
+                "text": "MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. The Bible is built in, so you stamp verses, write notes, connect ideas and decorate a study with stickers and landscapes. Sermon Deck turns a study into slides, Journey gives you a calm reading plan, and Home keeps your friends, groups and shared canvases close."
               }
             },
             {
@@ -2393,7 +2504,7 @@
               "name": "Does the app have the Bible in it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. You read in your own Bible, the one in your hands. On a canvas you type the reference and the words you want to keep, and in Journey you tap I read it when you finish a day."
+                "text": "Yes. The King James Version, the World English Bible and the Berean Standard Bible are built in and work offline, and 18 more Bibles come in book by book the first time you read them, then stay on your phone. On a canvas or a slide you pick the passage and the Bible, and the words come in for you. Journey still works with the Bible in your hands: read the day's chapter, then tap I read it."
               }
             },
             {
@@ -2401,7 +2512,23 @@
               "name": "Can I make a canvas with my church or small group?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Soon. Today you can add friends by their Kingdom ID, make groups and start a shared canvas from Home. Sharing opens in an update; until then that canvas stays yours. There are no public links and nothing is posted where strangers can find it."
+                "text": "Yes. Add friends by their Kingdom ID, make a group and start a shared canvas from Home. Friends you invite can edit with you, up to 50 people can watch, and only people in your fellowship can be invited. There are no public links and nothing is posted where strangers can find it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Sermon Deck?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sermon Deck turns your study into slides for a sermon, a lesson or a small group. Type an outline and tap Make slides, or bring in a PowerPoint file. Present with your notes, the next slide and a talk timer in front of you, and share the deck so your fellowship can follow along live. Making decks is part of Lifetime."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is MyBibleLens free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Free includes Scripture Canvas, the built-in Bibles, Journey, Home and shared canvases with your fellowship. Lifetime is a one-time purchase that adds Sermon Deck, every sticker, theme and landscape, the Lasso and the LED pen. Following a deck a friend shares with you never needs Lifetime."
               }
             }
           ]
@@ -2422,9 +2549,10 @@
               </summary>
               <div class="faq-item__a">
                 <p>
-                  MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. You stamp
-                  verses, write notes, connect ideas and decorate a study with stickers and landscapes. Journey gives you a calm reading
-                  plan, and Home keeps your friends and groups close.
+                  MyBibleLens is a sanctuary app for Christianity built around Scripture Canvas, an endless canvas for the Word. The Bible
+                  is built in, so you stamp verses, write notes, connect ideas and decorate a study with stickers and landscapes. Sermon
+                  Deck turns a study into slides, Journey gives you a calm reading plan, and Home keeps your friends, groups and shared
+                  canvases close.
                 </p>
               </div>
             </details>
@@ -2435,8 +2563,10 @@
               </summary>
               <div class="faq-item__a">
                 <p>
-                  No. You read in your own Bible, the one in your hands. On a canvas you type the reference and the words you want to keep,
-                  and in Journey you tap I read it when you finish a day.
+                  Yes. The King James Version, the World English Bible and the Berean Standard Bible are built in and work offline, and 18
+                  more Bibles come in book by book the first time you read them, then stay on your phone. On a canvas or a slide you pick
+                  the passage and the Bible, and the words come in for you. Journey still works with the Bible in your hands: read the day's
+                  chapter, then tap I read it.
                 </p>
               </div>
             </details>
@@ -2447,8 +2577,35 @@
               </summary>
               <div class="faq-item__a">
                 <p>
-                  Soon. Today you can add friends by their Kingdom ID, make groups and start a shared canvas from Home. Sharing opens in an
-                  update; until then that canvas stays yours. There are no public links and nothing is posted where strangers can find it.
+                  Yes. Add friends by their Kingdom ID, make a group and start a shared canvas from Home. Friends you invite can edit with
+                  you, up to 50 people can watch, and only people in your fellowship can be invited. There are no public links and nothing
+                  is posted where strangers can find it.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__q">What is Sermon Deck?</span>
+                <span class="faq-item__chevron" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a">
+                <p>
+                  Sermon Deck turns your study into slides for a sermon, a lesson or a small group. Type an outline and tap Make slides, or
+                  bring in a PowerPoint file. Present with your notes, the next slide and a talk timer in front of you, and share the deck
+                  so your fellowship can follow along live. Making decks is part of Lifetime.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item" id="free">
+              <summary>
+                <span class="faq-item__q">Is MyBibleLens free?</span>
+                <span class="faq-item__chevron" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__a">
+                <p>
+                  Yes. Free includes Scripture Canvas, the built-in Bibles, Journey, Home and shared canvases with your fellowship. Lifetime
+                  is a one-time purchase that adds Sermon Deck, every sticker, theme and landscape, the Lasso and the LED pen. Following a
+                  deck a friend shares with you never needs Lifetime.
                 </p>
               </div>
             </details>
@@ -2459,8 +2616,8 @@
               </summary>
               <div class="faq-item__a">
                 <p>
-                  Sign in on the new device and your canvases and your Journey come back. They are saved to your account and stay in sync
-                  across your iPhone and iPad.
+                  Sign in on the new device and your canvases, your decks and your Journey come back. They are saved to your account and
+                  stay in sync across your iPhone and iPad.
                 </p>
               </div>
             </details>
@@ -2484,9 +2641,9 @@
               </summary>
               <div class="faq-item__a">
                 <p>
-                  Your canvases are private by default. Supabase Row-Level Security enforces this at the database level, and we never sell
-                  or advertise against your spiritual content. Read the full <a href="legal.html#privacy">Privacy Policy</a> and
-                  <a href="legal.html#ai-disclosure">AI Disclosure</a> for details.
+                  Your canvases and decks are private until you share them with your fellowship. Supabase Row-Level Security enforces this
+                  at the database level, and we never sell or advertise against your spiritual content. Read the full
+                  <a href="legal.html#privacy">Privacy Policy</a> for details.
                 </p>
               </div>
             </details>
@@ -2499,10 +2656,9 @@
                 <p>
                   MyBibleLens is on the
                   <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener">App Store</a> for iPhone
-                  and iPad. We are rebuilding it around Scripture Canvas right now, so some things may change while we finish. The Android
-                  version is in the works. Follow
-                  <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a> to be the
-                  first to know.
+                  and iPad. Follow
+                  <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a>
+                  to see what is new.
                 </p>
               </div>
             </details>
@@ -2548,25 +2704,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- ===== Android coming-soon toast ===== -->
-    <div class="coming-soon-toast" id="coming-soon-toast" role="status" aria-live="polite" aria-hidden="true">
-      <div class="cs-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9"></circle>
-          <polyline points="12 7 12 12 15 14"></polyline>
-        </svg>
-      </div>
-      <div class="cs-content">
-        <p class="cs-title">Android: coming soon</p>
-        <p class="cs-body">
-          The Android version is on its way. iPhone and iPad are
-          <a href="https://apps.apple.com/us/app/mybiblelens/id6764069602" target="_blank" rel="noopener">on the App Store now</a>. Follow
-          <a href="https://www.instagram.com/mybiblelens/" target="_blank" rel="noopener">@mybiblelens on Instagram</a> for Android news.
-        </p>
-      </div>
-      <button class="cs-close" type="button" aria-label="Dismiss" id="coming-soon-close">×</button>
-    </div>
 
     <!-- ===== Language picker ===== -->
     <button class="lang-globe" id="lang-globe" type="button" aria-label="Change language" title="Change language">
@@ -2658,7 +2795,7 @@
             // Highlight the section in view, in the nav and on the island.
             var probe = window.scrollY + 160;
             var current = null;
-            ["canvas", "together", "journey", "faq"].forEach(function (id) {
+            ["canvas", "bible", "sermon", "together", "journey", "faq"].forEach(function (id) {
               var el = document.getElementById(id);
               if (el && el.offsetTop <= probe) current = id;
             });
@@ -2883,30 +3020,6 @@
         });
         render();
       })();
-
-      /* ========== ANDROID COMING-SOON TOAST ========== */
-      (function () {
-        var toast = document.getElementById("coming-soon-toast");
-        var timer = null;
-        function hide() {
-          toast.classList.remove("is-visible");
-          toast.setAttribute("aria-hidden", "true");
-          clearTimeout(timer);
-        }
-        function show() {
-          toast.classList.add("is-visible");
-          toast.setAttribute("aria-hidden", "false");
-          clearTimeout(timer);
-          timer = setTimeout(hide, 6500);
-        }
-        document.querySelectorAll("[data-coming-soon]").forEach(function (a) {
-          a.addEventListener("click", function (e) {
-            e.preventDefault();
-            show();
-          });
-        });
-        document.getElementById("coming-soon-close").addEventListener("click", hide);
-      })();
     </script>
 
     <script>
@@ -2953,14 +3066,18 @@
         var DICT = {
           es: {
             "nav.canvas": "Canvas",
+            "nav.bible": "Biblia",
+            "nav.sermon": "Sermón",
             "nav.together": "Juntos",
             "nav.journey": "Journey",
             "nav.faq": "Preguntas",
             "nav.about": "Acerca de",
             "hero.eyebrow": "La app santuario para el cristianismo",
             "hero.tagline": "¡Acercándote a Dios de una forma emocionante y sencilla!",
-            "hero.availability": "Disponible ya en iPhone y iPad · Android próximamente",
-            "stops.title": 'Cuatro espacios. <span class="gold">Un santuario.</span>',
+            "hero.availability": "Disponible ya en iPhone y iPad",
+            "stops.title": 'Cinco espacios. <span class="gold">Un santuario.</span>',
+            "bible.title": 'La Palabra, <span class="gold">en tu lienzo.</span>',
+            "sermon.title": 'Convierte tu estudio <span class="gold">en diapositivas.</span>',
             "canvas.title": 'Un lienzo sin fin <span class="gold">para la Palabra.</span>',
             "together.title": 'Inicio es para <span class="gold">tu gente.</span>',
             "journey.title": 'Lee a <span class="gold">tu propio ritmo.</span>',
@@ -2971,14 +3088,18 @@
           },
           pt: {
             "nav.canvas": "Canvas",
+            "nav.bible": "Bíblia",
+            "nav.sermon": "Sermão",
             "nav.together": "Juntos",
             "nav.journey": "Journey",
             "nav.faq": "Perguntas",
             "nav.about": "Sobre",
             "hero.eyebrow": "O app santuário para o cristianismo",
             "hero.tagline": "Aproximando você de Deus de um jeito empolgante e fácil!",
-            "hero.availability": "Já disponível no iPhone e iPad · Android em breve",
-            "stops.title": 'Quatro espaços. <span class="gold">Um santuário.</span>',
+            "hero.availability": "Já disponível no iPhone e iPad",
+            "stops.title": 'Cinco espaços. <span class="gold">Um santuário.</span>',
+            "bible.title": 'A Palavra, <span class="gold">na sua tela.</span>',
+            "sermon.title": 'Transforme seu estudo <span class="gold">em slides.</span>',
             "canvas.title": 'Uma tela sem fim <span class="gold">para a Palavra.</span>',
             "together.title": 'Início é para <span class="gold">a sua gente.</span>',
             "journey.title": 'Leia no <span class="gold">seu ritmo.</span>',
@@ -2989,14 +3110,18 @@
           },
           fr: {
             "nav.canvas": "Canvas",
+            "nav.bible": "Bible",
+            "nav.sermon": "Sermon",
             "nav.together": "Ensemble",
             "nav.journey": "Journey",
             "nav.faq": "FAQ",
             "nav.about": "À propos",
             "hero.eyebrow": "L'application sanctuaire pour le christianisme",
             "hero.tagline": "Vous rapprocher de Dieu d'une manière passionnante et simple !",
-            "hero.availability": "Disponible sur iPhone et iPad · Android bientôt disponible",
-            "stops.title": 'Quatre pièces. <span class="gold">Un sanctuaire.</span>',
+            "hero.availability": "Disponible sur iPhone et iPad",
+            "stops.title": 'Cinq pièces. <span class="gold">Un sanctuaire.</span>',
+            "bible.title": 'La Parole, <span class="gold">sur votre toile.</span>',
+            "sermon.title": 'Transformez votre étude <span class="gold">en diapositives.</span>',
             "canvas.title": 'Une toile sans fin <span class="gold">pour la Parole.</span>',
             "together.title": 'L’accueil, c’est pour <span class="gold">vos proches.</span>',
             "journey.title": 'Lisez à <span class="gold">votre rythme.</span>',
@@ -3007,14 +3132,18 @@
           },
           ko: {
             "nav.canvas": "Canvas",
+            "nav.bible": "성경",
+            "nav.sermon": "설교",
             "nav.together": "함께",
             "nav.journey": "Journey",
             "nav.faq": "질문",
             "nav.about": "소개",
             "hero.eyebrow": "기독교 성소 앱",
             "hero.tagline": "흥미롭고 쉬운 방법으로 당신을 하나님께 더 가까이!",
-            "hero.availability": "지금 iPhone과 iPad에서 이용 가능 · Android 곧 출시",
-            "stops.title": '네 개의 공간, <span class="gold">하나의 성소.</span>',
+            "hero.availability": "지금 iPhone과 iPad에서 이용 가능",
+            "stops.title": '다섯 개의 공간, <span class="gold">하나의 성소.</span>',
+            "bible.title": '말씀을 <span class="gold">캔버스 위에.</span>',
+            "sermon.title": '묵상을 <span class="gold">슬라이드로.</span>',
             "canvas.title": '말씀을 위한 <span class="gold">끝없는 캔버스.</span>',
             "together.title": '홈은 <span class="gold">당신의 사람들을 위한 곳.</span>',
             "journey.title": '나만의 <span class="gold">속도로 읽으세요.</span>',
@@ -3025,14 +3154,18 @@
           },
           "zh-CN": {
             "nav.canvas": "Canvas",
+            "nav.bible": "圣经",
+            "nav.sermon": "讲道",
             "nav.together": "一起",
             "nav.journey": "Journey",
             "nav.faq": "常见问题",
             "nav.about": "关于",
             "hero.eyebrow": "基督教圣所应用",
             "hero.tagline": "以令人兴奋而简单的方式，让你更亲近上帝！",
-            "hero.availability": "现已支持 iPhone 和 iPad · Android 即将推出",
-            "stops.title": '四个空间，<span class="gold">一个圣所。</span>',
+            "hero.availability": "现已支持 iPhone 和 iPad",
+            "stops.title": '五个空间，<span class="gold">一个圣所。</span>',
+            "bible.title": '圣言，<span class="gold">就在你的画布上。</span>',
+            "sermon.title": '把你的研读<span class="gold">变成幻灯片。</span>',
             "canvas.title": '为圣言而设的<span class="gold">无限画布。</span>',
             "together.title": '首页属于<span class="gold">你的同伴。</span>',
             "journey.title": '按<span class="gold">自己的节奏</span>阅读。',
