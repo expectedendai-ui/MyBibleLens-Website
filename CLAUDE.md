@@ -6,16 +6,16 @@ This file guides Claude Code when working in the **MyBibleLens website repo** (`
 
 A single-page marketing site served from GitHub Pages at **mybiblelens.us**. Plain HTML + CSS + vanilla JS, no build step. Tooling exists only for **automated testing + formatting** — do not introduce a bundler, framework, or SSR layer without an explicit user ask.
 
-| Path                                                  | Purpose                                                                                                                                                   |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `index.html`                                          | Landing page (hero · four rooms · Scripture Canvas · Home · Journey · Today's Illumination · themes · privacy · FAQ · footer). One file, inline CSS + JS. |
-| `legal.html`                                          | Privacy / Terms / EULA / About / Mission. All legal copy lives here.                                                                                      |
-| `style.css`                                           | Styles for legal.html, cancel.html, success.html. The landing page carries its own inline `<style>`.                                                      |
-| `app.js`                                              | JS for legal.html. The landing page carries its own inline scripts.                                                                                       |
-| `success.html`, `cancel.html`, `update-password.html` | Stripe redirect + auth pages. Stripe is currently dormant — don't extend these without user direction.                                                    |
-| `assets/`                                             | Static images. `assets/app/` = real app screens (local test account); `assets/live/` = app modules bundled with esbuild.                                  |
-| `mockups/`                                            | Live demos shown in iframes (Canvas, Friends & Fellowship, Today's Illumination), built from the app's own code.                                          |
-| `tests/`                                              | Playwright smoke + visual regression suite.                                                                                                               |
+| Path                                                  | Purpose                                                                                                                                                                         |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html`                                          | Landing page (hero · five rooms · Scripture Canvas · Bible · Sermon Deck · Home · Journey · Today's Illumination · themes · privacy · FAQ · footer). One file, inline CSS + JS. |
+| `legal.html`                                          | Privacy / Terms / EULA / About / Mission. All legal copy lives here.                                                                                                            |
+| `style.css`                                           | Styles for legal.html, cancel.html, success.html. The landing page carries its own inline `<style>`.                                                                            |
+| `app.js`                                              | JS for legal.html. The landing page carries its own inline scripts.                                                                                                             |
+| `success.html`, `cancel.html`, `update-password.html` | Stripe redirect + auth pages. Stripe is currently dormant — don't extend these without user direction.                                                                          |
+| `assets/`                                             | Static images. `assets/app/` = real app screens (local test account); `assets/live/` = app modules bundled with esbuild.                                                        |
+| `mockups/`                                            | Live demos shown in iframes (Canvas, Friends & Fellowship, Today's Illumination), built from the app's own code.                                                                |
+| `tests/`                                              | Playwright smoke + visual regression suite.                                                                                                                                     |
 
 ## Commands
 
@@ -53,9 +53,19 @@ in Docker if we ever need cross-platform visual coverage.)
 
 ## No prices on the site
 
-Payments are switched off in the app, so the site shows **no prices, plans, Free/Lifetime or "upgrade"** anywhere
-(smoke-tested). Purchase terms live only in legal.html, which is edited separately. Shared canvases are switched off on
-the production server: describe them as coming in an update, never as live. The app uses no AI; never claim AI features.
+The site shows **no prices, plans, Free/Lifetime or "upgrade"** anywhere (smoke-tested). Purchase terms live only in
+legal.html, which is edited separately. (Lifetime purchases have been on in the app since 2026-11-13; whether the page
+should name Free and Lifetime, without prices, is an open owner decision.)
+
+## What is live in the app (updated 2026-11-26)
+
+- Shared canvases are on in production since 2026-11-13: fellowship only (Kingdom ID friends), editors plus up to 50
+  viewers, no public links. Sermon decks (added 2026-11-21) share with the fellowship the same way.
+- The island bar has five stops: Home, Scripture Canvas, Sermon, Journey, Apostle Profile. Zoom Canvas and Flow are gone.
+- The Bible is built in: KJV, WEB and BSB offline, 18 more Bibles downloaded on first use (eBible.org).
+- AI study aids exist in the app code but the server switch is off: never mention AI on the landing page.
+- Android is in a Google Play closed test: leave it off the page until it is public. Never write "coming soon".
+- The app has 44 languages.
 
 ## UX rules (the sanctuary feel)
 
