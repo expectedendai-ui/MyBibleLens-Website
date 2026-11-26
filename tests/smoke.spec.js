@@ -254,12 +254,11 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await waitForPageReady(page);
 
     await expect(page.locator(".repo-beta-pill, .repo-rebuild-pill")).toHaveCount(0);
-    await expect(page.locator(".repo-coming-soon")).toHaveText(
-      "Available now on iPhone & iPad · Android coming soon"
-    );
+    // November 26, 2026: Android is in a Google Play closed test, so the page leaves it out until it is public.
+    await expect(page.locator(".repo-coming-soon")).toHaveText("Available now on iPhone & iPad");
     await expect(page.locator("#platforms")).toContainText("Available now on iPhone & iPad");
     await expect(page.locator("#platforms")).toContainText("One sanctuary. iPhone and iPad.");
-    await expect(page.locator("#platforms")).toContainText("Android is coming soon");
+    await expect(page.locator("#platforms")).not.toContainText(/Android|coming soon/i);
     await expect(page.locator("#platforms")).not.toContainText(/Now on Mac|Apple TV/);
   });
 
@@ -427,11 +426,12 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     expect(cursorLabelBox.x).toBeLessThan(cursorBox.x + cursorBox.width + 40);
   });
 
-  test("App Store + Google Play badges are present", async ({ page }) => {
+  test("the App Store badge is present and there is no Google Play badge yet", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
     await expect(page.getByRole("link", { name: /App Store/i }).first()).toBeVisible();
-    await expect(page.getByRole("link", { name: /Google Play/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Google Play/i })).toHaveCount(0);
+    await expect(page.locator("[data-coming-soon], #coming-soon-toast")).toHaveCount(0);
   });
 
   test("retired features stay off the homepage and About page", async ({ page }) => {
@@ -458,7 +458,7 @@ test.describe("MyBibleLens marketing site — smoke", () => {
     await page.goto("/#faq");
     await waitForPageReady(page);
     const items = page.locator(".faq-item");
-    await expect(items).toHaveCount(7);
+    await expect(items).toHaveCount(8);
     // Click the first one open and confirm the answer becomes visible
     const first = items.first();
     await first.locator("summary").click();
@@ -602,10 +602,12 @@ test.describe("MyBibleLens marketing site — the app as it is today", () => {
     await expect(page.locator(".mbl-cursor")).toHaveCount(0);
   });
 
-  test("shared canvases read as coming in an update, never as live today", async ({ page }) => {
+  test("shared canvases read as open to your fellowship only", async ({ page }) => {
     await page.goto("/");
     await waitForPageReady(page);
-    await expect(page.locator("#together")).toContainText("Shared canvases open in an update.");
+    // Canvas sharing has been on in production since November 13, 2026.
+    await expect(page.locator("#together")).toContainText("Only your fellowship.");
+    await expect(page.locator("#together")).not.toContainText(/in an update|coming soon/i);
     await expect(page.locator(".collab-cursor")).toHaveCount(0);
     const body = (await page.locator("body").textContent()) ?? "";
     expect(body).not.toMatch(/in real time|study live|Live Sanctuary/i);
@@ -635,6 +637,55 @@ test.describe("MyBibleLens marketing site — the app as it is today", () => {
     await page.locator("#jRead").click();
     await expect(page.locator("#jToday")).toHaveText("John 2");
     await expect(page.locator("#jMeta")).toContainText("1 of 21 days read");
+  });
+
+  test("the island bar has the app's five stops", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    await expect(page.locator(".island__tab")).toHaveText([
+      "Home",
+      "Canvas",
+      "Sermon",
+      "Journey",
+      "Apostle",
+    ]);
+    await expect(page.locator("#stops-title")).toContainText("Five rooms.");
+    await expect(page.locator(".room")).toHaveCount(5);
+  });
+
+  test("the Bible built in and Sermon Deck are on the page", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    const bibles = page.locator("#bible .bibles .is-built-in");
+    await expect(bibles).toHaveText(["KJV", "WEB", "BSB"]);
+    await expect(page.locator("#bible")).toContainText("18 more Bibles.");
+    await expect(page.locator("#sermon")).toContainText("Turn your study into slides.");
+    await expect(page.locator("#sermon")).toContainText("Write it");
+    await expect(page.locator("#canvas")).toContainText("Walk the Path.");
+    await expect(page.locator(".floating-nav__links")).toContainText("Sermon");
+  });
+
+  test("the page keeps the owner's copy rules", async ({ page }) => {
+    await page.goto("/");
+    await waitForPageReady(page);
+    // The footer's legal link names the AI Disclosure page; everything above the footer must not mention AI.
+    const main = (await page.locator("main").textContent()) ?? "";
+    const meta = await page.evaluate(() =>
+      [
+        document.querySelector('meta[name="description"]')?.content ?? "",
+        document.querySelector('meta[property="og:description"]')?.content ?? "",
+        ...[...document.querySelectorAll('script[type="application/ld+json"]')].map(
+          (n) => n.textContent
+        ),
+      ].join(" ")
+    );
+    for (const text of [main, meta]) {
+      expect(text).not.toMatch(
+        /coming soon|Zoom Canvas|Lampstand|Milestone Brown|\bAI\b|God already speaks/i
+      );
+      expect(text).not.toMatch(/43 languages/);
+    }
+    await expect(page.locator("#yours .counts")).toContainText("44languages");
   });
 
   test("the island bar marks the stop you tap", async ({ page }) => {
